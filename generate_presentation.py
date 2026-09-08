@@ -3,14 +3,13 @@
 Full Presentation Generator for AI-Based SOAR Tool Graduation Project.
 Includes:
 - 25 Academic Bilingual Slides
-- Dynamic Smooth Multi-Engine Animated Canvas (Neural AI Mesh, Quantum Waves, Cyber Matrix, Space Warp)
-  * Guaranteed 100% visible (transparent wrap container, boosted contrast, luminous effects)
-  * Dynamic adaptation to active theme colors
-- Slide Animation Styles Switcher (Cascade Wave, 3D Flip Cube, Cyber Zoom, Soft Dissolve)
-  * 3D and all transitions strictly bounded in-place with ZERO horizontal scrollbar or viewport shifting
+- Hidden Stealth Side Dock with a discreet, dim, matte arrow toggle for committee presentation
+- 8 Slide Animation Styles (Cascade, 3D Flip Cube, Cyber Zoom, Soft Dissolve, Slide Up, Glass Flip X, Vortex Swirl, Focus Snap)
+- 4 Calm, Eye-Friendly Card Focus & Highlight Interaction Styles (Golden Halo, Glassmorphism Lift, Spotlight Beam, Precision Border) + Click-to-Pin Focus
+- 7 Serene Dynamic Animated Canvas Backgrounds (Neural Mesh, Quantum Waves, Cyber Matrix, Space Warp, Auroral Curtains, Constellation Stardust, Hex Cyber Lattice)
+- Dynamic Canvas Motion Speed Control (Serene 0.5x, Balanced 1x, Ultra Calm 0.25x)
 - 10 Ultra-Luxurious Royal Theme Color Palettes & Gradients
-- Full Control Center: Background toggle + modes, Animation styles, Royal theme selector, Timer, Live Editor
-- Bilingual English (LTR) & Arabic (RTL)
+- Interactive Presentation Timer & Live Slide Content Editor
 """
 
 import os
@@ -20,7 +19,6 @@ output_file = r'c:\Users\Mo AL-Yahawy\SOAR\presentation\index.html'
 
 def generate_slides_html():
     import re
-    # Check backup or existing presentation
     targets = [output_file, output_file + '.bak']
     for t in targets:
         if os.path.exists(t):
@@ -46,7 +44,6 @@ def generate_html():
 <style>
 /* ================= ROOT DESIGN SYSTEM & LUXURY THEME TOKENS ================= */
 :root {
-  /* Default: Imperial Royal Gold & Deep Onyx */
   --p: #d4af37;
   --s: #f9d976;
   --acc: #ff9f43;
@@ -112,21 +109,21 @@ canvas#cv {
   pointer-events: none;
   z-index: 1;
   opacity: 1;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.6s ease;
 }
 
 .orb {
   position: fixed;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(110px);
   pointer-events: none;
-  animation: floatOrb 12s ease-in-out infinite;
-  transition: opacity 0.5s ease, background 0.5s ease;
+  animation: floatOrb 16s ease-in-out infinite;
+  transition: opacity 0.6s ease, background 0.6s ease;
   z-index: 1;
 }
 .o1 { width: 440px; height: 440px; background: var(--p); opacity: 0.12; top: -100px; right: -100px; }
-.o2 { width: 380px; height: 380px; background: var(--s); opacity: 0.10; bottom: -80px; left: -80px; animation-delay: -4s; }
-.o3 { width: 280px; height: 280px; background: var(--acc); opacity: 0.08; top: 45%; left: 45%; animation-delay: -8s; }
+.o2 { width: 380px; height: 380px; background: var(--s); opacity: 0.10; bottom: -80px; left: -80px; animation-delay: -5s; }
+.o3 { width: 280px; height: 280px; background: var(--acc); opacity: 0.08; top: 45%; left: 45%; animation-delay: -10s; }
 
 @keyframes floatOrb {
   0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -148,7 +145,7 @@ canvas#cv {
   z-index: 2;
 }
 
-/* ================= SLIDE CONTAINER & ZERO-OVERFLOW RULES ================= */
+/* ================= SLIDE CONTAINER ================= */
 .slide {
   position: absolute;
   top: 0;
@@ -181,7 +178,8 @@ canvas#cv {
   z-index: 2;
 }
 
-/* ================= 1. CASCADE WAVE ANIMATION ================= */
+/* ================= 8 SLIDE ANIMATION STYLES ================= */
+/* 1. CASCADE WAVE */
 #wrap.anim-cascade .slide {
   transform: scale(0.96);
   opacity: 0;
@@ -215,7 +213,7 @@ canvas#cv {
   filter: blur(4px);
 }
 
-/* ================= 2. 3D FLIP CUBE (BOUNDED, IN-PLACE, NO SCROLL) ================= */
+/* 2. 3D FLIP CUBE */
 #wrap.anim-3d .slide {
   transform: scale(0.92) rotateY(15deg);
   opacity: 0;
@@ -244,7 +242,7 @@ canvas#cv {
   transform: scale(0.92) rotateY(15deg);
 }
 
-/* ================= 3. CYBER ZOOM STYLE ================= */
+/* 3. CYBER ZOOM */
 #wrap.anim-zoom .slide {
   transform: scale(0.86);
   opacity: 0;
@@ -268,7 +266,7 @@ canvas#cv {
   transform: scale(1.12);
 }
 
-/* ================= 4. SOFT DISSOLVE FADE ================= */
+/* 4. SOFT DISSOLVE FADE */
 #wrap.anim-fade .slide {
   transform: none;
   opacity: 0;
@@ -288,6 +286,166 @@ canvas#cv {
   visibility: hidden;
   pointer-events: none;
   transform: none;
+}
+
+/* 5. VERTICAL EDITORIAL LIFT */
+#wrap.anim-slide-up .slide {
+  transform: translateY(35px) scale(0.98);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.45s;
+}
+#wrap.anim-slide-up .slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: translateY(0) scale(1);
+}
+#wrap.anim-slide-up .slide.exit-left,
+#wrap.anim-slide-up .slide.exit-right {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-35px) scale(0.98);
+}
+
+/* 6. GLASS FLIP X */
+#wrap.anim-flip-x .slide {
+  transform: scale(0.94) rotateX(12deg);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+              visibility 0.5s;
+}
+#wrap.anim-flip-x .slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: scale(1) rotateX(0deg);
+}
+#wrap.anim-flip-x .slide.exit-left,
+#wrap.anim-flip-x .slide.exit-right {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.94) rotateX(-12deg);
+}
+
+/* 7. VORTEX DEPTH SWIRL */
+#wrap.anim-swirl .slide {
+  transform: scale(0.92) rotate(-2.5deg);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.5s;
+}
+#wrap.anim-swirl .slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: scale(1) rotate(0deg);
+}
+#wrap.anim-swirl .slide.exit-left,
+#wrap.anim-swirl .slide.exit-right {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.06) rotate(2.5deg);
+}
+
+/* 8. FOCUS SNAP */
+#wrap.anim-focus .slide {
+  transform: scale(0.95);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  filter: blur(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease, visibility 0.4s;
+}
+#wrap.anim-focus .slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: scale(1);
+  filter: blur(0px);
+}
+#wrap.anim-focus .slide.exit-left,
+#wrap.anim-focus .slide.exit-right {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.04);
+  filter: blur(8px);
+}
+
+/* ================= CARD FOCUS & HIGHLIGHT INTERACTION STYLES ================= */
+/* Base Card Interactivity */
+.card, .sb, .fs, .tcard, .ti, .alr {
+  cursor: pointer;
+  transition: var(--tr);
+}
+
+/* 1. Golden Halo Glow (Default) */
+body.focus-halo .card:hover, body.focus-halo .card.pinned-focus,
+body.focus-halo .sb:hover, body.focus-halo .sb.pinned-focus,
+body.focus-halo .fs:hover, body.focus-halo .fs.pinned-focus,
+body.focus-halo .tcard:hover, body.focus-halo .tcard.pinned-focus,
+body.focus-halo .alr:hover, body.focus-halo .alr.pinned-focus {
+  border-color: var(--s);
+  box-shadow: 0 4px 22px rgba(212, 175, 55, 0.22);
+}
+
+/* 2. Glassmorphism Lift */
+body.focus-lift .card:hover, body.focus-lift .card.pinned-focus,
+body.focus-lift .sb:hover, body.focus-lift .sb.pinned-focus,
+body.focus-lift .fs:hover, body.focus-lift .fs.pinned-focus,
+body.focus-lift .tcard:hover, body.focus-lift .tcard.pinned-focus,
+body.focus-lift .alr:hover, body.focus-lift .alr.pinned-focus {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.38);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(25px);
+}
+
+/* 3. Spotlight Beam (Dims non-hovered siblings gently) */
+body.focus-spotlight .g2:hover > *:not(:hover):not(.pinned-focus),
+body.focus-spotlight .g3:hover > *:not(:hover):not(.pinned-focus),
+body.focus-spotlight .g4:hover > *:not(:hover):not(.pinned-focus),
+body.focus-spotlight .tg:hover > *:not(:hover):not(.pinned-focus),
+body.focus-spotlight .srow:hover > *:not(:hover):not(.pinned-focus),
+body.focus-spotlight .flow:hover > *:not(:hover):not(.pinned-focus),
+body.focus-spotlight .al:hover > *:not(:hover):not(.pinned-focus) {
+  opacity: 0.42;
+  transform: scale(0.985);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+body.focus-spotlight .card:hover, body.focus-spotlight .card.pinned-focus,
+body.focus-spotlight .sb:hover, body.focus-spotlight .sb.pinned-focus,
+body.focus-spotlight .fs:hover, body.focus-spotlight .fs.pinned-focus,
+body.focus-spotlight .tcard:hover, body.focus-spotlight .tcard.pinned-focus,
+body.focus-spotlight .alr:hover, body.focus-spotlight .alr.pinned-focus {
+  border-color: var(--s);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+  transform: scale(1.02);
+  z-index: 5;
+}
+
+/* 4. Precision Blueprint Border (Static, crisp, calm) */
+body.focus-border .card:hover, body.focus-border .card.pinned-focus,
+body.focus-border .sb:hover, body.focus-border .sb.pinned-focus,
+body.focus-border .fs:hover, body.focus-border .fs.pinned-focus,
+body.focus-border .tcard:hover, body.focus-border .tcard.pinned-focus,
+body.focus-border .alr:hover, body.focus-border .alr.pinned-focus {
+  border-color: var(--s);
+  outline: 1.5px solid var(--s);
+  outline-offset: -1px;
 }
 
 /* Staggered Element Entrance */
@@ -464,17 +622,10 @@ p.lead {
   padding: 20px;
   position: relative;
   backdrop-filter: blur(18px);
-  transition: var(--tr);
   display: flex;
   flex-direction: column;
   gap: 10px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.35);
-}
-
-.card:hover {
-  border-color: var(--s);
-  transform: translateY(-5px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.2);
 }
 
 .card-h {
@@ -558,12 +709,6 @@ p.lead {
   padding: 14px;
   text-align: center;
   backdrop-filter: blur(16px);
-  transition: var(--tr);
-}
-.sb:hover {
-  border-color: var(--s);
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.2);
 }
 
 .snum {
@@ -584,7 +729,7 @@ p.lead {
   letter-spacing: 1px;
 }
 
-/* ================= PIPELINE FLOW WITH DATA PACKET PULSE ================= */
+/* Pipeline Flow */
 .flow {
   display: flex;
   align-items: center;
@@ -606,12 +751,6 @@ p.lead {
   min-width: 130px;
   text-align: center;
   backdrop-filter: blur(16px);
-  transition: var(--tr);
-}
-.fs:hover {
-  border-color: var(--s);
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 16px rgba(212, 175, 55, 0.2);
 }
 .fs .fi { color: var(--s); }
 .fs .fl { font-size: 0.74rem; font-weight: 700; color: var(--t1); }
@@ -640,7 +779,7 @@ p.lead {
 }
 [dir="rtl"] .farr { transform: rotate(180deg); }
 
-/* ================= COMPARISON TABLE ================= */
+/* Comparison Table */
 .tbl-wrap {
   width: 100%;
   overflow-x: auto;
@@ -671,7 +810,7 @@ table.ctbl th {
 }
 table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 
-/* ================= TIMELINE ================= */
+/* Timeline */
 .tl {
   display: flex;
   flex-direction: column;
@@ -702,16 +841,11 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
   flex-shrink: 0;
   transition: var(--tr);
 }
-.ti:hover .td {
-  border-color: var(--s);
-  transform: scale(1.15);
-  box-shadow: 0 0 15px var(--s);
-}
 .tic { padding: 4px 0 14px; }
 .tic h3 { font-size: 0.88rem; font-weight: 700; margin-bottom: 2px; color: var(--t1); }
 .tic p { font-size: 0.76rem; color: var(--t2); line-height: 1.5; }
 
-/* ================= TEAM GRID ================= */
+/* Team Grid */
 .tg {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -725,12 +859,6 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
   padding: 16px 12px;
   text-align: center;
   backdrop-filter: blur(16px);
-  transition: var(--tr);
-}
-.tcard:hover {
-  transform: translateY(-5px) scale(1.02);
-  border-color: var(--s);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4), 0 0 18px rgba(212, 175, 55, 0.2);
 }
 .tcard .av {
   width: 44px; height: 44px;
@@ -747,7 +875,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 .tcard .rl { font-size: 0.7rem; color: var(--s); font-weight: 600; }
 .tcard .desc { font-size: 0.68rem; color: var(--t3); margin-top: 4px; }
 
-/* ================= ARCHITECTURE LAYERS ================= */
+/* Architecture Layers */
 .al {
   display: flex;
   flex-direction: column;
@@ -763,15 +891,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
   background: var(--bg-card);
   backdrop-filter: blur(16px);
   align-items: center;
-  transition: var(--tr);
 }
-.alr:hover {
-  border-color: var(--s);
-  transform: translateX(4px);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
-}
-[dir="rtl"] .alr:hover { transform: translateX(-4px); }
-
 .all {
   font-size: 0.72rem;
   font-weight: 800;
@@ -823,7 +943,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
   height: 3px;
   background: linear-gradient(90deg, var(--p), var(--s), var(--ok), var(--s), var(--p));
   background-size: 300% 100%;
-  animation: gradientShimmer 4s linear infinite;
+  animation: gradientShimmer 6s linear infinite;
   z-index: 100;
   transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 0 15px var(--s), 0 0 5px var(--p);
@@ -832,6 +952,102 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 @keyframes gradientShimmer {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
+}
+
+/* ================= STEALTH DOCK WITH DISCREET MATTE ARROW TOGGLE ================= */
+#stealthDock {
+  position: fixed;
+  top: 24px;
+  left: -240px;
+  z-index: 150;
+  transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+}
+[dir="rtl"] #stealthDock {
+  left: auto;
+  right: -240px;
+  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#stealthDock.open {
+  left: 0;
+}
+[dir="rtl"] #stealthDock.open {
+  right: 0;
+  left: auto;
+}
+
+#dockMenu {
+  background: rgba(10, 10, 14, 0.94);
+  border: 1px solid var(--br);
+  border-radius: 0 14px 14px 0;
+  padding: 8px 12px;
+  display: flex;
+  gap: 8px;
+  backdrop-filter: blur(25px);
+  box-shadow: 6px 8px 30px rgba(0, 0, 0, 0.7);
+}
+[dir="rtl"] #dockMenu {
+  border-radius: 14px 0 0 14px;
+}
+
+/* Subtle, matte, unobtrusive trigger arrow on edge */
+#dockToggle {
+  width: 28px;
+  height: 38px;
+  background: rgba(18, 18, 24, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--t3);
+  opacity: 0.32;
+  transition: opacity 0.3s, background 0.3s, color 0.3s;
+}
+[dir="rtl"] #dockToggle {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+}
+#dockToggle:hover {
+  opacity: 0.95;
+  color: var(--s);
+  background: rgba(22, 22, 32, 0.9);
+}
+#stealthDock.open #dockToggle {
+  opacity: 0.9;
+  color: var(--s);
+}
+#dockToggle svg {
+  transition: transform 0.4s ease;
+}
+#stealthDock.open #dockToggle svg {
+  transform: rotate(180deg);
+}
+
+.tbtn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--br);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--t1);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  transition: var(--tr);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.tbtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--s);
+  color: #fff;
+  transform: translateY(-2px);
 }
 
 /* ================= BOTTOM NAVIGATION BAR (ZERO SCROLLBAR) ================= */
@@ -901,33 +1117,6 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 }
 .di.active { background: var(--s); width: 18px; border-radius: 4px; box-shadow: 0 0 10px var(--s); }
 
-#tb {
-  position: fixed;
-  top: 16px;
-  left: 18px;
-  display: flex;
-  gap: 8px;
-  z-index: 100;
-}
-[dir="rtl"] #tb { left: auto; right: 18px; }
-
-.tbtn {
-  padding: 6px 14px;
-  border-radius: 100px;
-  border: 1px solid var(--br);
-  background: rgba(10, 10, 14, 0.92);
-  color: var(--t1);
-  cursor: pointer;
-  font-size: 11px;
-  font-weight: 700;
-  transition: var(--tr);
-  backdrop-filter: blur(16px);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.tbtn:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--s); color: #fff; transform: translateY(-2px); }
-
 /* ================= CONTROL PANEL DRAWER ================= */
 #cp {
   position: fixed;
@@ -976,6 +1165,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 
 /* Mode Selector Pills */
 .mode-pills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-top: 6px; }
+.mode-pills-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 6px; }
 .mpill {
   padding: 8px 10px;
   border-radius: 8px;
@@ -1118,7 +1308,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 }
 </style>
 </head>
-<body>
+<body class="focus-halo">
 
 <div id="pb"></div>
 <canvas id="cv"></canvas>
@@ -1126,19 +1316,24 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 <div class="orb o2"></div>
 <div class="orb o3"></div>
 
-<!-- Top bar -->
-<div id="tb">
-  <button class="tbtn" id="bl" onclick="tL()">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-    <span id="ll">العربية</span>
-  </button>
-  <button class="tbtn" onclick="tF()">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-    <span class="en">Fullscreen</span><span class="ar" style="display:none">ملء الشاشة</span>
-  </button>
-  <button class="tbtn" onclick="tC()">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-    <span class="en">Control Center</span><span class="ar" style="display:none">مركز التحكم</span>
+<!-- STEALTH DOCK (Hidden on side with subtle matte arrow) -->
+<div id="stealthDock">
+  <div id="dockMenu">
+    <button class="tbtn" id="bl" onclick="tL()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z"/></svg>
+      <span id="ll">العربية</span>
+    </button>
+    <button class="tbtn" onclick="tF()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+      <span class="en">Fullscreen</span><span class="ar" style="display:none">ملء الشاشة</span>
+    </button>
+    <button class="tbtn" onclick="tC()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span class="en">Settings</span><span class="ar" style="display:none">الإعدادات</span>
+    </button>
+  </div>
+  <button id="dockToggle" onclick="toggleDock()" title="Toggle Controls">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
   </button>
 </div>
 
@@ -1158,15 +1353,15 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <button class="cpc" onclick="tC()">✕</button>
   </div>
 
-  <!-- 1. SLIDE ANIMATION STYLES SELECTOR -->
+  <!-- 1. 8 SLIDE ANIMATION STYLES -->
   <div class="cps">
-    <div class="cpst">🎬 <span class="en">Slide Animation Style</span><span class="ar" style="display:none">أنماط تحريك وانتقال الشرائح</span></div>
+    <div class="cpst">🎬 <span class="en">Slide Animation Style (8)</span><span class="ar" style="display:none">أنماط تحريك وانتقال الشرائح (8)</span></div>
     <div class="mode-pills">
       <button class="mpill active" id="btnAnimCascade" onclick="setAnimStyle('cascade')">
         <span>💫</span> <span class="en">Cascade Wave</span><span class="ar" style="display:none">متسلسل سينمائي</span>
       </button>
       <button class="mpill" id="btnAnim3D" onclick="setAnimStyle('3d')">
-        <span>🧊</span> <span class="en">3D Flip Cube</span><span class="ar" style="display:none">دوران 3D ثابت</span>
+        <span>🧊</span> <span class="en">3D Flip Cube</span><span class="ar" style="display:none">دوران 3D هادئ</span>
       </button>
       <button class="mpill" id="btnAnimZoom" onclick="setAnimStyle('zoom')">
         <span>⚡</span> <span class="en">Cyber Zoom</span><span class="ar" style="display:none">قفز سيبراني</span>
@@ -1174,37 +1369,100 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       <button class="mpill" id="btnAnimFade" onclick="setAnimStyle('fade')">
         <span>🌫️</span> <span class="en">Soft Dissolve</span><span class="ar" style="display:none">تلاشٍ هادئ</span>
       </button>
+      <button class="mpill" id="btnAnimSlideUp" onclick="setAnimStyle('slide-up')">
+        <span>🪜</span> <span class="en">Editorial Lift</span><span class="ar" style="display:none">صعود رأسي ناعم</span>
+      </button>
+      <button class="mpill" id="btnAnimFlipX" onclick="setAnimStyle('flip-x')">
+        <span>🪟</span> <span class="en">Glass Flip X</span><span class="ar" style="display:none">طي أفقي أنيق</span>
+      </button>
+      <button class="mpill" id="btnAnimSwirl" onclick="setAnimStyle('swirl')">
+        <span>🌀</span> <span class="en">Vortex Swirl</span><span class="ar" style="display:none">عمق دوامي بطيء</span>
+      </button>
+      <button class="mpill" id="btnAnimFocus" onclick="setAnimStyle('focus')">
+        <span>🎯</span> <span class="en">Focus Snap</span><span class="ar" style="display:none">تركيز بؤري صافٍ</span>
+      </button>
     </div>
   </div>
 
-  <!-- 2. DYNAMIC SMOOTH ANIMATED BACKGROUND SELECTOR -->
+  <!-- 2. CARD FOCUS & HIGHLIGHT INTERACTION STYLES -->
   <div class="cps">
-    <div class="cpst">🌌 <span class="en">Dynamic Animated Backgrounds</span><span class="ar" style="display:none">الخلفية المتحركة الديناميكية</span></div>
+    <div class="cpst">🎯 <span class="en">Element Focus & Hover Effects</span><span class="ar" style="display:none">تأثيرات التركيز والتحديد على العناصر</span></div>
+    <div class="cpl" style="margin-bottom:8px;font-size:0.75rem">
+      <span class="en">Choose non-distracting highlight style when hovering/clicking cards:</span>
+      <span class="ar" style="display:none">اختر نمط التمييز الهادئ غير المشتت للعين عند الإشارة أو النقر:</span>
+    </div>
+    <div class="mode-pills">
+      <button class="mpill active" id="btnFocusHalo" onclick="setFocusStyle('halo')">
+        <span>✨</span> <span class="en">Golden Halo</span><span class="ar" style="display:none">الهالة الذهبية الهادئة</span>
+      </button>
+      <button class="mpill" id="btnFocusLift" onclick="setFocusStyle('lift')">
+        <span>🪞</span> <span class="en">Glass Lift</span><span class="ar" style="display:none">الطفو الزجاجي النقي</span>
+      </button>
+      <button class="mpill" id="btnFocusSpotlight" onclick="setFocusStyle('spotlight')">
+        <span>🔦</span> <span class="en">Spotlight Focus</span><span class="ar" style="display:none">تركيز الكشاف الموجه</span>
+      </button>
+      <button class="mpill" id="btnFocusBorder" onclick="setFocusStyle('border')">
+        <span>📐</span> <span class="en">Precision Line</span><span class="ar" style="display:none">الإطار الهندسي الأنيق</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 3. SERENE DYNAMIC ANIMATED BACKGROUNDS & SPEED -->
+  <div class="cps">
+    <div class="cpst">🌌 <span class="en">Dynamic Backgrounds (7 Calm Engines)</span><span class="ar" style="display:none">الخلفيات المتحركة الانسيابية (7 محركات)</span></div>
     <div class="cpr">
       <div class="cpl"><span class="en">Enable Animated Canvas</span><span class="ar" style="display:none">تشغيل / إخفاء الخلفية المتحركة</span></div>
       <button class="csw on" id="swBg" onclick="toggleBg()"></button>
     </div>
     <div class="mode-pills" id="bgPillsGroup" style="margin-top:8px">
       <button class="mpill active" id="btnBgNeural" onclick="setBgMode('neural')">
-        <span>🧠</span> <span class="en">Neural AI Mesh</span><span class="ar" style="display:none">شبكة عصبية ذكية</span>
+        <span>🧠</span> <span class="en">Neural AI Mesh</span><span class="ar" style="display:none">شبكة عصبية هادئة</span>
       </button>
       <button class="mpill" id="btnBgWaves" onclick="setBgMode('waves')">
-        <span>🌊</span> <span class="en">Quantum Waves</span><span class="ar" style="display:none">أمواج كوانتية</span>
+        <span>🌊</span> <span class="en">Quantum Waves</span><span class="ar" style="display:none">أمواج كوانتية بطيئة</span>
+      </button>
+      <button class="mpill" id="btnBgAurora" onclick="setBgMode('aurora')">
+        <span>🌌</span> <span class="en">Auroral Curtains</span><span class="ar" style="display:none">ستائر الشفق الانسيابي</span>
+      </button>
+      <button class="mpill" id="btnBgStardust" onclick="setBgMode('stardust')">
+        <span>✨</span> <span class="en">Cosmic Stardust</span><span class="ar" style="display:none">السديم النجمي المتألق</span>
+      </button>
+      <button class="mpill" id="btnBgGrid" onclick="setBgMode('grid')">
+        <span>🌐</span> <span class="en">Hex Cyber Lattice</span><span class="ar" style="display:none">الشبكة السداسية التشفيرية</span>
       </button>
       <button class="mpill" id="btnBgMatrix" onclick="setBgMode('matrix')">
-        <span>💚</span> <span class="en">Cyber Matrix</span><span class="ar" style="display:none">مصفوفة الشيفرات</span>
+        <span>💚</span> <span class="en">Cyber Matrix</span><span class="ar" style="display:none">مصفوفة الشيفرات الرزينة</span>
       </button>
       <button class="mpill" id="btnBgWarp" onclick="setBgMode('warp')">
-        <span>🚀</span> <span class="en">Space Warp</span><span class="ar" style="display:none">العمق الفضائي</span>
+        <span>🚀</span> <span class="en">Space Warp</span><span class="ar" style="display:none">العمق الفضائي الهادئ</span>
       </button>
     </div>
-    <div class="cpr" style="margin-top:10px">
+
+    <!-- Motion Speed Control -->
+    <div style="margin-top:14px">
+      <div class="cpl" style="margin-bottom:6px;font-size:0.75rem">
+        <span class="en">Motion Speed Pace:</span><span class="ar" style="display:none">سرعة حركة الخلفية:</span>
+      </div>
+      <div class="mode-pills-3">
+        <button class="mpill active" id="btnSpdSerene" onclick="setBgSpeed(0.5, 'btnSpdSerene')">
+          <span>🍃</span> <span class="en">Serene 0.5x</span><span class="ar" style="display:none">هادئ رزين</span>
+        </button>
+        <button class="mpill" id="btnSpdBalanced" onclick="setBgSpeed(1.0, 'btnSpdBalanced')">
+          <span>⚖️</span> <span class="en">Balanced 1x</span><span class="ar" style="display:none">متزن</span>
+        </button>
+        <button class="mpill" id="btnSpdUltra" onclick="setBgSpeed(0.25, 'btnSpdUltra')">
+          <span>🕊️</span> <span class="en">Ultra Slow</span><span class="ar" style="display:none">بطيء جداً</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="cpr" style="margin-top:12px">
       <div class="cpl"><span class="en">Atmospheric Glowing Orbs</span><span class="ar" style="display:none">الهالات المضيئة الحية</span></div>
       <button class="csw on" id="swo" onclick="tOrbs()"></button>
     </div>
   </div>
 
-  <!-- 3. 10 ROYAL LUXURY PALETTES & GRADIENTS -->
+  <!-- 4. 10 ROYAL LUXURY PALETTES & GRADIENTS -->
   <div class="cps">
     <div class="cpst">👑 <span class="en">Royal Luxury Themes (10)</span><span class="ar" style="display:none">التدرجات والسمات الملكية الفاخرة (10)</span></div>
     <div class="theme-grid">
@@ -1251,7 +1509,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     </div>
   </div>
 
-  <!-- 4. PRESENTATION TIMER -->
+  <!-- 5. PRESENTATION TIMER -->
   <div class="cps">
     <div class="cpst">⏱️ <span class="en">Presentation Timer (15-20 Min)</span><span class="ar" style="display:none">مؤقت العرض (15-20 دقيقة)</span></div>
     <div class="timer-box">
@@ -1264,7 +1522,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     </div>
   </div>
 
-  <!-- 5. LIVE IN-PLACE TEXT EDITOR -->
+  <!-- 6. LIVE IN-PLACE TEXT EDITOR -->
   <div class="cps">
     <div class="cpst">✏️ <span class="en">Live Content Editor</span><span class="ar" style="display:none">التعديل المباشر للنصوص</span></div>
     <div class="cpr">
@@ -1279,19 +1537,19 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     </button>
   </div>
 
-  <!-- 6. SLIDE DIRECTORY (25) -->
+  <!-- 7. SLIDE DIRECTORY (25) -->
   <div class="cps">
     <div class="cpst">📑 <span class="en">Slides Directory (25)</span><span class="ar" style="display:none">فهرس الشرائح (25)</span></div>
     <div class="snl" id="snl"></div>
   </div>
 
-  <!-- 7. TYPOGRAPHY SCALE -->
+  <!-- 8. TYPOGRAPHY SCALE -->
   <div class="cps">
     <div class="cpst">🔠 <span class="en">Font Scale</span><span class="ar" style="display:none">حجم الخط</span></div>
     <div class="cpr"><div class="cpl"><span class="en">Scale</span><span class="ar" style="display:none">الحجم</span></div><input type="range" min="13" max="21" value="16" oninput="document.documentElement.style.fontSize=this.value+'px'" style="width:140px;accent-color:var(--p)"/></div>
   </div>
 
-  <!-- 8. SHORTCUTS -->
+  <!-- 9. SHORTCUTS -->
   <div class="cps">
     <div class="cpst">⌨️ <span class="en">Hotkeys</span><span class="ar" style="display:none">اختصارات لوحة المفاتيح</span></div>
     <div style="font-size:.76rem;color:var(--t3);line-height:2">
@@ -1323,8 +1581,10 @@ const N = 25;
 let c = 0;
 let isAR = false;
 let bgOn = true;
-let bgMode = 'neural'; // 'neural', 'waves', 'matrix', 'warp'
-let animStyle = 'cascade'; // 'cascade', '3d', 'zoom', 'fade'
+let bgMode = 'neural'; // 'neural', 'waves', 'aurora', 'stardust', 'grid', 'matrix', 'warp'
+let bgSpeed = 0.5; // Calm serene default multiplier
+let animStyle = 'cascade';
+let focusStyle = 'halo'; // 'halo', 'lift', 'spotlight', 'border'
 let editMode = false;
 
 const slideTitles = {
@@ -1384,6 +1644,19 @@ const slideTitles = {
   ]
 };
 
+// ================= STEALTH DOCK TOGGLE =================
+function toggleDock() {
+  const dock = document.getElementById('stealthDock');
+  dock.classList.toggle('open');
+}
+
+document.addEventListener('click', e => {
+  const dock = document.getElementById('stealthDock');
+  if (dock && dock.classList.contains('open') && !dock.contains(e.target)) {
+    dock.classList.remove('open');
+  }
+});
+
 // ================= NAVIGATION (ZERO HORIZONTAL SCROLL) =================
 function gS(i, direction = 'next') {
   const slides = document.querySelectorAll('.slide');
@@ -1391,6 +1664,10 @@ function gS(i, direction = 'next') {
 
   const prevSlide = slides[c];
   const nextSlide = slides[i];
+
+  // Auto-close open docks on slide change
+  const dock = document.getElementById('stealthDock');
+  if (dock) dock.classList.remove('open');
 
   prevSlide.classList.remove('active', 'exit-left', 'exit-right');
   prevSlide.classList.add(direction === 'next' ? 'exit-left' : 'exit-right');
@@ -1646,7 +1923,7 @@ function tOrbs() {
   document.querySelectorAll('.orb').forEach(o => o.style.display = btn.classList.contains('on') ? '' : 'none');
 }
 
-// ================= ANIMATION STYLES SELECTOR =================
+// ================= ANIMATION STYLES (8) =================
 function setAnimStyle(style) {
   animStyle = style;
   const wrap = document.getElementById('wrap');
@@ -1654,11 +1931,53 @@ function setAnimStyle(style) {
   document.querySelectorAll('#cp .mode-pills .mpill').forEach(btn => {
     if (btn.id.startsWith('btnAnim')) btn.classList.remove('active');
   });
-  const map = { cascade: 'btnAnimCascade', '3d': 'btnAnim3D', zoom: 'btnAnimZoom', fade: 'btnAnimFade' };
+  const map = {
+    'cascade': 'btnAnimCascade',
+    '3d': 'btnAnim3D',
+    'zoom': 'btnAnimZoom',
+    'fade': 'btnAnimFade',
+    'slide-up': 'btnAnimSlideUp',
+    'flip-x': 'btnAnimFlipX',
+    'swirl': 'btnAnimSwirl',
+    'focus': 'btnAnimFocus'
+  };
   if (map[style]) document.getElementById(map[style]).classList.add('active');
+  localStorage.setItem('soar_anim_style', style);
 }
 
-// ================= DYNAMIC BACKGROUND MODES & TOGGLE =================
+// ================= CARD FOCUS & HIGHLIGHT STYLES =================
+function setFocusStyle(style) {
+  focusStyle = style;
+  document.body.className = document.body.className.replace(/focus-\w+/g, '').trim();
+  document.body.classList.add('focus-' + style);
+  document.querySelectorAll('#cp .mode-pills .mpill').forEach(btn => {
+    if (btn.id.startsWith('btnFocus')) btn.classList.remove('active');
+  });
+  const map = {
+    'halo': 'btnFocusHalo',
+    'lift': 'btnFocusLift',
+    'spotlight': 'btnFocusSpotlight',
+    'border': 'btnFocusBorder'
+  };
+  if (map[style]) document.getElementById(map[style]).classList.add('active');
+  localStorage.setItem('soar_focus_style', style);
+}
+
+// Interactive Click-to-Pin Focus for presenting before the committee
+document.addEventListener('click', e => {
+  const card = e.target.closest('.card, .sb, .fs, .tcard, .ti, .alr');
+  if (card) {
+    const isAlreadyPinned = card.classList.contains('pinned-focus');
+    document.querySelectorAll('.pinned-focus').forEach(c => c.classList.remove('pinned-focus'));
+    if (!isAlreadyPinned) {
+      card.classList.add('pinned-focus');
+    }
+  } else if (!e.target.closest('#cp, #stealthDock, #nav')) {
+    document.querySelectorAll('.pinned-focus').forEach(c => c.classList.remove('pinned-focus'));
+  }
+});
+
+// ================= DYNAMIC BACKGROUND MODES & SPEED =================
 function toggleBg() {
   bgOn = !bgOn;
   const btn = document.getElementById('swBg');
@@ -1671,9 +1990,26 @@ function toggleBg() {
 function setBgMode(mode) {
   bgMode = mode;
   document.querySelectorAll('#bgPillsGroup .mpill').forEach(btn => btn.classList.remove('active'));
-  const map = { neural: 'btnBgNeural', waves: 'btnBgWaves', matrix: 'btnBgMatrix', warp: 'btnBgWarp' };
+  const map = {
+    'neural': 'btnBgNeural',
+    'waves': 'btnBgWaves',
+    'aurora': 'btnBgAurora',
+    'stardust': 'btnBgStardust',
+    'grid': 'btnBgGrid',
+    'matrix': 'btnBgMatrix',
+    'warp': 'btnBgWarp'
+  };
   if (map[mode]) document.getElementById(map[mode]).classList.add('active');
   initBg();
+  localStorage.setItem('soar_bg_mode', mode);
+}
+
+function setBgSpeed(spd, btnId) {
+  bgSpeed = spd;
+  document.querySelectorAll('.mode-pills-3 .mpill').forEach(btn => btn.classList.remove('active'));
+  const b = document.getElementById(btnId);
+  if (b) b.classList.add('active');
+  localStorage.setItem('soar_bg_speed', spd);
 }
 
 // ================= LIVE EDIT MODE =================
@@ -1704,6 +2040,22 @@ function resetEdits() {
 window.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('soar_luxury_theme');
   if (savedTheme) applyTheme(savedTheme);
+
+  const savedAnim = localStorage.getItem('soar_anim_style');
+  if (savedAnim) setAnimStyle(savedAnim);
+
+  const savedFocus = localStorage.getItem('soar_focus_style');
+  if (savedFocus) setFocusStyle(savedFocus);
+
+  const savedBg = localStorage.getItem('soar_bg_mode');
+  if (savedBg) setBgMode(savedBg);
+
+  const savedSpd = localStorage.getItem('soar_bg_speed');
+  if (savedSpd) {
+    const spdVal = parseFloat(savedSpd);
+    const spdBtn = spdVal === 1.0 ? 'btnSpdBalanced' : (spdVal === 0.25 ? 'btnSpdUltra' : 'btnSpdSerene');
+    setBgSpeed(spdVal, spdBtn);
+  }
 
   const saved = localStorage.getItem('soar_slides_custom');
   if (saved) {
@@ -1780,7 +2132,7 @@ document.addEventListener('touchend', e => {
   }
 }, { passive: true });
 
-// ================= MULTI-ENGINE DYNAMIC CANVAS (GUARANTEED VISIBLE) =================
+// ================= 7 SERENE DYNAMIC CANVAS ENGINES =================
 const cv = document.getElementById('cv');
 const cx = cv.getContext('2d');
 let mouse = { x: null, y: null };
@@ -1822,76 +2174,123 @@ function hexToRgba(hex, alpha) {
   }
 }
 
-// 1. Neural Node
+// 1. Serene Neural Node
 class NeuralNode {
   constructor() { this.r(); }
   r() {
     this.x = Math.random() * cv.width;
     this.y = Math.random() * cv.height;
-    this.sz = Math.random() * 2 + 1.2;
-    this.sx = (Math.random() - 0.5) * 0.55;
-    this.sy = (Math.random() - 0.5) * 0.55;
-    this.op = Math.random() * 0.5 + 0.4;
+    this.sz = Math.random() * 1.8 + 1.1;
+    this.sx = (Math.random() - 0.5) * 0.32;
+    this.sy = (Math.random() - 0.5) * 0.32;
+    this.op = Math.random() * 0.45 + 0.35;
     this.pulse = Math.random() * Math.PI * 2;
   }
   u() {
-    this.pulse += 0.035;
+    this.pulse += 0.02 * bgSpeed;
     if (mouse.x !== null) {
       const dx = mouse.x - this.x;
       const dy = mouse.y - this.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 150) {
-        this.x += (dx / dist) * 0.5;
-        this.y += (dy / dist) * 0.5;
+      if (dist < 140) {
+        this.x += (dx / dist) * 0.3 * bgSpeed;
+        this.y += (dy / dist) * 0.3 * bgSpeed;
       }
     }
-    this.x += this.sx;
-    this.y += this.sy;
+    this.x += this.sx * bgSpeed;
+    this.y += this.sy * bgSpeed;
     if (this.x < -10 || this.x > cv.width + 10 || this.y < -10 || this.y > cv.height + 10) this.r();
   }
   d(colorHex) {
-    const currentSz = this.sz + Math.sin(this.pulse) * 0.6;
+    const currentSz = this.sz + Math.sin(this.pulse) * 0.45;
     cx.beginPath();
     cx.arc(this.x, this.y, Math.max(0.6, currentSz), 0, Math.PI * 2);
     cx.fillStyle = hexToRgba(colorHex, this.op);
-    cx.shadowBlur = 8;
+    cx.shadowBlur = 6;
     cx.shadowColor = colorHex;
     cx.fill();
     cx.shadowBlur = 0;
   }
 }
 
-// 2. Cyber Matrix Stream
+// 2. Serene Stardust Particle
+class Stardust {
+  constructor() { this.r(); }
+  r() {
+    this.x = Math.random() * cv.width;
+    this.y = Math.random() * cv.height;
+    this.sz = Math.random() * 1.6 + 0.6;
+    this.sx = (Math.random() - 0.5) * 0.2;
+    this.sy = (Math.random() - 0.5) * 0.2;
+    this.op = Math.random() * 0.5 + 0.2;
+    this.phase = Math.random() * Math.PI * 2;
+  }
+  u() {
+    this.phase += 0.015 * bgSpeed;
+    this.x += this.sx * bgSpeed;
+    this.y += this.sy * bgSpeed;
+    if (this.x < 0 || this.x > cv.width || this.y < 0 || this.y > cv.height) this.r();
+  }
+  d(sColor) {
+    const alpha = (Math.sin(this.phase) * 0.25 + 0.5) * this.op;
+    cx.beginPath();
+    cx.arc(this.x, this.y, this.sz, 0, Math.PI * 2);
+    cx.fillStyle = hexToRgba(sColor, alpha);
+    cx.shadowBlur = 8;
+    cx.shadowColor = sColor;
+    cx.fill();
+    cx.shadowBlur = 0;
+  }
+}
+
+// 3. Calm Hexagonal Lattice Node
+class GridNode {
+  constructor(gx, gy) {
+    this.x = gx;
+    this.y = gy;
+    this.phase = (gx * 0.02 + gy * 0.02);
+  }
+  d(pColor, sColor) {
+    const pulse = Math.sin(waveStep * 0.7 + this.phase);
+    const alpha = Math.max(0.06, (pulse + 1) * 0.16);
+    cx.beginPath();
+    cx.arc(this.x, this.y, 1.8, 0, Math.PI * 2);
+    cx.fillStyle = hexToRgba(pulse > 0.4 ? sColor : pColor, alpha);
+    cx.fill();
+  }
+}
+
+// 4. Calm Cyber Matrix Stream
 class MatrixCol {
   constructor(x) {
     this.x = x;
     this.y = Math.random() * -cv.height;
-    this.speed = Math.random() * 2.2 + 1.4;
+    this.speed = (Math.random() * 1.2 + 0.8);
     this.chars = '01SOARSECURITYAI789XYZ45DEF';
-    this.len = Math.floor(Math.random() * 14 + 8);
+    this.len = Math.floor(Math.random() * 12 + 6);
   }
   u() {
-    this.y += this.speed;
-    if (this.y > cv.height + 180) {
-      this.y = Math.random() * -120;
-      this.speed = Math.random() * 2.2 + 1.4;
+    this.y += this.speed * bgSpeed;
+    if (this.y > cv.height + 150) {
+      this.y = Math.random() * -100;
+      this.speed = (Math.random() * 1.2 + 0.8);
     }
   }
   d(pColor, sColor) {
-    cx.font = '11px "JetBrains Mono", monospace';
+    cx.font = '10px "JetBrains Mono", monospace';
     for (let i = 0; i < this.len; i++) {
       const char = this.chars[Math.floor(Math.random() * this.chars.length)];
-      const cyPos = this.y - i * 15;
+      const cyPos = this.y - i * 14;
       if (cyPos > 0 && cyPos < cv.height) {
         const alpha = Math.max(0, 1 - (i / this.len));
         if (i === 0) {
           cx.fillStyle = '#ffffff';
-          cx.shadowBlur = 10;
+          cx.shadowBlur = 8;
           cx.shadowColor = sColor;
           cx.fillText(char, this.x, cyPos);
           cx.shadowBlur = 0;
         } else {
-          cx.fillStyle = hexToRgba(i % 2 === 0 ? sColor : pColor, alpha * 0.7);
+          cx.fillStyle = hexToRgba(i % 2 === 0 ? sColor : pColor, alpha * 0.55);
           cx.fillText(char, this.x, cyPos);
         }
       }
@@ -1899,7 +2298,7 @@ class MatrixCol {
   }
 }
 
-// 3. Space Warp Star
+// 5. Calm Space Warp Star
 class WarpStar {
   constructor() { this.r(); }
   r() {
@@ -1907,10 +2306,10 @@ class WarpStar {
     this.y = (Math.random() - 0.5) * cv.height;
     this.z = Math.random() * cv.width;
     this.pz = this.z;
-    this.speed = Math.random() * 3 + 2.5;
+    this.speed = (Math.random() * 1.6 + 1.2);
   }
   u() {
-    this.z -= this.speed;
+    this.z -= this.speed * bgSpeed;
     if (this.z <= 0) {
       this.r();
       this.pz = this.z;
@@ -1919,19 +2318,19 @@ class WarpStar {
   d(sColor) {
     const cxCenter = cv.width / 2;
     const cyCenter = cv.height / 2;
-    const sx = (this.x / this.z) * 160 + cxCenter;
-    const sy = (this.y / this.z) * 160 + cyCenter;
-    const px = (this.x / this.pz) * 160 + cxCenter;
-    const py = (this.y / this.pz) * 160 + cyCenter;
+    const sx = (this.x / this.z) * 150 + cxCenter;
+    const sy = (this.y / this.z) * 150 + cyCenter;
+    const px = (this.x / this.pz) * 150 + cxCenter;
+    const py = (this.y / this.pz) * 150 + cyCenter;
     this.pz = this.z;
 
     if (sx >= 0 && sx <= cv.width && sy >= 0 && sy <= cv.height) {
-      const alpha = Math.min(1, (1 - this.z / cv.width) * 0.9);
+      const alpha = Math.min(1, (1 - this.z / cv.width) * 0.8);
       cx.beginPath();
       cx.moveTo(px, py);
       cx.lineTo(sx, sy);
       cx.strokeStyle = hexToRgba(sColor, alpha);
-      cx.lineWidth = Math.min(2.4, (1 - this.z / cv.width) * 2.8);
+      cx.lineWidth = Math.min(2.0, (1 - this.z / cv.width) * 2.2);
       cx.stroke();
     }
   }
@@ -1940,13 +2339,23 @@ class WarpStar {
 function initBg() {
   bgEntities = [];
   if (bgMode === 'neural') {
-    const count = Math.min(90, Math.floor(window.innerWidth / 16));
+    const count = Math.min(80, Math.floor(window.innerWidth / 18));
     for (let i = 0; i < count; i++) bgEntities.push(new NeuralNode());
+  } else if (bgMode === 'stardust') {
+    const count = Math.min(120, Math.floor(window.innerWidth / 12));
+    for (let i = 0; i < count; i++) bgEntities.push(new Stardust());
+  } else if (bgMode === 'grid') {
+    const spacing = 48;
+    for (let x = 20; x < cv.width; x += spacing) {
+      for (let y = 20; y < cv.height; y += spacing) {
+        bgEntities.push(new GridNode(x, y));
+      }
+    }
   } else if (bgMode === 'matrix') {
-    const cols = Math.floor(cv.width / 22);
-    for (let i = 0; i < cols; i++) bgEntities.push(new MatrixCol(i * 22));
+    const cols = Math.floor(cv.width / 24);
+    for (let i = 0; i < cols; i++) bgEntities.push(new MatrixCol(i * 24));
   } else if (bgMode === 'warp') {
-    for (let i = 0; i < 180; i++) bgEntities.push(new WarpStar());
+    for (let i = 0; i < 150; i++) bgEntities.push(new WarpStar());
   }
 }
 
@@ -1965,12 +2374,12 @@ function animCanvas() {
         const dx = bgEntities[i].x - bgEntities[j].x;
         const dy = bgEntities[i].y - bgEntities[j].y;
         const dd = Math.sqrt(dx * dx + dy * dy);
-        if (dd < 110) {
+        if (dd < 105) {
           cx.beginPath();
           cx.moveTo(bgEntities[i].x, bgEntities[i].y);
           cx.lineTo(bgEntities[j].x, bgEntities[j].y);
-          cx.strokeStyle = hexToRgba(pColor, 0.28 * (1 - dd / 110));
-          cx.lineWidth = 0.85;
+          cx.strokeStyle = hexToRgba(pColor, 0.22 * (1 - dd / 105));
+          cx.lineWidth = 0.75;
           cx.stroke();
         }
       }
@@ -1978,27 +2387,27 @@ function animCanvas() {
         const mdx = bgEntities[i].x - mouse.x;
         const mdy = bgEntities[i].y - mouse.y;
         const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
-        if (mdist < 150) {
+        if (mdist < 140) {
           cx.beginPath();
           cx.moveTo(bgEntities[i].x, bgEntities[i].y);
           cx.lineTo(mouse.x, mouse.y);
-          cx.strokeStyle = hexToRgba(sColor, 0.5 * (1 - mdist / 150));
-          cx.lineWidth = 1.3;
+          cx.strokeStyle = hexToRgba(sColor, 0.4 * (1 - mdist / 140));
+          cx.lineWidth = 1.1;
           cx.stroke();
         }
       }
     }
   } else if (bgMode === 'waves') {
-    waveStep += 0.018;
+    waveStep += 0.01 * bgSpeed;
     const waves = [
-      { y: cv.height * 0.65, len: 0.0028, amp: 48, p: pColor, alpha: 0.18 },
-      { y: cv.height * 0.72, len: 0.0036, amp: 58, p: sColor, alpha: 0.16 },
-      { y: cv.height * 0.78, len: 0.0022, amp: 68, p: pColor, alpha: 0.14 }
+      { y: cv.height * 0.68, len: 0.0024, amp: 40, p: pColor, alpha: 0.14 },
+      { y: cv.height * 0.74, len: 0.0032, amp: 50, p: sColor, alpha: 0.12 },
+      { y: cv.height * 0.80, len: 0.0018, amp: 60, p: pColor, alpha: 0.10 }
     ];
     waves.forEach((w, idx) => {
       cx.beginPath();
       cx.moveTo(0, cv.height);
-      for (let x = 0; x <= cv.width; x += 8) {
+      for (let x = 0; x <= cv.width; x += 10) {
         const y = w.y + Math.sin(x * w.len + waveStep + idx * 1.4) * w.amp;
         cx.lineTo(x, y);
       }
@@ -2009,20 +2418,57 @@ function animCanvas() {
       cx.fillStyle = grad;
       cx.fill();
 
-      // Glowing crest line
+      // Soft crest line
       cx.beginPath();
-      for (let x = 0; x <= cv.width; x += 8) {
+      for (let x = 0; x <= cv.width; x += 10) {
         const y = w.y + Math.sin(x * w.len + waveStep + idx * 1.4) * w.amp;
         if (x === 0) cx.moveTo(x, y);
         else cx.lineTo(x, y);
       }
-      cx.strokeStyle = hexToRgba(w.p, w.alpha * 2.5);
-      cx.lineWidth = 1.8;
-      cx.shadowBlur = 12;
+      cx.strokeStyle = hexToRgba(w.p, w.alpha * 2.0);
+      cx.lineWidth = 1.5;
+      cx.shadowBlur = 10;
       cx.shadowColor = w.p;
       cx.stroke();
       cx.shadowBlur = 0;
     });
+  } else if (bgMode === 'aurora') {
+    waveStep += 0.006 * bgSpeed;
+    // 3 Serene undulating Aurora Curtains
+    for (let a = 0; a < 3; a++) {
+      cx.beginPath();
+      cx.moveTo(0, 0);
+      for (let x = 0; x <= cv.width; x += 16) {
+        const y = (cv.height * 0.28) + Math.sin(x * 0.0018 + waveStep + a * 1.6) * 70 + Math.cos(x * 0.003 + waveStep * 0.8) * 35;
+        cx.lineTo(x, y);
+      }
+      cx.lineTo(cv.width, 0);
+      const grad = cx.createLinearGradient(0, 0, 0, cv.height * 0.5);
+      grad.addColorStop(0, hexToRgba(a % 2 === 0 ? pColor : sColor, 0.12));
+      grad.addColorStop(1, 'transparent');
+      cx.fillStyle = grad;
+      cx.fill();
+    }
+  } else if (bgMode === 'stardust') {
+    bgEntities.forEach(e => { e.u(); e.d(sColor); });
+  } else if (bgMode === 'grid') {
+    waveStep += 0.015 * bgSpeed;
+    bgEntities.forEach(e => e.d(pColor, sColor));
+    // Soft connecting links
+    const spacing = 48;
+    for (let x = 20; x < cv.width - spacing; x += spacing) {
+      for (let y = 20; y < cv.height - spacing; y += spacing) {
+        if ((x + y) % (spacing * 2) === 0) {
+          cx.beginPath();
+          cx.moveTo(x, y);
+          cx.lineTo(x + spacing, y);
+          cx.lineTo(x + spacing, y + spacing);
+          cx.strokeStyle = hexToRgba(pColor, 0.06);
+          cx.lineWidth = 0.6;
+          cx.stroke();
+        }
+      }
+    }
   } else if (bgMode === 'matrix') {
     bgEntities.forEach(e => { e.u(); e.d(pColor, sColor); });
   } else if (bgMode === 'warp') {
@@ -2048,4 +2494,4 @@ if __name__ == '__main__':
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(content)
     size = os.path.getsize(output_file)
-    print(f"SUCCESS: Generated presentation with luxury royal themes, bounded 3D transitions, and high-visibility dynamic canvas! ({size:,} bytes)")
+    print(f"SUCCESS: Generated presentation with stealth dock, 8 animation styles, 4 focus styles, and 7 serene backgrounds! ({size:,} bytes)")
