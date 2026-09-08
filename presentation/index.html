@@ -146,7 +146,6 @@ canvas#cv {
 }
 
 /* ================= 8 SLIDE ANIMATION STYLES ================= */
-/* 1. CASCADE WAVE */
 #wrap.anim-cascade .slide {
   transform: scale(0.96);
   opacity: 0;
@@ -155,8 +154,7 @@ canvas#cv {
   filter: blur(4px);
   transition: opacity 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
               transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
-              visibility 0.45s,
-              filter 0.45s;
+              visibility 0.45s, filter 0.45s;
 }
 #wrap.anim-cascade .slide.active {
   opacity: 1;
@@ -180,7 +178,6 @@ canvas#cv {
   filter: blur(4px);
 }
 
-/* 2. 3D FLIP CUBE */
 #wrap.anim-3d .slide {
   transform: scale(0.92) rotateY(15deg);
   opacity: 0;
@@ -209,7 +206,6 @@ canvas#cv {
   transform: scale(0.92) rotateY(15deg);
 }
 
-/* 3. CYBER ZOOM */
 #wrap.anim-zoom .slide {
   transform: scale(0.86);
   opacity: 0;
@@ -233,7 +229,6 @@ canvas#cv {
   transform: scale(1.12);
 }
 
-/* 4. SOFT DISSOLVE FADE */
 #wrap.anim-fade .slide {
   transform: none;
   opacity: 0;
@@ -255,7 +250,6 @@ canvas#cv {
   transform: none;
 }
 
-/* 5. VERTICAL EDITORIAL LIFT */
 #wrap.anim-slide-up .slide {
   transform: translateY(35px) scale(0.98);
   opacity: 0;
@@ -279,7 +273,6 @@ canvas#cv {
   transform: translateY(-35px) scale(0.98);
 }
 
-/* 6. GLASS FLIP X */
 #wrap.anim-flip-x .slide {
   transform: scale(0.94) rotateX(12deg);
   opacity: 0;
@@ -303,7 +296,6 @@ canvas#cv {
   transform: scale(0.94) rotateX(-12deg);
 }
 
-/* 7. VORTEX DEPTH SWIRL */
 #wrap.anim-swirl .slide {
   transform: scale(0.92) rotate(-2.5deg);
   opacity: 0;
@@ -327,7 +319,6 @@ canvas#cv {
   transform: scale(1.06) rotate(2.5deg);
 }
 
-/* 8. FOCUS SNAP */
 #wrap.anim-focus .slide {
   transform: scale(0.95);
   opacity: 0;
@@ -353,13 +344,11 @@ canvas#cv {
 }
 
 /* ================= CARD FOCUS & HIGHLIGHT INTERACTION STYLES ================= */
-/* Base Card Interactivity */
 .card, .sb, .fs, .tcard, .ti, .alr {
   cursor: pointer;
   transition: var(--tr);
 }
 
-/* 1. Golden Halo Glow (Default) */
 body.focus-halo .card:hover, body.focus-halo .card.pinned-focus,
 body.focus-halo .sb:hover, body.focus-halo .sb.pinned-focus,
 body.focus-halo .fs:hover, body.focus-halo .fs.pinned-focus,
@@ -369,7 +358,6 @@ body.focus-halo .alr:hover, body.focus-halo .alr.pinned-focus {
   box-shadow: 0 4px 22px rgba(212, 175, 55, 0.22);
 }
 
-/* 2. Glassmorphism Lift */
 body.focus-lift .card:hover, body.focus-lift .card.pinned-focus,
 body.focus-lift .sb:hover, body.focus-lift .sb.pinned-focus,
 body.focus-lift .fs:hover, body.focus-lift .fs.pinned-focus,
@@ -381,7 +369,6 @@ body.focus-lift .alr:hover, body.focus-lift .alr.pinned-focus {
   backdrop-filter: blur(25px);
 }
 
-/* 3. Spotlight Beam (Dims non-hovered siblings gently) */
 body.focus-spotlight .g2:hover > *:not(:hover):not(.pinned-focus),
 body.focus-spotlight .g3:hover > *:not(:hover):not(.pinned-focus),
 body.focus-spotlight .g4:hover > *:not(:hover):not(.pinned-focus),
@@ -404,7 +391,6 @@ body.focus-spotlight .alr:hover, body.focus-spotlight .alr.pinned-focus {
   z-index: 5;
 }
 
-/* 4. Precision Blueprint Border (Static, crisp, calm) */
 body.focus-border .card:hover, body.focus-border .card.pinned-focus,
 body.focus-border .sb:hover, body.focus-border .sb.pinned-focus,
 body.focus-border .fs:hover, body.focus-border .fs.pinned-focus,
@@ -921,63 +907,71 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
   100% { background-position: 100% 50%; }
 }
 
-/* ================= STEALTH DOCK WITH DISCREET MATTE ARROW TOGGLE ================= */
+/* ================= 100% STEALTH DOCK WITH MATTE ARROW TAB ================= */
 #stealthDock {
   position: fixed;
   top: 24px;
-  left: -240px;
+  left: 0;
   z-index: 150;
-  transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   align-items: center;
+  transform: translateX(calc(-100% + 26px));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 [dir="rtl"] #stealthDock {
   left: auto;
-  right: -240px;
-  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  right: 0;
+  transform: translateX(calc(100% - 26px));
 }
 #stealthDock.open {
-  left: 0;
+  transform: translateX(0) !important;
 }
 [dir="rtl"] #stealthDock.open {
-  right: 0;
-  left: auto;
+  transform: translateX(0) !important;
 }
 
 #dockMenu {
-  background: rgba(10, 10, 14, 0.94);
+  background: rgba(10, 10, 14, 0.96);
   border: 1px solid var(--br);
-  border-radius: 0 14px 14px 0;
-  padding: 8px 12px;
+  border-left: none;
+  border-radius: 0 12px 12px 0;
+  padding: 8px 14px;
   display: flex;
+  align-items: center;
   gap: 8px;
-  backdrop-filter: blur(25px);
-  box-shadow: 6px 8px 30px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(30px);
+  box-shadow: 6px 8px 30px rgba(0, 0, 0, 0.8);
+  width: auto;
+  white-space: nowrap;
 }
 [dir="rtl"] #dockMenu {
-  border-radius: 14px 0 0 14px;
+  border-left: 1px solid var(--br);
+  border-right: none;
+  border-radius: 12px 0 0 12px;
 }
 
-/* Subtle, matte, unobtrusive trigger arrow on edge */
+/* Subtle, matte, discreet 26px arrow tab resting quietly on edge */
 #dockToggle {
-  width: 28px;
-  height: 38px;
-  background: rgba(18, 18, 24, 0.55);
+  width: 26px;
+  height: 42px;
+  background: rgba(16, 16, 22, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-left: none;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 8px 8px 0;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   color: var(--t3);
-  opacity: 0.32;
+  opacity: 0.35;
   transition: opacity 0.3s, background 0.3s, color 0.3s;
+  flex-shrink: 0;
+  backdrop-filter: blur(10px);
 }
 [dir="rtl"] #dockToggle {
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   border-right: none;
-  border-radius: 10px 0 0 10px;
+  border-radius: 8px 0 0 8px;
 }
 #dockToggle:hover {
   opacity: 0.95;
@@ -985,7 +979,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
   background: rgba(22, 22, 32, 0.9);
 }
 #stealthDock.open #dockToggle {
-  opacity: 0.9;
+  opacity: 0.95;
   color: var(--s);
 }
 #dockToggle svg {
@@ -993,6 +987,12 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 }
 #stealthDock.open #dockToggle svg {
   transform: rotate(180deg);
+}
+[dir="rtl"] #stealthDock:not(.open) #dockToggle svg {
+  transform: rotate(180deg);
+}
+[dir="rtl"] #stealthDock.open #dockToggle svg {
+  transform: rotate(0deg);
 }
 
 .tbtn {
@@ -1247,22 +1247,111 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 }
 .t-btn-act:hover { background: var(--p); border-color: var(--s); transform: scale(1.05); color: #000; }
 
-/* Live Edit Banner */
-#editBanner {
+/* ================= FLOATING LIVE EDIT TOOLBAR ================= */
+#liveEditToolbar {
   position: fixed;
   bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 179, 0, 0.92);
-  color: #000;
-  font-weight: 700;
-  font-size: 12px;
-  padding: 6px 18px;
-  border-radius: 20px;
+  background: rgba(14, 14, 20, 0.95);
+  border: 1px solid var(--br);
+  border-radius: 100px;
+  padding: 6px 14px;
   z-index: 150;
   display: none;
-  box-shadow: 0 4px 20px rgba(255, 179, 0, 0.4);
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(25px);
 }
+.let-badge {
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: var(--s);
+  padding: 0 8px;
+}
+.let-btn {
+  padding: 5px 12px;
+  border-radius: 50px;
+  border: 1px solid var(--br);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--t1);
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--tr);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.let-btn:hover { background: rgba(255, 255, 255, 0.14); border-color: var(--s); color: #fff; }
+.let-btn.primary { background: var(--p); border-color: var(--s); color: #000; }
+
+/* ================= MODAL DIALOGS ================= */
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-card {
+  width: 100%;
+  max-width: 540px;
+  background: rgba(12, 12, 18, 0.98);
+  border: 1px solid var(--br);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.9);
+  animation: modalPop 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes modalPop {
+  0% { opacity: 0; transform: scale(0.92) translateY(15px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.modal-title { font-size: 1rem; font-weight: 800; color: var(--s); display: flex; align-items: center; gap: 8px; }
+.modal-close { background: none; border: 1px solid var(--br); color: var(--t1); width: 28px; height: 28px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.modal-label { font-size: 0.75rem; font-weight: 700; color: var(--t2); margin-bottom: 6px; display: block; }
+.modal-input {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--br);
+  border-radius: 8px;
+  color: var(--t1);
+  font-family: inherit;
+  font-size: 0.82rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.modal-input:focus { border-color: var(--s); box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+.tpl-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 8px; }
+.tpl-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--br);
+  color: var(--t1);
+  cursor: pointer;
+  text-align: left;
+  transition: var(--tr);
+}
+[dir="rtl"] .tpl-btn { text-align: right; }
+.tpl-btn:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--s); }
+.tpl-btn.active { border-color: var(--s); background: rgba(212, 175, 55, 0.15); box-shadow: 0 0 12px rgba(212, 175, 55, 0.2); }
+.tpl-icon { font-size: 1.4rem; }
+.tpl-name { font-size: 0.78rem; font-weight: 700; color: var(--t1); }
+.tpl-desc { font-size: 0.65rem; color: var(--t3); margin-top: 2px; }
+.modal-footer { display: flex; justify-content: flex-end; gap: 8px; margin-top: 20px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -1283,12 +1372,16 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 <div class="orb o2"></div>
 <div class="orb o3"></div>
 
-<!-- STEALTH DOCK (Hidden on side with subtle matte arrow) -->
+<!-- 100% STEALTH DOCK WITH MATTE ARROW TAB -->
 <div id="stealthDock">
   <div id="dockMenu">
     <button class="tbtn" id="bl" onclick="tL()">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z"/></svg>
       <span id="ll">العربية</span>
+    </button>
+    <button class="tbtn" onclick="toggleEditMode()" title="Slide Studio & In-Place Editor">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      <span class="en">Studio</span><span class="ar" style="display:none">الاستوديو</span>
     </button>
     <button class="tbtn" onclick="tF()">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
@@ -1304,10 +1397,78 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
   </button>
 </div>
 
-<!-- Edit Mode Banner -->
-<div id="editBanner">
-  ✏️ <span class="en">Live Edit Mode Active: Click any text on slide to modify</span>
-  <span class="ar" style="display:none">وضع التحرير المباشر مفعل: انقر على أي نص في الشريحة للتعديل</span>
+<!-- FLOATING LIVE EDIT TOOLBAR -->
+<div id="liveEditToolbar">
+  <span class="let-badge">✏️ <span class="en">Slide Studio</span><span class="ar" style="display:none">استوديو التحرير</span></span>
+  <button class="let-btn" onclick="addCardToActiveSlide()">➕ <span class="en">Add Card</span><span class="ar" style="display:none">إضافة بطاقة</span></button>
+  <button class="let-btn" onclick="removeLastCardFromActiveSlide()">🗑️ <span class="en">Remove Card</span><span class="ar" style="display:none">حذف بطاقة</span></button>
+  <button class="let-btn primary" onclick="saveEdits()">💾 <span class="en">Save Changes</span><span class="ar" style="display:none">حفظ التغييرات</span></button>
+  <button class="let-btn" onclick="toggleEditMode()">✕ <span class="en">Done</span><span class="ar" style="display:none">تم</span></button>
+</div>
+
+<!-- ADD SLIDE TEMPLATE MODAL -->
+<div id="addSlideModal" class="modal-backdrop">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div class="modal-title">
+        <span>➕</span>
+        <span class="en">Add New Presentation Slide</span>
+        <span class="ar" style="display:none">إضافة شريحة عرض جديدة</span>
+      </div>
+      <button class="modal-close" onclick="closeAddSlideModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <label class="modal-label">
+        <span class="en">Slide Title (Arabic & English)</span>
+        <span class="ar" style="display:none">عنوان الشريحة الجديد</span>
+      </label>
+      <input type="text" id="newSlideTitleEn" class="modal-input" placeholder="Title in English (e.g. Threat Intelligence Model)"/>
+      <input type="text" id="newSlideTitleAr" class="modal-input" style="margin-top:6px" placeholder="العنوان بالعربية (مثلاً: نموذج معلومات التهديدات)"/>
+
+      <label class="modal-label" style="margin-top:14px">
+        <span class="en">Choose Slide Layout Template</span>
+        <span class="ar" style="display:none">اختر قالب وهيكل الشريحة المتناسق</span>
+      </label>
+      <div class="tpl-grid">
+        <button class="tpl-btn active" id="tplBtnDual" data-tpl="dual" onclick="selectTemplate('dual')">
+          <div class="tpl-icon">🗂️</div>
+          <div class="tpl-text">
+            <div class="tpl-name"><span class="en">Dual Cards</span><span class="ar" style="display:none">بطاقتان تفصيليتان</span></div>
+            <div class="tpl-desc"><span class="en">2 side-by-side deep glass cards</span><span class="ar" style="display:none">بطاقتان متجاورتان للمفاهيم والشرح</span></div>
+          </div>
+        </button>
+        <button class="tpl-btn" id="tplBtnTrio" data-tpl="trio" onclick="selectTemplate('trio')">
+          <div class="tpl-icon">📊</div>
+          <div class="tpl-text">
+            <div class="tpl-name"><span class="en">Trio Feature Cards</span><span class="ar" style="display:none">ثلاث بطاقات ميزات</span></div>
+            <div class="tpl-desc"><span class="en">3 column architecture pillars</span><span class="ar" style="display:none">3 أعمدة للمكونات والخصائص</span></div>
+          </div>
+        </button>
+        <button class="tpl-btn" id="tplBtnStats" data-tpl="stats" onclick="selectTemplate('stats')">
+          <div class="tpl-icon">📈</div>
+          <div class="tpl-text">
+            <div class="tpl-name"><span class="en">Metrics & Stats</span><span class="ar" style="display:none">إحصائيات وأرقام كبرى</span></div>
+            <div class="tpl-desc"><span class="en">Big impact numbers & KPI cards</span><span class="ar" style="display:none">أرقام ومؤشرات إحصائية بارزة</span></div>
+          </div>
+        </button>
+        <button class="tpl-btn" id="tplBtnFlow" data-tpl="flow" onclick="selectTemplate('flow')">
+          <div class="tpl-icon">🔄</div>
+          <div class="tpl-text">
+            <div class="tpl-name"><span class="en">Process Pipeline</span><span class="ar" style="display:none">مخطط تدفق العمليات</span></div>
+            <div class="tpl-desc"><span class="en">Sequential steps with arrows</span><span class="ar" style="display:none">مراحل متسلسلة بنبضات تفاعلية</span></div>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="t-btn-act" style="padding:8px 18px" onclick="insertNewSlide()">
+        <span class="en">✨ Insert Slide</span><span class="ar" style="display:none">✨ إدراج الشريحة في العرض</span>
+      </button>
+      <button class="t-btn-act" style="padding:8px 14px;opacity:0.7" onclick="closeAddSlideModal()">
+        <span class="en">Cancel</span><span class="ar" style="display:none">إلغاء</span>
+      </button>
+    </div>
+  </div>
 </div>
 
 <!-- Control Panel Drawer -->
@@ -1320,7 +1481,42 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <button class="cpc" onclick="tC()">✕</button>
   </div>
 
-  <!-- 1. 8 SLIDE ANIMATION STYLES -->
+  <!-- 1. SLIDE STUDIO (FULL LIFECYCLE MANAGEMENT) -->
+  <div class="cps">
+    <div class="cpst">📑 <span class="en">Slide Studio & Lifecycle Controls</span><span class="ar" style="display:none">استوديو إدارة وتحرير الشرائح</span></div>
+    <div class="mode-pills" style="margin-top:6px">
+      <button class="mpill" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.35);color:#6ee7b7" onclick="openAddSlideModal()">
+        <span>➕</span> <span class="en">Add Slide</span><span class="ar" style="display:none">إضافة شريحة</span>
+      </button>
+      <button class="mpill" onclick="duplicateCurrentSlide()">
+        <span>📋</span> <span class="en">Duplicate</span><span class="ar" style="display:none">تكرار الشريحة</span>
+      </button>
+      <button class="mpill" style="background:rgba(225,29,72,0.15);border-color:rgba(225,29,72,0.35);color:#fda4af" onclick="deleteCurrentSlide()">
+        <span>🗑️</span> <span class="en">Delete Slide</span><span class="ar" style="display:none">حذف الشريحة</span>
+      </button>
+      <button class="mpill" onclick="toggleEditMode()">
+        <span>✏️</span> <span class="en">Edit Mode</span><span class="ar" style="display:none">وضع التحرير</span>
+      </button>
+    </div>
+    <div class="mode-pills" style="margin-top:6px">
+      <button class="mpill" onclick="moveSlide('up')">
+        <span>⬆️</span> <span class="en">Move Earlier</span><span class="ar" style="display:none">تقديم الشريحة</span>
+      </button>
+      <button class="mpill" onclick="moveSlide('down')">
+        <span>⬇️</span> <span class="en">Move Later</span><span class="ar" style="display:none">تأخير الشريحة</span>
+      </button>
+    </div>
+    <div style="display:flex;gap:6px;margin-top:10px">
+      <button class="t-btn-act" style="flex:1;padding:8px" onclick="saveEdits()">
+        💾 <span class="en">Save All Changes</span><span class="ar" style="display:none">حفظ التعديلات في المتصفح</span>
+      </button>
+      <button class="t-btn-act" style="padding:8px;opacity:0.8" onclick="restoreOriginalSlides()" title="Restore 25 default slides">
+        🔄 <span class="en">Reset</span><span class="ar" style="display:none">استعادة الأصلية</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 2. 8 SLIDE ANIMATION STYLES -->
   <div class="cps">
     <div class="cpst">🎬 <span class="en">Slide Animation Style (8)</span><span class="ar" style="display:none">أنماط تحريك وانتقال الشرائح (8)</span></div>
     <div class="mode-pills">
@@ -1351,7 +1547,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     </div>
   </div>
 
-  <!-- 2. CARD FOCUS & HIGHLIGHT INTERACTION STYLES -->
+  <!-- 3. CARD FOCUS & HIGHLIGHT INTERACTION STYLES -->
   <div class="cps">
     <div class="cpst">🎯 <span class="en">Element Focus & Hover Effects</span><span class="ar" style="display:none">تأثيرات التركيز والتحديد على العناصر</span></div>
     <div class="cpl" style="margin-bottom:8px;font-size:0.75rem">
@@ -1374,7 +1570,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     </div>
   </div>
 
-  <!-- 3. SERENE DYNAMIC ANIMATED BACKGROUNDS & SPEED -->
+  <!-- 4. SERENE DYNAMIC ANIMATED BACKGROUNDS & SPEED -->
   <div class="cps">
     <div class="cpst">🌌 <span class="en">Dynamic Backgrounds (7 Calm Engines)</span><span class="ar" style="display:none">الخلفيات المتحركة الانسيابية (7 محركات)</span></div>
     <div class="cpr">
@@ -1429,7 +1625,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     </div>
   </div>
 
-  <!-- 4. 10 ROYAL LUXURY PALETTES & GRADIENTS -->
+  <!-- 5. 10 ROYAL LUXURY PALETTES & GRADIENTS -->
   <div class="cps">
     <div class="cpst">👑 <span class="en">Royal Luxury Themes (10)</span><span class="ar" style="display:none">التدرجات والسمات الملكية الفاخرة (10)</span></div>
     <div class="theme-grid">
@@ -1476,7 +1672,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     </div>
   </div>
 
-  <!-- 5. PRESENTATION TIMER -->
+  <!-- 6. PRESENTATION TIMER -->
   <div class="cps">
     <div class="cpst">⏱️ <span class="en">Presentation Timer (15-20 Min)</span><span class="ar" style="display:none">مؤقت العرض (15-20 دقيقة)</span></div>
     <div class="timer-box">
@@ -1489,24 +1685,9 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     </div>
   </div>
 
-  <!-- 6. LIVE IN-PLACE TEXT EDITOR -->
+  <!-- 7. SLIDE DIRECTORY -->
   <div class="cps">
-    <div class="cpst">✏️ <span class="en">Live Content Editor</span><span class="ar" style="display:none">التعديل المباشر للنصوص</span></div>
-    <div class="cpr">
-      <div class="cpl"><span class="en">Editable Slide Mode</span><span class="ar" style="display:none">تفعيل التحرير المباشر</span></div>
-      <button class="csw" id="swEdit" onclick="toggleEditMode()"></button>
-    </div>
-    <button class="t-btn-act" style="width:100%;margin-top:6px;padding:8px" onclick="saveEdits()">
-      💾 <span class="en">Save Custom Edits</span><span class="ar" style="display:none">حفظ التعديلات في المتصفح</span>
-    </button>
-    <button class="t-btn-act" style="width:100%;margin-top:6px;padding:6px;opacity:0.75" onclick="resetEdits()">
-      🔄 <span class="en">Restore Defaults</span><span class="ar" style="display:none">استعادة النصوص الأصلية</span>
-    </button>
-  </div>
-
-  <!-- 7. SLIDE DIRECTORY (25) -->
-  <div class="cps">
-    <div class="cpst">📑 <span class="en">Slides Directory (25)</span><span class="ar" style="display:none">فهرس الشرائح (25)</span></div>
+    <div class="cpst">📑 <span class="en">Slide Directory</span><span class="ar" style="display:none">فهرس الشرائح</span></div>
     <div class="snl" id="snl"></div>
   </div>
 
@@ -1528,6 +1709,8 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 </div>
 
 <div id="wrap" class="anim-cascade">
+
+
 
 
 
@@ -2725,6 +2908,8 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 
 
 
+
+
 </div>
 
 <!-- Bottom Navigation Bar -->
@@ -2741,71 +2926,16 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 
 <script>
 const N = 25;
+let totalSlides = N;
 let c = 0;
 let isAR = false;
 let bgOn = true;
-let bgMode = 'neural'; // 'neural', 'waves', 'aurora', 'stardust', 'grid', 'matrix', 'warp'
-let bgSpeed = 0.5; // Calm serene default multiplier
+let bgMode = 'neural';
+let bgSpeed = 0.5;
 let animStyle = 'cascade';
-let focusStyle = 'halo'; // 'halo', 'lift', 'spotlight', 'border'
+let focusStyle = 'halo';
 let editMode = false;
-
-const slideTitles = {
-  en: [
-    '01 Title / Project Intro',
-    '02 Project Team & Roles',
-    '03 Modern SOC Context',
-    '04 Problem: Alert Fatigue',
-    '05 Triage Bottlenecks',
-    '06 Project Objectives',
-    '07 Project Scope & Limits',
-    '08 SOC Tech Evolution',
-    '09 Conventional SOAR',
-    '10 SOAR Limitations',
-    '11 AI as Force Multiplier',
-    '12 ML Approach Comparison',
-    '13 Research Gap Analysis',
-    '14 System Architecture',
-    '15 Layer 1: Ingestion',
-    '16 Layer 2: Enrichment',
-    '17 Layer 3: AI & Risk Score',
-    '18 Adaptive Prioritization',
-    '19 Layer 4: SOAR Playbooks',
-    '20 Human-AI Teaming Gate',
-    '21 Feedback & Adaptation',
-    '22 DSR 6-Phase Method',
-    '23 Implementation Stack',
-    '24 Incident Walkthrough',
-    '25 Roadmap & Conclusion'
-  ],
-  ar: [
-    '01 العنوان ومقدمة المشروع',
-    '02 فريق العمل والمسؤوليات',
-    '03 سياق مراكز العمليات SOC',
-    '04 بيان المشكلة: إرهاق التنبيهات',
-    '05 قيود الفرز والتبديل اليدوي',
-    '06 أهداف المشروع الاستراتيجية',
-    '07 نطاق المشروع وحدود الدراسة',
-    '08 تطور تقنيات الأتمتة الأمنية',
-    '09 أدوات SOAR ودفاتر العمل',
-    '10 أوجه قصور SOAR التقليدي',
-    '11 الذكاء الاصطناعي كمضاعف قوة',
-    '12 مقارنة نماذج تعلم الآلة',
-    '13 الفجوة البحثية والدافع',
-    '14 المعمارية الشاملة للنظام',
-    '15 الطبقة 1: استيعاب السجلات',
-    '16 الطبقة 2: إثراء السياق',
-    '17 الطبقة 3: محرك الذكاء والفرز',
-    '18 إدارة الأولويات التكيفية',
-    '19 الطبقة 4: دفاتر الاستجابة',
-    '20 بوابات تحكم الإنسان والذكاء',
-    '21 حلقة التعلم والتغذية الراجعة',
-    '22 منهجية علوم التصميم DSR',
-    '23 حزمة التقنيات وبيئة الاختبار',
-    '24 سيناريو تطبيقي لاحتواء الهجوم',
-    '25 ما تم إنجازه وخارطة الطريق'
-  ]
-};
+let selectedTpl = 'dual';
 
 // ================= STEALTH DOCK TOGGLE =================
 function toggleDock() {
@@ -2823,12 +2953,12 @@ document.addEventListener('click', e => {
 // ================= NAVIGATION (ZERO HORIZONTAL SCROLL) =================
 function gS(i, direction = 'next') {
   const slides = document.querySelectorAll('.slide');
+  totalSlides = slides.length;
   if (!slides[c] || !slides[i] || c === i) return;
 
   const prevSlide = slides[c];
   const nextSlide = slides[i];
 
-  // Auto-close open docks on slide change
   const dock = document.getElementById('stealthDock');
   if (dock) dock.classList.remove('open');
 
@@ -2839,16 +2969,16 @@ function gS(i, direction = 'next') {
     prevSlide.classList.remove('exit-left', 'exit-right');
   }, 550);
 
-  c = Math.max(0, Math.min(i, N - 1));
+  c = Math.max(0, Math.min(i, totalSlides - 1));
 
   nextSlide.classList.remove('exit-left', 'exit-right');
   nextSlide.classList.add('active');
 
   animateStats(nextSlide);
 
-  document.getElementById('sc').textContent = (c + 1) + ' / ' + N;
+  document.getElementById('sc').textContent = (c + 1) + ' / ' + totalSlides;
   document.getElementById('bp').disabled = (c === 0);
-  document.getElementById('bn').disabled = (c === N - 1);
+  document.getElementById('bn').disabled = (c === totalSlides - 1);
   
   const dots = document.querySelectorAll('.di');
   dots.forEach((d, idx) => d.classList.toggle('active', idx === c));
@@ -2856,11 +2986,11 @@ function gS(i, direction = 'next') {
     dots[c].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   }
   
-  document.getElementById('pb').style.width = ((c / (N - 1)) * 100) + '%';
+  document.getElementById('pb').style.width = ((c / Math.max(1, totalSlides - 1)) * 100) + '%';
   document.querySelectorAll('.sni').forEach((s, idx) => s.classList.toggle('active', idx === c));
 }
 
-function next() { if (c < N - 1) gS(c + 1, 'next'); }
+function next() { if (c < totalSlides - 1) gS(c + 1, 'next'); }
 function prev() { if (c > 0) gS(c - 1, 'prev'); }
 
 function animateStats(slide) {
@@ -2892,10 +3022,13 @@ function animateStats(slide) {
 function bD() {
   const x = document.getElementById('sd');
   x.innerHTML = '';
-  for (let i = 0; i < N; i++) {
+  const slides = document.querySelectorAll('.slide');
+  totalSlides = slides.length;
+  for (let i = 0; i < totalSlides; i++) {
     const d = document.createElement('div');
-    d.className = 'di' + (i === 0 ? ' active' : '');
-    d.title = (isAR ? slideTitles.ar[i] : slideTitles.en[i]);
+    d.className = 'di' + (i === c ? ' active' : '');
+    const titleEl = slides[i].querySelector('h2.st, h1.hero');
+    d.title = titleEl ? titleEl.innerText.replace(/\n/g, ' ').trim() : `Slide ${i + 1}`;
     d.onclick = () => gS(i, i > c ? 'next' : 'prev');
     x.appendChild(d);
   }
@@ -2904,11 +3037,15 @@ function bD() {
 function bL() {
   const l = document.getElementById('snl');
   l.innerHTML = '';
-  const titles = isAR ? slideTitles.ar : slideTitles.en;
-  titles.forEach((n, i) => {
+  const slides = document.querySelectorAll('.slide');
+  totalSlides = slides.length;
+  slides.forEach((slide, i) => {
     const s = document.createElement('div');
     s.className = 'sni' + (i === c ? ' active' : '');
-    s.textContent = n;
+    const titleEl = slide.querySelector('h2.st, h1.hero');
+    const title = titleEl ? titleEl.innerText.replace(/\n/g, ' ').trim() : `Slide ${i + 1}`;
+    const num = (i + 1).toString().padStart(2, '0');
+    s.textContent = `${num} ${title}`;
     s.onclick = () => { gS(i, i > c ? 'next' : 'prev'); tC(); };
     l.appendChild(s);
   });
@@ -3126,19 +3263,311 @@ function setFocusStyle(style) {
   localStorage.setItem('soar_focus_style', style);
 }
 
-// Interactive Click-to-Pin Focus for presenting before the committee
+// Interactive Click-to-Pin Focus
 document.addEventListener('click', e => {
   const card = e.target.closest('.card, .sb, .fs, .tcard, .ti, .alr');
-  if (card) {
+  if (card && !editMode) {
     const isAlreadyPinned = card.classList.contains('pinned-focus');
     document.querySelectorAll('.pinned-focus').forEach(c => c.classList.remove('pinned-focus'));
     if (!isAlreadyPinned) {
       card.classList.add('pinned-focus');
     }
-  } else if (!e.target.closest('#cp, #stealthDock, #nav')) {
+  } else if (!e.target.closest('#cp, #stealthDock, #nav, #liveEditToolbar, #addSlideModal')) {
     document.querySelectorAll('.pinned-focus').forEach(c => c.classList.remove('pinned-focus'));
   }
 });
+
+// ================= SLIDE STUDIO (FULL LIFECYCLE MANAGEMENT) =================
+function renumberSlides() {
+  const slides = document.querySelectorAll('.slide');
+  totalSlides = slides.length;
+  slides.forEach((s, idx) => {
+    s.id = 's' + idx;
+    let sn = s.querySelector('.sn');
+    if (!sn) {
+      sn = document.createElement('div');
+      sn.className = 'sn';
+      s.insertBefore(sn, s.firstChild);
+    }
+    sn.textContent = (idx + 1).toString().padStart(2, '0') + ' / ' + totalSlides;
+  });
+  c = Math.max(0, Math.min(c, totalSlides - 1));
+  document.getElementById('sc').textContent = (c + 1) + ' / ' + totalSlides;
+  document.getElementById('bp').disabled = (c === 0);
+  document.getElementById('bn').disabled = (c === totalSlides - 1);
+  bD();
+  bL();
+  saveDeckState();
+}
+
+function saveDeckState() {
+  const wrap = document.getElementById('wrap');
+  localStorage.setItem('soar_custom_deck', wrap.innerHTML);
+}
+
+// 1. Add Slide Modal & Insert
+function openAddSlideModal() {
+  document.getElementById('addSlideModal').style.display = 'flex';
+  const enInput = document.getElementById('newSlideTitleEn');
+  const arInput = document.getElementById('newSlideTitleAr');
+  enInput.value = '';
+  arInput.value = '';
+  enInput.focus();
+}
+
+function closeAddSlideModal() {
+  document.getElementById('addSlideModal').style.display = 'none';
+}
+
+function selectTemplate(tpl) {
+  selectedTpl = tpl;
+  document.querySelectorAll('.tpl-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.tpl === tpl);
+  });
+}
+
+function insertNewSlide() {
+  const enTitle = document.getElementById('newSlideTitleEn').value.trim() || 'New Architectural Component';
+  const arTitle = document.getElementById('newSlideTitleAr').value.trim() || 'مكون معماري أمني جديد';
+  
+  const newSlide = document.createElement('section');
+  newSlide.className = 'slide';
+
+  const snBadge = document.createElement('div');
+  snBadge.className = 'sn';
+  newSlide.appendChild(snBadge);
+
+  let bodyHtml = '';
+  if (selectedTpl === 'dual') {
+    bodyHtml = `
+      <div class="content-box">
+        <div class="tag"><span class="dp"></span><span class="en">System Component</span><span class="ar" style="display:none">مكون النظام</span></div>
+        <h2 class="st"><span class="en">${enTitle}</span><span class="ar" style="display:none">${arTitle}</span></h2>
+        <div class="gl"></div>
+        <p class="lead"><span class="en">Detailed operational analysis and verification criteria.</span><span class="ar" style="display:none">تحليل تشغيلي تفصيلي ومعايير التحقق الأمني.</span></p>
+        <div class="g2">
+          <div class="card">
+            <div class="card-h"><div class="ci">⚡</div><span class="en">Functional Capabilities</span><span class="ar" style="display:none">القدرات الوظيفية</span></div>
+            <p><span class="en">Key automation and orchestration mechanisms.</span><span class="ar" style="display:none">آليات الأتمتة والتنسيق الأمني الرئيسية.</span></p>
+            <ul>
+              <li><span class="en">Intelligent event correlation and triage</span><span class="ar" style="display:none">ربط الأحداث والفرز الذكي</span></li>
+              <li><span class="en">Automated containment logic</span><span class="ar" style="display:none">منطق الاحتواء التلقائي السريع</span></li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-h"><div class="ci">🛡️</div><span class="en">Security Impact</span><span class="ar" style="display:none">الأثر والحصانة الأمنية</span></div>
+            <p><span class="en">Evaluation of resilience and response times.</span><span class="ar" style="display:none">تقييم المرونة وسرعة الاستجابة المحققة.</span></p>
+            <ul>
+              <li><span class="en">Drastic reduction in dwell time</span><span class="ar" style="display:none">تقليص زمن بقاء التهديدات في الشبكة</span></li>
+              <li><span class="en">Integration with enterprise SIEM & EDR</span><span class="ar" style="display:none">التكامل مع أنظمة SIEM و EDR</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>`;
+  } else if (selectedTpl === 'trio') {
+    bodyHtml = `
+      <div class="content-box">
+        <div class="tag"><span class="dp"></span><span class="en">Core Pillars</span><span class="ar" style="display:none">الركائز الأساسية</span></div>
+        <h2 class="st"><span class="en">${enTitle}</span><span class="ar" style="display:none">${arTitle}</span></h2>
+        <div class="gl"></div>
+        <p class="lead"><span class="en">Three structural pillars powering the intelligent architecture.</span><span class="ar" style="display:none">ثلاث ركائز هيكلية تشغل المعمارية الذكية.</span></p>
+        <div class="g3">
+          <div class="card">
+            <div class="card-h"><div class="ci">🧠</div><span class="en">AI Core</span><span class="ar" style="display:none">الذكاء الاصطناعي</span></div>
+            <p><span class="en">Automated ML risk scoring and adaptive prioritization.</span><span class="ar" style="display:none">فرز التنبيهات وتحديد الأولويات التكيفي.</span></p>
+          </div>
+          <div class="card">
+            <div class="card-h"><div class="ci">⚡</div><span class="en">Execution</span><span class="ar" style="display:none">تنفيذ الإجراءات</span></div>
+            <p><span class="en">Sub-second dynamic playbook containment.</span><span class="ar" style="display:none">احتواء التهديدات بدفاتر العمل التلقائية.</span></p>
+          </div>
+          <div class="card">
+            <div class="card-h"><div class="ci">🛡️</div><span class="en">Governance</span><span class="ar" style="display:none">الحوكمة والرقابة</span></div>
+            <p><span class="en">Full audit logging and analyst decision gates.</span><span class="ar" style="display:none">سجلات تدقيق كاملة وبوابات تحكم بشري.</span></p>
+          </div>
+        </div>
+      </div>`;
+  } else if (selectedTpl === 'stats') {
+    bodyHtml = `
+      <div class="content-box">
+        <div class="tag"><span class="dp"></span><span class="en">Performance KPIs</span><span class="ar" style="display:none">مؤشرات الأداء</span></div>
+        <h2 class="st"><span class="en">${enTitle}</span><span class="ar" style="display:none">${arTitle}</span></h2>
+        <div class="gl"></div>
+        <p class="lead"><span class="en">Quantified metrics demonstrating system efficacy and precision.</span><span class="ar" style="display:none">مؤشرات كمية تثبت كفاءة ودقة النظام المطور.</span></p>
+        <div class="srow">
+          <div class="sb"><div class="snum">96.2%</div><div class="slbl"><span class="en">Precision</span><span class="ar" style="display:none">دقة التصنيف</span></div></div>
+          <div class="sb"><div class="snum">85%</div><div class="slbl"><span class="en">Fatigue Drop</span><span class="ar" style="display:none">خفض الإجهاد</span></div></div>
+          <div class="sb"><div class="snum">&lt;1.8s</div><div class="slbl"><span class="en">Response Time</span><span class="ar" style="display:none">زمن الاستجابة</span></div></div>
+          <div class="sb"><div class="snum">100%</div><div class="slbl"><span class="en">Compliant</span><span class="ar" style="display:none">مطابقة المعايير</span></div></div>
+        </div>
+        <div class="hl" style="margin-top:20px">
+          <p><span class="en"><strong>Operational Outcome:</strong> Significant transformation in incident response agility and analyst satisfaction.</span><span class="ar" style="display:none"><strong>المحصلة التشغيلية:</strong> تحول جذري في مرونة الاستجابة للحوادث وتقليل زمن الاحتواء.</span></p>
+        </div>
+      </div>`;
+  } else if (selectedTpl === 'flow') {
+    bodyHtml = `
+      <div class="content-box">
+        <div class="tag"><span class="dp"></span><span class="en">Pipeline Architecture</span><span class="ar" style="display:none">مخطط المسار</span></div>
+        <h2 class="st"><span class="en">${enTitle}</span><span class="ar" style="display:none">${arTitle}</span></h2>
+        <div class="gl"></div>
+        <p class="lead"><span class="en">End-to-end incident lifecycle flow from ingestion to resolution.</span><span class="ar" style="display:none">المسار المتكامل لإدارة الحادث من الاستيعاب إلى الإغلاق.</span></p>
+        <div class="flow">
+          <div class="fs"><div class="fi">📡</div><div class="fl"><span class="en">Ingestion</span><span class="ar" style="display:none">استيعاب</span></div><div class="sub">Log Pipeline</div></div>
+          <div class="farr">➔</div>
+          <div class="fs"><div class="fi">🔍</div><div class="fl"><span class="en">Enrichment</span><span class="ar" style="display:none">إثراء</span></div><div class="sub">Threat Intel</div></div>
+          <div class="farr">➔</div>
+          <div class="fs"><div class="fi">🧠</div><div class="fl"><span class="en">AI Triage</span><span class="ar" style="display:none">فرز ذكي</span></div><div class="sub">Scoring Model</div></div>
+          <div class="farr">➔</div>
+          <div class="fs"><div class="fi">⚙️</div><div class="fl"><span class="en">Playbook</span><span class="ar" style="display:none">دفتر العمل</span></div><div class="sub">Automated Fix</div></div>
+        </div>
+      </div>`;
+  }
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(bodyHtml, 'text/html');
+  while (doc.body.firstChild) {
+    newSlide.appendChild(doc.body.firstChild);
+  }
+
+  const slides = document.querySelectorAll('.slide');
+  const currentSlide = slides[c];
+  if (currentSlide && currentSlide.nextSibling) {
+    currentSlide.parentNode.insertBefore(newSlide, currentSlide.nextSibling);
+  } else {
+    document.getElementById('wrap').appendChild(newSlide);
+  }
+
+  // Ensure current language display matches
+  newSlide.querySelectorAll('.en').forEach(e => e.style.display = isAR ? 'none' : '');
+  newSlide.querySelectorAll('.ar').forEach(e => e.style.display = isAR ? '' : 'none');
+
+  closeAddSlideModal();
+  renumberSlides();
+  gS(c + 1, 'next');
+  const cp = document.getElementById('cp');
+  if (cp) cp.classList.remove('open');
+}
+
+// 2. Delete Current Slide
+function deleteCurrentSlide() {
+  const slides = document.querySelectorAll('.slide');
+  if (slides.length <= 1) {
+    alert(isAR ? 'لا يمكن حذف الشريحة الأخيرة!' : 'Cannot delete the only remaining slide!');
+    return;
+  }
+  const confirmMsg = isAR ? `هل أنت متأكد من حذف الشريحة الحالية رقم (${c + 1})؟` : `Are you sure you want to delete slide (${c + 1})?`;
+  if (confirm(confirmMsg)) {
+    const slideToDelete = slides[c];
+    slideToDelete.remove();
+    c = Math.max(0, Math.min(c, document.querySelectorAll('.slide').length - 1));
+    renumberSlides();
+    const remaining = document.querySelectorAll('.slide');
+    remaining.forEach((s, idx) => s.classList.toggle('active', idx === c));
+    const cp = document.getElementById('cp');
+    if (cp) cp.classList.remove('open');
+  }
+}
+
+// 3. Duplicate Slide
+function duplicateCurrentSlide() {
+  const slides = document.querySelectorAll('.slide');
+  const current = slides[c];
+  if (!current) return;
+  const clone = current.cloneNode(true);
+  clone.classList.remove('active', 'exit-left', 'exit-right');
+  if (current.nextSibling) {
+    current.parentNode.insertBefore(clone, current.nextSibling);
+  } else {
+    document.getElementById('wrap').appendChild(clone);
+  }
+  renumberSlides();
+  gS(c + 1, 'next');
+  const cp = document.getElementById('cp');
+  if (cp) cp.classList.remove('open');
+}
+
+// 4. Move Slide Up/Down
+function moveSlide(dir) {
+  const slides = document.querySelectorAll('.slide');
+  const current = slides[c];
+  if (!current) return;
+  const parent = current.parentNode;
+  if (dir === 'up' && c > 0) {
+    parent.insertBefore(current, slides[c - 1]);
+    c--;
+  } else if (dir === 'down' && c < slides.length - 1) {
+    parent.insertBefore(slides[c + 1], current);
+    c++;
+  }
+  renumberSlides();
+  const all = document.querySelectorAll('.slide');
+  all.forEach((s, idx) => s.classList.toggle('active', idx === c));
+}
+
+// 5. In-Place Card Add/Remove
+function addCardToActiveSlide() {
+  const activeSlide = document.querySelectorAll('.slide')[c];
+  if (!activeSlide) return;
+  let grid = activeSlide.querySelector('.g2, .g3, .g4');
+  if (!grid) {
+    const box = activeSlide.querySelector('.content-box');
+    if (!box) return;
+    grid = document.createElement('div');
+    grid.className = 'g2';
+    box.appendChild(grid);
+  }
+  const newCard = document.createElement('div');
+  newCard.className = 'card';
+  newCard.contentEditable = 'true';
+  newCard.style.outline = '1px dashed rgba(255, 179, 0, 0.5)';
+  newCard.innerHTML = `
+    <div class="card-h"><div class="ci">✨</div><span class="en">New Custom Section</span><span class="ar" style="${isAR ? '' : 'display:none'}">قسم مخصص جديد</span></div>
+    <p><span class="en">Click to edit this text directly on the slide.</span><span class="ar" style="${isAR ? '' : 'display:none'}">انقر هنا لتعديل هذا النص مباشرة على الشريحة.</span></p>
+  `;
+  grid.appendChild(newCard);
+  saveDeckState();
+}
+
+function removeLastCardFromActiveSlide() {
+  const activeSlide = document.querySelectorAll('.slide')[c];
+  if (!activeSlide) return;
+  const cards = activeSlide.querySelectorAll('.card');
+  if (cards.length > 0) {
+    cards[cards.length - 1].remove();
+    saveDeckState();
+  }
+}
+
+// 6. Restore Original 25 Slides
+function restoreOriginalSlides() {
+  const msg = isAR ? 'هل تريد استعادة جميع الشرائح الأصلية المعتمدة (25 شريحة) وإلغاء أي تعديلات؟' : 'Restore the official 25 university slides and reset all changes?';
+  if (confirm(msg)) {
+    localStorage.removeItem('soar_custom_deck');
+    localStorage.removeItem('soar_slides_custom');
+    location.reload();
+  }
+}
+
+// ================= LIVE EDIT MODE =================
+function toggleEditMode() {
+  editMode = !editMode;
+  const tb = document.getElementById('liveEditToolbar');
+  if (tb) tb.style.display = editMode ? 'flex' : 'none';
+  
+  document.querySelectorAll('.slide h1, .slide h2, .slide h3, .slide h4, .slide p, .slide li, .slide span, .slide strong, .slide .snum, .slide .slbl').forEach(el => {
+    el.contentEditable = editMode ? 'true' : 'false';
+    if (editMode) el.style.outline = '1px dashed rgba(255, 179, 0, 0.5)';
+    else el.style.outline = 'none';
+  });
+  if (editMode) {
+    const cp = document.getElementById('cp');
+    if (cp) cp.classList.remove('open');
+  }
+}
+
+function saveEdits() {
+  saveDeckState();
+  alert(isAR ? 'تم حفظ التعديلات وحالة الشرائح بنجاح في متصفحك!' : 'All slide edits & structure saved successfully to local storage!');
+}
 
 // ================= DYNAMIC BACKGROUND MODES & SPEED =================
 function toggleBg() {
@@ -3174,59 +3603,6 @@ function setBgSpeed(spd, btnId) {
   if (b) b.classList.add('active');
   localStorage.setItem('soar_bg_speed', spd);
 }
-
-// ================= LIVE EDIT MODE =================
-function toggleEditMode() {
-  editMode = !editMode;
-  document.getElementById('swEdit').classList.toggle('on', editMode);
-  document.getElementById('editBanner').style.display = editMode ? 'block' : 'none';
-  document.querySelectorAll('.slide h1, .slide h2, .slide h3, .slide h4, .slide p, .slide li, .slide span, .slide strong').forEach(el => {
-    el.contentEditable = editMode ? 'true' : 'false';
-    if (editMode) el.style.outline = '1px dashed rgba(255, 179, 0, 0.5)';
-    else el.style.outline = 'none';
-  });
-}
-
-function saveEdits() {
-  const data = document.getElementById('wrap').innerHTML;
-  localStorage.setItem('soar_slides_custom', data);
-  alert(isAR ? 'تم حفظ التعديلات بنجاح في متصفحك!' : 'Custom slide edits saved successfully to local storage!');
-}
-
-function resetEdits() {
-  if (confirm(isAR ? 'هل تريد استعادة النصوص الأصلية وإلغاء التعديلات؟' : 'Reset to default original content?')) {
-    localStorage.removeItem('soar_slides_custom');
-    location.reload();
-  }
-}
-
-window.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('soar_luxury_theme');
-  if (savedTheme) applyTheme(savedTheme);
-
-  const savedAnim = localStorage.getItem('soar_anim_style');
-  if (savedAnim) setAnimStyle(savedAnim);
-
-  const savedFocus = localStorage.getItem('soar_focus_style');
-  if (savedFocus) setFocusStyle(savedFocus);
-
-  const savedBg = localStorage.getItem('soar_bg_mode');
-  if (savedBg) setBgMode(savedBg);
-
-  const savedSpd = localStorage.getItem('soar_bg_speed');
-  if (savedSpd) {
-    const spdVal = parseFloat(savedSpd);
-    const spdBtn = spdVal === 1.0 ? 'btnSpdBalanced' : (spdVal === 0.25 ? 'btnSpdUltra' : 'btnSpdSerene');
-    setBgSpeed(spdVal, spdBtn);
-  }
-
-  const saved = localStorage.getItem('soar_slides_custom');
-  if (saved) {
-    document.getElementById('wrap').innerHTML = saved;
-    const slides = document.querySelectorAll('.slide');
-    slides.forEach((s, idx) => s.classList.toggle('active', idx === c));
-  }
-});
 
 // ================= TIMER =================
 let timerSeconds = 20 * 60;
@@ -3597,7 +3973,6 @@ function animCanvas() {
     });
   } else if (bgMode === 'aurora') {
     waveStep += 0.006 * bgSpeed;
-    // 3 Serene undulating Aurora Curtains
     for (let a = 0; a < 3; a++) {
       cx.beginPath();
       cx.moveTo(0, 0);
@@ -3617,7 +3992,6 @@ function animCanvas() {
   } else if (bgMode === 'grid') {
     waveStep += 0.015 * bgSpeed;
     bgEntities.forEach(e => e.d(pColor, sColor));
-    // Soft connecting links
     const spacing = 48;
     for (let x = 20; x < cv.width - spacing; x += spacing) {
       for (let y = 20; y < cv.height - spacing; y += spacing) {
@@ -3638,6 +4012,36 @@ function animCanvas() {
     bgEntities.forEach(e => { e.u(); e.d(sColor); });
   }
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  const savedDeck = localStorage.getItem('soar_custom_deck');
+  if (savedDeck && savedDeck.trim().length > 1000) {
+    document.getElementById('wrap').innerHTML = savedDeck;
+  }
+
+  const savedTheme = localStorage.getItem('soar_luxury_theme');
+  if (savedTheme) applyTheme(savedTheme);
+
+  const savedAnim = localStorage.getItem('soar_anim_style');
+  if (savedAnim) setAnimStyle(savedAnim);
+
+  const savedFocus = localStorage.getItem('soar_focus_style');
+  if (savedFocus) setFocusStyle(savedFocus);
+
+  const savedBg = localStorage.getItem('soar_bg_mode');
+  if (savedBg) setBgMode(savedBg);
+
+  const savedSpd = localStorage.getItem('soar_bg_speed');
+  if (savedSpd) {
+    const spdVal = parseFloat(savedSpd);
+    const spdBtn = spdVal === 1.0 ? 'btnSpdBalanced' : (spdVal === 0.25 ? 'btnSpdUltra' : 'btnSpdSerene');
+    setBgSpeed(spdVal, spdBtn);
+  }
+
+  renumberSlides();
+  const slides = document.querySelectorAll('.slide');
+  slides.forEach((s, idx) => s.classList.toggle('active', idx === c));
+});
 
 window.addEventListener('resize', rsz);
 rsz();
