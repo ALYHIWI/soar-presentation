@@ -1,0 +1,14 @@
+{
+  "name": "soar-graduation-presentation",
+  "version": "1.0.0",
+  "description": "AI-Based Security Orchestration, Automation and Response (SOAR) Tool - Graduation Project Presentation",
+  "main": "dev-server.js",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "start": "node dev-server.js",
+    "serve": "node dev-server.js"
+  },
+  "keywords": ["soar", "cybersecurity", "presentation", "ai", "machine-learning"],
+  "author": "Graduation Project Team",
+  "license": "ISC"
+}

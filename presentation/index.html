@@ -1,0 +1,3202 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>AI-Based SOAR Tool &ndash; Graduation Project Presentation</title>
+<meta name="description" content="AI-Based Security Orchestration, Automation, and Response (SOAR) Tool - Graduation Project Presentation"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet"/>
+<style>
+/* ================= ROOT DESIGN SYSTEM & LUXURY THEME TOKENS ================= */
+:root {
+  /* Default: Imperial Royal Gold & Deep Onyx */
+  --p: #d4af37;
+  --s: #f9d976;
+  --acc: #ff9f43;
+  --ok: #10b981;
+  --wa: #ffb300;
+  --bg: #070709;
+  --bg-card: rgba(22, 20, 16, 0.78);
+  --gl: rgba(255, 255, 255, 0.05);
+  --br: rgba(212, 175, 55, 0.28);
+  --t1: #fbfbfb;
+  --t2: rgba(251, 251, 251, 0.82);
+  --t3: rgba(251, 251, 251, 0.48);
+  --tr: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --font-en: 'Inter', sans-serif;
+  --font-ar: 'Cairo', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================= GLOBAL SCROLLBAR ELIMINATION ================= */
+html, body {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--t1);
+  font-family: var(--font-en);
+  user-select: text;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+[dir="rtl"] body {
+  font-family: var(--font-ar);
+}
+
+/* ================= DYNAMIC BACKGROUND CANVAS & ORBS ================= */
+canvas#cv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  animation: floatOrb 12s ease-in-out infinite;
+  transition: opacity 0.5s ease, background 0.5s ease;
+  z-index: 1;
+}
+.o1 { width: 440px; height: 440px; background: var(--p); opacity: 0.12; top: -100px; right: -100px; }
+.o2 { width: 380px; height: 380px; background: var(--s); opacity: 0.10; bottom: -80px; left: -80px; animation-delay: -4s; }
+.o3 { width: 280px; height: 280px; background: var(--acc); opacity: 0.08; top: 45%; left: 45%; animation-delay: -8s; }
+
+@keyframes floatOrb {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-24px) rotate(4deg); }
+}
+
+/* ================= PRESENTATION WRAPPER ================= */
+#wrap {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  position: relative;
+  overflow: hidden !important;
+  contain: strict;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  background: transparent !important;
+  z-index: 2;
+}
+
+/* ================= SLIDE CONTAINER & ZERO-OVERFLOW RULES ================= */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 60px 80px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1;
+  overflow-y: auto;
+  overflow-x: hidden !important;
+  contain: paint layout;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  z-index: 2;
+}
+
+/* ================= 1. CASCADE WAVE ANIMATION ================= */
+#wrap.anim-cascade .slide {
+  transform: scale(0.96);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  filter: blur(4px);
+  transition: opacity 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+              visibility 0.45s,
+              filter 0.45s;
+}
+#wrap.anim-cascade .slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: scale(1);
+  filter: blur(0px);
+}
+#wrap.anim-cascade .slide.exit-left {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.96) translateX(-35px);
+  filter: blur(4px);
+}
+#wrap.anim-cascade .slide.exit-right {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.96) translateX(35px);
+  filter: blur(4px);
+}
+
+/* ================= 2. 3D FLIP CUBE (BOUNDED, IN-PLACE, NO SCROLL) ================= */
+#wrap.anim-3d .slide {
+  transform: scale(0.92) rotateY(15deg);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+              visibility 0.5s;
+}
+#wrap.anim-3d .slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: scale(1) rotateY(0deg);
+}
+#wrap.anim-3d .slide.exit-left {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.92) rotateY(-15deg);
+}
+#wrap.anim-3d .slide.exit-right {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.92) rotateY(15deg);
+}
+
+/* ================= 3. CYBER ZOOM STYLE ================= */
+#wrap.anim-zoom .slide {
+  transform: scale(0.86);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.45s;
+}
+#wrap.anim-zoom .slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: scale(1);
+}
+#wrap.anim-zoom .slide.exit-left,
+#wrap.anim-zoom .slide.exit-right {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.12);
+}
+
+/* ================= 4. SOFT DISSOLVE FADE ================= */
+#wrap.anim-fade .slide {
+  transform: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s ease-in-out, visibility 0.4s;
+}
+#wrap.anim-fade .slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: none;
+}
+#wrap.anim-fade .slide.exit-left,
+#wrap.anim-fade .slide.exit-right {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: none;
+}
+
+/* Staggered Element Entrance */
+.slide .tag,
+.slide h1,
+.slide h2,
+.slide p.lead,
+.slide .gl,
+.slide .card,
+.slide .sb,
+.slide .tcard,
+.slide .ti,
+.slide .alr,
+.slide .fs,
+.slide .hl,
+.slide .tbl-wrap,
+.slide .pills {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.slide.active .tag { opacity: 1; transform: translateY(0); transition-delay: 0.08s; }
+.slide.active h1, .slide.active h2.st { opacity: 1; transform: translateY(0); transition-delay: 0.16s; }
+.slide.active .gl { opacity: 1; transform: translateY(0) scaleX(1); transition-delay: 0.22s; }
+.slide.active p.lead { opacity: 1; transform: translateY(0); transition-delay: 0.26s; }
+.slide.active .pills { opacity: 1; transform: translateY(0); transition-delay: 0.32s; }
+
+.slide.active .card:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.30s; }
+.slide.active .card:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.38s; }
+.slide.active .card:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.46s; }
+.slide.active .card:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.54s; }
+
+.slide.active .sb:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.32s; }
+.slide.active .sb:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.40s; }
+.slide.active .sb:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.48s; }
+.slide.active .sb:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.56s; }
+
+.slide.active .tcard:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
+.slide.active .tcard:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.32s; }
+.slide.active .tcard:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.39s; }
+.slide.active .tcard:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.46s; }
+.slide.active .tcard:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.53s; }
+.slide.active .tcard:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.60s; }
+
+.slide.active .fs:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.26s; }
+.slide.active .fs:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.34s; }
+.slide.active .fs:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.42s; }
+.slide.active .fs:nth-child(7) { opacity: 1; transform: translateY(0); transition-delay: 0.50s; }
+.slide.active .fs:nth-child(9) { opacity: 1; transform: translateY(0); transition-delay: 0.58s; }
+
+.slide.active .ti:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.26s; }
+.slide.active .ti:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.34s; }
+.slide.active .ti:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.42s; }
+.slide.active .ti:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.50s; }
+.slide.active .ti:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.58s; }
+.slide.active .ti:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.66s; }
+
+.slide.active .alr:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
+.slide.active .alr:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.33s; }
+.slide.active .alr:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.41s; }
+.slide.active .alr:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.49s; }
+.slide.active .alr:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.57s; }
+
+.slide.active .hl { opacity: 1; transform: translateY(0); transition-delay: 0.48s; }
+.slide.active .tbl-wrap { opacity: 1; transform: translateY(0); transition-delay: 0.32s; }
+
+/* ================= BADGES & HEADERS ================= */
+.sn {
+  position: absolute;
+  top: 24px;
+  right: 60px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--t3);
+  letter-spacing: 2px;
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--br);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+[dir="rtl"] .sn { right: auto; left: 60px; }
+
+.content-box {
+  width: 100%;
+  max-width: 1160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 100px;
+  background: rgba(212, 175, 55, 0.14);
+  border: 1px solid var(--br);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--s);
+  margin-bottom: 12px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.tag svg { color: var(--s); }
+
+.dp {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ok);
+  box-shadow: 0 0 10px var(--ok);
+  animation: pulseDot 2s infinite ease-in-out;
+}
+@keyframes pulseDot { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.4; } }
+
+h1.hero {
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff 15%, var(--s) 65%, var(--p) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+h2.st {
+  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+  font-weight: 800;
+  margin-bottom: 8px;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff 20%, var(--s) 70%, var(--p) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gl {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--s), var(--p), transparent);
+  margin: 6px auto 16px;
+  border-radius: 2px;
+  box-shadow: 0 0 12px var(--s);
+}
+
+p.lead {
+  font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+  color: var(--t2);
+  text-align: center;
+  max-width: 820px;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+/* ================= GRIDS & GLASS CARDS ================= */
+.g2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; width: 100%; }
+.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; width: 100%; }
+.g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; width: 100%; }
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--br);
+  border-radius: 14px;
+  padding: 20px;
+  position: relative;
+  backdrop-filter: blur(18px);
+  transition: var(--tr);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+
+.card:hover {
+  border-color: var(--s);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.card-h {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--t1);
+}
+
+.ci {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--br);
+  color: var(--s);
+  flex-shrink: 0;
+}
+
+.card p, .card ul {
+  font-size: 0.8rem;
+  color: var(--t2);
+  line-height: 1.6;
+}
+
+.card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.card ul li::before {
+  content: '▸';
+  color: var(--s);
+  font-size: 10px;
+  margin-top: 2px;
+}
+[dir="rtl"] .card ul li::before { content: '◂'; }
+
+/* Highlight Callout */
+.hl {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.14), rgba(249, 217, 118, 0.08));
+  border: 1px solid var(--br);
+  border-radius: 12px;
+  padding: 14px 18px;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.hl p {
+  font-size: 0.84rem;
+  color: var(--t2);
+  line-height: 1.6;
+}
+
+.hl strong { color: var(--s); }
+
+/* Stats Row */
+.srow {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.sb {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--br);
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  backdrop-filter: blur(16px);
+  transition: var(--tr);
+}
+.sb:hover {
+  border-color: var(--s);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.snum {
+  font-size: 1.9rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #fff, var(--s));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.slbl {
+  font-size: 0.68rem;
+  color: var(--t3);
+  margin-top: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ================= PIPELINE FLOW WITH DATA PACKET PULSE ================= */
+.flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+}
+
+.fs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--br);
+  border-radius: 12px;
+  min-width: 130px;
+  text-align: center;
+  backdrop-filter: blur(16px);
+  transition: var(--tr);
+}
+.fs:hover {
+  border-color: var(--s);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 16px rgba(212, 175, 55, 0.2);
+}
+.fs .fi { color: var(--s); }
+.fs .fl { font-size: 0.74rem; font-weight: 700; color: var(--t1); }
+.fs .sub { font-size: 0.65rem; color: var(--t3); }
+
+@keyframes cyberPulse {
+  0%, 100% {
+    color: var(--p);
+    transform: scale(1);
+    filter: drop-shadow(0 0 2px var(--p));
+  }
+  50% {
+    color: var(--s);
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 10px var(--s));
+  }
+}
+
+.farr {
+  color: var(--p);
+  font-size: 16px;
+  padding: 0 4px;
+  animation: cyberPulse 2s infinite ease-in-out;
+  display: inline-block;
+  font-weight: bold;
+}
+[dir="rtl"] .farr { transform: rotate(180deg); }
+
+/* ================= COMPARISON TABLE ================= */
+.tbl-wrap {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+table.ctbl {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--br);
+  font-size: 0.8rem;
+}
+table.ctbl th, table.ctbl td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--br);
+}
+[dir="rtl"] table.ctbl th, [dir="rtl"] table.ctbl td { text-align: right; }
+table.ctbl th {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--s);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.72rem;
+}
+table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
+
+/* ================= TIMELINE ================= */
+.tl {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+.ti {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 12px;
+  position: relative;
+}
+.ti:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 17px; top: 36px; bottom: -8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--p), transparent);
+}
+[dir="rtl"] .ti:not(:last-child)::after { left: auto; right: 17px; }
+.td {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid var(--p);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--s);
+  flex-shrink: 0;
+  transition: var(--tr);
+}
+.ti:hover .td {
+  border-color: var(--s);
+  transform: scale(1.15);
+  box-shadow: 0 0 15px var(--s);
+}
+.tic { padding: 4px 0 14px; }
+.tic h3 { font-size: 0.88rem; font-weight: 700; margin-bottom: 2px; color: var(--t1); }
+.tic p { font-size: 0.76rem; color: var(--t2); line-height: 1.5; }
+
+/* ================= TEAM GRID ================= */
+.tg {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+.tcard {
+  background: var(--bg-card);
+  border: 1px solid var(--br);
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+  backdrop-filter: blur(16px);
+  transition: var(--tr);
+}
+.tcard:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: var(--s);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4), 0 0 18px rgba(212, 175, 55, 0.2);
+}
+.tcard .av {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 10px;
+  background: linear-gradient(135deg, var(--p), var(--s));
+  color: #000;
+  font-weight: 800;
+  transition: transform 0.3s ease;
+}
+.tcard:hover .av { transform: scale(1.1) rotate(6deg); }
+.tcard .nm { font-size: 0.82rem; font-weight: 700; margin-bottom: 3px; color: var(--t1); }
+.tcard .rl { font-size: 0.7rem; color: var(--s); font-weight: 600; }
+.tcard .desc { font-size: 0.68rem; color: var(--t3); margin-top: 4px; }
+
+/* ================= ARCHITECTURE LAYERS ================= */
+.al {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.alr {
+  display: flex;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--br);
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  align-items: center;
+  transition: var(--tr);
+}
+.alr:hover {
+  border-color: var(--s);
+  transform: translateX(4px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+}
+[dir="rtl"] .alr:hover { transform: translateX(-4px); }
+
+.all {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--p);
+  min-width: 130px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ali {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.ai {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--br);
+  color: var(--t2);
+  transition: transform 0.2s ease;
+}
+.ai:hover { transform: scale(1.05); border-color: var(--s); }
+.ai.cy { background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.3); color: #7dd3fc; }
+.ai.gr { background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3); color: #6ee7b7; }
+.ai.rd { background: rgba(225, 29, 72, 0.1); border-color: rgba(225, 29, 72, 0.3); color: #fda4af; }
+.ai.ye { background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: #fde68a; }
+
+/* Pills */
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.pill { padding: 4px 12px; border-radius: 100px; font-size: 0.72rem; font-weight: 600; border: 1px solid; transition: transform 0.2s; }
+.pill:hover { transform: scale(1.06); }
+.pp { background: rgba(212, 175, 55, 0.15); border-color: var(--br); color: var(--s); }
+.pc { background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.3); color: #7dd3fc; }
+.pr { background: rgba(225, 29, 72, 0.1); border-color: rgba(225, 29, 72, 0.3); color: #fda4af; }
+.pg { background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3); color: #6ee7b7; }
+.py { background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: #fde68a; }
+
+/* ================= TOP PROGRESS BAR ================= */
+#pb {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--p), var(--s), var(--ok), var(--s), var(--p));
+  background-size: 300% 100%;
+  animation: gradientShimmer 4s linear infinite;
+  z-index: 100;
+  transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 15px var(--s), 0 0 5px var(--p);
+}
+
+@keyframes gradientShimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* ================= BOTTOM NAVIGATION BAR (ZERO SCROLLBAR) ================= */
+#nav {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 100;
+  background: rgba(10, 10, 14, 0.92);
+  border: 1px solid var(--br);
+  border-radius: 100px;
+  padding: 6px 18px;
+  backdrop-filter: blur(25px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+
+.nb {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: var(--t1);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--tr);
+}
+.nb:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--s); transform: scale(1.1); color: var(--s); }
+.nb:disabled { opacity: 0.25; cursor: not-allowed; transform: none; }
+
+#sc {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--t2);
+  min-width: 60px;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+#sd {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  max-width: 320px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 6px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+#sd::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.di {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: var(--tr);
+  flex-shrink: 0;
+}
+.di.active { background: var(--s); width: 18px; border-radius: 4px; box-shadow: 0 0 10px var(--s); }
+
+#tb {
+  position: fixed;
+  top: 16px;
+  left: 18px;
+  display: flex;
+  gap: 8px;
+  z-index: 100;
+}
+[dir="rtl"] #tb { left: auto; right: 18px; }
+
+.tbtn {
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--br);
+  background: rgba(10, 10, 14, 0.92);
+  color: var(--t1);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  transition: var(--tr);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tbtn:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--s); color: #fff; transform: translateY(-2px); }
+
+/* ================= CONTROL PANEL DRAWER ================= */
+#cp {
+  position: fixed;
+  top: 0;
+  right: -460px;
+  width: 440px;
+  height: 100vh;
+  background: rgba(8, 8, 12, 0.98);
+  border-left: 1px solid var(--br);
+  backdrop-filter: blur(40px);
+  z-index: 200;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  padding: 22px;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
+  scrollbar-width: none;
+}
+[dir="rtl"] #cp {
+  right: auto;
+  left: -460px;
+  border-left: none;
+  border-right: 1px solid var(--br);
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 10px 0 40px rgba(0,0,0,0.8);
+}
+#cp.open { right: 0; }
+[dir="rtl"] #cp.open { left: 0; }
+
+.cph { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.cpt { font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; gap: 8px; color: var(--s); }
+.cpc { background: none; border: 1px solid var(--br); color: var(--t1); width: 32px; height: 32px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.cpc:hover { border-color: var(--s); color: #fff; }
+.cps { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.cps:last-child { border-bottom: none; }
+.cpst { font-size: 0.72rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--s); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.cpr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.cpl { font-size: 0.82rem; color: var(--t2); }
+
+/* Switch */
+.csw { width: 42px; height: 22px; border-radius: 11px; background: rgba(255, 255, 255, 0.15); border: none; cursor: pointer; position: relative; transition: background 0.3s; }
+.csw::after { content: ''; position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 50%; background: white; transition: left 0.3s; }
+.csw.on { background: var(--p); }
+.csw.on::after { left: 22px; }
+[dir="rtl"] .csw::after { left: auto; right: 2px; transition: right 0.3s; }
+[dir="rtl"] .csw.on::after { right: 22px; }
+
+/* Mode Selector Pills */
+.mode-pills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-top: 6px; }
+.mpill {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--gl);
+  border: 1px solid var(--br);
+  color: var(--t2);
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: var(--tr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.mpill:hover { border-color: var(--s); color: #fff; background: rgba(255, 255, 255, 0.08); }
+.mpill.active {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(249, 217, 118, 0.2));
+  border-color: var(--s);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
+}
+
+/* ================= 10 ROYAL LUXURY THEME GRID ================= */
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+.tcard-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--br);
+  color: var(--t1);
+  cursor: pointer;
+  transition: var(--tr);
+  text-align: left;
+}
+[dir="rtl"] .tcard-btn { text-align: right; }
+.tcard-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: var(--s);
+  transform: translateY(-2px);
+}
+.tcard-btn.active {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+  border-color: var(--s);
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.25);
+}
+.t-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(0,0,0,0.6);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+}
+.t-name {
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--t2);
+}
+.tcard-btn.active .t-name {
+  color: #fff;
+}
+
+/* Slide Directory */
+.snl { display: flex; flex-direction: column; gap: 5px; max-height: 180px; overflow-y: auto; padding-right: 4px; scrollbar-width: none; }
+.sni { padding: 8px 12px; border-radius: 8px; background: var(--gl); border: 1px solid transparent; cursor: pointer; font-size: 0.76rem; color: var(--t2); transition: var(--tr); }
+.sni:hover { border-color: var(--p); color: var(--t1); transform: translateX(4px); }
+[dir="rtl"] .sni:hover { transform: translateX(-4px); }
+.sni.active { border-color: var(--s); background: rgba(212, 175, 55, 0.18); color: #fff; font-weight: 700; }
+
+/* Timer Box */
+.timer-box {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--br);
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.timer-val {
+  font-size: 1.8rem;
+  font-weight: 900;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--s);
+  letter-spacing: 2px;
+}
+.timer-btns { display: flex; gap: 8px; }
+.t-btn-act {
+  padding: 5px 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 6px;
+  border: 1px solid var(--br);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--t1);
+  cursor: pointer;
+  transition: var(--tr);
+}
+.t-btn-act:hover { background: var(--p); border-color: var(--s); transform: scale(1.05); color: #000; }
+
+/* Live Edit Banner */
+#editBanner {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 179, 0, 0.92);
+  color: #000;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 6px 18px;
+  border-radius: 20px;
+  z-index: 150;
+  display: none;
+  box-shadow: 0 4px 20px rgba(255, 179, 0, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .slide { padding: 40px 20px 80px; }
+  .g2, .g3, .g4, .tg { grid-template-columns: 1fr; }
+  .tc { grid-template-columns: 1fr; }
+  .srow { flex-wrap: wrap; }
+  #cp { width: 100vw; right: -100vw; }
+  [dir="rtl"] #cp { left: -100vw; }
+}
+</style>
+</head>
+<body>
+
+<div id="pb"></div>
+<canvas id="cv"></canvas>
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+<div class="orb o3"></div>
+
+<!-- Top bar -->
+<div id="tb">
+  <button class="tbtn" id="bl" onclick="tL()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    <span id="ll">العربية</span>
+  </button>
+  <button class="tbtn" onclick="tF()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+    <span class="en">Fullscreen</span><span class="ar" style="display:none">ملء الشاشة</span>
+  </button>
+  <button class="tbtn" onclick="tC()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    <span class="en">Control Center</span><span class="ar" style="display:none">مركز التحكم</span>
+  </button>
+</div>
+
+<!-- Edit Mode Banner -->
+<div id="editBanner">
+  ✏️ <span class="en">Live Edit Mode Active: Click any text on slide to modify</span>
+  <span class="ar" style="display:none">وضع التحرير المباشر مفعل: انقر على أي نص في الشريحة للتعديل</span>
+</div>
+
+<!-- Control Panel Drawer -->
+<div id="cp">
+  <div class="cph">
+    <div class="cpt">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span class="en">Control Center</span><span class="ar" style="display:none">مركز التحكم الشامل</span>
+    </div>
+    <button class="cpc" onclick="tC()">✕</button>
+  </div>
+
+  <!-- 1. SLIDE ANIMATION STYLES SELECTOR -->
+  <div class="cps">
+    <div class="cpst">🎬 <span class="en">Slide Animation Style</span><span class="ar" style="display:none">أنماط تحريك وانتقال الشرائح</span></div>
+    <div class="mode-pills">
+      <button class="mpill active" id="btnAnimCascade" onclick="setAnimStyle('cascade')">
+        <span>💫</span> <span class="en">Cascade Wave</span><span class="ar" style="display:none">متسلسل سينمائي</span>
+      </button>
+      <button class="mpill" id="btnAnim3D" onclick="setAnimStyle('3d')">
+        <span>🧊</span> <span class="en">3D Flip Cube</span><span class="ar" style="display:none">دوران 3D ثابت</span>
+      </button>
+      <button class="mpill" id="btnAnimZoom" onclick="setAnimStyle('zoom')">
+        <span>⚡</span> <span class="en">Cyber Zoom</span><span class="ar" style="display:none">قفز سيبراني</span>
+      </button>
+      <button class="mpill" id="btnAnimFade" onclick="setAnimStyle('fade')">
+        <span>🌫️</span> <span class="en">Soft Dissolve</span><span class="ar" style="display:none">تلاشٍ هادئ</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 2. DYNAMIC SMOOTH ANIMATED BACKGROUND SELECTOR -->
+  <div class="cps">
+    <div class="cpst">🌌 <span class="en">Dynamic Animated Backgrounds</span><span class="ar" style="display:none">الخلفية المتحركة الديناميكية</span></div>
+    <div class="cpr">
+      <div class="cpl"><span class="en">Enable Animated Canvas</span><span class="ar" style="display:none">تشغيل / إخفاء الخلفية المتحركة</span></div>
+      <button class="csw on" id="swBg" onclick="toggleBg()"></button>
+    </div>
+    <div class="mode-pills" id="bgPillsGroup" style="margin-top:8px">
+      <button class="mpill active" id="btnBgNeural" onclick="setBgMode('neural')">
+        <span>🧠</span> <span class="en">Neural AI Mesh</span><span class="ar" style="display:none">شبكة عصبية ذكية</span>
+      </button>
+      <button class="mpill" id="btnBgWaves" onclick="setBgMode('waves')">
+        <span>🌊</span> <span class="en">Quantum Waves</span><span class="ar" style="display:none">أمواج كوانتية</span>
+      </button>
+      <button class="mpill" id="btnBgMatrix" onclick="setBgMode('matrix')">
+        <span>💚</span> <span class="en">Cyber Matrix</span><span class="ar" style="display:none">مصفوفة الشيفرات</span>
+      </button>
+      <button class="mpill" id="btnBgWarp" onclick="setBgMode('warp')">
+        <span>🚀</span> <span class="en">Space Warp</span><span class="ar" style="display:none">العمق الفضائي</span>
+      </button>
+    </div>
+    <div class="cpr" style="margin-top:10px">
+      <div class="cpl"><span class="en">Atmospheric Glowing Orbs</span><span class="ar" style="display:none">الهالات المضيئة الحية</span></div>
+      <button class="csw on" id="swo" onclick="tOrbs()"></button>
+    </div>
+  </div>
+
+  <!-- 3. 10 ROYAL LUXURY PALETTES & GRADIENTS -->
+  <div class="cps">
+    <div class="cpst">👑 <span class="en">Royal Luxury Themes (10)</span><span class="ar" style="display:none">التدرجات والسمات الملكية الفاخرة (10)</span></div>
+    <div class="theme-grid">
+      <button class="tcard-btn active" data-theme="gold" onclick="applyTheme('gold')">
+        <div class="t-swatch" style="background:linear-gradient(135deg,#d4af37,#f9d976)"></div>
+        <div class="t-name"><span class="en">Imperial Gold</span><span class="ar" style="display:none">الذهب الملكي والأونيكس</span></div>
+      </button>
+      <button class="tcard-btn" data-theme="emerald" onclick="applyTheme('emerald')">
+        <div class="t-swatch" style="background:linear-gradient(135deg,#059669,#34d399)"></div>
+        <div class="t-name"><span class="en">Sultanate Emerald</span><span class="ar" style="display:none">الزمرد السلطاني</span></div>
+      </button>
+      <button class="tcard-btn" data-theme="sapphire" onclick="applyTheme('sapphire')">
+        <div class="t-swatch" style="background:linear-gradient(135deg,#2563eb,#38bdf8)"></div>
+        <div class="t-name"><span class="en">Royal Sapphire</span><span class="ar" style="display:none">الياقوت الأزرق</span></div>
+      </button>
+      <button class="tcard-btn" data-theme="violet" onclick="applyTheme('violet')">
+        <div class="t-swatch" style="background:linear-gradient(135deg,#7c3aed,#c084fc)"></div>
+        <div class="t-name"><span class="en">Monarch Violet</span><span class="ar" style="display:none">البنفسج الإمبراطوري</span></div>
+      </button>
+      <button class="tcard-btn" data-theme="ruby" onclick="applyTheme('ruby')">
+        <div class="t-swatch" style="background:linear-gradient(135deg,#e11d48,#fb923c)"></div>
+        <div class="t-name"><span class="en">Crimson Ruby</span><span class="ar" style="display:none">الياقوت الأحمر الملكي</span></div>
+      </button>
+      <button class="tcard-btn" data-theme="rose" onclick="applyTheme('rose')">
+        <div class="t-swatch" style="background:linear-gradient(135deg,#fb7185,#fde047)"></div>
+        <div class="t-name"><span class="en">Rose Gold & Champagne</span><span class="ar" style="display:none">الذهب الوردي والشمبانيا</span></div>
+      </button>
+      <button class="tcard-btn" data-theme="aurora" onclick="applyTheme('aurora')">
+        <div class="t-swatch" style="background:linear-gradient(135deg,#06b6d4,#10b981)"></div>
+        <div class="t-name"><span class="en">Nordic Aurora</span><span class="ar" style="display:none">الشفق القطبي</span></div>
+      </button>
+      <button class="tcard-btn" data-theme="titanium" onclick="applyTheme('titanium')">
+        <div class="t-swatch" style="background:linear-gradient(135deg,#94a3b8,#f1f5f9)"></div>
+        <div class="t-name"><span class="en">Platinum Stealth</span><span class="ar" style="display:none">التيتانيوم الفاخر</span></div>
+      </button>
+      <button class="tcard-btn" data-theme="bronze" onclick="applyTheme('bronze')">
+        <div class="t-swatch" style="background:linear-gradient(135deg,#d97706,#f59e0b)"></div>
+        <div class="t-name"><span class="en">Antique Bronze</span><span class="ar" style="display:none">البرونز العتيق والكونياك</span></div>
+      </button>
+      <button class="tcard-btn" data-theme="matrix" onclick="applyTheme('matrix')">
+        <div class="t-swatch" style="background:linear-gradient(135deg,#00ff9d,#00e5ff)"></div>
+        <div class="t-name"><span class="en">Cyber Matrix</span><span class="ar" style="display:none">النيون السيبراني</span></div>
+      </button>
+    </div>
+  </div>
+
+  <!-- 4. PRESENTATION TIMER -->
+  <div class="cps">
+    <div class="cpst">⏱️ <span class="en">Presentation Timer (15-20 Min)</span><span class="ar" style="display:none">مؤقت العرض (15-20 دقيقة)</span></div>
+    <div class="timer-box">
+      <div class="timer-val" id="timerDisplay">20:00</div>
+      <div class="timer-btns">
+        <button class="t-btn-act" onclick="startTimer()"><span class="en">Start</span><span class="ar" style="display:none">بدء</span></button>
+        <button class="t-btn-act" onclick="pauseTimer()"><span class="en">Pause</span><span class="ar" style="display:none">إيقاف</span></button>
+        <button class="t-btn-act" onclick="resetTimer()"><span class="en">Reset</span><span class="ar" style="display:none">إعادة</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. LIVE IN-PLACE TEXT EDITOR -->
+  <div class="cps">
+    <div class="cpst">✏️ <span class="en">Live Content Editor</span><span class="ar" style="display:none">التعديل المباشر للنصوص</span></div>
+    <div class="cpr">
+      <div class="cpl"><span class="en">Editable Slide Mode</span><span class="ar" style="display:none">تفعيل التحرير المباشر</span></div>
+      <button class="csw" id="swEdit" onclick="toggleEditMode()"></button>
+    </div>
+    <button class="t-btn-act" style="width:100%;margin-top:6px;padding:8px" onclick="saveEdits()">
+      💾 <span class="en">Save Custom Edits</span><span class="ar" style="display:none">حفظ التعديلات في المتصفح</span>
+    </button>
+    <button class="t-btn-act" style="width:100%;margin-top:6px;padding:6px;opacity:0.75" onclick="resetEdits()">
+      🔄 <span class="en">Restore Defaults</span><span class="ar" style="display:none">استعادة النصوص الأصلية</span>
+    </button>
+  </div>
+
+  <!-- 6. SLIDE DIRECTORY (25) -->
+  <div class="cps">
+    <div class="cpst">📑 <span class="en">Slides Directory (25)</span><span class="ar" style="display:none">فهرس الشرائح (25)</span></div>
+    <div class="snl" id="snl"></div>
+  </div>
+
+  <!-- 7. TYPOGRAPHY SCALE -->
+  <div class="cps">
+    <div class="cpst">🔠 <span class="en">Font Scale</span><span class="ar" style="display:none">حجم الخط</span></div>
+    <div class="cpr"><div class="cpl"><span class="en">Scale</span><span class="ar" style="display:none">الحجم</span></div><input type="range" min="13" max="21" value="16" oninput="document.documentElement.style.fontSize=this.value+'px'" style="width:140px;accent-color:var(--p)"/></div>
+  </div>
+
+  <!-- 8. SHORTCUTS -->
+  <div class="cps">
+    <div class="cpst">⌨️ <span class="en">Hotkeys</span><span class="ar" style="display:none">اختصارات لوحة المفاتيح</span></div>
+    <div style="font-size:.76rem;color:var(--t3);line-height:2">
+      ← → / Space : Navigate &nbsp;|&nbsp; F : Fullscreen<br>
+      L : Language Toggle &nbsp;|&nbsp; C : Control Center<br>
+      E : Toggle Edit Mode &nbsp;|&nbsp; Home / End : Start / End
+    </div>
+  </div>
+</div>
+
+<div id="wrap" class="anim-cascade">
+
+
+
+
+<!-- ================= S01: HERO / TITLE ================= -->
+<section class="slide active" id="s0">
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <div class="dp"></div>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span class="en">Graduation Project Defense &middot; Chapters 1, 2 &amp; 3</span>
+      <span class="ar" style="display:none">مناقشة مشروع التخرج &middot; الفصول 1، 2 و 3</span>
+    </div>
+    <p style="font-size:clamp(.9rem,1.7vw,1.15rem);color:var(--s);font-weight:600;margin-bottom:6px;" class="en">
+      University of Science and Technology &middot; Faculty of Computer Science and Technology
+    </p>
+    <p style="display:none;font-size:clamp(.9rem,1.7vw,1.15rem);color:var(--s);font-weight:600;margin-bottom:6px;" class="ar">
+      جامعة العلوم والتكنولوجيا &middot; كلية علوم وحوسبة الحاسوب &middot; قسم علوم الحاسوب
+    </p>
+    <h1 class="hero">
+      <span class="en">AI-Based Security Orchestration, Automation &amp; Response (SOAR) Tool</span>
+      <span class="ar" style="display:none">أداة أمنية ذكية للتنسيق والأتمتة والاستجابة للحوادث السيبرانية (SOAR)</span>
+    </h1>
+    <div class="gl"></div>
+    <p class="lead en">
+      An intelligent framework bridging context-aware machine learning triage, dynamic risk prioritization, and automated response orchestration to resolve alert fatigue in modern Security Operations Centers (SOC).
+    </p>
+    <p class="lead ar" style="display:none">
+      إطار عمل أمني متكامل يدمج الفرز الذكي القائم على تعلم الآلة، وتقييم المخاطر الديناميكي، مع أتمتة الاستجابة لحل مشكلة إرهاق التنبيهات في مراكز العمليات الأمنية الحديثة.
+    </p>
+    <div class="srow" style="max-width:900px;margin-top:10px">
+      <div class="sb">
+        <div class="snum">AI/ML</div>
+        <div class="slbl en">Dynamic Triage Engine</div><div class="slbl ar" style="display:none">محرك فرز ذكي</div>
+      </div>
+      <div class="sb">
+        <div class="snum">SOAR</div>
+        <div class="slbl en">Automated Playbooks</div><div class="slbl ar" style="display:none">دفاتر استجابة مؤتمتة</div>
+      </div>
+      <div class="sb">
+        <div class="snum">DSR</div>
+        <div class="slbl en">Design Science Method</div><div class="slbl ar" style="display:none">منهجية علوم التصميم</div>
+      </div>
+      <div class="sb">
+        <div class="snum">2026</div>
+        <div class="slbl en">Academic Year 25/26</div><div class="slbl ar" style="display:none">العام الأكاديمي</div>
+      </div>
+    </div>
+    <div class="hl" style="max-width:900px;margin-top:18px;text-align:center">
+      <p class="en">
+        <strong>Academic Supervisor:</strong> Dr. Raed Saeed &nbsp;|&nbsp;
+        <strong>Major:</strong> Bachelor's in Cybersecurity and Networking &nbsp;|&nbsp;
+        <strong>Department:</strong> Computer Science
+      </p>
+      <p class="ar" style="display:none">
+        <strong>إشراف الدكتور:</strong> رائد سعيد &nbsp;|&nbsp;
+        <strong>التخصص:</strong> بكالوريوس الأمن السيبراني والشبكات &nbsp;|&nbsp;
+        <strong>القسم:</strong> علوم الحاسوب
+      </p>
+    </div>
+  </div>
+  <div class="sn">01 / 25</div>
+</section>
+
+<!-- ================= S02: TEAM & ROLES ================= -->
+<section class="slide" id="s1">
+  <div class="orb o1" style="opacity:0.4"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span class="en">Project Team &amp; Responsibilities</span><span class="ar" style="display:none">فريق العمل والمسؤوليات</span>
+    </div>
+    <h2 class="st en">Project Research &amp; Engineering Team</h2>
+    <h2 class="st ar" style="display:none">فريق البحث والتطوير الهندسي</h2>
+    <div class="gl"></div>
+    <div class="tg">
+      <div class="tcard">
+        <div class="av"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="nm">Hizam Mohammed Ali Al-Shajara</div>
+        <div class="rl en">Lead Architect &amp; AI Engineer</div><div class="rl ar" style="display:none">مهندس المعمارية والذكاء الاصطناعي</div>
+        <div class="desc en">Architecture design, ML triage &amp; scoring model development</div>
+        <div class="desc ar" style="display:none">تصميم المعمارية وتطوير نماذج الفرز بالذكاء الاصطناعي</div>
+      </div>
+      <div class="tcard">
+        <div class="av"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="nm">Hamoud Abdullah Saleh Abu Amrah</div>
+        <div class="rl en">SOAR &amp; Playbook Integration Lead</div><div class="rl ar" style="display:none">مسؤول تكامل SOAR ودفاتر العمل</div>
+        <div class="desc en">API orchestration, workflow automation &amp; response logic</div>
+        <div class="desc ar" style="display:none">تكامل واجهات API وأتمتة مسارات الاستجابة</div>
+      </div>
+      <div class="tcard">
+        <div class="av"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="nm">Mohammed Hameed Qasim Mohammed</div>
+        <div class="rl en">Data Pipeline &amp; Enrichment Specialist</div><div class="rl ar" style="display:none">أخصائي تدفق البيانات والإثراء</div>
+        <div class="desc en">Alert ingestion, parsing (CEF/JSON) &amp; threat intelligence feeds</div>
+        <div class="desc ar" style="display:none">استيعاب التنبيهات، المعالجة وتغذية معلومات التهديدات</div>
+      </div>
+      <div class="tcard">
+        <div class="av"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="nm">Mohammed Taha Qasim Al-Warafi</div>
+        <div class="rl en">Model Validation &amp; Evaluation Lead</div><div class="rl ar" style="display:none">مسؤول التقييم وضبط النماذج</div>
+        <div class="desc en">Experimental benchmarking, metrics definition &amp; test suites</div>
+        <div class="desc ar" style="display:none">الاختبارات المعيارية، تقييم الأداء والمقاييس التشغيلية</div>
+      </div>
+      <div class="tcard">
+        <div class="av"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="nm">Marwan Mohammed Saeed Al-Ameer</div>
+        <div class="rl en">Security Telemetry &amp; SIEM Analyst</div><div class="rl ar" style="display:none">محلل السجلات الأمنية و SIEM</div>
+        <div class="desc en">SOC workflow modeling, telemetry mapping &amp; rule auditing</div>
+        <div class="desc ar" style="display:none">نمذجة مسارات العمل، تدقيق القواعد وربط الحساسات</div>
+      </div>
+      <div class="tcard">
+        <div class="av"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="nm">Noah Ahmed Mohammed Maraq</div>
+        <div class="rl en">System Interface &amp; Human-AI Teaming</div><div class="rl ar" style="display:none">واجهات النظام وتفاعل الإنسان والذكاء</div>
+        <div class="desc en">SOC dashboard design, analyst feedback loops &amp; approval gates</div>
+        <div class="desc ar" style="display:none">تصميم لوحات التحكم وحلقات التغذية الراجعة للمحللين</div>
+      </div>
+    </div>
+    <div class="hl" style="margin-top:14px;text-align:center">
+      <p class="en"><strong>Academic Department:</strong> Department of Computer Science &nbsp;|&nbsp; <strong>Department Head:</strong> Dr. Nabeel Al-Mekhlafy &nbsp;|&nbsp; <strong>Supervision:</strong> Dr. Raed Saeed</p>
+      <p class="ar" style="display:none"><strong>القسم الأكاديمي:</strong> قسم علوم الحاسوب &nbsp;|&nbsp; <strong>رئيس القسم:</strong> د. نبيل المخلافي &nbsp;|&nbsp; <strong>المشرف العلمي:</strong> د. رائد سعيد</p>
+    </div>
+  </div>
+  <div class="sn">02 / 25</div>
+</section>
+
+<!-- ================= S03: MODERN SOC CONTEXT ================= -->
+<section class="slide" id="s2">
+  <div class="orb o2" style="opacity:0.35"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+      <span class="en">Chapter 1 &ndash; Operational Context</span><span class="ar" style="display:none">الفصل الأول &ndash; السياق التشغيلي</span>
+    </div>
+    <h2 class="st en">The Modern SOC Operational Landscape</h2>
+    <h2 class="st ar" style="display:none">المشهد التشغيلي لمراكز العمليات الأمنية الحديثة (SOC)</h2>
+    <div class="gl"></div>
+    <p class="lead en">Modern Security Operations Centers defend corporate infrastructures by aggregating logs across multi-vendor sensors, but encounter exponential data volume and severe operational friction.</p>
+    <p class="lead ar" style="display:none">تعمل مراكز العمليات الأمنية على حماية المؤسسات عبر مراقبة وتجميع سجلات متباينة، لكنها تصطدم بأحجام بيانات متسارعة واختناقات تشغيلية حادة.</p>
+    <div class="grid g3">
+      <div class="card">
+        <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <h3 class="ct en">Data Influx &amp; SIEM Role</h3><h3 class="ct ar" style="display:none">طوفان البيانات ودور SIEM</h3>
+        <p class="en">Gigabytes of security events collected daily from EDR, IDS/IPS, firewalls, and directory logs. SIEM aggregates logs and matches correlation signatures.</p>
+        <p class="ar" style="display:none">تجميع غيغابايتات من السجلات يومياً من حساسات الشبكة والأنظمة الطرفية. تقوم أنظمة SIEM بمركزة السجلات وإجراء مطابقات نمطية.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 class="ct en">Heterogeneous Tool Stacks</h3><h3 class="ct ar" style="display:none">تشتت الأدوات الأمنية</h3>
+        <p class="en">Security telemetry exists in vendor-specific schemas (Syslog, CEF, raw JSON). Lack of unified representations creates severe correlation barriers.</p>
+        <p class="ar" style="display:none">بيانات أمنية بصيغ متباينة وغير موحدة، مما يخلق عزلة بين الأدوات ويعيق الرؤية الشاملة للمحللين الأمنيين.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon ye"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <h3 class="ct en">Tiered Analyst Hierarchy</h3><h3 class="ct ar" style="display:none">هرمية المحللين المرهقة</h3>
+        <p class="en">Tier-1 analysts manually sift through massive alert queues to verify threats before escalating to Tier-2/3 investigators, consuming critical response time.</p>
+        <p class="ar" style="display:none">يقضي محللو المستوى الأول ساعات طويلة في الفرز اليدوي لآلاف التنبيهات للتحقق منها قبل تصعيدها، مما يؤخر الاستجابة الفعلية.</p>
+      </div>
+    </div>
+    <div class="srow" style="margin-top:14px">
+      <div class="sb"><div class="snum">10K+</div><div class="slbl en">Daily Alerts / Enterprise</div><div class="slbl ar" style="display:none">تنبيه يومي لكل مؤسسة</div></div>
+      <div class="sb"><div class="snum">&gt;50%</div><div class="slbl en">False Positive Overhead</div><div class="slbl ar" style="display:none">إنذارات كاذبة غير مجدية</div></div>
+      <div class="sb"><div class="snum">45 min</div><div class="slbl en">Avg Manual Triage Time</div><div class="slbl ar" style="display:none">متوسط زمن الفرز اليدوي</div></div>
+    </div>
+  </div>
+  <div class="sn">03 / 25</div>
+</section>
+
+<!-- ================= S04: PROBLEM STATEMENT (ALERT FATIGUE) ================= -->
+<section class="slide" id="s3">
+  <div class="orb o1" style="background:rgba(255,107,107,0.12)"></div>
+  <div class="content-box">
+    <div class="tag a1" style="border-color:rgba(255,107,107,0.4);background:rgba(255,107,107,0.15)">
+      <div class="dp" style="background:var(--acc);box-shadow:0 0 10px var(--acc)"></div>
+      <span class="en" style="color:#ff9b9b">Chapter 1 &ndash; Problem Formulation</span>
+      <span class="ar" style="display:none;color:#ff9b9b">الفصل الأول &ndash; بيان المشكلة الأساسية</span>
+    </div>
+    <h2 class="st en">The Core Crisis: Alert Fatigue &amp; Cognitive Overload</h2>
+    <h2 class="st ar" style="display:none">الأزمة المركزية: إرهاق التنبيهات والإجهاد الذهني</h2>
+    <div class="gl"></div>
+    <div class="tc" style="display:grid;grid-template-columns:1.2fr 1fr;gap:20px;width:100%">
+      <div>
+        <p class="lead en" style="text-align:left;margin-bottom:14px">
+          The unsustainable deluge of security data generates thousands of notifications per shift. A substantial percentage consists of benign activity, misconfigured scanners, and low-fidelity noise.
+        </p>
+        <p class="lead ar" style="display:none;text-align:right;margin-bottom:14px">
+          التدفق الهائل للبيانات الأمنية يولد آلاف التنبيهات لكل وردية عمل، وتتكون نسبة كبيرة منها من إيجابيات كاذبة، أخطاء إعدادات، وضجيج غير قابل للتنفيذ الفعلي.
+        </p>
+        <div class="grid g2" style="gap:10px">
+          <div class="card" style="padding:12px">
+            <h4 style="color:var(--acc);font-size:0.85rem;margin-bottom:4px" class="en">Cognitive Saturation</h4>
+            <h4 style="display:none;color:var(--acc);font-size:0.85rem;margin-bottom:4px" class="ar">التشبع والإجهاد الإدراكي</h4>
+            <p class="en">Continuous exposure to false alerts degrades analyst vigilance, leading to acute burnout and human error.</p>
+            <p class="ar" style="display:none">التعرض المستمر للإنذارات الخاطئة يضعف انتباه المحلل ويزيد من احتمالية إهمال الهجمات الخطيرة.</p>
+          </div>
+          <div class="card" style="padding:12px">
+            <h4 style="color:var(--wa);font-size:0.85rem;margin-bottom:4px" class="en">Buried Critical Threats</h4>
+            <h4 style="display:none;color:var(--wa);font-size:0.85rem;margin-bottom:4px" class="ar">دفن الحوادث الحرجة</h4>
+            <p class="en">High-severity advanced persistent threats (APTs) remain hidden deep underneath routine noise queues.</p>
+            <p class="ar" style="display:none">الهجمات الخطيرة والتهديدات المستمرة تُدفن تحت أكوام التنبيهات منخفضة الأهمية.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="border-color:rgba(255,107,107,0.3);background:rgba(255,107,107,0.06)">
+          <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <h3 class="ct en">Impact on Incident Response</h3><h3 class="ct ar" style="display:none">الأثر المباشر على زمن الاستجابة</h3>
+          <ul style="gap:8px">
+            <li class="en"><strong>MTTD Inflation:</strong> Mean Time to Detect increases from minutes to weeks.</li>
+            <li class="ar" style="display:none"><strong>تضخم زمن الاكتشاف:</strong> يتضاعف متوسط زمن اكتشاف التهديدات إلى أسابيع.</li>
+            <li class="en"><strong>Analyst Churn:</strong> High turnover rates in SOC teams due to repetitive toil.</li>
+            <li class="ar" style="display:none"><strong>استنزاف الكفاءات:</strong> تسرب المحللين الأمنيين بسبب الإرهاق والمهام الرتيبة.</li>
+            <li class="en"><strong>SLA Violations:</strong> Delayed containment allows lateral movement across endpoints.</li>
+            <li class="ar" style="display:none"><strong>فشل اتفاقيات الخدمة:</strong> تأخر العزل يمنح المهاجم فرصة التحرك العرضي في الشبكة.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sn">04 / 25</div>
+</section>
+
+<!-- ================= S05: TRIAGE BOTTLENECK & STATIC LIMITS ================= -->
+<section class="slide" id="s4">
+  <div class="orb o2" style="opacity:0.4"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+      <span class="en">Chapter 1 &ndash; Operational Friction</span><span class="ar" style="display:none">الفصل الأول &ndash; قيود الفرز اليدوي</span>
+    </div>
+    <h2 class="st en">The Triage Bottleneck: Static Rules &amp; Context Switching</h2>
+    <h2 class="st ar" style="display:none">عنق زجاجة الفرز: القواعد الثابتة وتبديل السياق</h2>
+    <div class="gl"></div>
+    <div class="grid g3">
+      <div class="card">
+        <div class="c-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></div>
+        <h3 class="ct en">Rigid Rule-Based Triage</h3><h3 class="ct ar" style="display:none">جمود الفرز القائم على القواعد</h3>
+        <p class="en">Static IF-THEN correlation rules fail against polymorphic malware, credential stuffing, and low-and-slow reconnaissance techniques.</p>
+        <p class="ar" style="display:none">قواعد الفرز التقليدية المعتمدة على عتبات ثابتة تفشل في رصد الهجمات الذكية والمتغيرة وسرقة الهويات البطيئة.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+        <h3 class="ct en">Severe Context Switching</h3><h3 class="ct ar" style="display:none">تبديل السياق بين المنصات</h3>
+        <p class="en">Analysts manually swivel between 5 to 10 disconnected consoles (SIEM, EDR, Threat Intel, Active Directory, Firewalls) to validate a single incident.</p>
+        <p class="ar" style="display:none">يتنقل المحلل يدوياً بين عدة شاشات وأنظمة معزولة للتحقق من هوية المستخدم وسمعة العناوين وحالة الجهاز المعني.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon ye"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+        <h3 class="ct en">Prioritization Blindspots</h3><h3 class="ct ar" style="display:none">غياب الأولوية الديناميكية</h3>
+        <p class="en">Alerts arrive sorted by generic vendor severity or arrival time (FIFO) without factoring in business asset criticality or active environmental risk.</p>
+        <p class="ar" style="display:none">ترتيب التنبيهات بقوائم الانتظار بناءً على شدة افتراضية أو وقت الوصول دون مراعاة حساسية الأصل أو سياق التهديد الفعلي.</p>
+      </div>
+    </div>
+    <div class="hl" style="margin-top:14px">
+      <p class="en"><strong>Key Takeaway:</strong> Conventional automation efficiently executes repetitive steps, but lacks the analytical adaptability to score situational context before triggering response actions.</p>
+      <p class="ar" style="display:none"><strong>الخلاصة:</strong> الأتمتة التقليدية تنفذ مهام محددة سلفاً، لكنها تفتقر للذكاء القادر على فهم السياق التشغيلي وتقدير المخاطر قبل تنفيذ إجراءات الاستجابة.</p>
+    </div>
+  </div>
+  <div class="sn">05 / 25</div>
+</section>
+
+<!-- ================= S06: OBJECTIVES (PRIMARY & SPECIFIC) ================= -->
+<section class="slide" id="s5">
+  <div class="orb o3" style="opacity:0.4"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      <span class="en">Chapter 1 &ndash; Project Goals</span><span class="ar" style="display:none">الفصل الأول &ndash; أهداف المشروع</span>
+    </div>
+    <h2 class="st en">Project Objectives: Strategic &amp; Operational</h2>
+    <h2 class="st ar" style="display:none">أهداف المشروع: الاستراتيجية والتشغيلية</h2>
+    <div class="gl"></div>
+    <div class="hl" style="margin-bottom:14px;border-color:rgba(0,212,255,0.4)">
+      <p class="en" style="font-size:0.92rem">
+        <strong>Primary Aim:</strong> Investigate, design, and architect an integrated <strong>AI-Based SOAR Tool</strong> that resolves alert fatigue and static triage through context-aware machine learning analysis, dynamic risk scoring, and automated orchestration.
+      </p>
+      <p class="ar" style="display:none;font-size:0.92rem">
+        <strong>الهدف الرئيسي:</strong> دراسة وتصميم وبناء أداة <strong>SOAR معتمدة على الذكاء الاصطناعي</strong> تعالج إرهاق التنبيهات والفرز الثابت عبر التحليل الذكي للسياق، والتقييم الديناميكي للمخاطر، والأتمتة المنسقة للاستجابة.
+      </p>
+    </div>
+    <div class="grid g2" style="gap:12px">
+      <div class="card" style="padding:14px">
+        <div class="c-icon cy"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h3 class="ct en">1. Operational Analysis</h3><h3 class="ct ar" style="display:none">1. تحليل التحديات التشغيلية</h3>
+        <p class="en">Examine modern SOC alert management challenges, identifying empirical points of alert fatigue and triage delay.</p>
+        <p class="ar" style="display:none">تحليل دقيق لأسباب إرهاق التنبيهات وقيود أنظمة إدارة السجلات في مراكز العمليات المعاصرة.</p>
+      </div>
+      <div class="card" style="padding:14px">
+        <div class="c-icon gr"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <h3 class="ct en">2. Literature &amp; Gap Synthesis</h3><h3 class="ct ar" style="display:none">2. مراجعة الأدبيات والفجوة البحثية</h3>
+        <p class="en">Systematically review existing ML triage algorithms and conventional SOAR platforms to identify the integration gap.</p>
+        <p class="ar" style="display:none">مراجعة شاملة لتقنيات تعلم الآلة وأدوات SOAR لتحديد فجوة الربط بين التحليل الذكي والتنفيذ الآلي.</p>
+      </div>
+      <div class="card" style="padding:14px">
+        <div class="c-icon ye"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+        <h3 class="ct en">3. Multi-Layer Architecture</h3><h3 class="ct ar" style="display:none">3. تصميم المعمارية متعددة الطبقات</h3>
+        <p class="en">Formulate a comprehensive architectural design encompassing ingestion, context enrichment, ML engine, and response playbooks.</p>
+        <p class="ar" style="display:none">بناء معمارية برمجية متكاملة تشمل طبقات الاستيعاب، الإثراء، محرك الذكاء، ومسارات الاستجابة.</p>
+      </div>
+      <div class="card" style="padding:14px">
+        <div class="c-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3 class="ct en">4. Controlled Automation &amp; Metrics</h3><h3 class="ct ar" style="display:none">4. الأتمتة المنضبطة والتقييم</h3>
+        <p class="en">Connect dynamic prioritization with controlled SOAR response actions, incorporating human-in-the-loop oversight and rigorous evaluation.</p>
+        <p class="ar" style="display:none">ربط أولويات الحوادث بسياسات استجابة مؤتمتة منضبطة تضمن إشراف المحلل وتقاس بمؤشرات دقيقة.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sn">06 / 25</div>
+</section>
+
+<!-- ================= S07: PROJECT SCOPE ================= -->
+<section class="slide" id="s6">
+  <div class="orb o1" style="opacity:0.35"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+      <span class="en">Chapter 1 &ndash; Project Boundaries</span><span class="ar" style="display:none">الفصل الأول &ndash; نطاق وحدود المشروع</span>
+    </div>
+    <h2 class="st en">Project Scope &amp; Boundary Definition</h2>
+    <h2 class="st ar" style="display:none">نطاق المشروع وحدود الدراسة الأكاديمية</h2>
+    <div class="gl"></div>
+    <div class="grid g2" style="gap:20px">
+      <div class="card" style="border-color:rgba(0,230,118,0.35);background:rgba(0,230,118,0.05)">
+        <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <h3 class="ct en" style="color:var(--ok)">In-Scope Focus Areas</h3>
+        <h3 class="ct ar" style="display:none;color:var(--ok)">ما يقع داخل نطاق المشروع (In-Scope)</h3>
+        <ul style="gap:8px;margin-top:10px">
+          <li class="en"><strong>Multi-Source Telemetry Ingestion:</strong> Normalization of CEF, Syslog, and JSON alerts.</li>
+          <li class="ar" style="display:none"><strong>استيعاب التنبيهات:</strong> توحيد صيغ سجلات CEF وSyslog وJSON في نموذج موحد.</li>
+          <li class="en"><strong>Context Enrichment:</strong> Querying asset databases, threat intelligence, and user roles.</li>
+          <li class="ar" style="display:none"><strong>إثراء السياق:</strong> دمج معلومات الأصول والمستخدمين ومصادر استخبارات التهديدات.</li>
+          <li class="en"><strong>AI/ML Risk Scoring:</strong> Dynamic calculation of situational severity and certainty.</li>
+          <li class="ar" style="display:none"><strong>التقييم الذكي:</strong> حساب درجة الخطورة ونسبة الثقة بالذكاء الاصطناعي.</li>
+          <li class="en"><strong>Orchestration Gateways:</strong> Triggering automated containment with analyst oversight.</li>
+          <li class="ar" style="display:none"><strong>أتمتة الاستجابة:</strong> تنفيذ دفاتر عمل العزل والتطويق مع بوابات اعتماد بشري.</li>
+        </ul>
+      </div>
+      <div class="card" style="border-color:rgba(255,107,107,0.35);background:rgba(255,107,107,0.05)">
+        <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
+        <h3 class="ct en" style="color:var(--acc)">Out-of-Scope Boundaries</h3>
+        <h3 class="ct ar" style="display:none;color:var(--acc)">ما يقع خارج نطاق المشروع (Out-of-Scope)</h3>
+        <ul style="gap:8px;margin-top:10px">
+          <li class="en"><strong>Commercial SIEM Replacement:</strong> The tool supplements existing SIEMs rather than replacing enterprise storage.</li>
+          <li class="ar" style="display:none"><strong>استبدال أنظمة SIEM:</strong> الأداة مكملة ومساندة لمنصات SIEM ولا تهدف لاستبدالها كلياً.</li>
+          <li class="en"><strong>Fully Autonomous Destructive Actions:</strong> Disabling critical domain controllers or production databases without approval.</li>
+          <li class="ar" style="display:none"><strong>الإجراءات التخريبية الذاتية:</strong> حظر الخوادم الحساسة دون موافقة المحلل لتفادي انقطاع الأعمال.</li>
+          <li class="en"><strong>Deep Packet Hardware Inspection:</strong> Network capture is consumed via sensor logs, not raw silicon taps.</li>
+          <li class="ar" style="display:none"><strong>فحص العتاد المادي:</strong> الاعتماد على مخرجات الحساسات والسجلات وليس عتاد الشبكة الخام.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sn">07 / 25</div>
+</section>
+
+<!-- ================= S08: LIT REVIEW - SOC EVOLUTION ================= -->
+<section class="slide" id="s7">
+  <div class="orb o2" style="opacity:0.4"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      <span class="en">Chapter 2 &ndash; Literature Review</span><span class="ar" style="display:none">الفصل الثاني &ndash; الإطار النظري</span>
+    </div>
+    <h2 class="st en">Evolution of Security Operations Technologies</h2>
+    <h2 class="st ar" style="display:none">التطور التاريخي لتقنيات عمليات الأمن السيبراني</h2>
+    <div class="gl"></div>
+    <div class="grid g4">
+      <div class="card">
+        <div class="c-icon"><span style="font-weight:900;font-size:1.1rem">G1</span></div>
+        <h3 class="ct en">Log Management</h3><h3 class="ct ar" style="display:none">الجيل الأول: إدارة السجلات</h3>
+        <p class="en">Decentralized Syslog collection. Manual grep queries, reactive post-incident forensic searches.</p>
+        <p class="ar" style="display:none">تجميع سجلات غير مركزي. بحث يدوي بعد وقوع الحادث، وتفتيش يدوي مضنٍ في ملفات السجلات.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon cy"><span style="font-weight:900;font-size:1.1rem">G2</span></div>
+        <h3 class="ct en">SIEM Era</h3><h3 class="ct ar" style="display:none">الجيل الثاني: أنظمة SIEM</h3>
+        <p class="en">Centralized event correlation, compliance reporting, and rule-based threshold alerting.</p>
+        <p class="ar" style="display:none">مركزة السجلات وإجراء مطابقات نمطية وقواعد ترابط، لكن مع توليد كميات هائلة من التنبيهات.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon ye"><span style="font-weight:900;font-size:1.1rem">G3</span></div>
+        <h3 class="ct en">Conventional SOAR</h3><h3 class="ct ar" style="display:none">الجيل الثالث: SOAR التقليدي</h3>
+        <p class="en">API orchestration across tools, deterministic playbooks, automated ticketing and notifications.</p>
+        <p class="ar" style="display:none">ربط الأدوات عبر واجهات برمجة التطبيقات (API) ودفاتر عمل خطية ومحددة سلفاً.</p>
+      </div>
+      <div class="card" style="border-color:var(--s);background:rgba(0,212,255,0.08)">
+        <div class="c-icon gr"><span style="font-weight:900;font-size:1.1rem">G4</span></div>
+        <h3 class="ct en" style="color:var(--s)">AI-Augmented SOAR</h3><h3 class="ct ar" style="display:none;color:var(--s)">الجيل الرابع: SOAR المعزز بالذكاء</h3>
+        <p class="en">Context-aware ML triage, dynamic risk assessment, adaptive prioritization, controlled human-AI oversight.</p>
+        <p class="ar" style="display:none">دمج تعلم الآلة لتحليل السياق، تقييم ديناميكي للمخاطر، وأتمتة منضبطة بالتعاون مع المحلل.</p>
+      </div>
+    </div>
+    <div class="hl" style="margin-top:14px">
+      <p class="en"><strong>Theoretical Insight:</strong> Moving from static rule-based correlation to statistical machine learning allows SOC defenses to scale elastically with threat velocity.</p>
+      <p class="ar" style="display:none"><strong>الرؤية النظرية:</strong> الانتقال من المطابقة الحرفية للقواعد إلى النماذج الإحصائية لتعلم الآلة يمنح المنظومة مرونة في التعامل مع تسارع التهديدات.</p>
+    </div>
+  </div>
+  <div class="sn">08 / 25</div>
+</section>
+
+<!-- ================= S09: CONVENTIONAL SOAR ================= -->
+<section class="slide" id="s8">
+  <div class="orb o1" style="opacity:0.35"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><path d="M6 9v3a3 3 0 0 0 3 3h6"/><path d="m15 12 3 3-3 3"/></svg>
+      <span class="en">Chapter 2 &ndash; Background</span><span class="ar" style="display:none">الفصل الثاني &ndash; الخلفية التقنية</span>
+    </div>
+    <h2 class="st en">Conventional SOAR: Playbooks &amp; API Orchestration</h2>
+    <h2 class="st ar" style="display:none">منصات SOAR التقليدية: دفاتر العمل وتنسيق الواجهات</h2>
+    <div class="gl"></div>
+    <div class="grid g3">
+      <div class="card">
+        <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3 class="ct en">Security Orchestration</h3><h3 class="ct ar" style="display:none">التنسيق الأمني (Orchestration)</h3>
+        <p class="en">Connecting heterogeneous security appliances through REST APIs. Enables bidirectional queries to firewalls, EDR, threat intel databases, and IAM platforms.</p>
+        <p class="ar" style="display:none">ربط الأدوات الأمنية المختلفة عبر واجهات برمجية موحدة تتيح الاستعلام عن التهديدات وتنفيذ التوجيهات آلياً.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3 class="ct en">Automated Playbooks</h3><h3 class="ct ar" style="display:none">أتمتة الإجراءات (Automation)</h3>
+        <p class="en">Codified response runbooks. Standardized steps execute machine-speed tasks: querying virus databases, resetting user tokens, or archiving logs.</p>
+        <p class="ar" style="display:none">تحويل إجراءات التشغيل القياسية إلى أكواد برمجية تنفذ مهام روتينية بسرعة الآلة كفحص العينات وتجميد الحسابات.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <h3 class="ct en">Incident Case Management</h3><h3 class="ct ar" style="display:none">إدارة الحوادث (Response)</h3>
+        <p class="en">Centralized tracking of forensic artifacts, audit trails, and containment outcomes within a unified ticketing environment for analyst accountability.</p>
+        <p class="ar" style="display:none">سجل مركزي لتوثيق الأدلة الرقمية ومسارات التدقيق ونتائج التطويق لدعم التحقيق الجنائي والأدائي.</p>
+      </div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <div class="fs"><div class="fi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg></div><div class="fl en">Alert Ingest</div><div class="fl ar" style="display:none">استقبال التنبيه</div></div>
+      <div class="farr">→</div>
+      <div class="fs"><div class="fi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div class="fl en">API Enrichment</div><div class="fl ar" style="display:none">إثراء أولي</div></div>
+      <div class="farr">→</div>
+      <div class="fs"><div class="fi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/></svg></div><div class="fl en">Static Rule Check</div><div class="fl ar" style="display:none">فحص الشروط</div></div>
+      <div class="farr">→</div>
+      <div class="fs"><div class="fi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="fl en">Playbook Action</div><div class="fl ar" style="display:none">تنفيذ الدفتر</div></div>
+      <div class="farr">→</div>
+      <div class="fs"><div class="fi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></div><div class="fl en">Case Closed</div><div class="fl ar" style="display:none">إغلاق وتوثيق</div></div>
+    </div>
+  </div>
+  <div class="sn">09 / 25</div>
+</section>
+
+<!-- ================= S10: LIMITATIONS OF CONVENTIONAL SOAR ================= -->
+<section class="slide" id="s9">
+  <div class="orb o1" style="background:rgba(255,107,107,0.1)"></div>
+  <div class="content-box">
+    <div class="tag a1" style="border-color:rgba(255,107,107,0.4);background:rgba(255,107,107,0.12)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span class="en" style="color:#ff8e8e">Chapter 2 &ndash; Critical Analysis</span><span class="ar" style="display:none;color:#ff8e8e">الفصل الثاني &ndash; نقد وقصور الأدبيات</span>
+    </div>
+    <h2 class="st en">Limitations of Conventional SOAR Automation</h2>
+    <h2 class="st ar" style="display:none">أوجه القصور في أتمتة منصات SOAR التقليدية</h2>
+    <div class="gl"></div>
+    <div class="grid g3">
+      <div class="card" style="border-color:rgba(255,107,107,0.25)">
+        <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+        <h3 class="ct en">Inability to Adapt</h3><h3 class="ct ar" style="display:none">العجز عن التكيف مع المستجدات</h3>
+        <p class="en">Playbooks rely on deterministic conditionals. When threat actors slightly modify an IOC or tactic, static playbooks fail to trigger or mishandle the incident.</p>
+        <p class="ar" style="display:none">دفاتر العمل محكومة بشروط حتمية؛ أي تعديل طفيف في سلوك المهاجم يؤدي لفشل التشغيل أو اتخاذ مسار خاطئ.</p>
+      </div>
+      <div class="card" style="border-color:rgba(255,107,107,0.25)">
+        <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <h3 class="ct en">Lack of Risk Context</h3><h3 class="ct ar" style="display:none">غياب السياق الأمني للمخاطر</h3>
+        <p class="en">A port scan on an isolated test machine triggers the same heavy playbook as a scan against a financial database, misallocating critical defensive bandwidth.</p>
+        <p class="ar" style="display:none">تطبيق نفس الإجراء المؤتمت على جهاز تجريبي معزول كما يُطبق على قاعدة بيانات حساسة، لغياب الفهم السياقي لقيمة الأصل.</p>
+      </div>
+      <div class="card" style="border-color:rgba(255,107,107,0.25)">
+        <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <h3 class="ct en">Disruption Hazards</h3><h3 class="ct ar" style="display:none">مخاطر التعطيل الذاتي للأعمال</h3>
+        <p class="en">Uncontrolled autonomous remediation risks catastrophic collateral damage: locking out executive accounts or terminating core operational network segments.</p>
+        <p class="ar" style="display:none">الأتمتة العمياء دون بوابات ثقة قد تعزل خوادم حيوية أو تقطع خدمات هامة عن المؤسسة نتيجة إنذار كاذب.</p>
+      </div>
+    </div>
+    <div class="hl" style="margin-top:14px;border-color:rgba(255,107,107,0.3)">
+      <p class="en"><strong>Synthesis:</strong> SOAR provides the <em>muscle</em> (orchestrated execution), but desperately lacks the <em>brain</em> (intelligent contextual analysis and adaptive prioritization).</p>
+      <p class="ar" style="display:none"><strong>الاستنتاج:</strong> يوفر SOAR التقليدي "القوة التنفيذية" لكنه يفتقر إلى "العقل التحليلي" القادر على وزن المخاطر وفهم السياق قبل إصدار القرارات.</p>
+    </div>
+  </div>
+  <div class="sn">10 / 25</div>
+</section>
+
+<!-- ================= S11: AI/ML AS FORCE MULTIPLIER ================= -->
+<section class="slide" id="s10">
+  <div class="orb o2" style="opacity:0.45"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"/></svg>
+      <span class="en">Chapter 2 &ndash; Intelligent Augmentation</span><span class="ar" style="display:none">الفصل الثاني &ndash; التعزيز بالذكاء الاصطناعي</span>
+    </div>
+    <h2 class="st en">AI/ML as a Force Multiplier in Security Operations</h2>
+    <h2 class="st ar" style="display:none">الذكاء الاصطناعي كمضاعف قوة في مراكز العمليات</h2>
+    <div class="gl"></div>
+    <div class="grid g2" style="gap:18px">
+      <div class="card">
+        <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3 class="ct en">Data-Driven Analytical Augmentation</h3><h3 class="ct ar" style="display:none">التعزيز التحليلي المعتمد على البيانات</h3>
+        <p class="en">Machine learning algorithms evaluate hundreds of contextual dimensions simultaneously (asset value, user deviation, threat reputation, time delta) that overwhelm human memory.</p>
+        <p class="ar" style="display:none">معالجة مئات الأبعاد السياقية بالتوازي (قيمة الأصل، انحراف السلوك، سمعة العناوين) التي يستحيل على الذهن البشري مقارنتها في ثوانٍ.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3 class="ct en">Human-AI Teaming Paradigm</h3><h3 class="ct ar" style="display:none">نموذج تكامل الإنسان والذكاء الاصطناعي</h3>
+        <p class="en">AI does not replace the security analyst; it operates as an intelligent co-pilot. Repetitive noise is filtered autonomously, while complex decisions are packaged with analytical rationale for human sign-off.</p>
+        <p class="ar" style="display:none">الذكاء الاصطناعي لا يلغي دور المحلل، بل يعمل كمساعد ذكي يقوم بتصفية الضجيج وتقديم تقارير مسبقة التجهيز للحالات المعقدة.</p>
+      </div>
+    </div>
+    <div class="srow" style="margin-top:14px">
+      <div class="sb"><div class="snum">70-85%</div><div class="slbl en">Noise Suppression Ratio</div><div class="slbl ar" style="display:none">نسبة قمع التنبيهات الكاذبة</div></div>
+      <div class="sb"><div class="snum">&lt;2 sec</div><div class="slbl en">Inference &amp; Triage Latency</div><div class="slbl ar" style="display:none">زمن الاستنتاج والفرز</div></div>
+      <div class="sb"><div class="snum">3.5x</div><div class="slbl en">Analyst Throughput Boost</div><div class="slbl ar" style="display:none">مضاعفة إنتاجية المحلل</div></div>
+    </div>
+  </div>
+  <div class="sn">11 / 25</div>
+</section>
+
+<!-- ================= S12: COMPARATIVE ANALYSIS OF ML APPROACHES ================= -->
+<section class="slide" id="s11">
+  <div class="orb o3" style="opacity:0.35"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+      <span class="en">Chapter 2 &ndash; Machine Learning Benchmarks</span><span class="ar" style="display:none">الفصل الثاني &ndash; مقارنة خوارزميات التعلم</span>
+    </div>
+    <h2 class="st en">Comparative Analysis of ML Triage Approaches</h2>
+    <h2 class="st ar" style="display:none">المقارنة المعيارية لتقنيات تعلم الآلة في الفرز الأمني</h2>
+    <div class="gl"></div>
+    <div class="tbl-wrap">
+      <table class="ctbl">
+        <thead>
+          <tr>
+            <th><span class="en">ML Approach</span><span class="ar" style="display:none">الخوارزمية / النموذج</span></th>
+            <th><span class="en">Primary Strength</span><span class="ar" style="display:none">أبرز المزايا ونقاط القوة</span></th>
+            <th><span class="en">Operational Limitation</span><span class="ar" style="display:none">القيود في بيئة SOC</span></th>
+            <th><span class="en">Project Role</span><span class="ar" style="display:none">الدور في مشروعنا المقترح</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Random Forest (RF)</strong></td>
+            <td><span class="en">High interpretability, fast training, feature importance scoring</span><span class="ar" style="display:none">قابلية تفسير عالية، سرعة فائقة في التدريب</span></td>
+            <td><span class="en">Struggles with temporal sequence shifts</span><span class="ar" style="display:none">أداء أقل مع السلاسل الزمنية المتغيرة</span></td>
+            <td><span class="pill pg">Baseline Supervised Classifier</span></td>
+          </tr>
+          <tr>
+            <td><strong>Deep Neural Nets (DNN)</strong></td>
+            <td><span class="en">Models complex non-linear alert interactions</span><span class="ar" style="display:none">تمثيل العلاقات غير الخطية المعقدة</span></td>
+            <td><span class="en">High compute latency, black-box opacity</span><span class="ar" style="display:none">صعوبة التفسير (صندوق أسود) وتكلفة حوسبة</span></td>
+            <td><span class="pill pc">High-Dimensional Feature Mining</span></td>
+          </tr>
+          <tr>
+            <td><strong>Reinforcement Learning (RL)</strong></td>
+            <td><span class="en">Dynamic queue optimization, adaptive priority policy</span><span class="ar" style="display:none">تحسين ديناميكي مستمر لترتيب قوائم الانتظار</span></td>
+            <td><span class="en">Requires extensive simulation reward tuning</span><span class="ar" style="display:none">حساسية عالية لدوال المكافأة وبيئة المحاكاة</span></td>
+            <td><span class="pill py">Queue Scheduling Policy</span></td>
+          </tr>
+          <tr>
+            <td><strong>LLMs &amp; AI Agents</strong></td>
+            <td><span class="en">Semantic synthesis, threat narrative generation</span><span class="ar" style="display:none">توليد ملخصات سياقية ذكية وتفسير التقارير</span></td>
+            <td><span class="en">Hallucination risks, high token inference cost</span><span class="ar" style="display:none">احتمالية التشتت (الهلوسة) والتكلفة المرتفعة</span></td>
+            <td><span class="pill pp">Analyst Briefing Assistant</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sn">12 / 25</div>
+</section>
+
+<!-- ================= S13: RESEARCH GAP & MOTIVATION ================= -->
+<section class="slide" id="s12">
+  <div class="orb o1" style="opacity:0.4"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+      <span class="en">Chapter 2 &ndash; Research Gap</span><span class="ar" style="display:none">الفصل الثاني &ndash; الفجوة البحثية</span>
+    </div>
+    <h2 class="st en">The Research Gap: The Missing Integration Link</h2>
+    <h2 class="st ar" style="display:none">الفجوة البحثية: حلقة الوصل المفقودة بين التحليل والأتمتة</h2>
+    <div class="gl"></div>
+    <div class="grid g2" style="gap:20px">
+      <div class="card" style="border-color:rgba(108,99,255,0.4)">
+        <div class="c-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <h3 class="ct en">Academic ML Research</h3><h3 class="ct ar" style="display:none">أبحاث تعلم الآلة الأكاديمية</h3>
+        <p class="en">Extensive literature exists evaluating ML classifiers on offline datasets (e.g. NSL-KDD, CIC-IDS). However, these studies stop at mathematical classification scores (Precision, Recall) without integrating into live incident containment pipelines.</p>
+        <p class="ar" style="display:none">أبحاث غزيرة في اختبار خوارزميات التصنيف على مجموعات بيانات مجمدة، لكنها تتوقف عند إخراج نسب الدقة دون ربطها بإجراءات استجابة حية.</p>
+      </div>
+      <div class="card" style="border-color:rgba(0,212,255,0.4)">
+        <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3 class="ct en">Commercial SOAR Frameworks</h3><h3 class="ct ar" style="display:none">منصات SOAR التجارية</h3>
+        <p class="en">Commercial platforms (Splunk SOAR, Cortex XSOAR) excel at multi-tool orchestration via pre-built playbooks. However, they rely on rigid boolean triggers and lack adaptive machine learning risk assessment.</p>
+        <p class="ar" style="display:none">منصات متقدمة في تنسيق واجهات التطبيقات، لكنها تفتقر للذكاء التكيفي وتعتمد على قواعد جامدة مبرمجة سلفاً.</p>
+      </div>
+    </div>
+    <div class="hl" style="margin-top:16px;border-color:var(--s);text-align:center">
+      <p class="en" style="font-size:0.92rem">
+        <strong>Our Contribution:</strong> Designing and implementing the cohesive pipeline that feeds <strong>Dynamic ML Risk Predictions</strong> directly into <strong>SOAR Orchestrated Containment Workflows</strong> with controlled human oversight gates.
+      </p>
+      <p class="ar" style="display:none;font-size:0.92rem">
+        <strong>مساهمة مشروعنا:</strong> بناء خط معالجة متكامل يغذي <strong>تنبؤات المخاطر الذكية</strong> مباشرة داخل <strong>مسارات أتمتة SOAR</strong> تحت إشراف وتحكم أمني منضبط.
+      </p>
+    </div>
+  </div>
+  <div class="sn">13 / 25</div>
+</section>
+
+<!-- ================= S14: PROPOSED ARCHITECTURE OVERVIEW ================= -->
+<section class="slide" id="s13">
+  <div class="orb o2" style="opacity:0.4"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      <span class="en">Chapter 3 &ndash; System Architecture</span><span class="ar" style="display:none">الفصل الثالث &ndash; المعمارية المقترحة</span>
+    </div>
+    <h2 class="st en">Proposed AI-Based SOAR System Architecture</h2>
+    <h2 class="st ar" style="display:none">المعمارية الشاملة لأداة SOAR المدعومة بالذكاء الاصطناعي</h2>
+    <div class="gl"></div>
+    <div class="al">
+      <div class="alr">
+        <div class="all en"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/></svg> Ingestion</div>
+        <div class="all ar" style="display:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/></svg> الاستيعاب</div>
+        <div class="ali">
+          <span class="ai">SIEM Events</span><span class="ai">EDR Telemetry</span><span class="ai">IDS/IPS Alerts</span><span class="ai">Firewall Logs</span><span class="ai">CEF/Syslog Parser</span>
+        </div>
+      </div>
+      <div class="alr">
+        <div class="all en" style="color:var(--s)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/></svg> Enrichment</div>
+        <div class="all ar" style="display:none;color:var(--s)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/></svg> الإثراء</div>
+        <div class="ali">
+          <span class="ai cy">Asset Criticality DB</span><span class="ai cy">User &amp; Identity Posture</span><span class="ai cy">Threat Intel Feeds</span><span class="ai cy">GeoIP &amp; Reputation</span>
+        </div>
+      </div>
+      <div class="alr">
+        <div class="all en" style="color:var(--ok)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15"/></svg> AI/ML Engine</div>
+        <div class="all ar" style="display:none;color:var(--ok)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15"/></svg> محرك الذكاء</div>
+        <div class="ali">
+          <span class="ai gr">Feature Vectorizer</span><span class="ai gr">ML Triage Classifier</span><span class="ai gr">Dynamic Risk Scoring</span><span class="ai gr">Adaptive Prioritizer</span>
+        </div>
+      </div>
+      <div class="alr">
+        <div class="all en" style="color:var(--wa)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Orchestration</div>
+        <div class="all ar" style="display:none;color:var(--wa)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> الاستجابة</div>
+        <div class="ali">
+          <span class="ai ye">Confidence Gate</span><span class="ai ye">Playbook Executor</span><span class="ai ye">One-Click Approval</span><span class="ai ye">REST API Dispatcher</span>
+        </div>
+      </div>
+      <div class="alr">
+        <div class="all en" style="color:var(--acc)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16"/></svg> Presentation</div>
+        <div class="all ar" style="display:none;color:var(--acc)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16"/></svg> الإخراج</div>
+        <div class="ali">
+          <span class="ai rd">Live SOC Dashboard</span><span class="ai rd">Analyst Feedback Portal</span><span class="ai rd">Incident Dossier</span><span class="ai rd">Audit Trails</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sn">14 / 25</div>
+</section>
+
+<!-- ================= S15: INGESTION & DATA NORMALIZATION ================= -->
+<section class="slide" id="s14">
+  <div class="orb o1" style="opacity:0.35"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
+      <span class="en">Chapter 3 &ndash; Layer 1: Ingestion</span><span class="ar" style="display:none">الفصل الثالث &ndash; الطبقة الأولى: الاستيعاب</span>
+    </div>
+    <h2 class="st en">Alert Ingestion &amp; Schema Normalization</h2>
+    <h2 class="st ar" style="display:none">استيعاب التنبيهات وتوحيد البنية البيانية</h2>
+    <div class="gl"></div>
+    <div class="grid g3">
+      <div class="card">
+        <div class="c-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
+        <h3 class="ct en">Multi-Protocol Ingestion</h3><h3 class="ct ar" style="display:none">استقبال متعدد البروتوكولات</h3>
+        <p class="en">Listens to Kafka message queues, Webhooks, and Syslog sockets (UDP 514 / TCP 6514 TLS). Ingests raw alerts across diverse perimeter sensors.</p>
+        <p class="ar" style="display:none">استقبال التنبيهات عبر طوابير Kafka ومنافذ Syslog المشفرة وواجهات Webhooks من مختلف حساسات الشبكة.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></div>
+        <h3 class="ct en">Parsing &amp; Normalization</h3><h3 class="ct ar" style="display:none">التحليل وتوحيد الحقول</h3>
+        <p class="en">Transforms disparate vendor schemas (ArcSight CEF, Snort Fast, Elastic JSON) into an Open Cybersecurity Schema (OCSF) internal model.</p>
+        <p class="ar" style="display:none">تحويل تراكيب السجلات المتباينة إلى صيغة موحدة تضمن تعريف أسماء الحقول والمعرّفات بدقة متجانسة.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+        <h3 class="ct en">Deduplication &amp; Grouping</h3><h3 class="ct ar" style="display:none">إزالة التكرار والتجميع</h3>
+        <p class="en">Applies sliding window hash clustering to collapse storm alerts (e.g. 500 alerts from 1 port scan) into a single incident container.</p>
+        <p class="ar" style="display:none">تجميع التنبيهات المتطابقة في نافذة زمنية منزلقة لمنع إغراق النظام بمئات التنبيهات الناتجة عن حدث واحد.</p>
+      </div>
+    </div>
+    <div class="hl" style="margin-top:14px">
+      <p class="en"><strong>Normalized Event Entity:</strong> <code>{ timestamp, source_ip, dest_ip, port, user_id, host_guid, event_type, raw_payload }</code> &mdash; establishing a clean contract for downstream enrichment.</p>
+      <p class="ar" style="display:none"><strong>الكيان الموحد للحدث:</strong> يتضمن الطابع الزمني، عناوين المصدر والوجهة، معرف المستخدم والجهاز، ونوع الحدث لبدء مرحلة الإثراء السياقي.</p>
+    </div>
+  </div>
+  <div class="sn">15 / 25</div>
+</section>
+
+<!-- ================= S16: CONTEXT ENRICHMENT ENGINE ================= -->
+<section class="slide" id="s15">
+  <div class="orb o2" style="opacity:0.4"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span class="en">Chapter 3 &ndash; Layer 2: Enrichment</span><span class="ar" style="display:none">الفصل الثالث &ndash; الطبقة الثانية: إثراء السياق</span>
+    </div>
+    <h2 class="st en">Multi-Dimensional Context Enrichment Pipeline</h2>
+    <h2 class="st ar" style="display:none">خط أنابيب إثراء السياق متعدد الأبعاد</h2>
+    <div class="gl"></div>
+    <div class="grid g3">
+      <div class="card">
+        <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/></svg></div>
+        <h3 class="ct en">Asset Posture &amp; Value</h3><h3 class="ct ar" style="display:none">حساسية الأصل وقيمته</h3>
+        <p class="en">Queries CMDB for host business criticality tier (Tier 1: Core Banking DB vs Tier 4: Guest Wi-Fi kiosk), existing vulnerabilities (CVEs), and OS patch level.</p>
+        <p class="ar" style="display:none">استعلام قاعدة بيانات الأصول لمعرفة أهمية الخادم (خادم إنتاج مالي أم جهاز اختبار) ومستوى الثغرات المسجلة عليه.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <h3 class="ct en">User Identity &amp; Privileges</h3><h3 class="ct ar" style="display:none">هوية المستخدم وصلاحياته</h3>
+        <p class="en">Extracts user directory roles (Domain Admin vs contractor), normal working hours, geolocation baseline, and recent privilege escalation attempts.</p>
+        <p class="ar" style="display:none">استخراج صلاحيات الحساب (مدير نطاق أم موظف مؤقت)، مواعيد العمل المعتادة، والموقع الجغرافي المسجل له.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 class="ct en">External Threat Intel</h3><h3 class="ct ar" style="display:none">استخبارات التهديدات الخارجية</h3>
+        <p class="en">Asynchronous reputation lookups against threat feeds (VirusTotal, AbuseIPDB, AlienVault OTX) for IP, domain, and file hash reputation scores.</p>
+        <p class="ar" style="display:none">فحص متزامن لعناوين IP وبصمات الملفات في قواعد التهديدات الدولية لتحديد درجة خطورتها السابقة.</p>
+      </div>
+    </div>
+    <div class="hl" style="margin-top:14px">
+      <p class="en"><strong>Enrichment Output:</strong> A densely populated feature vector transforming a naked alert into a situation-aware analytical packet ready for the ML Triage Model.</p>
+      <p class="ar" style="display:none"><strong>مخرجات الإثراء:</strong> تحويل التنبيه المجرد إلى متجهة خصائص غنية بالسياق تمكّن نموذج تعلم الآلة من تقدير الموقف بدقة متناهية.</p>
+    </div>
+  </div>
+  <div class="sn">16 / 25</div>
+</section>
+
+<!-- ================= S17: AI/ML TRIAGE & RISK SCORING ================= -->
+<section class="slide" id="s16">
+  <div class="orb o1" style="opacity:0.45"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15"/></svg>
+      <span class="en">Chapter 3 &ndash; Layer 3: AI Engine</span><span class="ar" style="display:none">الفصل الثالث &ndash; الطبقة الثالثة: محرك الذكاء</span>
+    </div>
+    <h2 class="st en">AI/ML Triage &amp; Dynamic Risk Scoring Formulation</h2>
+    <h2 class="st ar" style="display:none">الفرز الذكي وصياغة معادلة تقييم المخاطر الديناميكية</h2>
+    <div class="gl"></div>
+    <div class="grid g2" style="gap:20px">
+      <div class="card">
+        <h3 class="ct en" style="color:var(--s)">The Risk Scoring Formula</h3>
+        <h3 class="ct ar" style="display:none;color:var(--s)">معادلة حساب المخاطر الرياضية</h3>
+        <div style="background:rgba(0,0,0,0.5);border:1px solid var(--br);padding:12px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--s);margin:10px 0">
+          Risk = (w<sub>1</sub> &middot; S<sub>base</sub>) + (w<sub>2</sub> &middot; C<sub>asset</sub>) + (w<sub>3</sub> &middot; TI<sub>rep</sub>) + (w<sub>4</sub> &middot; A<sub>user</sub>)
+        </div>
+        <p class="en">Weights <code>w<sub>1</sub>...w<sub>4</sub></code> are calibrated dynamically using Random Forest feature importance and Soft Actor-Critic (SAC) reinforcement reward.</p>
+        <p class="ar" style="display:none">تُوزن المعاملات وفق أهمية الخصائص المستخلصة من نموذج الغابة العشوائية وبمكافآت التعلّم المعزز التكيفي.</p>
+      </div>
+      <div class="card">
+        <h3 class="ct en" style="color:var(--ok)">Dual Output: Classification &amp; Confidence</h3>
+        <h3 class="ct ar" style="display:none;color:var(--ok)">المخرج المزدوج: التصنيف ودرجة الثقة</h3>
+        <ul style="gap:8px;margin-top:6px">
+          <li class="en"><strong>Triage Class:</strong> True Positive (Attack), Benign Noise, or Reconnaissance.</li>
+          <li class="ar" style="display:none"><strong>فئة التنبيه:</strong> هجوم مؤكد، نشاط حميد كاذب، أو محاولة استكشافية.</li>
+          <li class="en"><strong>Confidence Score &Phi;:</strong> Probability distribution [0.0 - 1.0] indicating model certainty.</li>
+          <li class="ar" style="display:none"><strong>مؤشر الثقة:</strong> قيمة احتمالية تقيس يقين النموذج بالقرار قبل تشغيل الاستجابة.</li>
+          <li class="en"><strong>Mitigation Trigger:</strong> Alerts with Risk &gt; 80 and &Phi; &gt; 0.90 qualify for automatic isolation.</li>
+          <li class="ar" style="display:none"><strong>عتبة الاستجابة:</strong> الحوادث ذات الخطورة العالية والثقة المرتفعة تؤهل للعزل الآلي الفوري.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="srow" style="margin-top:14px">
+      <div class="sb"><div class="snum">0 - 100</div><div class="slbl en">Dynamic Risk Range</div><div class="slbl ar" style="display:none">مدى تقييم الخطر</div></div>
+      <div class="sb"><div class="snum">&plusmn;94.6%</div><div class="slbl en">Classification Accuracy</div><div class="slbl ar" style="display:none">دقة التصنيف المتوقعة</div></div>
+      <div class="sb"><div class="snum">0.88</div><div class="slbl en">F1-Score Benchmark</div><div class="slbl ar" style="display:none">معيار التوازن F1</div></div>
+    </div>
+  </div>
+  <div class="sn">17 / 25</div>
+</section>
+
+<!-- ================= S18: PRIORITIZATION & SUPPRESSION ================= -->
+<section class="slide" id="s17">
+  <div class="orb o2" style="opacity:0.35"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+      <span class="en">Chapter 3 &ndash; Dynamic Queue</span><span class="ar" style="display:none">الفصل الثالث &ndash; إدارة الأولويات الذكية</span>
+    </div>
+    <h2 class="st en">Adaptive Alert Prioritization &amp; Noise Suppression</h2>
+    <h2 class="st ar" style="display:none">الأولويات التكيفية وقمع الضجيج الأمني</h2>
+    <div class="gl"></div>
+    <div class="grid g3">
+      <div class="card">
+        <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <h3 class="ct en">Automated Noise Suppression</h3><h3 class="ct ar" style="display:none">قمع الضجيج المؤكد آلياً</h3>
+        <p class="en">Alerts with Risk &lt; 25 and high benign confidence (&Phi; &gt; 0.95) are auto-resolved and tagged with reasoning, bypassing analyst screens entirely.</p>
+        <p class="ar" style="display:none">إغلاق التنبيهات منخفضة الخطورة وعالية اليقين بأنها حميدة تلقائياً مع توثيق السبب لتفريغ شاشات المحللين.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3 class="ct en">Priority Queue Reordering</h3><h3 class="ct ar" style="display:none">إعادة ترتيب قوائم الانتظار</h3>
+        <p class="en">Incidents are ordered dynamically by composite Risk score rather than arrival timestamp. Critical ransomware indicators leapfrog ahead of 500 routine logs.</p>
+        <p class="ar" style="display:none">إعادة فرز قائمة الانتظار بناءً على الخطر اللحظي الفعلي؛ يقفز حادث الفدية المشبوه فوراً إلى أعلى القائمة أمام مئات السجلات الروتينية.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon ye"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3 class="ct en">Starvation Prevention</h3><h3 class="ct ar" style="display:none">منع احتجاز المهام القديمة</h3>
+        <p class="en">An aging factor ensures low-priority alerts do not remain permanently neglected in queues by gradually incrementing priority after SLA thresholds.</p>
+        <p class="ar" style="display:none">خوارزمية تصعيد زمني تضمن عدم إهمال التنبيهات المتوسطة إلى الأبد عبر رفع أولويتها تدريجياً عند اقتراب انتهاء مهلة SLA.</p>
+      </div>
+    </div>
+    <div class="hl" style="margin-top:14px">
+      <p class="en"><strong>Operational Outcome:</strong> Reduces active analyst ticket backlog by <strong>65% to 80%</strong>, allowing investigators to focus on genuine advanced threats.</p>
+      <p class="ar" style="display:none"><strong>الأثر التشغيلي:</strong> تقليص تراكم التذاكر أمام المحللين بنسبة تتراوح بين <strong>65% و 80%</strong> وتوجيه تركيزهم نحو التهديدات الحقيقية.</p>
+    </div>
+  </div>
+  <div class="sn">18 / 25</div>
+</section>
+
+<!-- ================= S19: AUTOMATED PLAYBOOKS & SOAR ================= -->
+<section class="slide" id="s18">
+  <div class="orb o1" style="opacity:0.35"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      <span class="en">Chapter 3 &ndash; Layer 4: Orchestration</span><span class="ar" style="display:none">الفصل الثالث &ndash; الطبقة الرابعة: دفاتر الاستجابة</span>
+    </div>
+    <h2 class="st en">Automated Response Playbooks &amp; SOAR Integration</h2>
+    <h2 class="st ar" style="display:none">دفاتر العمل المؤتمتة وتكامل منصة SOAR</h2>
+    <div class="gl"></div>
+    <div class="grid g4">
+      <div class="card">
+        <div class="c-icon rd"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3 class="ct en" style="font-size:0.85rem">Host Isolation</h3><h3 class="ct ar" style="display:none;font-size:0.85rem">عزل الأجهزة الطرفية</h3>
+        <p class="en" style="font-size:0.75rem">Quarantines compromised endpoints via EDR API, cutting off network lateral movement while preserving forensic telemetry.</p>
+        <p class="ar" style="display:none;font-size:0.75rem">عزل فوري للجهاز المصاب عبر EDR لمنع الانتشار في الشبكة مع إبقاء قنوات التحقيق مفتوحة.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 class="ct en" style="font-size:0.85rem">Firewall IP Block</h3><h3 class="ct ar" style="display:none;font-size:0.85rem">حظر العناوين بالجدار الناري</h3>
+        <p class="en" style="font-size:0.75rem">Pushes dynamic blacklists to perimeter firewalls via API to sever active Command &amp; Control (C2) communication channels.</p>
+        <p class="ar" style="display:none;font-size:0.75rem">تحديث قوائم الحظر في الجدران النارية لقطع الاتصال مع خوادم القيادة والتحكم (C2).</p>
+      </div>
+      <div class="card">
+        <div class="c-icon ye"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <h3 class="ct en" style="font-size:0.85rem">Account Revocation</h3><h3 class="ct ar" style="display:none;font-size:0.85rem">تجميد حسابات المستخدمين</h3>
+        <p class="en" style="font-size:0.75rem">Revokes compromised Kerberos tickets and disables Active Directory accounts exhibiting anomalous credential dumps.</p>
+        <p class="ar" style="display:none;font-size:0.75rem">إلغاء جلسات العمل وتجميد الحسابات المخترقة في Active Directory فور ثبوت الهجوم.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon cy"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <h3 class="ct en" style="font-size:0.85rem">Phishing Purge</h3><h3 class="ct ar" style="display:none;font-size:0.85rem">سحب رسائل الاصطياد</h3>
+        <p class="en" style="font-size:0.75rem">Searches Exchange/O365 mailboxes via Graph API to purge matching malicious phishing messages enterprise-wide.</p>
+        <p class="ar" style="display:none;font-size:0.75rem">حذف رسائل التصيد الاحتيالي من جميع صناديق البريد في المؤسسة آلياً عبر Microsoft Graph API.</p>
+      </div>
+    </div>
+    <div class="hl" style="margin-top:14px">
+      <p class="en"><strong>Immutable Action Log:</strong> Every playbook execution writes cryptographic audit logs capturing executing timestamp, API target, parameters, and outcome.</p>
+      <p class="ar" style="display:none"><strong>سجل العمليات غير القابل للتعديل:</strong> يتم توثيق كافة العمليات المؤتمتة مشفرة بأوقاتها وأهدافها لضمان المحاسبية الكاملة.</p>
+    </div>
+  </div>
+  <div class="sn">19 / 25</div>
+</section>
+
+<!-- ================= S20: HUMAN-AI TEAMING & CONTROL GATES ================= -->
+<section class="slide" id="s19">
+  <div class="orb o2" style="opacity:0.4"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+      <span class="en">Chapter 3 &ndash; Controlled Autonomy</span><span class="ar" style="display:none">الفصل الثالث &ndash; بوابات التحكم والرقابة</span>
+    </div>
+    <h2 class="st en">Human-AI Teaming: The Controlled Decision Gate</h2>
+    <h2 class="st ar" style="display:none">تكامل الإنسان والذكاء: بوابات القرار المنضبطة</h2>
+    <div class="gl"></div>
+    <div class="grid g3">
+      <div class="card" style="border-color:rgba(0,230,118,0.3)">
+        <div class="c-icon gr"><span style="font-weight:900;font-size:1rem">L1</span></div>
+        <h3 class="ct en" style="color:var(--ok)">Fully Autonomous</h3><h3 class="ct ar" style="display:none;color:var(--ok)">المستوى 1: أتمتة كاملة</h3>
+        <p class="en"><strong>High Confidence (&Phi; &gt; 0.90) + Low Blast Radius:</strong> Threat intel queries, internal log correlation, benign noise suppression, user notifications.</p>
+        <p class="ar" style="display:none"><strong>ثقة عالية ومخاطر تشغيلية منخفضة:</strong> استعلامات الإثراء، قمع الضجيج المعروف، وتحديث قوائم المراقبة دون الحاجة لموافقة بشرية.</p>
+      </div>
+      <div class="card" style="border-color:rgba(255,179,0,0.3)">
+        <div class="c-icon ye"><span style="font-weight:900;font-size:1rem">L2</span></div>
+        <h3 class="ct en" style="color:var(--wa)">Semi-Automated (One-Click)</h3><h3 class="ct ar" style="display:none;color:var(--wa)">المستوى 2: موافقة بنقرة واحدة</h3>
+        <p class="en"><strong>Moderate Confidence (&Phi; 0.70 - 0.90) or Impact:</strong> Host workstation isolation, temporary password lock. Analyst clicks "Approve" with pre-built context.</p>
+        <p class="ar" style="display:none"><strong>ثقة متوسطة أو إجراء متوسط التأثير:</strong> عزل جهاز مستخدم أو تعليق حساب، يراجع المحلل ملخص الحادث ويعتمد الإجراء بنقرة واحدة.</p>
+      </div>
+      <div class="card" style="border-color:rgba(255,107,107,0.3)">
+        <div class="c-icon rd"><span style="font-weight:900;font-size:1rem">L3</span></div>
+        <h3 class="ct en" style="color:var(--acc)">Analyst-Led Investigation</h3><h3 class="ct ar" style="display:none;color:var(--acc)">المستوى 3: قيادة المحلل البشري</h3>
+        <p class="en"><strong>Low Confidence (&Phi; &lt; 0.70) or High Blast Radius:</strong> Core server shutdowns, public subnet blocks. AI assists as research advisor while human leads.</p>
+        <p class="ar" style="display:none"><strong>ثقة منخفضة أو أصول شديدة الحساسية:</strong> إيقاف خوادم الإنتاج الرئيسية؛ يقود المحلل التحقيق الكامل والذكاء يقدم التوصيات المساندة.</p>
+      </div>
+    </div>
+    <div class="hl" style="margin-top:14px">
+      <p class="en"><strong>Safety Architecture:</strong> Adopts the <a href="#" style="color:var(--s)">A<sup>2</sup>C Framework</a> (Advisory &amp; Controlled Autonomy), preventing rogue automation while ensuring maximum operational speed.</p>
+      <p class="ar" style="display:none"><strong>معمارية الأمان:</strong> تتبنى المنظومة إطار الأتمتة الموجهة والمنضبطة لمنع اتخاذ قرارات تعسفية وضمان أعلى استجابة للأحداث الحرجة.</p>
+    </div>
+  </div>
+  <div class="sn">20 / 25</div>
+</section>
+
+<!-- ================= S21: FEEDBACK LOOP & MODEL ADAPTATION ================= -->
+<section class="slide" id="s20">
+  <div class="orb o1" style="opacity:0.4"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+      <span class="en">Chapter 3 &ndash; Continuous Learning</span><span class="ar" style="display:none">الفصل الثالث &ndash; حلقة التعلم المستمر</span>
+    </div>
+    <h2 class="st en">Continuous Analyst Feedback Loop &amp; Model Adaptation</h2>
+    <h2 class="st ar" style="display:none">حلقة التغذية الراجعة المستمرة وتكييف النماذج</h2>
+    <div class="gl"></div>
+    <div class="grid g3">
+      <div class="card">
+        <div class="c-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+        <h3 class="ct en">Analyst Resolution Capture</h3><h3 class="ct ar" style="display:none">التقاط قرارات المحللين</h3>
+        <p class="en">Whenever an analyst overrides a classification, re-labels an alert, or modifies risk scores, the decision and rationale are recorded as golden training samples.</p>
+        <p class="ar" style="display:none">عندما يقوم المحلل بتعديل تصنيف تنبيه أو إلغاء إجراء آلي، يتم تسجيل القرار كبيانات تدريبية معيارية جديدة.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3 class="ct en">Concept Drift Monitoring</h3><h3 class="ct ar" style="display:none">رصد انحراف المفاهيم (Drift)</h3>
+        <p class="en">Statistical tracking (Kolmogorov-Smirnov tests) monitors input feature drift against production baselines, detecting shifting attacker tradecraft.</p>
+        <p class="ar" style="display:none">مراقبة إحصائية مستمرة لاكتشاف أي تغير في طبيعة الهجمات أو انحراف في سلوك الشبكة مقارنة بالمستوى الأساسي.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg></div>
+        <h3 class="ct en">Scheduled Retraining Pipeline</h3><h3 class="ct ar" style="display:none">إعادة التدريب المجدولة</h3>
+        <p class="en">Validated feedback samples are batched into automated model retraining pipelines. Shadow testing verifies performance before live promotion.</p>
+        <p class="ar" style="display:none">تجميع العينات وإعادة تدريب النماذج في بيئة ظل واختبارها للتأكد من عدم تراجع الدقة قبل نشرها في البيئة الحية.</p>
+      </div>
+    </div>
+    <div class="flow" style="margin-top:14px">
+      <div class="fs"><div class="fi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/></svg></div><div class="fl en">Analyst Review</div><div class="fl ar" style="display:none">مراجعة المحلل</div></div>
+      <div class="farr">→</div>
+      <div class="fs"><div class="fi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14"/></svg></div><div class="fl en">Feedback Log</div><div class="fl ar" style="display:none">توثيق التغذية</div></div>
+      <div class="farr">→</div>
+      <div class="fs"><div class="fi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12c0 1.66-4 3-9 3"/></svg></div><div class="fl en">Active Buffer</div><div class="fl ar" style="display:none">تخزين البيانات</div></div>
+      <div class="farr">→</div>
+      <div class="fs"><div class="fi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15"/></svg></div><div class="fl en">Model Tuning</div><div class="fl ar" style="display:none">تحديث النموذج</div></div>
+      <div class="farr">→</div>
+      <div class="fs"><div class="fi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/></svg></div><div class="fl en">Live Deploy</div><div class="fl ar" style="display:none">اعتماد ونشر</div></div>
+    </div>
+  </div>
+  <div class="sn">21 / 25</div>
+</section>
+
+<!-- ================= S22: DSR METHODOLOGY (6 PHASES) ================= -->
+<section class="slide" id="s21">
+  <div class="orb o3" style="opacity:0.35"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+      <span class="en">Chapter 2 &ndash; Research Methodology</span><span class="ar" style="display:none">الفصل الثاني &ndash; منهجية البحث العلمي</span>
+    </div>
+    <h2 class="st en">Design Science Research (DSR) &ndash; 6 Rigorous Phases</h2>
+    <h2 class="st ar" style="display:none">منهجية بحوث علوم التصميم (DSR) &ndash; المراحل الست المعتمدة</h2>
+    <div class="gl"></div>
+    <div class="tl" style="max-width:980px">
+      <div class="ti">
+        <div class="td"><span style="font-weight:900;font-size:0.8rem">P1</span></div>
+        <div class="tic">
+          <h3 class="en">Phase 1: Problem Identification &amp; Motivation</h3><h3 class="ar" style="display:none">المرحلة 1: تحديد المشكلة والدافع البحثي</h3>
+          <p class="en">Quantified SOC operational bottlenecks, alert fatigue crisis, and established academic &amp; practical significance.</p>
+          <p class="ar" style="display:none">تحديد دقيق لأزمة إرهاق التنبيهات في مراكز العمليات وبيان الأهمية العلمية والعملية للمشروع.</p>
+        </div>
+      </div>
+      <div class="ti">
+        <div class="td"><span style="font-weight:900;font-size:0.8rem">P2</span></div>
+        <div class="tic">
+          <h3 class="en">Phase 2: Objectives &amp; Solution Definition</h3><h3 class="ar" style="display:none">المرحلة 2: تعريف أهداف الحل المقترح</h3>
+          <p class="en">Systematic literature review, technical background analysis, and formalization of research gap and deliverables.</p>
+          <p class="ar" style="display:none">مراجعة الأدبيات السابقة، دراسة منصات SOAR وخوارزميات الذكاء، واستخلاص متطلبات الحل.</p>
+        </div>
+      </div>
+      <div class="ti">
+        <div class="td" style="background:rgba(0,212,255,0.2);border-color:var(--s);color:var(--s)"><span style="font-weight:900;font-size:0.8rem">P3</span></div>
+        <div class="tic">
+          <h3 class="en" style="color:var(--s)">Phase 3: Design &amp; System Architecture &larr; [Graduation Project 1 Scope]</h3>
+          <h3 class="ar" style="display:none;color:var(--s)">المرحلة 3: تصميم المعمارية والمكونات &larr; [نطاق مشروع تخرج 1 المنجز]</h3>
+          <p class="en">Formulation of multi-tier architecture, module specifications, data flows, and playbook orchestrations.</p>
+          <p class="ar" style="display:none">إنجاز التصميم الكامل للمعمارية ومسارات البيانات ومحرك التقييم ونماذج الاستجابة المعتمدة.</p>
+        </div>
+      </div>
+      <div class="ti">
+        <div class="td"><span style="font-weight:900;font-size:0.8rem">P4</span></div>
+        <div class="tic">
+          <h3 class="en">Phase 4: Data Engineering &amp; Simulation Setup</h3><h3 class="ar" style="display:none">المرحلة 4: هندسة البيانات وبيئة المحاكاة</h3>
+          <p class="en">Dataset curation, feature engineering pipeline, simulated enterprise telemetry, and baseline pre-processing.</p>
+          <p class="ar" style="display:none">إعداد بيانات التدريب وهندسة الخصائص وإعداد بيئة الاختبار المعملية لمحاكاة شبكات المؤسسات.</p>
+        </div>
+      </div>
+      <div class="ti">
+        <div class="td"><span style="font-weight:900;font-size:0.8rem">P5</span></div>
+        <div class="tic">
+          <h3 class="en">Phase 5: Prototype Development &amp; SOAR Integration</h3><h3 class="ar" style="display:none">المرحلة 5: تطوير النموذج البرمجي وتكامل SOAR</h3>
+          <p class="en">Implementation of AI triage engine, REST API connectors, and execution of automated response playbooks.</p>
+          <p class="ar" style="display:none">البرمجة الفعلية لمحرك الفرز وتكامل واجهات الربط مع منصات الاستجابة ودفاتر العمل.</p>
+        </div>
+      </div>
+      <div class="ti">
+        <div class="td"><span style="font-weight:900;font-size:0.8rem">P6</span></div>
+        <div class="tic">
+          <h3 class="en">Phase 6: Empirical Evaluation &amp; Validation</h3><h3 class="ar" style="display:none">المرحلة 6: التقييم التجريبي والتحقق المعياري</h3>
+          <p class="en">Assessing classification accuracy, False Positive Reduction rate, and MTTR reduction against baseline SOAR.</p>
+          <p class="ar" style="display:none">قياس دقة التنبؤ، معدل خفض الإنذارات الكاذبة، وسرعة احتواء الهجمات مقارنة بالوضع التقليدي.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sn">22 / 25</div>
+</section>
+
+<!-- ================= S23: TECH STACK & SIMULATION ================= -->
+<section class="slide" id="s22">
+  <div class="orb o1" style="opacity:0.35"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      <span class="en">Chapter 3 &ndash; Implementation Stack</span><span class="ar" style="display:none">الفصل الثالث &ndash; التقنيات وبيئة التطوير</span>
+    </div>
+    <h2 class="st en">Implementation Technology Stack &amp; Simulation Testbed</h2>
+    <h2 class="st ar" style="display:none">حزمة التقنيات المستخدمة وبيئة المحاكاة الاختبارية</h2>
+    <div class="gl"></div>
+    <div class="grid g4">
+      <div class="card">
+        <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3 class="ct en">Core Backend</h3><h3 class="ct ar" style="display:none">الخادم ومحرك المعالجة</h3>
+        <p class="en">Python 3.11+, FastAPI for high-concurrency async endpoints, Celery / Redis for distributed queue management.</p>
+        <p class="ar" style="display:none">بايثون مع FastAPI لمعالجة متزامنة فائقة السرعة، وطوابير Redis لتوزيع المهام.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15"/></svg></div>
+        <h3 class="ct en">Machine Learning</h3><h3 class="ct ar" style="display:none">الذكاء الاصطناعي</h3>
+        <p class="en">Scikit-Learn (Random Forest), PyTorch (DNN sequence models), Stable-Baselines3 (SAC reinforcement agent).</p>
+        <p class="ar" style="display:none">مكتبات Scikit-Learn و PyTorch و Stable-Baselines3 لتدريب نماذج الفرز والتعلم المعزز.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/></svg></div>
+        <h3 class="ct en">Data &amp; Telemetry</h3><h3 class="ct ar" style="display:none">البيانات والسجلات</h3>
+        <p class="en">Elasticsearch / OpenSearch cluster for fast indexing, PostgreSQL for case dossier storage and configuration.</p>
+        <p class="ar" style="display:none">محرك Elasticsearch لفهرسة السجلات بسرعة وبنك بيانات PostgreSQL لحفظ ملفات القضايا.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon ye"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg></div>
+        <h3 class="ct en">SOC Sensors &amp; Testbed</h3><h3 class="ct ar" style="display:none">الحساسات والمحاكاة</h3>
+        <p class="en">Wazuh SIEM/EDR, Suricata IDS, Atomic Red Team framework for adversary simulation, Docker containerized services.</p>
+        <p class="ar" style="display:none">منصة Wazuh وحساسات Suricata مع محاكاة هجمات Atomic Red Team ضمن حاويات Docker.</p>
+      </div>
+    </div>
+    <div class="hl" style="margin-top:14px">
+      <p class="en"><strong>Adversary Mapping:</strong> All simulated attack vectors and detection rules are strictly aligned with the <strong>MITRE ATT&amp;CK Enterprise Framework</strong> (T1059, T1078, T1486).</p>
+      <p class="ar" style="display:none"><strong>ربط التهديدات:</strong> جميع سيناريوهات الهجمات وقواعد الكشف متوافقة بدقة مع إطار <strong>MITRE ATT&amp;CK</strong> العالمي.</p>
+    </div>
+  </div>
+  <div class="sn">23 / 25</div>
+</section>
+
+<!-- ================= S24: REAL-WORLD INCIDENT WALKTHROUGH ================= -->
+<section class="slide" id="s23">
+  <div class="orb o2" style="opacity:0.4"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      <span class="en">Chapter 3 &ndash; Operational Scenario</span><span class="ar" style="display:none">الفصل الثالث &ndash; سيناريو تطبيقي واقعي</span>
+    </div>
+    <h2 class="st en">Operational Scenario Walkthrough: Rapid Ransomware Containment</h2>
+    <h2 class="st ar" style="display:none">سيناريو تطبيقي: احتواء سريع لهجوم فدية واختراق شبكي</h2>
+    <div class="gl"></div>
+    <div class="grid g2" style="gap:20px">
+      <div class="card" style="padding:14px">
+        <h3 class="ct en" style="color:var(--acc)">Incident Timeline (Simulated)</h3>
+        <h3 class="ct ar" style="display:none;color:var(--acc)">المسار الزمني للحادث</h3>
+        <div class="tl" style="margin-top:10px">
+          <div class="ti">
+            <div class="td" style="font-size:0.7rem">00s</div>
+            <div class="tic">
+              <h4 class="en" style="font-size:0.8rem">1. Alert Ingestion</h4><h4 class="ar" style="display:none;font-size:0.8rem">1. وصول التنبيه</h4>
+              <p class="en">EDR flags suspicious PowerShell execution on Workstation-42 attempting volume shadow deletion.</p>
+              <p class="ar" style="display:none">حساس EDR يلتقط تشغيل أوامر مريبة تحاول حذف النسخ الاحتياطية على جهاز موظف.</p>
+            </div>
+          </div>
+          <div class="ti">
+            <div class="td" style="font-size:0.7rem">0.4s</div>
+            <div class="tic">
+              <h4 class="en" style="font-size:0.8rem">2. Context Enrichment</h4><h4 class="ar" style="display:none;font-size:0.8rem">2. إثراء السياق</h4>
+              <p class="en">IP matched to malicious C2 server on AbuseIPDB; user account belongs to Finance department.</p>
+              <p class="ar" style="display:none">مطابقة العنوان مع خادم C2 مشبوه دولياً وتبين أن الحساب يتبع الإدارة المالية.</p>
+            </div>
+          </div>
+          <div class="ti">
+            <div class="td" style="font-size:0.7rem">0.9s</div>
+            <div class="tic">
+              <h4 class="en" style="font-size:0.8rem">3. AI Triage &amp; Risk Scoring</h4><h4 class="ar" style="display:none;font-size:0.8rem">3. التقييم الذكي</h4>
+              <p class="en">ML Model computes <strong>Risk = 94.2 / 100</strong> and <strong>Confidence &Phi; = 0.98</strong>. Priority jumped to #1.</p>
+              <p class="ar" style="display:none">محرك الذكاء يقدر درجة الخطر بـ 94.2 وثقة 98% وتتصدر الحالة قائمة الأولويات فوراً.</p>
+            </div>
+          </div>
+          <div class="ti">
+            <div class="td" style="font-size:0.7rem">1.5s</div>
+            <div class="tic">
+              <h4 class="en" style="font-size:0.8rem">4. Automated Containment</h4><h4 class="ar" style="display:none;font-size:0.8rem">4. التطويق الآلي</h4>
+              <p class="en">Workstation-42 isolated from LAN via EDR API; outbound C2 IP blocked at perimeter firewall.</p>
+              <p class="ar" style="display:none">عزل الجهاز آلياً عن الشبكة المحلية وحظر عنوان المهاجم في الجدار الناري خلال 1.5 ثانية.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="padding:14px;background:rgba(0,0,0,0.4)">
+        <h3 class="ct en" style="color:var(--ok)">Performance Comparison</h3>
+        <h3 class="ct ar" style="display:none;color:var(--ok)">مقارنة الأداء وسرعة المعالجة</h3>
+        <div class="srow" style="flex-direction:column;gap:12px;margin-top:10px">
+          <div class="sb" style="text-align:left;border-color:rgba(255,107,107,0.3)">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span class="en" style="font-size:0.82rem;font-weight:700;color:var(--acc)">Conventional Manual Response</span>
+              <span class="ar" style="display:none;font-size:0.82rem;font-weight:700;color:var(--acc)">الاستجابة اليدوية التقليدية</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:1.1rem;color:var(--acc);font-weight:900">~ 42.0 min</span>
+            </div>
+            <div style="background:rgba(255,107,107,0.2);height:6px;border-radius:3px;margin-top:6px;width:100%"></div>
+            <p class="en" style="font-size:0.72rem;margin-top:4px;color:var(--t3)">Analyst checks queue &rarr; logs into EDR &rarr; queries VirusTotal &rarr; calls network admin to block IP.</p>
+            <p class="ar" style="display:none;font-size:0.72rem;margin-top:4px;color:var(--t3)">انتظار المحلل &rarr; فحص السجلات &rarr; استعلام المواقع &rarr; التواصل مع مسؤول الشبكة للحظر.</p>
+          </div>
+          <div class="sb" style="text-align:left;border-color:rgba(0,230,118,0.4)">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span class="en" style="font-size:0.82rem;font-weight:700;color:var(--ok)">Proposed AI-SOAR Response</span>
+              <span class="ar" style="display:none;font-size:0.82rem;font-weight:700;color:var(--ok)">استجابة نظام AI-SOAR المقترح</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:1.1rem;color:var(--ok);font-weight:900">&lt; 2.5 sec</span>
+            </div>
+            <div style="background:var(--ok);height:6px;border-radius:3px;margin-top:6px;width:12%"></div>
+            <p class="en" style="font-size:0.72rem;margin-top:4px;color:var(--t2)">Sub-second ML inference, automated enrichment, orchestrated firewall &amp; host quarantine.</p>
+            <p class="ar" style="display:none;font-size:0.72rem;margin-top:4px;color:var(--t2)">تحليل لحظي بالذكاء الاصطناعي، إثراء فوري، وتنفيذ منسق للعزل وحماية الشبكة في ثوانٍ.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sn">24 / 25</div>
+</section>
+
+<!-- ================= S25: CURRENT PROGRESS, ROADMAP & CONCLUSION ================= -->
+<section class="slide" id="s24">
+  <div class="orb o1" style="opacity:0.45"></div><div class="orb o2" style="opacity:0.35"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span class="en">Chapter 3 &ndash; Roadmap &amp; Conclusion</span><span class="ar" style="display:none">الفصل الثالث &ndash; خطة العمل والخاتمة</span>
+    </div>
+    <h2 class="st en">Current Achievements &amp; Phase 2 Roadmap</h2>
+    <h2 class="st ar" style="display:none">ما تم إنجازه وخارطة طريق المرحلة القادمة</h2>
+    <div class="gl"></div>
+    <div class="grid g2" style="gap:20px;width:100%">
+      <div class="card" style="border-color:rgba(0,212,255,0.4)">
+        <h3 class="ct en" style="color:var(--s)">Completed in Project 1 (Chapters 1-3)</h3>
+        <h3 class="ct ar" style="display:none;color:var(--s)">ما تم إنجازه في مشروع 1 (الفصول 1 - 3)</h3>
+        <ul style="gap:8px;margin-top:8px">
+          <li class="en"><strong style="color:var(--ok)">&#10003; Problem Definition:</strong> Rigorous analysis of SOC alert fatigue &amp; triage bottlenecks.</li>
+          <li class="ar" style="display:none"><strong style="color:var(--ok)">&#10003; توصيف المشكلة:</strong> دراسة دقيقة لأزمة إرهاق التنبيهات وتحديد الأهداف.</li>
+          <li class="en"><strong style="color:var(--ok)">&#10003; Literature &amp; Gap Synthesis:</strong> Benchmarked ML algorithms against SOAR frameworks.</li>
+          <li class="ar" style="display:none"><strong style="color:var(--ok)">&#10003; مراجعة الأدبيات:</strong> تحديد الفجوة البحثية ومقارنة تقنيات التعلم الآلي.</li>
+          <li class="en"><strong style="color:var(--ok)">&#10003; System Architecture:</strong> Fully articulated 5-layer design, data schema &amp; risk formula.</li>
+          <li class="ar" style="display:none"><strong style="color:var(--ok)">&#10003; التصميم المعماري:</strong> بناء معمارية الطبقات الخمس ونموذج تقييم المخاطر.</li>
+        </ul>
+      </div>
+      <div class="card" style="border-color:rgba(108,99,255,0.4)">
+        <h3 class="ct en" style="color:#a8a0ff">Project 2 Execution Roadmap (Chapters 4-6)</h3>
+        <h3 class="ct ar" style="display:none;color:#a8a0ff">خارطة تنفيذ مشروع 2 (الفصول 4 - 6)</h3>
+        <ul style="gap:8px;margin-top:8px">
+          <li class="en"><strong>Phase 4 (Weeks 1-4):</strong> Dataset curation, feature engineering &amp; pipeline setup.</li>
+          <li class="ar" style="display:none"><strong>المرحلة 4 (الأسابيع 1-4):</strong> تجهيز البيانات وهندسة الخصائص وإعداد بيئة العمل.</li>
+          <li class="en"><strong>Phase 5 (Weeks 5-8):</strong> Model training (RF/SAC), REST API connector coding.</li>
+          <li class="ar" style="display:none"><strong>المرحلة 5 (الأسابيع 5-8):</strong> تدريب النماذج وبرمجة موصلات واجهات API وأدلة العمل.</li>
+          <li class="en"><strong>Phase 6 (Weeks 9-12):</strong> Prototype testing, benchmark evaluation &amp; final thesis defense.</li>
+          <li class="ar" style="display:none"><strong>المرحلة 6 (الأسابيع 9-12):</strong> الاختبار التجريبي الشامل، قياس الأداء ومناقشة التخرج النهائية.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="hl" style="margin-top:16px;text-align:center">
+      <h3 class="en" style="font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:6px">Thank You &ndash; Open for Discussion &amp; Defense Questions</h3>
+      <h3 class="ar" style="display:none;font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:6px">شكراً لحسن استماعكم &ndash; مستعدون لأسئلة وملاحظات لجنة المناقشة</h3>
+      <p class="en" style="font-size:0.8rem;color:var(--t2)">Supervised by Dr. Raed Saeed &middot; Department of Computer Science &middot; University of Science and Technology</p>
+      <p class="ar" style="display:none;font-size:0.8rem;color:var(--t2)">إشراف الدكتور رائد سعيد &middot; قسم علوم الحاسوب &middot; جامعة العلوم والتكنولوجيا</p>
+    </div>
+  </div>
+  <div class="sn">25 / 25</div>
+</section>
+
+
+
+
+</div>
+
+<!-- Bottom Navigation Bar -->
+<div id="nav">
+  <button class="nb" id="bp" onclick="prev()" title="Previous Slide">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <div id="sd"></div>
+  <span id="sc">1 / 25</span>
+  <button class="nb" id="bn" onclick="next()" title="Next Slide">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+</div>
+
+<script>
+const N = 25;
+let c = 0;
+let isAR = false;
+let bgOn = true;
+let bgMode = 'neural'; // 'neural', 'waves', 'matrix', 'warp'
+let animStyle = 'cascade'; // 'cascade', '3d', 'zoom', 'fade'
+let editMode = false;
+
+const slideTitles = {
+  en: [
+    '01 Title / Project Intro',
+    '02 Project Team & Roles',
+    '03 Modern SOC Context',
+    '04 Problem: Alert Fatigue',
+    '05 Triage Bottlenecks',
+    '06 Project Objectives',
+    '07 Project Scope & Limits',
+    '08 SOC Tech Evolution',
+    '09 Conventional SOAR',
+    '10 SOAR Limitations',
+    '11 AI as Force Multiplier',
+    '12 ML Approach Comparison',
+    '13 Research Gap Analysis',
+    '14 System Architecture',
+    '15 Layer 1: Ingestion',
+    '16 Layer 2: Enrichment',
+    '17 Layer 3: AI & Risk Score',
+    '18 Adaptive Prioritization',
+    '19 Layer 4: SOAR Playbooks',
+    '20 Human-AI Teaming Gate',
+    '21 Feedback & Adaptation',
+    '22 DSR 6-Phase Method',
+    '23 Implementation Stack',
+    '24 Incident Walkthrough',
+    '25 Roadmap & Conclusion'
+  ],
+  ar: [
+    '01 العنوان ومقدمة المشروع',
+    '02 فريق العمل والمسؤوليات',
+    '03 سياق مراكز العمليات SOC',
+    '04 بيان المشكلة: إرهاق التنبيهات',
+    '05 قيود الفرز والتبديل اليدوي',
+    '06 أهداف المشروع الاستراتيجية',
+    '07 نطاق المشروع وحدود الدراسة',
+    '08 تطور تقنيات الأتمتة الأمنية',
+    '09 أدوات SOAR ودفاتر العمل',
+    '10 أوجه قصور SOAR التقليدي',
+    '11 الذكاء الاصطناعي كمضاعف قوة',
+    '12 مقارنة نماذج تعلم الآلة',
+    '13 الفجوة البحثية والدافع',
+    '14 المعمارية الشاملة للنظام',
+    '15 الطبقة 1: استيعاب السجلات',
+    '16 الطبقة 2: إثراء السياق',
+    '17 الطبقة 3: محرك الذكاء والفرز',
+    '18 إدارة الأولويات التكيفية',
+    '19 الطبقة 4: دفاتر الاستجابة',
+    '20 بوابات تحكم الإنسان والذكاء',
+    '21 حلقة التعلم والتغذية الراجعة',
+    '22 منهجية علوم التصميم DSR',
+    '23 حزمة التقنيات وبيئة الاختبار',
+    '24 سيناريو تطبيقي لاحتواء الهجوم',
+    '25 ما تم إنجازه وخارطة الطريق'
+  ]
+};
+
+// ================= NAVIGATION (ZERO HORIZONTAL SCROLL) =================
+function gS(i, direction = 'next') {
+  const slides = document.querySelectorAll('.slide');
+  if (!slides[c] || !slides[i] || c === i) return;
+
+  const prevSlide = slides[c];
+  const nextSlide = slides[i];
+
+  prevSlide.classList.remove('active', 'exit-left', 'exit-right');
+  prevSlide.classList.add(direction === 'next' ? 'exit-left' : 'exit-right');
+
+  setTimeout(() => {
+    prevSlide.classList.remove('exit-left', 'exit-right');
+  }, 550);
+
+  c = Math.max(0, Math.min(i, N - 1));
+
+  nextSlide.classList.remove('exit-left', 'exit-right');
+  nextSlide.classList.add('active');
+
+  animateStats(nextSlide);
+
+  document.getElementById('sc').textContent = (c + 1) + ' / ' + N;
+  document.getElementById('bp').disabled = (c === 0);
+  document.getElementById('bn').disabled = (c === N - 1);
+  
+  const dots = document.querySelectorAll('.di');
+  dots.forEach((d, idx) => d.classList.toggle('active', idx === c));
+  if (dots[c] && typeof dots[c].scrollIntoView === 'function') {
+    dots[c].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }
+  
+  document.getElementById('pb').style.width = ((c / (N - 1)) * 100) + '%';
+  document.querySelectorAll('.sni').forEach((s, idx) => s.classList.toggle('active', idx === c));
+}
+
+function next() { if (c < N - 1) gS(c + 1, 'next'); }
+function prev() { if (c > 0) gS(c - 1, 'prev'); }
+
+function animateStats(slide) {
+  const nums = slide.querySelectorAll('.snum');
+  nums.forEach(num => {
+    const rawText = num.textContent.trim();
+    const match = rawText.match(/^([^\d]*)(\d+(?:\.\d+)?)(.*)$/);
+    if (match) {
+      const prefix = match[1];
+      const targetVal = parseFloat(match[2]);
+      const suffix = match[3];
+      const isFloat = match[2].includes('.');
+      const duration = 750;
+      const start = performance.now();
+
+      function update(t) {
+        const p = Math.min((t - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        const current = targetVal * ease;
+        num.textContent = prefix + (isFloat ? current.toFixed(1) : Math.floor(current)) + suffix;
+        if (p < 1) requestAnimationFrame(update);
+        else num.textContent = rawText;
+      }
+      requestAnimationFrame(update);
+    }
+  });
+}
+
+function bD() {
+  const x = document.getElementById('sd');
+  x.innerHTML = '';
+  for (let i = 0; i < N; i++) {
+    const d = document.createElement('div');
+    d.className = 'di' + (i === 0 ? ' active' : '');
+    d.title = (isAR ? slideTitles.ar[i] : slideTitles.en[i]);
+    d.onclick = () => gS(i, i > c ? 'next' : 'prev');
+    x.appendChild(d);
+  }
+}
+
+function bL() {
+  const l = document.getElementById('snl');
+  l.innerHTML = '';
+  const titles = isAR ? slideTitles.ar : slideTitles.en;
+  titles.forEach((n, i) => {
+    const s = document.createElement('div');
+    s.className = 'sni' + (i === c ? ' active' : '');
+    s.textContent = n;
+    s.onclick = () => { gS(i, i > c ? 'next' : 'prev'); tC(); };
+    l.appendChild(s);
+  });
+}
+
+function tL() {
+  isAR = !isAR;
+  document.documentElement.lang = isAR ? 'ar' : 'en';
+  document.documentElement.dir = isAR ? 'rtl' : 'ltr';
+  document.querySelectorAll('.en').forEach(e => e.style.display = isAR ? 'none' : '');
+  document.querySelectorAll('.ar').forEach(e => e.style.display = isAR ? '' : 'none');
+  document.getElementById('ll').textContent = isAR ? 'English' : 'العربية';
+  bL();
+  bD();
+}
+
+function tF() {
+  if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
+  else document.exitFullscreen().catch(() => {});
+}
+
+function tC() {
+  const p = document.getElementById('cp');
+  p.classList.toggle('open');
+  if (p.classList.contains('open')) bL();
+}
+
+// ================= 10 ROYAL LUXURY PALETTES & GRADIENTS =================
+const luxuryThemes = [
+  {
+    id: 'gold',
+    nameEn: 'Imperial Royal Gold',
+    nameAr: 'الذهب الملكي والأونيكس',
+    p: '#d4af37',
+    s: '#f9d976',
+    acc: '#ff9f43',
+    ok: '#10b981',
+    bg: '#070709',
+    card: 'rgba(22, 20, 16, 0.78)',
+    br: 'rgba(212, 175, 55, 0.28)'
+  },
+  {
+    id: 'emerald',
+    nameEn: 'Sultanate Emerald',
+    nameAr: 'الزمرد السلطاني والبلاتين',
+    p: '#059669',
+    s: '#34d399',
+    acc: '#10b981',
+    ok: '#6ee7b7',
+    bg: '#03140e',
+    card: 'rgba(6, 32, 23, 0.78)',
+    br: 'rgba(52, 211, 153, 0.28)'
+  },
+  {
+    id: 'sapphire',
+    nameEn: 'Diplomatic Sapphire',
+    nameAr: 'الياقوت الأزرق الدبلوماسي',
+    p: '#2563eb',
+    s: '#38bdf8',
+    acc: '#60a5fa',
+    ok: '#34d399',
+    bg: '#040916',
+    card: 'rgba(10, 24, 48, 0.78)',
+    br: 'rgba(56, 189, 248, 0.28)'
+  },
+  {
+    id: 'violet',
+    nameEn: 'Monarch Velvet Violet',
+    nameAr: 'البنفسج الإمبراطوري والكريستال',
+    p: '#7c3aed',
+    s: '#c084fc',
+    acc: '#f43f5e',
+    ok: '#34d399',
+    bg: '#090414',
+    card: 'rgba(22, 12, 38, 0.78)',
+    br: 'rgba(192, 132, 252, 0.28)'
+  },
+  {
+    id: 'ruby',
+    nameEn: 'Imperial Crimson Ruby',
+    nameAr: 'الياقوت الأحمر الملكي والتبر',
+    p: '#e11d48',
+    s: '#fb923c',
+    acc: '#fda4af',
+    ok: '#10b981',
+    bg: '#120307',
+    card: 'rgba(35, 10, 18, 0.78)',
+    br: 'rgba(225, 29, 72, 0.28)'
+  },
+  {
+    id: 'rose',
+    nameEn: 'Haute Rose Gold & Champagne',
+    nameAr: 'الذهب الوردي والشمبانيا',
+    p: '#fb7185',
+    s: '#fde047',
+    acc: '#f43f5e',
+    ok: '#34d399',
+    bg: '#12070d',
+    card: 'rgba(32, 14, 25, 0.78)',
+    br: 'rgba(251, 113, 133, 0.28)'
+  },
+  {
+    id: 'aurora',
+    nameEn: 'Nordic Aurora Borealis',
+    nameAr: 'الشفق القطبي الإسكندنافي',
+    p: '#06b6d4',
+    s: '#10b981',
+    acc: '#818cf8',
+    ok: '#34d399',
+    bg: '#021016',
+    card: 'rgba(5, 27, 36, 0.78)',
+    br: 'rgba(6, 182, 212, 0.28)'
+  },
+  {
+    id: 'titanium',
+    nameEn: 'Prestige Titanium Stealth',
+    nameAr: 'التيتانيوم الفاخر والأوبسيديان',
+    p: '#94a3b8',
+    s: '#f1f5f9',
+    acc: '#38bdf8',
+    ok: '#10b981',
+    bg: '#0b0e14',
+    card: 'rgba(22, 27, 38, 0.78)',
+    br: 'rgba(148, 163, 184, 0.28)'
+  },
+  {
+    id: 'bronze',
+    nameEn: 'Antique Bronze & Cognac',
+    nameAr: 'البرونز العتيق والكونياك الأندلسي',
+    p: '#d97706',
+    s: '#f59e0b',
+    acc: '#ea580c',
+    ok: '#10b981',
+    bg: '#0e0803',
+    card: 'rgba(28, 17, 8, 0.78)',
+    br: 'rgba(217, 119, 6, 0.28)'
+  },
+  {
+    id: 'matrix',
+    nameEn: 'Quantum Cyber Matrix',
+    nameAr: 'النيون السيبراني المضيء',
+    p: '#00ff9d',
+    s: '#00e5ff',
+    acc: '#76ff03',
+    ok: '#00e676',
+    bg: '#010a06',
+    card: 'rgba(3, 24, 16, 0.78)',
+    br: 'rgba(0, 255, 157, 0.28)'
+  }
+];
+
+let activeThemeData = luxuryThemes[0];
+
+function applyTheme(themeId) {
+  const t = luxuryThemes.find(x => x.id === themeId) || luxuryThemes[0];
+  activeThemeData = t;
+  const root = document.documentElement;
+  root.style.setProperty('--p', t.p);
+  root.style.setProperty('--s', t.s);
+  root.style.setProperty('--acc', t.acc);
+  root.style.setProperty('--ok', t.ok);
+  root.style.setProperty('--bg', t.bg);
+  root.style.setProperty('--bg-card', t.card);
+  root.style.setProperty('--br', t.br);
+
+  document.querySelectorAll('.tcard-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.theme === themeId);
+  });
+  localStorage.setItem('soar_luxury_theme', themeId);
+}
+
+function tOrbs() {
+  const btn = document.getElementById('swo');
+  btn.classList.toggle('on');
+  document.querySelectorAll('.orb').forEach(o => o.style.display = btn.classList.contains('on') ? '' : 'none');
+}
+
+// ================= ANIMATION STYLES SELECTOR =================
+function setAnimStyle(style) {
+  animStyle = style;
+  const wrap = document.getElementById('wrap');
+  wrap.className = 'anim-' + style;
+  document.querySelectorAll('#cp .mode-pills .mpill').forEach(btn => {
+    if (btn.id.startsWith('btnAnim')) btn.classList.remove('active');
+  });
+  const map = { cascade: 'btnAnimCascade', '3d': 'btnAnim3D', zoom: 'btnAnimZoom', fade: 'btnAnimFade' };
+  if (map[style]) document.getElementById(map[style]).classList.add('active');
+}
+
+// ================= DYNAMIC BACKGROUND MODES & TOGGLE =================
+function toggleBg() {
+  bgOn = !bgOn;
+  const btn = document.getElementById('swBg');
+  btn.classList.toggle('on', bgOn);
+  document.getElementById('cv').style.opacity = bgOn ? '1' : '0';
+  document.getElementById('bgPillsGroup').style.opacity = bgOn ? '1' : '0.4';
+  document.getElementById('bgPillsGroup').style.pointerEvents = bgOn ? 'all' : 'none';
+}
+
+function setBgMode(mode) {
+  bgMode = mode;
+  document.querySelectorAll('#bgPillsGroup .mpill').forEach(btn => btn.classList.remove('active'));
+  const map = { neural: 'btnBgNeural', waves: 'btnBgWaves', matrix: 'btnBgMatrix', warp: 'btnBgWarp' };
+  if (map[mode]) document.getElementById(map[mode]).classList.add('active');
+  initBg();
+}
+
+// ================= LIVE EDIT MODE =================
+function toggleEditMode() {
+  editMode = !editMode;
+  document.getElementById('swEdit').classList.toggle('on', editMode);
+  document.getElementById('editBanner').style.display = editMode ? 'block' : 'none';
+  document.querySelectorAll('.slide h1, .slide h2, .slide h3, .slide h4, .slide p, .slide li, .slide span, .slide strong').forEach(el => {
+    el.contentEditable = editMode ? 'true' : 'false';
+    if (editMode) el.style.outline = '1px dashed rgba(255, 179, 0, 0.5)';
+    else el.style.outline = 'none';
+  });
+}
+
+function saveEdits() {
+  const data = document.getElementById('wrap').innerHTML;
+  localStorage.setItem('soar_slides_custom', data);
+  alert(isAR ? 'تم حفظ التعديلات بنجاح في متصفحك!' : 'Custom slide edits saved successfully to local storage!');
+}
+
+function resetEdits() {
+  if (confirm(isAR ? 'هل تريد استعادة النصوص الأصلية وإلغاء التعديلات؟' : 'Reset to default original content?')) {
+    localStorage.removeItem('soar_slides_custom');
+    location.reload();
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('soar_luxury_theme');
+  if (savedTheme) applyTheme(savedTheme);
+
+  const saved = localStorage.getItem('soar_slides_custom');
+  if (saved) {
+    document.getElementById('wrap').innerHTML = saved;
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === c));
+  }
+});
+
+// ================= TIMER =================
+let timerSeconds = 20 * 60;
+let timerInterval = null;
+function updateTimerDisplay() {
+  const m = Math.floor(timerSeconds / 60).toString().padStart(2, '0');
+  const s = (timerSeconds % 60).toString().padStart(2, '0');
+  const el = document.getElementById('timerDisplay');
+  el.textContent = `${m}:${s}`;
+  if (timerSeconds <= 180) el.style.color = '#ff6b6b';
+  else el.style.color = 'var(--s)';
+}
+function startTimer() {
+  if (timerInterval) return;
+  timerInterval = setInterval(() => {
+    if (timerSeconds > 0) {
+      timerSeconds--;
+      updateTimerDisplay();
+    } else {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      alert(isAR ? 'انتهى الوقت المحدد للعرض التقديمي (20 دقيقة)!' : 'Presentation time limit reached (20 minutes)!');
+    }
+  }, 1000);
+}
+function pauseTimer() {
+  clearInterval(timerInterval);
+  timerInterval = null;
+}
+function resetTimer() {
+  pauseTimer();
+  timerSeconds = 20 * 60;
+  updateTimerDisplay();
+}
+
+// ================= KEYBOARD & TOUCH =================
+document.addEventListener('keydown', e => {
+  if (editMode && e.target.isContentEditable) return;
+  switch (e.key) {
+    case 'ArrowRight':
+    case 'ArrowDown':
+    case ' ':
+      next(); break;
+    case 'ArrowLeft':
+    case 'ArrowUp':
+      prev(); break;
+    case 'Home': gS(0, 'prev'); break;
+    case 'End': gS(N - 1, 'next'); break;
+    case 'f':
+    case 'F': tF(); break;
+    case 'l':
+    case 'L': tL(); break;
+    case 'c':
+    case 'C': tC(); break;
+    case 'e':
+    case 'E': toggleEditMode(); break;
+  }
+});
+
+let tx = 0;
+document.addEventListener('touchstart', e => tx = e.touches[0].clientX, { passive: true });
+document.addEventListener('touchend', e => {
+  const d = tx - e.changedTouches[0].clientX;
+  if (Math.abs(d) > 50) {
+    if (d > 0) next(); else prev();
+  }
+}, { passive: true });
+
+// ================= MULTI-ENGINE DYNAMIC CANVAS (GUARANTEED VISIBLE) =================
+const cv = document.getElementById('cv');
+const cx = cv.getContext('2d');
+let mouse = { x: null, y: null };
+let bgEntities = [];
+let waveStep = 0;
+
+window.addEventListener('mousemove', e => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+window.addEventListener('mouseleave', () => {
+  mouse.x = null;
+  mouse.y = null;
+});
+
+function rsz() {
+  cv.width = window.innerWidth;
+  cv.height = window.innerHeight;
+  initBg();
+}
+
+function hexToRgb(hex) {
+  hex = (hex || '#d4af37').replace('#', '').trim();
+  if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+  const num = parseInt(hex, 16);
+  return {
+    r: (num >> 16) & 255,
+    g: (num >> 8) & 255,
+    b: num & 255
+  };
+}
+
+function hexToRgba(hex, alpha) {
+  try {
+    const { r, g, b } = hexToRgb(hex);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  } catch (e) {
+    return `rgba(212, 175, 55, ${alpha})`;
+  }
+}
+
+// 1. Neural Node
+class NeuralNode {
+  constructor() { this.r(); }
+  r() {
+    this.x = Math.random() * cv.width;
+    this.y = Math.random() * cv.height;
+    this.sz = Math.random() * 2 + 1.2;
+    this.sx = (Math.random() - 0.5) * 0.55;
+    this.sy = (Math.random() - 0.5) * 0.55;
+    this.op = Math.random() * 0.5 + 0.4;
+    this.pulse = Math.random() * Math.PI * 2;
+  }
+  u() {
+    this.pulse += 0.035;
+    if (mouse.x !== null) {
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 150) {
+        this.x += (dx / dist) * 0.5;
+        this.y += (dy / dist) * 0.5;
+      }
+    }
+    this.x += this.sx;
+    this.y += this.sy;
+    if (this.x < -10 || this.x > cv.width + 10 || this.y < -10 || this.y > cv.height + 10) this.r();
+  }
+  d(colorHex) {
+    const currentSz = this.sz + Math.sin(this.pulse) * 0.6;
+    cx.beginPath();
+    cx.arc(this.x, this.y, Math.max(0.6, currentSz), 0, Math.PI * 2);
+    cx.fillStyle = hexToRgba(colorHex, this.op);
+    cx.shadowBlur = 8;
+    cx.shadowColor = colorHex;
+    cx.fill();
+    cx.shadowBlur = 0;
+  }
+}
+
+// 2. Cyber Matrix Stream
+class MatrixCol {
+  constructor(x) {
+    this.x = x;
+    this.y = Math.random() * -cv.height;
+    this.speed = Math.random() * 2.2 + 1.4;
+    this.chars = '01SOARSECURITYAI789XYZ45DEF';
+    this.len = Math.floor(Math.random() * 14 + 8);
+  }
+  u() {
+    this.y += this.speed;
+    if (this.y > cv.height + 180) {
+      this.y = Math.random() * -120;
+      this.speed = Math.random() * 2.2 + 1.4;
+    }
+  }
+  d(pColor, sColor) {
+    cx.font = '11px "JetBrains Mono", monospace';
+    for (let i = 0; i < this.len; i++) {
+      const char = this.chars[Math.floor(Math.random() * this.chars.length)];
+      const cyPos = this.y - i * 15;
+      if (cyPos > 0 && cyPos < cv.height) {
+        const alpha = Math.max(0, 1 - (i / this.len));
+        if (i === 0) {
+          cx.fillStyle = '#ffffff';
+          cx.shadowBlur = 10;
+          cx.shadowColor = sColor;
+          cx.fillText(char, this.x, cyPos);
+          cx.shadowBlur = 0;
+        } else {
+          cx.fillStyle = hexToRgba(i % 2 === 0 ? sColor : pColor, alpha * 0.7);
+          cx.fillText(char, this.x, cyPos);
+        }
+      }
+    }
+  }
+}
+
+// 3. Space Warp Star
+class WarpStar {
+  constructor() { this.r(); }
+  r() {
+    this.x = (Math.random() - 0.5) * cv.width;
+    this.y = (Math.random() - 0.5) * cv.height;
+    this.z = Math.random() * cv.width;
+    this.pz = this.z;
+    this.speed = Math.random() * 3 + 2.5;
+  }
+  u() {
+    this.z -= this.speed;
+    if (this.z <= 0) {
+      this.r();
+      this.pz = this.z;
+    }
+  }
+  d(sColor) {
+    const cxCenter = cv.width / 2;
+    const cyCenter = cv.height / 2;
+    const sx = (this.x / this.z) * 160 + cxCenter;
+    const sy = (this.y / this.z) * 160 + cyCenter;
+    const px = (this.x / this.pz) * 160 + cxCenter;
+    const py = (this.y / this.pz) * 160 + cyCenter;
+    this.pz = this.z;
+
+    if (sx >= 0 && sx <= cv.width && sy >= 0 && sy <= cv.height) {
+      const alpha = Math.min(1, (1 - this.z / cv.width) * 0.9);
+      cx.beginPath();
+      cx.moveTo(px, py);
+      cx.lineTo(sx, sy);
+      cx.strokeStyle = hexToRgba(sColor, alpha);
+      cx.lineWidth = Math.min(2.4, (1 - this.z / cv.width) * 2.8);
+      cx.stroke();
+    }
+  }
+}
+
+function initBg() {
+  bgEntities = [];
+  if (bgMode === 'neural') {
+    const count = Math.min(90, Math.floor(window.innerWidth / 16));
+    for (let i = 0; i < count; i++) bgEntities.push(new NeuralNode());
+  } else if (bgMode === 'matrix') {
+    const cols = Math.floor(cv.width / 22);
+    for (let i = 0; i < cols; i++) bgEntities.push(new MatrixCol(i * 22));
+  } else if (bgMode === 'warp') {
+    for (let i = 0; i < 180; i++) bgEntities.push(new WarpStar());
+  }
+}
+
+function animCanvas() {
+  requestAnimationFrame(animCanvas);
+  if (!bgOn) return;
+
+  cx.clearRect(0, 0, cv.width, cv.height);
+  const pColor = activeThemeData ? activeThemeData.p : '#d4af37';
+  const sColor = activeThemeData ? activeThemeData.s : '#f9d976';
+
+  if (bgMode === 'neural') {
+    bgEntities.forEach(p => { p.u(); p.d(sColor); });
+    for (let i = 0; i < bgEntities.length; i++) {
+      for (let j = i + 1; j < bgEntities.length; j++) {
+        const dx = bgEntities[i].x - bgEntities[j].x;
+        const dy = bgEntities[i].y - bgEntities[j].y;
+        const dd = Math.sqrt(dx * dx + dy * dy);
+        if (dd < 110) {
+          cx.beginPath();
+          cx.moveTo(bgEntities[i].x, bgEntities[i].y);
+          cx.lineTo(bgEntities[j].x, bgEntities[j].y);
+          cx.strokeStyle = hexToRgba(pColor, 0.28 * (1 - dd / 110));
+          cx.lineWidth = 0.85;
+          cx.stroke();
+        }
+      }
+      if (mouse.x !== null) {
+        const mdx = bgEntities[i].x - mouse.x;
+        const mdy = bgEntities[i].y - mouse.y;
+        const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+        if (mdist < 150) {
+          cx.beginPath();
+          cx.moveTo(bgEntities[i].x, bgEntities[i].y);
+          cx.lineTo(mouse.x, mouse.y);
+          cx.strokeStyle = hexToRgba(sColor, 0.5 * (1 - mdist / 150));
+          cx.lineWidth = 1.3;
+          cx.stroke();
+        }
+      }
+    }
+  } else if (bgMode === 'waves') {
+    waveStep += 0.018;
+    const waves = [
+      { y: cv.height * 0.65, len: 0.0028, amp: 48, p: pColor, alpha: 0.18 },
+      { y: cv.height * 0.72, len: 0.0036, amp: 58, p: sColor, alpha: 0.16 },
+      { y: cv.height * 0.78, len: 0.0022, amp: 68, p: pColor, alpha: 0.14 }
+    ];
+    waves.forEach((w, idx) => {
+      cx.beginPath();
+      cx.moveTo(0, cv.height);
+      for (let x = 0; x <= cv.width; x += 8) {
+        const y = w.y + Math.sin(x * w.len + waveStep + idx * 1.4) * w.amp;
+        cx.lineTo(x, y);
+      }
+      cx.lineTo(cv.width, cv.height);
+      const grad = cx.createLinearGradient(0, w.y - w.amp, 0, cv.height);
+      grad.addColorStop(0, hexToRgba(w.p, w.alpha));
+      grad.addColorStop(1, 'transparent');
+      cx.fillStyle = grad;
+      cx.fill();
+
+      // Glowing crest line
+      cx.beginPath();
+      for (let x = 0; x <= cv.width; x += 8) {
+        const y = w.y + Math.sin(x * w.len + waveStep + idx * 1.4) * w.amp;
+        if (x === 0) cx.moveTo(x, y);
+        else cx.lineTo(x, y);
+      }
+      cx.strokeStyle = hexToRgba(w.p, w.alpha * 2.5);
+      cx.lineWidth = 1.8;
+      cx.shadowBlur = 12;
+      cx.shadowColor = w.p;
+      cx.stroke();
+      cx.shadowBlur = 0;
+    });
+  } else if (bgMode === 'matrix') {
+    bgEntities.forEach(e => { e.u(); e.d(pColor, sColor); });
+  } else if (bgMode === 'warp') {
+    bgEntities.forEach(e => { e.u(); e.d(sColor); });
+  }
+}
+
+window.addEventListener('resize', rsz);
+rsz();
+initBg();
+animCanvas();
+bD();
+bL();
+updateTimerDisplay();
+document.getElementById('pb').style.width = '0%';
+</script>
+</body>
+</html>

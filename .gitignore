@@ -1,0 +1,11 @@
+node_modules/
+__pycache__/
+*.pyc
+*.bak
+presentation/*.bak
+presentation/test.txt
+pdf_decoded.txt
+pdf_out.txt
+guide_decoded.txt
+.DS_Store
+Thumbs.db
