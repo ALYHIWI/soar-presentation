@@ -11,15 +11,16 @@
 <style>
 /* ================= ROOT DESIGN SYSTEM & LUXURY THEME TOKENS ================= */
 :root {
-  --p: #d4af37;
-  --s: #f9d976;
-  --acc: #ff9f43;
+  --p: #c31432;
+  --s: #240b36;
+  --acc: #ff4d6d;
   --ok: #10b981;
   --wa: #ffb300;
-  --bg: #070709;
-  --bg-card: rgba(22, 20, 16, 0.78);
+  --bg: #0d040e;
+  --bg-card: rgba(28, 8, 22, 0.78);
   --gl: rgba(255, 255, 255, 0.05);
-  --br: rgba(212, 175, 55, 0.28);
+  --br: rgba(195, 20, 50, 0.35);
+  --grad: linear-gradient(135deg, #c31432, #240b36);
   --t1: #fbfbfb;
   --t2: rgba(251, 251, 251, 0.82);
   --t3: rgba(251, 251, 251, 0.48);
@@ -529,7 +530,7 @@ h1.hero {
   line-height: 1.15;
   margin-bottom: 16px;
   text-align: center;
-  background: linear-gradient(135deg, #ffffff 15%, var(--s) 65%, var(--p) 100%);
+  background: linear-gradient(135deg, #ffffff 15%, var(--p) 65%, var(--s) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 4px 20px rgba(0,0,0,0.5);
@@ -540,7 +541,7 @@ h2.st {
   font-weight: 800;
   margin-bottom: 8px;
   text-align: center;
-  background: linear-gradient(135deg, #ffffff 20%, var(--s) 70%, var(--p) 100%);
+  background: linear-gradient(135deg, #ffffff 20%, var(--p) 70%, var(--s) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -548,10 +549,10 @@ h2.st {
 .gl {
   width: 100px;
   height: 3px;
-  background: linear-gradient(90deg, transparent, var(--s), var(--p), transparent);
+  background: linear-gradient(90deg, transparent, var(--p), var(--s), transparent);
   margin: 6px auto 16px;
   border-radius: 2px;
-  box-shadow: 0 0 12px var(--s);
+  box-shadow: 0 0 12px var(--p);
 }
 
 p.lead {
@@ -1625,49 +1626,44 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     </div>
   </div>
 
-  <!-- 5. 10 ROYAL LUXURY PALETTES & GRADIENTS -->
+  <!-- 5. 5 PRESTIGE GRADIENTS & PALETTES -->
   <div class="cps">
-    <div class="cpst">👑 <span class="en">Royal Luxury Themes (10)</span><span class="ar" style="display:none">التدرجات والسمات الملكية الفاخرة (10)</span></div>
+    <div class="cpst">👑 <span class="en">Prestige Color Gradients (5)</span><span class="ar" style="display:none">التدرجات اللونية الفاخرة المعتمدة (5)</span></div>
     <div class="theme-grid">
-      <button class="tcard-btn active" data-theme="gold" onclick="applyTheme('gold')">
-        <div class="t-swatch" style="background:linear-gradient(135deg,#d4af37,#f9d976)"></div>
-        <div class="t-name"><span class="en">Imperial Gold</span><span class="ar" style="display:none">الذهب الملكي والأونيكس</span></div>
+      <button class="tcard-btn active" data-theme="crimson-plum" onclick="applyTheme('crimson-plum')">
+        <div class="t-swatch" style="background:linear-gradient(135deg, #c31432, #240b36)"></div>
+        <div class="t-name">
+          <span class="en">Crimson & Wine</span><span class="ar" style="display:none">القرمزي والبرغندي المخملي</span>
+          <div style="font-size:0.62rem;opacity:0.75;font-family:monospace;letter-spacing:0.5px;margin-top:2px">#c31432 → #240b36</div>
+        </div>
       </button>
-      <button class="tcard-btn" data-theme="emerald" onclick="applyTheme('emerald')">
-        <div class="t-swatch" style="background:linear-gradient(135deg,#059669,#34d399)"></div>
-        <div class="t-name"><span class="en">Sultanate Emerald</span><span class="ar" style="display:none">الزمرد السلطاني</span></div>
+      <button class="tcard-btn" data-theme="amethyst-emerald" onclick="applyTheme('amethyst-emerald')">
+        <div class="t-swatch" style="background:linear-gradient(135deg, #8360c3, #2ebf91)"></div>
+        <div class="t-name">
+          <span class="en">Amethyst & Jade</span><span class="ar" style="display:none">الجمشت والزمرد اليشمي</span>
+          <div style="font-size:0.62rem;opacity:0.75;font-family:monospace;letter-spacing:0.5px;margin-top:2px">#8360c3 → #2ebf91</div>
+        </div>
       </button>
-      <button class="tcard-btn" data-theme="sapphire" onclick="applyTheme('sapphire')">
-        <div class="t-swatch" style="background:linear-gradient(135deg,#2563eb,#38bdf8)"></div>
-        <div class="t-name"><span class="en">Royal Sapphire</span><span class="ar" style="display:none">الياقوت الأزرق</span></div>
+      <button class="tcard-btn" data-theme="purple-rose" onclick="applyTheme('purple-rose')">
+        <div class="t-swatch" style="background:linear-gradient(135deg, #654ea3, #eaafc8)"></div>
+        <div class="t-name">
+          <span class="en">Purple & Soft Rose</span><span class="ar" style="display:none">البنفسجي والوردي الأنيق</span>
+          <div style="font-size:0.62rem;opacity:0.75;font-family:monospace;letter-spacing:0.5px;margin-top:2px">#654ea3 → #eaafc8</div>
+        </div>
       </button>
-      <button class="tcard-btn" data-theme="violet" onclick="applyTheme('violet')">
-        <div class="t-swatch" style="background:linear-gradient(135deg,#7c3aed,#c084fc)"></div>
-        <div class="t-name"><span class="en">Monarch Violet</span><span class="ar" style="display:none">البنفسج الإمبراطوري</span></div>
+      <button class="tcard-btn" data-theme="lime-aquamarine" onclick="applyTheme('lime-aquamarine')">
+        <div class="t-swatch" style="background:linear-gradient(135deg, #a8ff78, #78ffd6)"></div>
+        <div class="t-name">
+          <span class="en">Cyber Lime & Aqua</span><span class="ar" style="display:none">الليمي السيبراني والأكوامارين</span>
+          <div style="font-size:0.62rem;opacity:0.75;font-family:monospace;letter-spacing:0.5px;margin-top:2px">#a8ff78 → #78ffd6</div>
+        </div>
       </button>
-      <button class="tcard-btn" data-theme="ruby" onclick="applyTheme('ruby')">
-        <div class="t-swatch" style="background:linear-gradient(135deg,#e11d48,#fb923c)"></div>
-        <div class="t-name"><span class="en">Crimson Ruby</span><span class="ar" style="display:none">الياقوت الأحمر الملكي</span></div>
-      </button>
-      <button class="tcard-btn" data-theme="rose" onclick="applyTheme('rose')">
-        <div class="t-swatch" style="background:linear-gradient(135deg,#fb7185,#fde047)"></div>
-        <div class="t-name"><span class="en">Rose Gold & Champagne</span><span class="ar" style="display:none">الذهب الوردي والشمبانيا</span></div>
-      </button>
-      <button class="tcard-btn" data-theme="aurora" onclick="applyTheme('aurora')">
-        <div class="t-swatch" style="background:linear-gradient(135deg,#06b6d4,#10b981)"></div>
-        <div class="t-name"><span class="en">Nordic Aurora</span><span class="ar" style="display:none">الشفق القطبي</span></div>
-      </button>
-      <button class="tcard-btn" data-theme="titanium" onclick="applyTheme('titanium')">
-        <div class="t-swatch" style="background:linear-gradient(135deg,#94a3b8,#f1f5f9)"></div>
-        <div class="t-name"><span class="en">Platinum Stealth</span><span class="ar" style="display:none">التيتانيوم الفاخر</span></div>
-      </button>
-      <button class="tcard-btn" data-theme="bronze" onclick="applyTheme('bronze')">
-        <div class="t-swatch" style="background:linear-gradient(135deg,#d97706,#f59e0b)"></div>
-        <div class="t-name"><span class="en">Antique Bronze</span><span class="ar" style="display:none">البرونز العتيق والكونياك</span></div>
-      </button>
-      <button class="tcard-btn" data-theme="matrix" onclick="applyTheme('matrix')">
-        <div class="t-swatch" style="background:linear-gradient(135deg,#00ff9d,#00e5ff)"></div>
-        <div class="t-name"><span class="en">Cyber Matrix</span><span class="ar" style="display:none">النيون السيبراني</span></div>
+      <button class="tcard-btn" data-theme="azure-ocean" onclick="applyTheme('azure-ocean')">
+        <div class="t-swatch" style="background:linear-gradient(135deg, #00B4DB, #0083B0)"></div>
+        <div class="t-name">
+          <span class="en">Electric Azure & Ocean</span><span class="ar" style="display:none">الأزرق السماوي والمحيطي</span>
+          <div style="font-size:0.62rem;opacity:0.75;font-family:monospace;letter-spacing:0.5px;margin-top:2px">#00B4DB → #0083B0</div>
+        </div>
       </button>
     </div>
   </div>
@@ -1709,6 +1705,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 </div>
 
 <div id="wrap" class="anim-cascade">
+
 
 
 
@@ -2910,6 +2907,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 
 
 
+
 </div>
 
 <!-- Bottom Navigation Bar -->
@@ -3073,127 +3071,67 @@ function tC() {
   if (p.classList.contains('open')) bL();
 }
 
-// ================= 10 ROYAL LUXURY PALETTES & GRADIENTS =================
+// ================= 5 PRESTIGE GRADIENTS & PALETTES =================
 const luxuryThemes = [
   {
-    id: 'gold',
-    nameEn: 'Imperial Royal Gold',
-    nameAr: 'الذهب الملكي والأونيكس',
-    p: '#d4af37',
-    s: '#f9d976',
-    acc: '#ff9f43',
+    id: 'crimson-plum',
+    nameEn: 'Crimson & Deep Wine',
+    nameAr: 'القرمزي والبرغندي المخملي',
+    p: '#c31432',
+    s: '#240b36',
+    acc: '#ff4d6d',
     ok: '#10b981',
-    bg: '#070709',
-    card: 'rgba(22, 20, 16, 0.78)',
-    br: 'rgba(212, 175, 55, 0.28)'
+    bg: '#0d040e',
+    card: 'rgba(28, 8, 22, 0.78)',
+    br: 'rgba(195, 20, 50, 0.35)'
   },
   {
-    id: 'emerald',
-    nameEn: 'Sultanate Emerald',
-    nameAr: 'الزمرد السلطاني والبلاتين',
-    p: '#059669',
-    s: '#34d399',
-    acc: '#10b981',
-    ok: '#6ee7b7',
-    bg: '#03140e',
-    card: 'rgba(6, 32, 23, 0.78)',
-    br: 'rgba(52, 211, 153, 0.28)'
+    id: 'amethyst-emerald',
+    nameEn: 'Amethyst Violet & Jade',
+    nameAr: 'الجمشت والزمرد اليشمي',
+    p: '#8360c3',
+    s: '#2ebf91',
+    acc: '#a78bfa',
+    ok: '#2ebf91',
+    bg: '#060810',
+    card: 'rgba(18, 14, 28, 0.78)',
+    br: 'rgba(131, 96, 195, 0.35)'
   },
   {
-    id: 'sapphire',
-    nameEn: 'Diplomatic Sapphire',
-    nameAr: 'الياقوت الأزرق الدبلوماسي',
-    p: '#2563eb',
-    s: '#38bdf8',
-    acc: '#60a5fa',
-    ok: '#34d399',
-    bg: '#040916',
-    card: 'rgba(10, 24, 48, 0.78)',
-    br: 'rgba(56, 189, 248, 0.28)'
-  },
-  {
-    id: 'violet',
-    nameEn: 'Monarch Velvet Violet',
-    nameAr: 'البنفسج الإمبراطوري والكريستال',
-    p: '#7c3aed',
-    s: '#c084fc',
-    acc: '#f43f5e',
-    ok: '#34d399',
-    bg: '#090414',
-    card: 'rgba(22, 12, 38, 0.78)',
-    br: 'rgba(192, 132, 252, 0.28)'
-  },
-  {
-    id: 'ruby',
-    nameEn: 'Imperial Crimson Ruby',
-    nameAr: 'الياقوت الأحمر الملكي والتبر',
-    p: '#e11d48',
-    s: '#fb923c',
-    acc: '#fda4af',
+    id: 'purple-rose',
+    nameEn: 'Purple & Soft Rose',
+    nameAr: 'البنفسجي والوردي الأنيق',
+    p: '#654ea3',
+    s: '#eaafc8',
+    acc: '#c084fc',
     ok: '#10b981',
-    bg: '#120307',
-    card: 'rgba(35, 10, 18, 0.78)',
-    br: 'rgba(225, 29, 72, 0.28)'
+    bg: '#0a0612',
+    card: 'rgba(22, 14, 32, 0.78)',
+    br: 'rgba(101, 78, 163, 0.35)'
   },
   {
-    id: 'rose',
-    nameEn: 'Haute Rose Gold & Champagne',
-    nameAr: 'الذهب الوردي والشمبانيا',
-    p: '#fb7185',
-    s: '#fde047',
-    acc: '#f43f5e',
-    ok: '#34d399',
-    bg: '#12070d',
-    card: 'rgba(32, 14, 25, 0.78)',
-    br: 'rgba(251, 113, 133, 0.28)'
+    id: 'lime-aquamarine',
+    nameEn: 'Cyber Lime & Aqua',
+    nameAr: 'الليمي السيبراني والأكوامارين',
+    p: '#a8ff78',
+    s: '#78ffd6',
+    acc: '#4ade80',
+    ok: '#78ffd6',
+    bg: '#030f0a',
+    card: 'rgba(5, 24, 16, 0.78)',
+    br: 'rgba(120, 255, 214, 0.35)'
   },
   {
-    id: 'aurora',
-    nameEn: 'Nordic Aurora Borealis',
-    nameAr: 'الشفق القطبي الإسكندنافي',
-    p: '#06b6d4',
-    s: '#10b981',
-    acc: '#818cf8',
-    ok: '#34d399',
-    bg: '#021016',
-    card: 'rgba(5, 27, 36, 0.78)',
-    br: 'rgba(6, 182, 212, 0.28)'
-  },
-  {
-    id: 'titanium',
-    nameEn: 'Prestige Titanium Stealth',
-    nameAr: 'التيتانيوم الفاخر والأوبسيديان',
-    p: '#94a3b8',
-    s: '#f1f5f9',
+    id: 'azure-ocean',
+    nameEn: 'Electric Azure & Ocean',
+    nameAr: 'الأزرق السماوي والمحيطي',
+    p: '#00B4DB',
+    s: '#0083B0',
     acc: '#38bdf8',
     ok: '#10b981',
-    bg: '#0b0e14',
-    card: 'rgba(22, 27, 38, 0.78)',
-    br: 'rgba(148, 163, 184, 0.28)'
-  },
-  {
-    id: 'bronze',
-    nameEn: 'Antique Bronze & Cognac',
-    nameAr: 'البرونز العتيق والكونياك الأندلسي',
-    p: '#d97706',
-    s: '#f59e0b',
-    acc: '#ea580c',
-    ok: '#10b981',
-    bg: '#0e0803',
-    card: 'rgba(28, 17, 8, 0.78)',
-    br: 'rgba(217, 119, 6, 0.28)'
-  },
-  {
-    id: 'matrix',
-    nameEn: 'Quantum Cyber Matrix',
-    nameAr: 'النيون السيبراني المضيء',
-    p: '#00ff9d',
-    s: '#00e5ff',
-    acc: '#76ff03',
-    ok: '#00e676',
-    bg: '#010a06',
-    card: 'rgba(3, 24, 16, 0.78)',
-    br: 'rgba(0, 255, 157, 0.28)'
+    bg: '#020b16',
+    card: 'rgba(6, 20, 36, 0.78)',
+    br: 'rgba(0, 180, 219, 0.35)'
   }
 ];
 
@@ -3210,11 +3148,12 @@ function applyTheme(themeId) {
   root.style.setProperty('--bg', t.bg);
   root.style.setProperty('--bg-card', t.card);
   root.style.setProperty('--br', t.br);
+  root.style.setProperty('--grad', `linear-gradient(135deg, ${t.p}, ${t.s})`);
 
   document.querySelectorAll('.tcard-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.theme === themeId);
+    btn.classList.toggle('active', btn.dataset.theme === t.id);
   });
-  localStorage.setItem('soar_luxury_theme', themeId);
+  localStorage.setItem('soar_luxury_theme', t.id);
 }
 
 function tOrbs() {

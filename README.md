@@ -27,7 +27,7 @@
 - **Control Center (مركز التحكم الشامل)**:
   - 🌌 **4 Dynamic Canvas Backgrounds**: (Neural AI Mesh, Quantum Waves, Cyber Matrix, Space Warp).
   - 🎬 **4 Slide Animation Styles**: (Cascade Wave, 3D Flip Cube, Cyber Zoom, Soft Dissolve) مع دوران ثابت بدون أي سكرول أفقي.
-  - 👑 **10 Royal Luxury Color Palettes**: تدرجات لونية ملكية فاخرة (Imperial Gold, Sultanate Emerald, Royal Sapphire, Monarch Violet, Crimson Ruby, Rose Gold, Nordic Aurora, Titanium Stealth, Antique Bronze, Quantum Matrix).
+  - 👑 **5 Prestige Color Gradients**: التدرجات اللونية الفاخرة المعتمدة بالترتيب (`#c31432` ➔ `#240b36`, `#8360c3` ➔ `#2ebf91`, `#654ea3` ➔ `#eaafc8`, `#a8ff78` ➔ `#78ffd6`, `#00B4DB` ➔ `#0083B0`).
   - ⏱️ **Presentation Timer**: مؤقت عد تنازلي تفاعلي (15-20 دقيقة) مع إشارات تنبيه لونية.
   - ✏️ **Live In-Place Content Editor**: إمكانية تعديل أي نص في العرض مباشرة وحفظه محلياً في المتصفح (`LocalStorage`).
 - **Zero Horizontal Scrollbar**: إزالة تامة لأي سكرول أفقي أو اهتزاز أثناء التنقل أو تفعيل الـ 3D.
