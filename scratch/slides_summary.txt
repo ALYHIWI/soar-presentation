@@ -1,0 +1,248 @@
+=== SLIDE 01: AI-Based Security Orchestration, Automation &amp; Response (SOAR) Tool أداة أمنية ذكية للتنسيق والأتمتة والاستجابة للحوادث السيبرانية (SOAR) ===
+  [P:en] University of Science and Technology &middot; Faculty of Computer Science and Technology
+  [P:ar] جامعة العلوم والتكنولوجيا &middot; كلية علوم وحوسبة الحاسوب &middot; قسم علوم الحاسوب
+  [P:lead en] An intelligent framework bridging context-aware machine learning triage, dynamic risk prioritization, and automated response orchestration to resolve alert fatigue in modern Security Operations Centers (SOC).
+  [P:lead ar] إطار عمل أمني متكامل يدمج الفرز الذكي القائم على تعلم الآلة، وتقييم المخاطر الديناميكي، مع أتمتة الاستجابة لحل مشكلة إرهاق التنبيهات في مراكز العمليات الأمنية الحديثة.
+  [P:en] Academic Supervisor: Dr. Raed Saeed &nbsp;|&nbsp; Major: Bachelor's in Cybersecurity and Networking &nbsp;|&nbsp; Department: Computer Science
+  [P:ar] إشراف الدكتور: رائد سعيد &nbsp;|&nbsp; التخصص: بكالوريوس الأمن السيبراني والشبكات &nbsp;|&nbsp; القسم: علوم الحاسوب
+
+=== SLIDE 02: Project Research &amp; Engineering Team | فريق البحث والتطوير الهندسي ===
+  [P:en] Academic Department: Department of Computer Science &nbsp;|&nbsp; Department Head: Dr. Nabeel Al-Mekhlafy &nbsp;|&nbsp; Supervision: Dr. Raed Saeed
+  [P:ar] القسم الأكاديمي: قسم علوم الحاسوب &nbsp;|&nbsp; رئيس القسم: د. نبيل المخلافي &nbsp;|&nbsp; المشرف العلمي: د. رائد سعيد
+
+=== SLIDE 03: The Modern SOC Operational Landscape | المشهد التشغيلي لمراكز العمليات الأمنية الحديثة (SOC) ===
+  [P:lead en] A Security Operations Center (SOC) is a centralized operational function responsible for monitoring, detecting, investigating, and responding to organizational cyber threats. Modern SOCs deploy a diverse array of security sensors across network and host layers, implementing SIEM platforms for centralized log management, security-event collection, and basic correlation. However, security data is highly heterogeneous and complex to analyze due to distinct log schemas and vendor-specific data representations.
+  [P:lead ar] تعمل مراكز العمليات الأمنية على حماية المؤسسات عبر مراقبة وتجميع سجلات متباينة، لكنها تصطدم بأحجام بيانات متسارعة واختناقات تشغيلية حادة.
+  [P:en] Organizations implement SIEM platforms for centralized log management, security-event collection, and basic correlation. Accumulating up to 100 gigabytes of log and alert data daily, a substantial portion may consist of false positives and non-actionable noise.
+  [P:ar] تجميع غيغابايتات من السجلات يومياً من حساسات الشبكة والأنظمة الطرفية. تقوم أنظمة SIEM بمركزة السجلات وإجراء مطابقات نمطية.
+  [P:en] Security monitoring relies on diverse outputs from multi-vendor security stacks. Because these tools operate with distinct log schemas, vendor-specific data representations, and unique alert mechanisms, the resulting security data is highly heterogeneous and complex to analyze.
+  [P:ar] بيانات أمنية بصيغ متباينة وغير موحدة، مما يخلق عزلة بين الأدوات ويعيق الرؤية الشاملة للمحللين الأمنيين.
+  [P:en] Security analysts are structured into a tiered organizational model. Junior analysts conduct initial alert triage, following standard operating procedures to evaluate whether an incoming alert represents a legitimate threat or benign activity, manually gathering contextual evidence from multiple disparate security sources.
+  [P:ar] يقضي محللو المستوى الأول ساعات طويلة في الفرز اليدوي لآلاف التنبيهات للتحقق منها قبل تصعيدها، مما يؤخر الاستجابة الفعلية.
+
+=== SLIDE 04: The Core Crisis: Alert Fatigue &amp; Cognitive Overload | الأزمة المركزية: إرهاق التنبيهات والإجهاد الذهني ===
+  [P:lead en] Modern Security Operations Centers (SOCs) face an unsustainable influx of security data, accumulating up to 100 gigabytes of log and alert data daily. A substantial portion of security alerts may consist of false positives and non-actionable noise. Processing this low-fidelity noise demands significant operational effort and detracts from proactive threat hunting.
+  [P:lead ar] التدفق الهائل للبيانات الأمنية يولد آلاف التنبيهات لكل وردية عمل، وتتكون نسبة كبيرة منها من إيجابيات كاذبة، أخطاء إعدادات، وضجيج غير قابل للتنفيذ الفعلي.
+  [P:en] This convergence of high alert volumes and excessive false positives causes high analyst workload and alert fatigue. Analysts manually investigate alerts through continuous context switching—repeatedly pivoting across disparate application windows to gather evidence, creating cognitive overload and analyst burnout.
+  [P:ar] التعرض المستمر للإنذارات الخاطئة يضعف انتباه المحلل ويزيد من احتمالية إهمال الهجمات الخطيرة.
+  [P:en] When prioritization relies primarily on fixed decision rules, highly critical incidents can become buried beneath lower-value noise. Dynamic, risk-aware ordering can reduce the time critical incidents spend waiting in analyst queues by 22.9%.
+  [P:ar] الهجمات الخطيرة والتهديدات المستمرة تُدفن تحت أكوام التنبيهات منخفضة الأهمية.
+  [LI:en] Automated Workflow Limits: Reliance on predefined rules and static playbooks may limit adaptability when alert context or risk conditions change dynamically.
+  [LI:ar] قيود الأتمتة التقليدية: الاعتماد على قواعد محددة مسبقاً ودفاتر عمل ثابتة يحد من التكيف عند تغير سياق التنبيه.
+  [LI:en] Rigid Logic Failures: Deterministic conditional logic can constrain effectiveness against novel or evasive threats that fall outside anticipated patterns.
+  [LI:ar] فشل المنطق الجامد: المنطق الحتمي يفقد فاعليته أمام التهديدات الجديدة التي تخرج عن الأنماط المتوقعة.
+  [LI:en] Prioritization Gap: Un-prioritized queues delay the handling of actionable threats; dynamic risk-aware ordering can reduce wait time for critical incidents by 22.9%.
+  [LI:ar] فجوة الأولوية: قوائم الانتظار غير المرتبة تؤخر التعامل مع التهديدات القابلة للتنفيذ؛ الترتيب الديناميكي يقلل وقت الانتظار بنسبة 22.9%.
+
+=== SLIDE 05: The Triage Bottleneck: Static Rules &amp; Context Switching | عنق زجاجة الفرز: القواعد الثابتة وتبديل السياق ===
+  [P:en] Rigid conditional statements may become less effective against novel or evasive threats that fall outside anticipated patterns. While conventional automation efficiently executes repetitive steps, deterministic logic can constrain effectiveness when alert context or risk conditions change dynamically.
+  [P:ar] قواعد الفرز التقليدية المعتمدة على عتبات ثابتة تفشل في رصد الهجمات الذكية والمتغيرة وسرقة الهويات البطيئة.
+  [P:en] Analysts must manually gather contextual evidence from multiple disparate security sources. This manual investigation introduces context switching, where analysts repeatedly navigate across different application interfaces, hold investigative hypotheses in memory, and manually correlate heterogeneous data sources.
+  [P:ar] يتنقل المحلل يدوياً بين عدة شاشات وأنظمة معزولة للتحقق من هوية المستخدم وسمعة العناوين وحالة الجهاز المعني.
+  [P:en] When prioritization relies primarily on fixed decision rules, highly critical incidents can become buried beneath lower-value noise. Un-prioritized queues delay the handling of actionable threats.
+  [P:ar] ترتيب التنبيهات بقوائم الانتظار بناءً على شدة افتراضية أو وقت الوصول دون مراعاة حساسية الأصل أو سياق التهديد الفعلي.
+  [P:en] Key Takeaway: These challenges motivate the ongoing need to investigate how intelligent alert analysis and prioritization can be integrated with operational workflows to support adaptive incident handling.
+  [P:ar] الخلاصة: الأتمتة التقليدية تنفذ مهام محددة سلفاً، لكنها تفتقر للذكاء القادر على فهم السياق التشغيلي وتقدير المخاطر قبل تنفيذ إجراءات الاستجابة.
+
+=== SLIDE 06: Project Objectives: Strategic &amp; Operational | أهداف المشروع: الاستراتيجية والتشغيلية ===
+  [P:en] Primary Objective: Investigate, design, and propose an integrated AI-Based Security Orchestration, Automation, and Response (SOAR) tool that addresses operational bottlenecks by integrating intelligent security alert analysis, risk-based scoring, dynamic prioritization, and automated incident response to support more adaptive and efficient security operations.
+  [P:ar] الهدف الرئيسي: دراسة وتصميم وبناء أداة SOAR معتمدة على الذكاء الاصطناعي تعالج إرهاق التنبيهات والفرز الثابت عبر التحليل الذكي للسياق، والتقييم الديناميكي للمخاطر، والأتمتة المنسقة للاستجابة.
+  [P:en] Analyze the operational challenges of current SOC alert management, specifically including alert fatigue and the limitations of static triage.
+  [P:ar] تحليل دقيق لأسباب إرهاق التنبيهات وقيود أنظمة إدارة السجلات في مراكز العمليات المعاصرة.
+  [P:en] Review existing AI/ML-based approaches and academic literature related to security alert analysis and prioritization.
+  [P:ar] مراجعة شاملة لتقنيات تعلم الآلة وأدوات SOAR لتحديد فجوة الربط بين التحليل الذكي والتنفيذ الآلي.
+  [P:en] Design the proposed AI-Based SOAR architecture and clearly identify its major functional components. Develop an AI/ML-based mechanism for context-aware alert analysis and risk assessment.
+  [P:ar] بناء معمارية برمجية متكاملة تشمل طبقات الاستيعاب، الإثراء، محرك الذكاء، ومسارات الاستجابة.
+  [P:en] Integrate the outcomes of dynamic risk-based prioritization with SOAR response decision-making to guide automated workflows. Define a structured evaluation approach using appropriate machine-learning and operational metrics.
+  [P:ar] ربط أولويات الحوادث بسياسات استجابة مؤتمتة منضبطة تضمن إشراف المحلل وتقاس بمؤشرات دقيقة.
+
+=== SLIDE 07: Project Scope and Limitations | نطاق المشروع وحدود الدراسة الأكاديمية ===
+  [LI:en] Alert Ingestion &amp; Normalization: Integration of AI/ML for security alert analysis, context-aware risk scoring, and dynamic alert prioritization.
+  [LI:ar] استيعاب التنبيهات: توحيد صيغ سجلات CEF وSyslog وJSON في نموذج موحد.
+  [LI:en] Analytical Components: Connecting analytical components with automated SOAR response workflows and decision-making mechanisms.
+  [LI:ar] إثراء السياق: دمج معلومات الأصول والمستخدمين ومصادر استخبارات التهديدات.
+  [LI:en] Prototype &amp; Evaluation: Implementation and testing conducted within a controlled prototype and simulation environment. Defining appropriate machine-learning and operational metrics to evaluate the tool.
+  [LI:ar] التقييم الذكي: حساب درجة الخطورة ونسبة الثقة بالذكاء الاصطناعي.
+  [LI:en] Architectural Focus: Emphasis on architectural integration rather than the invention of new foundational machine-learning algorithms or commercial platforms.
+  [LI:ar] أتمتة الاستجابة: تنفيذ دفاتر عمل العزل والتطويق مع بوابات اعتماد بشري.
+  [LI:en] Dataset Constraints: Model training may depend on synthetic, public, or otherwise limited security alert datasets, which may not fully replicate every enterprise environment.
+  [LI:ar] استبدال أنظمة SIEM: الأداة مكملة ومساندة لمنصات SIEM ولا تهدف لاستبدالها كلياً.
+  [LI:en] Lab Environment Only: Validation is constrained to a laboratory or prototype environment rather than a live, large-scale enterprise SOC.
+  [LI:ar] الإجراءات التخريبية الذاتية: حظر الخوادم الحساسة دون موافقة المحلل لتفادي انقطاع الأعمال.
+  [LI:en] Human Oversight Required: Fully autonomous execution of high-impact actions introduces operational risks; therefore, the tool incorporates human oversight mechanisms for uncertain or potentially disruptive response actions.
+  [LI:ar] فحص العتاد المادي: الاعتماد على مخرجات الحساسات والسجلات وليس عتاد الشبكة الخام.
+
+=== SLIDE 08: Evolution of Security Operations Technologies | التطور التاريخي لتقنيات عمليات الأمن السيبراني ===
+  [P:en] Security telemetry collected from multiple sources including network and endpoint monitoring, intrusion detection technologies, firewalls, and threat-intelligence feeds operating with different data representations.
+  [P:ar] تجميع سجلات غير مركزي. بحث يدوي بعد وقوع الحادث، وتفتيش يدوي مضنٍ في ملفات السجلات.
+  [P:en] SIEM systems aggregate and query security data from distributed sources, providing centralized log management, security-event collection, and basic correlation. However, SIEM differs from SOAR in that it primarily supports data collection rather than complete incident-response workflows.
+  [P:ar] مركزة السجلات وإجراء مطابقات نمطية وقواعد ترابط، لكن مع توليد كميات هائلة من التنبيهات.
+  [P:en] SOAR platforms integrate disparate security applications and human processes into a unified framework. Data ingestion, correlation and prioritization, process automation, and analyst collaboration are defining SOAR capabilities, moving security information toward structured operational handling.
+  [P:ar] ربط الأدوات عبر واجهات برمجة التطبيقات (API) ودفاتر عمل خطية ومحددة سلفاً.
+  [P:en] AI/ML can extend SOAR by improving analytical, threat-intelligence, detection, and response capabilities while orchestration technologies coordinate operational actions. SOAR provides workflow management and execution; AI/ML contributes data-driven inference to activities difficult to represent through manually specified rules.
+  [P:ar] دمج تعلم الآلة لتحليل السياق، تقييم ديناميكي للمخاطر، وأتمتة منضبطة بالتعاون مع المحلل.
+  [P:en] Key Insight: SIEM primarily supports broad data collection and querying, whereas SOAR introduces configurable workflows that guide or automate investigation and incident-response activities. The output of a SIEM may serve as an input to subsequent triage, enrichment, investigation, and response processes.
+  [P:ar] الرؤية النظرية: الانتقال من المطابقة الحرفية للقواعد إلى النماذج الإحصائية لتعلم الآلة يمنح المنظومة مرونة في التعامل مع تسارع التهديدات.
+
+=== SLIDE 09: Conventional SOAR: Playbooks &amp; API Orchestration | منصات SOAR التقليدية: دفاتر العمل وتنسيق الواجهات ===
+  [P:en] SOAR refers to software platforms designed to integrate disparate security applications and human processes into a unified framework. A playbook defines a structured sequence of steps and actions used to handle a particular incident type, with execution triggered when predefined conditions or events are satisfied.
+  [P:ar] ربط الأدوات الأمنية المختلفة عبر واجهات برمجية موحدة تتيح الاستعلام عن التهديدات وتنفيذ التوجيهات آلياً.
+  [P:en] Workflows can automate data-collection steps, coordinate actions across multiple systems, and systematically apply standard response procedures, reducing the time and effort required for routine security tasks.
+  [P:ar] تحويل إجراءات التشغيل القياسية إلى أكواد برمجية تنفذ مهام روتينية بسرعة الآلة كفحص العينات وتجميد الحسابات.
+  [P:en] SOAR technologies reduce fragmentation of security activities by combining alert information, threat intelligence, workflow automation, and analyst collaboration within a common operational environment, supporting structured operational handling.
+  [P:ar] سجل مركزي لتوثيق الأدلة الرقمية ومسارات التدقيق ونتائج التطويق لدعم التحقيق الجنائي والأدائي.
+
+=== SLIDE 10: Limitations of Conventional SOAR Automation | أوجه القصور في أتمتة منصات SOAR التقليدية ===
+  [P:en] Playbooks operate on predefined conditions; when threat behavior deviates from anticipated patterns, static playbooks may fail to trigger appropriately or handle the incident effectively. Deterministic logic can constrain effectiveness when alert context or risk conditions change dynamically.
+  [P:ar] دفاتر العمل محكومة بشروط حتمية؛ أي تعديل طفيف في سلوك المهاجم يؤدي لفشل التشغيل أو اتخاذ مسار خاطئ.
+  [P:en] Conventional SOAR does not inherently assess whether an alert's risk justifies the operational cost of the response action. The significance of an event may depend on multiple attributes and surrounding contextual information rather than on a single static severity value.
+  [P:ar] تطبيق نفس الإجراء المؤتمت على جهاز تجريبي معزول كما يُطبق على قاعدة بيانات حساسة، لغياب الفهم السياقي لقيمة الأصل.
+  [P:en] Fully autonomous execution of high-impact security actions introduces inherent operational risks. The tool must incorporate human oversight and approval mechanisms for uncertain or potentially disruptive response actions.
+  [P:ar] الأتمتة العمياء دون بوابات ثقة قد تعزل خوادم حيوية أو تقطع خدمات هامة عن المؤسسة نتيجة إنذار كاذب.
+  [P:en] Synthesis: SOAR provides workflow management, integration, and execution capabilities, whereas AI/ML can contribute data-driven inference to activities that are difficult to represent entirely through manually specified rules. This distinction is particularly relevant to alert handling, where event significance depends on multiple attributes and contextual information.
+  [P:ar] الاستنتاج: يوفر SOAR التقليدي "القوة التنفيذية" لكنه يفتقر إلى "العقل التحليلي" القادر على وزن المخاطر وفهم السياق قبل إصدار القرارات.
+
+=== SLIDE 11: AI/ML as a Force Multiplier in Security Operations | الذكاء الاصطناعي كمضاعف قوة في مراكز العمليات ===
+  [P:en] AI/ML techniques can analyze large and heterogeneous security datasets to identify patterns, classify events, detect anomalous behavior, and support security decision making. Supervised and unsupervised methods support event classification, anomaly detection, and risk assessment.
+  [P:ar] معالجة مئات الأبعاد السياقية بالتوازي (قيمة الأصل، انحراف السلوك، سمعة العناوين) التي يستحيل على الذهن البشري مقارنتها في ثوانٍ.
+  [P:en] AI/ML does not necessarily replace existing SOC technologies; rather, it provides an analytical layer that complements the information collected by SIEM and the workflow execution capabilities provided by SOAR. This has been described as a force-multiplier effect for SOC analysts.
+  [P:ar] الذكاء الاصطناعي لا يلغي دور المحلل، بل يعمل كمساعد ذكي يقوم بتصفية الضجيج وتقديم تقارير مسبقة التجهيز للحالات المعقدة.
+
+=== SLIDE 12: Comparative Analysis of ML Triage Approaches | المقارنة المعيارية لتقنيات تعلم الآلة في الفرز الأمني ===
+
+=== SLIDE 13: The Research Gap: The Missing Integration Link | الفجوة البحثية: حلقة الوصل المفقودة بين التحليل والأتمتة ===
+  [P:en] Existing research demonstrates the use of ML for security alert analysis and SOAR workflows for automated incident response, while the integration between these capabilities remains an area worthy of further investigation. Evaluated workflows primarily focus on event ranking, alert selection, or analyst investigation rather than downstream SOAR-controlled response execution.
+  [P:ar] أبحاث غزيرة في اختبار خوارزميات التصنيف على مجموعات بيانات مجمدة، لكنها تتوقف عند إخراج نسب الدقة دون ربطها بإجراءات استجابة حية.
+  [P:en] Research on automated incident response addresses a complementary portion of the incident-handling pipeline. However, existing approaches do not determine the required response directly from an alert's contextual risk, and automated execution remains identified as future work in the reviewed literature.
+  [P:ar] منصات متقدمة في تنسيق واجهات التطبيقات، لكنها تفتقر للذكاء التكيفي وتعتمد على قواعد جامدة مبرمجة سلفاً.
+  [P:en] Our Research Gap: This project investigates the architectural integration of AI/ML-based alert analysis, risk-based scoring, dynamic prioritization, and SOAR automated response. The proposed tool examines how intelligent triage outputs can support more adaptive response decisions within operational SOAR workflows.
+  [P:ar] مساهمة مشروعنا: بناء خط معالجة متكامل يغذي تنبؤات المخاطر الذكية مباشرة داخل مسارات أتمتة SOAR تحت إشراف وتحكم أمني منضبط.
+
+=== SLIDE 14: High-Level Architecture Overview | المعمارية الشاملة لأداة SOAR المدعومة بالذكاء الاصطناعي ===
+
+=== SLIDE 15: Alert Ingestion &amp; Schema Normalization | استيعاب التنبيهات وتوحيد البنية البيانية ===
+  [P:en] The module serves as the entry point for security alerts from heterogeneous technologies. Sources may expose alerts through REST APIs, webhooks, message streams, log files, or other supported interfaces. Individual connectors communicate with corresponding sources and translate incoming data into a common internal alert structure.
+  [P:ar] استقبال التنبيهات عبر طوابير Kafka ومنافذ Syslog المشفرة وواجهات Webhooks من مختلف حساسات الشبكة.
+  [P:en] The normalization process preserves security-relevant information while standardizing fields required by the proposed tool. A normalized alert may contain attributes such as an alert identifier, timestamp, source system, alert type, original severity, source and destination information, affected user or asset, and event description.
+  [P:ar] تحويل تراكيب السجلات المتباينة إلى صيغة موحدة تضمن تعريف أسماء الحقول والمعرّفات بدقة متجانسة.
+  [P:en] Before forwarding an alert, the module performs basic validation and preprocessing: verifying required fields, converting timestamps into a consistent format, standardizing field names and categorical values, and removing malformed or incomplete records where appropriate.
+  [P:ar] تجميع التنبيهات المتطابقة في نافذة زمنية منزلقة لمنع إغراق النظام بمئات التنبيهات الناتجة عن حدث واحد.
+  [P:en] Design Principle: The module separates source-specific integration concerns from the internal processing logic of the tool, ensuring that the remaining components do not require understanding of each vendor-specific format.
+  [P:ar] الكيان الموحد للحدث: يتضمن الطابع الزمني، عناوين المصدر والوجهة، معرف المستخدم والجهاز، ونوع الحدث لبدء مرحلة الإثراء السياقي.
+
+=== SLIDE 16: Multi-Dimensional Context Enrichment Pipeline | خط أنابيب إثراء السياق متعدد الأبعاد ===
+  [P:en] Queries CMDB for host business criticality tier (Tier 1: Core Banking DB vs Tier 4: Guest Wi-Fi kiosk), existing vulnerabilities (CVEs), and OS patch level.
+  [P:ar] استعلام قاعدة بيانات الأصول لمعرفة أهمية الخادم (خادم إنتاج مالي أم جهاز اختبار) ومستوى الثغرات المسجلة عليه.
+  [P:en] Extracts user directory roles (Domain Admin vs contractor), normal working hours, geolocation baseline, and recent privilege escalation attempts.
+  [P:ar] استخراج صلاحيات الحساب (مدير نطاق أم موظف مؤقت)، مواعيد العمل المعتادة، والموقع الجغرافي المسجل له.
+  [P:en] Asynchronous reputation lookups against threat feeds (VirusTotal, AbuseIPDB, AlienVault OTX) for IP, domain, and file hash reputation scores.
+  [P:ar] فحص متزامن لعناوين IP وبصمات الملفات في قواعد التهديدات الدولية لتحديد درجة خطورتها السابقة.
+  [P:en] Enrichment Output: A densely populated feature vector transforming a naked alert into a situation-aware analytical packet ready for the ML Triage Model.
+  [P:ar] مخرجات الإثراء: تحويل التنبيه المجرد إلى متجهة خصائص غنية بالسياق تمكّن نموذج تعلم الآلة من تقدير الموقف بدقة متناهية.
+
+=== SLIDE 17: AI/ML Triage &amp; Dynamic Risk Scoring Formulation | الفرز الذكي وصياغة معادلة تقييم المخاطر الديناميكية ===
+  [P:en] Weights w1...w4 are calibrated dynamically using Random Forest feature importance and Soft Actor-Critic (SAC) reinforcement reward.
+  [P:ar] تُوزن المعاملات وفق أهمية الخصائص المستخلصة من نموذج الغابة العشوائية وبمكافآت التعلّم المعزز التكيفي.
+  [LI:en] Triage Class: True Positive (Attack), Benign Noise, or Reconnaissance.
+  [LI:ar] فئة التنبيه: هجوم مؤكد، نشاط حميد كاذب، أو محاولة استكشافية.
+  [LI:en] Confidence Score &Phi;: Probability distribution [0.0 - 1.0] indicating model certainty.
+  [LI:ar] مؤشر الثقة: قيمة احتمالية تقيس يقين النموذج بالقرار قبل تشغيل الاستجابة.
+  [LI:en] Mitigation Trigger: Alerts with Risk &gt; 80 and &Phi; &gt; 0.90 qualify for automatic isolation.
+  [LI:ar] عتبة الاستجابة: الحوادث ذات الخطورة العالية والثقة المرتفعة تؤهل للعزل الآلي الفوري.
+
+=== SLIDE 18: Adaptive Alert Prioritization &amp; Noise Suppression | الأولويات التكيفية وقمع الضجيج الأمني ===
+  [P:en] Alerts with Risk &lt; 25 and high benign confidence (&Phi; &gt; 0.95) are auto-resolved and tagged with reasoning, bypassing analyst screens entirely.
+  [P:ar] إغلاق التنبيهات منخفضة الخطورة وعالية اليقين بأنها حميدة تلقائياً مع توثيق السبب لتفريغ شاشات المحللين.
+  [P:en] Incidents are ordered dynamically by composite Risk score rather than arrival timestamp. Critical ransomware indicators leapfrog ahead of 500 routine logs.
+  [P:ar] إعادة فرز قائمة الانتظار بناءً على الخطر اللحظي الفعلي؛ يقفز حادث الفدية المشبوه فوراً إلى أعلى القائمة أمام مئات السجلات الروتينية.
+  [P:en] An aging factor ensures low-priority alerts do not remain permanently neglected in queues by gradually incrementing priority after SLA thresholds.
+  [P:ar] خوارزمية تصعيد زمني تضمن عدم إهمال التنبيهات المتوسطة إلى الأبد عبر رفع أولويتها تدريجياً عند اقتراب انتهاء مهلة SLA.
+  [P:en] Operational Rationale: Dynamic, risk-aware ordering can reduce the time critical incidents spend waiting in analyst queues. The prioritization module ensures that genuine threats are identified rapidly without simultaneously increasing the manual investigative burden placed on human analysts.
+  [P:ar] الأثر التشغيلي: تقليص تراكم التذاكر أمام المحللين بنسبة تتراوح بين 65% و 80% وتوجيه تركيزهم نحو التهديدات الحقيقية.
+
+=== SLIDE 19: Automated Response Playbooks &amp; SOAR Integration | دفاتر العمل المؤتمتة وتكامل منصة SOAR ===
+  [P:en] Quarantines compromised endpoints via EDR API, cutting off network lateral movement while preserving forensic telemetry.
+  [P:ar] عزل فوري للجهاز المصاب عبر EDR لمنع الانتشار في الشبكة مع إبقاء قنوات التحقيق مفتوحة.
+  [P:en] Pushes dynamic blacklists to perimeter firewalls via API to sever active Command &amp; Control (C2) communication channels.
+  [P:ar] تحديث قوائم الحظر في الجدران النارية لقطع الاتصال مع خوادم القيادة والتحكم (C2).
+  [P:en] Revokes compromised Kerberos tickets and disables Active Directory accounts exhibiting anomalous credential dumps.
+  [P:ar] إلغاء جلسات العمل وتجميد الحسابات المخترقة في Active Directory فور ثبوت الهجوم.
+  [P:en] Searches Exchange/O365 mailboxes via Graph API to purge matching malicious phishing messages enterprise-wide.
+  [P:ar] حذف رسائل التصيد الاحتيالي من جميع صناديق البريد في المؤسسة آلياً عبر Microsoft Graph API.
+  [P:en] Policy Principle: The decision to automate an action considers not only the estimated security risk but also the potential impact of the response itself. Performing an enrichment query carries less operational risk than disabling a privileged account, isolating a production endpoint, or modifying a firewall policy.
+  [P:ar] سجل العمليات غير القابل للتعديل: يتم توثيق كافة العمليات المؤتمتة مشفرة بأوقاتها وأهدافها لضمان المحاسبية الكاملة.
+
+=== SLIDE 20: Human-AI Teaming: The Controlled Decision Gate | تكامل الإنسان والذكاء: بوابات القرار المنضبطة ===
+  [P:en] High Confidence (&Phi; &gt; 0.90) + Low Blast Radius: Threat intel queries, internal log correlation, benign noise suppression, user notifications.
+  [P:ar] ثقة عالية ومخاطر تشغيلية منخفضة: استعلامات الإثراء، قمع الضجيج المعروف، وتحديث قوائم المراقبة دون الحاجة لموافقة بشرية.
+  [P:en] Moderate Confidence (&Phi; 0.70 - 0.90) or Impact: Host workstation isolation, temporary password lock. Analyst clicks "Approve" with pre-built context.
+  [P:ar] ثقة متوسطة أو إجراء متوسط التأثير: عزل جهاز مستخدم أو تعليق حساب، يراجع المحلل ملخص الحادث ويعتمد الإجراء بنقرة واحدة.
+  [P:en] Low Confidence (&Phi; &lt; 0.70) or High Blast Radius: Core server shutdowns, public subnet blocks. AI assists as research advisor while human leads.
+  [P:ar] ثقة منخفضة أو أصول شديدة الحساسية: إيقاف خوادم الإنتاج الرئيسية؛ يقود المحلل التحقيق الكامل والذكاء يقدم التوصيات المساندة.
+  [P:en] Controlled Autonomy Principle: The amount of human involvement depends on the uncertainty and consequence associated with the decision. This supports a risk-aware level of autonomy, ensuring human oversight and approval mechanisms for uncertain or potentially disruptive response actions.
+  [P:ar] معمارية الأمان: تتبنى المنظومة إطار الأتمتة الموجهة والمنضبطة لمنع اتخاذ قرارات تعسفية وضمان أعلى استجابة للأحداث الحرجة.
+
+=== SLIDE 21: Continuous Analyst Feedback Loop &amp; Model Adaptation | حلقة التغذية الراجعة المستمرة وتكييف النماذج ===
+  [P:en] During alert investigation, an analyst may confirm or reject the model's risk assessment, adjust the assigned priority, identify whether the alert represents a true or false positive, or provide a final incident disposition. During response handling, the analyst may approve or reject a recommended action or record whether an executed workflow achieved the intended result.
+  [P:ar] عندما يقوم المحلل بتعديل تصنيف تنبيه أو إلغاء إجراء آلي، يتم تسجيل القرار كبيانات تدريبية معيارية جديدة.
+  [P:en] Feedback can be used to assess whether the machine-learning model consistently overestimates or underestimates risk for particular types of alerts. Accumulated analyst decisions can provide additional labeled examples for periodic model retraining or validation.
+  [P:ar] مراقبة إحصائية مستمرة لاكتشاف أي تغير في طبيعة الهجمات أو انحراف في سلوك الشبكة مقارنة بالمستوى الأساسي.
+  [P:en] Feedback can support adjustment of prioritization thresholds and suppression policies when operational results indicate that the current configuration produces excessive false positives, unnecessary escalations, or missed high-priority events.
+  [P:ar] تجميع العينات وإعادة تدريب النماذج في بيئة ظل واختبارها للتأكد من عدم تراجع الدقة قبل نشرها في البيئة الحية.
+
+=== SLIDE 22: Design Science Research (DSR) &ndash; 6 Rigorous Phases | منهجية بحوث علوم التصميم (DSR) &ndash; المراحل الست المعتمدة ===
+  [P:en] Defines the operational challenges associated with SOC alert management, including alert fatigue and static triage, and establishes the objectives of the project. Undertaken primarily within Graduation Project 1.
+  [P:ar] تحديد دقيق لأزمة إرهاق التنبيهات في مراكز العمليات وبيان الأهمية العلمية والعملية للمشروع.
+  [P:en] Examines existing research on SOC alert management, conventional SOAR, AI/ML-based alert analysis, risk scoring, dynamic prioritization, and automated incident response. Provides the academic foundation for identifying and validating the research gap. Undertaken primarily within Graduation Project 1.
+  [P:ar] مراجعة الأدبيات السابقة، دراسة منصات SOAR وخوارزميات الذكاء، واستخلاص متطلبات الحل.
+  [P:en] Develops the system architecture, module specifications, data flows, and integration mechanisms. Formulates the major functional components of the proposed tool. The current scope of Graduation Project 1.
+  [P:ar] إنجاز التصميم الكامل للمعمارية ومسارات البيانات ومحرك التقييم ونماذج الاستجابة المعتمدة.
+  [P:en] Dataset curation, feature engineering pipeline, simulated enterprise telemetry, and baseline pre-processing.
+  [P:ar] إعداد بيانات التدريب وهندسة الخصائص وإعداد بيئة الاختبار المعملية لمحاكاة شبكات المؤسسات.
+  [P:en] Implementation of AI triage engine, REST API connectors, and execution of automated response playbooks.
+  [P:ar] البرمجة الفعلية لمحرك الفرز وتكامل واجهات الربط مع منصات الاستجابة ودفاتر العمل.
+  [P:en] Assessing classification accuracy, False Positive Reduction rate, and MTTR reduction against baseline SOAR.
+  [P:ar] قياس دقة التنبؤ، معدل خفض الإنذارات الكاذبة، وسرعة احتواء الهجمات مقارنة بالوضع التقليدي.
+
+=== SLIDE 23: Implementation Technology Stack &amp; Simulation Testbed | حزمة التقنيات المستخدمة وبيئة المحاكاة الاختبارية ===
+  [P:en] Python 3.11+, FastAPI for high-concurrency async endpoints, Celery / Redis for distributed queue management.
+  [P:ar] بايثون مع FastAPI لمعالجة متزامنة فائقة السرعة، وطوابير Redis لتوزيع المهام.
+  [P:en] Scikit-Learn (Random Forest), PyTorch (DNN sequence models), Stable-Baselines3 (SAC reinforcement agent).
+  [P:ar] مكتبات Scikit-Learn و PyTorch و Stable-Baselines3 لتدريب نماذج الفرز والتعلم المعزز.
+  [P:en] Elasticsearch / OpenSearch cluster for fast indexing, PostgreSQL for case dossier storage and configuration.
+  [P:ar] محرك Elasticsearch لفهرسة السجلات بسرعة وبنك بيانات PostgreSQL لحفظ ملفات القضايا.
+  [P:en] Wazuh SIEM/EDR, Suricata IDS, Atomic Red Team framework for adversary simulation, Docker containerized services.
+  [P:ar] منصة Wazuh وحساسات Suricata مع محاكاة هجمات Atomic Red Team ضمن حاويات Docker.
+  [P:en] Adversary Mapping: All simulated attack vectors and detection rules are strictly aligned with the MITRE ATT&amp;CK Enterprise Framework (T1059, T1078, T1486).
+  [P:ar] ربط التهديدات: جميع سيناريوهات الهجمات وقواعد الكشف متوافقة بدقة مع إطار MITRE ATT&amp;CK العالمي.
+
+=== SLIDE 24: Operational Scenario Walkthrough: Rapid Ransomware Containment | سيناريو تطبيقي: احتواء سريع لهجوم فدية واختراق شبكي ===
+  [P:en] EDR flags suspicious PowerShell execution on Workstation-42 attempting volume shadow deletion.
+  [P:ar] حساس EDR يلتقط تشغيل أوامر مريبة تحاول حذف النسخ الاحتياطية على جهاز موظف.
+  [P:en] IP matched to malicious C2 server on AbuseIPDB; user account belongs to Finance department.
+  [P:ar] مطابقة العنوان مع خادم C2 مشبوه دولياً وتبين أن الحساب يتبع الإدارة المالية.
+  [P:en] ML Model computes Risk = 94.2 / 100 and Confidence &Phi; = 0.98. Priority jumped to #1.
+  [P:ar] محرك الذكاء يقدر درجة الخطر بـ 94.2 وثقة 98% وتتصدر الحالة قائمة الأولويات فوراً.
+  [P:en] Workstation-42 isolated from LAN via EDR API; outbound C2 IP blocked at perimeter firewall.
+  [P:ar] عزل الجهاز آلياً عن الشبكة المحلية وحظر عنوان المهاجم في الجدار الناري خلال 1.5 ثانية.
+  [P:en] Analyst checks queue &rarr; logs into EDR &rarr; queries VirusTotal &rarr; calls network admin to block IP.
+  [P:ar] انتظار المحلل &rarr; فحص السجلات &rarr; استعلام المواقع &rarr; التواصل مع مسؤول الشبكة للحظر.
+  [P:en] Sub-second ML inference, automated enrichment, orchestrated firewall &amp; host quarantine.
+  [P:ar] تحليل لحظي بالذكاء الاصطناعي، إثراء فوري، وتنفيذ منسق للعزل وحماية الشبكة في ثوانٍ.
+
+=== SLIDE 25: Current Achievements &amp; Phase 2 Roadmap | ما تم إنجازه وخارطة طريق المرحلة القادمة ===
+  [P:en] Supervised by Dr. Raed Saeed &middot; Department of Computer Science &middot; University of Science and Technology
+  [P:ar] إشراف الدكتور رائد سعيد &middot; قسم علوم الحاسوب &middot; جامعة العلوم والتكنولوجيا
+  [LI:en] &#10003; Problem Definition: Analysis of SOC alert fatigue, context switching, static triage limitations, and prioritization gaps.
+  [LI:ar] &#10003; توصيف المشكلة: دراسة دقيقة لأزمة إرهاق التنبيهات وتحديد الأهداف.
+  [LI:en] &#10003; Literature Review &amp; Gap Analysis: Reviewed AI/ML approaches, SOAR frameworks, and identified the integration gap between intelligent triage and automated response.
+  [LI:ar] &#10003; مراجعة الأدبيات: تحديد الفجوة البحثية ومقارنة تقنيات التعلم الآلي.
+  [LI:en] &#10003; System Architecture (Chapter 3): Modular pipeline design covering Ingestion, Context Enrichment, AI/ML Engine, Response Policy, and Feedback Loop.
+  [LI:ar] &#10003; التصميم المعماري: بناء معمارية الطبقات الخمس ونموذج تقييم المخاطر.
+  [LI:en] Phase 4 (Weeks 1-4): Dataset curation, feature engineering &amp; pipeline setup.
+  [LI:ar] المرحلة 4 (الأسابيع 1-4): تجهيز البيانات وهندسة الخصائص وإعداد بيئة العمل.
+  [LI:en] Phase 5 (Weeks 5-8): Model training (RF/SAC), REST API connector coding.
+  [LI:ar] المرحلة 5 (الأسابيع 5-8): تدريب النماذج وبرمجة موصلات واجهات API وأدلة العمل.
+  [LI:en] Phase 6 (Weeks 9-12): Prototype testing, benchmark evaluation &amp; final thesis defense.
+  [LI:ar] المرحلة 6 (الأسابيع 9-12): الاختبار التجريبي الشامل، قياس الأداء ومناقشة التخرج النهائية.
+

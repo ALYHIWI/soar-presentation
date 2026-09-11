@@ -1,0 +1,84 @@
+<USER_REQUEST>
+
+
+التزم بهذا الدليل  بالضبط وراجع كل سلايد بحيث هل يتوافق مع الملف ام لا 
+دليل إعداد العرض التقديمي النصفي لمشاريع التخرج
+
+
+
+مقرر مشروع التخرج (1)
+لجميع تخصصات الحوسبة وتقنية المعلومات
+
+Cybersecurity • Software Engineering • Information Technology • Information Systems
+وغيرها من تخصصات الحوسبة ذات الصلة
+
+
+إرشادات للطلاب وأعضاء فرق المشاريع
+مدة العرض :بحد أقصى 20 دقيقة |عدد الشرائح :بحد أقصى 25 شريحة
+ 
+.1  الغرض من العرض التقديمي الأولي
+العرضالأولي هو نقطة تقييم مرحلية تهدف إلى التحقق من أن فريق المشروع يسير في الاتجاه الصحيح، وأنه فهم المشكلة وحدد المتطلبات
+واتخذ قرارات مناسبة في التحليل والتصميم والتنفيذ وفق المنهجية المعتمدة .لا يُتوقع في هذه المرحلة اكتمال المشروع، وإنما تقديم أدلة واضحة على التقدم الفعلي وخطة واقعية لإكمال العمل، مع التأكيد بأن هذا التقييم هو جزء من تقييم مقرر مشروع التخرج .(1)
+يجب أن يجيب العرض بصورة واضحة عن الأسئلة الآتية:
+•  ما المشكلة التي يعالجها المشروع؟
+•  ما أهداف المشروع ونطاقه؟
+•  ما الحل المقترح؟
+•  ما المنهجية المستخدمة في تطوير المشروع؟ ولماذا تم اختيارها؟
+•  ما الذي تم إنجازه فعليًا حتى الآن؟
+•  ما الأدلة التي تثبت التقدم؟
+•  ما التحديات أو المخاطر التي ظهرت؟ وكيف تمت معالجتها؟
+•  ما الأعمال ال
+<truncated 13542 bytes>
+ل
+ممكنًا؟
+	هل تم توضيح الختبارات والنتائج الأولية؟
+	هل تم توضيح التحديات والإجراءات المتخذة؟
+	هل تم تحديد الأعمال المتبقية بوضوح؟
+	هل الجدول المتبقي واقعي ومتوافق مع المنهجية؟
+	هل يتطابق العرض مع حالة المشروع الفعلية؟
+
+.15 الرسالة الأساسية للطالب
+العرض النصفي ليس عرضًا نهائيًا مصغرًا، وليس إعادةً لشرح التقرير، إنه عرض لإثبات أن المشروع يسير بصورة منهجية ومدروسة، وأن الفريق حقق تقدمًا فعليًا ويمكنه تفسير قراراته ومشكلاته وخطته لإكمال المشروع.
+قاعدة مختصرة:
+Problem → Objectives → Proposed Solution → Methodology → Evidence of Progress → Prototype/Results → Challenges → Remaining Work
+
+.16 ملحق :قالب مقترح للشرائح
+
+المحتوى	الشريحة
+Title & Team	1
+Background / Context	2
+Problem Statement	3
+Motivation / Significance	4
+Objectives	5
+Scope	6
+Existing System / Related Work	7
+Gap / Limitations	8
+Proposed Solution	9
+System Overview / Architecture	10
+Development Methodology	11
+Methodology-Specific Progress	12
+Requirements Progress	13
+Analysis Progress	14
+Design Progress	15
+Implementation Progress	16
+Technologies / Tools	17
+Working Prototype / Demo	18
+Testing Progress	19
+Preliminary Results / Evaluation	20
+Challenges & Risks	21
+Changes / Adaptations	22
+Remaining Work	23
+Updated Schedule	24
+Conclusion / Next Steps	25
+
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-12T01:59:57+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\Mo AL-Yahawy\SOAR\.git\COMMIT_EDITMSG (LANGUAGE_UNSPECIFIED)
+Cursor is on line: 2
+Other open documents:
+- c:\Users\Mo AL-Yahawy\SOAR\.git\COMMIT_EDITMSG (LANGUAGE_UNSPECIFIED)
+</ADDITIONAL_METADATA>

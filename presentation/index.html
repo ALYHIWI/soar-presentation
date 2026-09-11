@@ -809,10 +809,15 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 .tcard {
   background: var(--bg-card);
   border: 1px solid var(--br);
-  border-radius: 12px;
-  padding: 16px 12px;
+  border-radius: 14px;
+  padding: 22px 14px;
   text-align: center;
   backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 155px;
 }
 .tcard .av {
   width: 44px; height: 44px;
@@ -1363,6 +1368,170 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
   #cp { width: 100vw; right: -100vw; }
   [dir="rtl"] #cp { left: -100vw; }
 }
+
+/* Official Student ID Badge */
+.id-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: rgba(0, 212, 255, 0.12);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--s);
+  margin: 3px 0 6px 0;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.15);
+}
+
+/* Reference Inspector Modal / Drawer */
+#refDrawer {
+  position: fixed;
+  bottom: -600px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1080px, 94vw);
+  max-height: 520px;
+  background: rgba(10, 12, 20, 0.96);
+  border: 1px solid var(--s);
+  border-bottom: none;
+  border-radius: 20px 20px 0 0;
+  backdrop-filter: blur(35px);
+  z-index: 300;
+  transition: bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 -15px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 212, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+#refDrawer.open {
+  bottom: 0;
+}
+.rd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.rd-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--s);
+}
+.rd-slide-pill {
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(0, 212, 255, 0.15);
+  border: 1px solid var(--s);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #fff;
+}
+.rd-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--br);
+  color: var(--t1);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: var(--tr);
+}
+.rd-close:hover {
+  background: rgba(225, 29, 72, 0.2);
+  border-color: var(--acc);
+  color: #fff;
+}
+.rd-body {
+  padding: 20px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+.rd-sec-banner {
+  background: rgba(0, 212, 255, 0.06);
+  border-left: 4px solid var(--s);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 16px;
+  font-size: 0.82rem;
+  color: var(--t1);
+}
+[dir="rtl"] .rd-sec-banner {
+  border-left: none;
+  border-right: 4px solid var(--s);
+  border-radius: 8px 0 0 8px;
+}
+.rd-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+.rd-table th {
+  text-align: left;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--s);
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+[dir="rtl"] .rd-table th {
+  text-align: right;
+}
+.rd-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--t2);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.rd-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+.rd-badge-exact {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(0, 230, 118, 0.15);
+  border: 1px solid rgba(0, 230, 118, 0.4);
+  color: var(--ok);
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Nav Bar Ref Button */
+.nb-ref {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(0, 212, 255, 0.12);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  color: var(--s);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--tr);
+}
+.nb-ref:hover {
+  background: rgba(0, 212, 255, 0.25);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+  transform: translateY(-1px);
+}
+
 </style>
 </head>
 <body class="focus-halo">
@@ -1387,6 +1556,10 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <button class="tbtn" onclick="tF()">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
       <span class="en">Fullscreen</span><span class="ar" style="display:none">ملء الشاشة</span>
+    </button>
+    <button class="tbtn" id="btnSourceMap" onclick="toggleRefModal()" title="توثيق ومراجع السلايد من ملف المشروع (R)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      <span class="en">Doc Ref</span><span class="ar" style="display:none">توثيق الملف</span>
     </button>
     <button class="tbtn" onclick="tC()">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
@@ -1480,6 +1653,15 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       <span class="en">Control Center</span><span class="ar" style="display:none">مركز التحكم الشامل</span>
     </div>
     <button class="cpc" onclick="tC()">✕</button>
+  </div>
+
+  <!-- 0. ACTIVE SLIDE PDF MAPPING SECTION -->
+  <div class="cps" style="border: 1px solid rgba(0, 212, 255, 0.4); background: rgba(0, 212, 255, 0.05); border-radius: 12px; padding: 14px; margin-bottom: 20px;">
+    <div class="cpst" style="color:var(--s);font-size:0.78rem;margin-bottom:8px">
+      📖 <span class="en">Active Slide Source &amp; PDF Mapping</span>
+      <span class="ar" style="display:none">توثيق ومراجع السلايد الحالي من ملف المشروع</span>
+    </div>
+    <div id="cpSlideRefContent"></div>
   </div>
 
   <!-- 1. SLIDE STUDIO (FULL LIFECYCLE MANAGEMENT) -->
@@ -1774,62 +1956,62 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
   <div class="sn">01 / 25</div>
 </section>
 
-<!-- ================= S02: TEAM & ROLES ================= -->
+<!-- ================= S02: TEAM & ACADEMIC IDS ================= -->
 <section class="slide" id="s1">
   <div class="orb o1" style="opacity:0.4"></div>
   <div class="content-box">
     <div class="tag a1">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      <span class="en">Project Team &amp; Responsibilities</span><span class="ar" style="display:none">فريق العمل والمسؤوليات</span>
+      <span class="en">Graduation Project Team</span><span class="ar" style="display:none">فريق مشروع التخرج</span>
     </div>
-    <h2 class="st en">Project Research &amp; Engineering Team</h2>
-    <h2 class="st ar" style="display:none">فريق البحث والتطوير الهندسي</h2>
+    <h2 class="st en">Project Team Members &amp; Academic Identifiers</h2>
+    <h2 class="st ar" style="display:none">أعضاء فريق المشروع والأرقام الأكاديمية</h2>
     <div class="gl"></div>
     <div class="tg">
       <div class="tcard">
-        <div class="av"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-        <div class="nm">Hizam Mohammed Ali Al-Shajara</div>
-        <div class="rl en">Lead Architect &amp; AI Engineer</div><div class="rl ar" style="display:none">مهندس المعمارية والذكاء الاصطناعي</div>
-        <div class="desc en">Architecture design, ML triage &amp; scoring model development</div>
-        <div class="desc ar" style="display:none">تصميم المعمارية وتطوير نماذج الفرز بالذكاء الاصطناعي</div>
+        <div class="av"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="nm en">Hizam Mohammed Ali Al-Shajara</div>
+        <div class="nm ar" style="display:none">حزام محمد علي الشجرة</div>
+        <div class="id-badge en">Academic ID: 202210102478</div>
+        <div class="id-badge ar" style="display:none">الرقم الأكاديمي: 202210102478</div>
       </div>
       <div class="tcard">
-        <div class="av"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-        <div class="nm">Hamoud Abdullah Saleh Abu Amrah</div>
-        <div class="rl en">SOAR &amp; Playbook Integration Lead</div><div class="rl ar" style="display:none">مسؤول تكامل SOAR ودفاتر العمل</div>
-        <div class="desc en">API orchestration, workflow automation &amp; response logic</div>
-        <div class="desc ar" style="display:none">تكامل واجهات API وأتمتة مسارات الاستجابة</div>
+        <div class="av"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="nm en">Hamoud Abdullah Saleh Abu Amrah</div>
+        <div class="nm ar" style="display:none">حمود عبد الله صالح أبو عمرة</div>
+        <div class="id-badge en">Academic ID: 202310101609</div>
+        <div class="id-badge ar" style="display:none">الرقم الأكاديمي: 202310101609</div>
       </div>
       <div class="tcard">
-        <div class="av"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-        <div class="nm">Mohammed Hameed Qasim Mohammed</div>
-        <div class="rl en">Data Pipeline &amp; Enrichment Specialist</div><div class="rl ar" style="display:none">أخصائي تدفق البيانات والإثراء</div>
-        <div class="desc en">Alert ingestion, parsing (CEF/JSON) &amp; threat intelligence feeds</div>
-        <div class="desc ar" style="display:none">استيعاب التنبيهات، المعالجة وتغذية معلومات التهديدات</div>
+        <div class="av"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="nm en">Mohammed Hameed Qasim Mohammed</div>
+        <div class="nm ar" style="display:none">محمد حميد قاسم محمد</div>
+        <div class="id-badge en">Academic ID: 202310100174</div>
+        <div class="id-badge ar" style="display:none">الرقم الأكاديمي: 202310100174</div>
       </div>
       <div class="tcard">
-        <div class="av"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-        <div class="nm">Mohammed Taha Qasim Al-Warafi</div>
-        <div class="rl en">Model Validation &amp; Evaluation Lead</div><div class="rl ar" style="display:none">مسؤول التقييم وضبط النماذج</div>
-        <div class="desc en">Experimental benchmarking, metrics definition &amp; test suites</div>
-        <div class="desc ar" style="display:none">الاختبارات المعيارية، تقييم الأداء والمقاييس التشغيلية</div>
+        <div class="av"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="nm en">Mohammed Taha Qasim Al-Warafi</div>
+        <div class="nm ar" style="display:none">محمد طه قاسم الورافي</div>
+        <div class="id-badge en">Academic ID: 202310100461</div>
+        <div class="id-badge ar" style="display:none">الرقم الأكاديمي: 202310100461</div>
       </div>
       <div class="tcard">
-        <div class="av"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-        <div class="nm">Marwan Mohammed Saeed Al-Ameer</div>
-        <div class="rl en">Security Telemetry &amp; SIEM Analyst</div><div class="rl ar" style="display:none">محلل السجلات الأمنية و SIEM</div>
-        <div class="desc en">SOC workflow modeling, telemetry mapping &amp; rule auditing</div>
-        <div class="desc ar" style="display:none">نمذجة مسارات العمل، تدقيق القواعد وربط الحساسات</div>
+        <div class="av"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="nm en">Marwan Mohammed Saeed Al-Ameer</div>
+        <div class="nm ar" style="display:none">مروان محمد سعيد الأمير</div>
+        <div class="id-badge en">Academic ID: 202310100177</div>
+        <div class="id-badge ar" style="display:none">الرقم الأكاديمي: 202310100177</div>
       </div>
       <div class="tcard">
-        <div class="av"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-        <div class="nm">Noah Ahmed Mohammed Maraq</div>
-        <div class="rl en">System Interface &amp; Human-AI Teaming</div><div class="rl ar" style="display:none">واجهات النظام وتفاعل الإنسان والذكاء</div>
-        <div class="desc en">SOC dashboard design, analyst feedback loops &amp; approval gates</div>
-        <div class="desc ar" style="display:none">تصميم لوحات التحكم وحلقات التغذية الراجعة للمحللين</div>
+        <div class="av"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="nm en">Noah Ahmed Mohammed Maraq</div>
+        <div class="nm ar" style="display:none">نوح أحمد محمد مرق</div>
+        <div class="id-badge en">Academic ID: 202310100452</div>
+        <div class="id-badge ar" style="display:none">الرقم الأكاديمي: 202310100452</div>
       </div>
     </div>
-    <div class="hl" style="margin-top:14px;text-align:center">
+    <div class="hl" style="margin-top:18px;text-align:center">
       <p class="en"><strong>Academic Department:</strong> Department of Computer Science &nbsp;|&nbsp; <strong>Department Head:</strong> Dr. Nabeel Al-Mekhlafy &nbsp;|&nbsp; <strong>Supervision:</strong> Dr. Raed Saeed</p>
       <p class="ar" style="display:none"><strong>القسم الأكاديمي:</strong> قسم علوم الحاسوب &nbsp;|&nbsp; <strong>رئيس القسم:</strong> د. نبيل المخلافي &nbsp;|&nbsp; <strong>المشرف العلمي:</strong> د. رائد سعيد</p>
     </div>
@@ -1848,25 +2030,25 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <h2 class="st en">The Modern SOC Operational Landscape</h2>
     <h2 class="st ar" style="display:none">المشهد التشغيلي لمراكز العمليات الأمنية الحديثة (SOC)</h2>
     <div class="gl"></div>
-    <p class="lead en">Modern Security Operations Centers defend corporate infrastructures by aggregating logs across multi-vendor sensors, but encounter exponential data volume and severe operational friction.</p>
+    <p class="lead en">A Security Operations Center (SOC) is a centralized operational function responsible for monitoring, detecting, investigating, and responding to organizational cyber threats. Modern SOCs deploy a diverse array of security sensors across network and host layers, implementing SIEM platforms for centralized log management, security-event collection, and basic correlation. However, security data is highly heterogeneous and complex to analyze due to distinct log schemas and vendor-specific data representations.</p>
     <p class="lead ar" style="display:none">تعمل مراكز العمليات الأمنية على حماية المؤسسات عبر مراقبة وتجميع سجلات متباينة، لكنها تصطدم بأحجام بيانات متسارعة واختناقات تشغيلية حادة.</p>
     <div class="grid g3">
       <div class="card">
         <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
         <h3 class="ct en">Data Influx &amp; SIEM Role</h3><h3 class="ct ar" style="display:none">طوفان البيانات ودور SIEM</h3>
-        <p class="en">Gigabytes of security events collected daily from EDR, IDS/IPS, firewalls, and directory logs. SIEM aggregates logs and matches correlation signatures.</p>
+        <p class="en">Organizations implement SIEM platforms for centralized log management, security-event collection, and basic correlation. Accumulating up to 100 gigabytes of log and alert data daily, a substantial portion may consist of false positives and non-actionable noise.</p>
         <p class="ar" style="display:none">تجميع غيغابايتات من السجلات يومياً من حساسات الشبكة والأنظمة الطرفية. تقوم أنظمة SIEM بمركزة السجلات وإجراء مطابقات نمطية.</p>
       </div>
       <div class="card">
         <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h3 class="ct en">Heterogeneous Tool Stacks</h3><h3 class="ct ar" style="display:none">تشتت الأدوات الأمنية</h3>
-        <p class="en">Security telemetry exists in vendor-specific schemas (Syslog, CEF, raw JSON). Lack of unified representations creates severe correlation barriers.</p>
+        <p class="en">Security monitoring relies on diverse outputs from multi-vendor security stacks. Because these tools operate with distinct log schemas, vendor-specific data representations, and unique alert mechanisms, the resulting security data is highly heterogeneous and complex to analyze.</p>
         <p class="ar" style="display:none">بيانات أمنية بصيغ متباينة وغير موحدة، مما يخلق عزلة بين الأدوات ويعيق الرؤية الشاملة للمحللين الأمنيين.</p>
       </div>
       <div class="card">
         <div class="c-icon ye"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
         <h3 class="ct en">Tiered Analyst Hierarchy</h3><h3 class="ct ar" style="display:none">هرمية المحللين المرهقة</h3>
-        <p class="en">Tier-1 analysts manually sift through massive alert queues to verify threats before escalating to Tier-2/3 investigators, consuming critical response time.</p>
+        <p class="en">Security analysts are structured into a tiered organizational model. Junior analysts conduct initial alert triage, following standard operating procedures to evaluate whether an incoming alert represents a legitimate threat or benign activity, manually gathering contextual evidence from multiple disparate security sources.</p>
         <p class="ar" style="display:none">يقضي محللو المستوى الأول ساعات طويلة في الفرز اليدوي لآلاف التنبيهات للتحقق منها قبل تصعيدها، مما يؤخر الاستجابة الفعلية.</p>
       </div>
     </div>
@@ -1894,22 +2076,22 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <div class="tc" style="display:grid;grid-template-columns:1.2fr 1fr;gap:20px;width:100%">
       <div>
         <p class="lead en" style="text-align:left;margin-bottom:14px">
-          The unsustainable deluge of security data generates thousands of notifications per shift. A substantial percentage consists of benign activity, misconfigured scanners, and low-fidelity noise.
+          Modern Security Operations Centers (SOCs) face an unsustainable influx of security data, accumulating up to 100 gigabytes of log and alert data daily. A substantial portion of security alerts may consist of false positives and non-actionable noise. Processing this low-fidelity noise demands significant operational effort and detracts from proactive threat hunting.
         </p>
         <p class="lead ar" style="display:none;text-align:right;margin-bottom:14px">
           التدفق الهائل للبيانات الأمنية يولد آلاف التنبيهات لكل وردية عمل، وتتكون نسبة كبيرة منها من إيجابيات كاذبة، أخطاء إعدادات، وضجيج غير قابل للتنفيذ الفعلي.
         </p>
         <div class="grid g2" style="gap:10px">
           <div class="card" style="padding:12px">
-            <h4 style="color:var(--acc);font-size:0.85rem;margin-bottom:4px" class="en">Cognitive Saturation</h4>
-            <h4 style="display:none;color:var(--acc);font-size:0.85rem;margin-bottom:4px" class="ar">التشبع والإجهاد الإدراكي</h4>
-            <p class="en">Continuous exposure to false alerts degrades analyst vigilance, leading to acute burnout and human error.</p>
+            <h4 style="color:var(--acc);font-size:0.85rem;margin-bottom:4px" class="en">Alert Fatigue &amp; Context Switching</h4>
+            <h4 style="display:none;color:var(--acc);font-size:0.85rem;margin-bottom:4px" class="ar">إرهاق التنبيهات وتبديل السياق</h4>
+            <p class="en">This convergence of high alert volumes and excessive false positives causes high analyst workload and alert fatigue. Analysts manually investigate alerts through continuous context switching—repeatedly pivoting across disparate application windows to gather evidence, creating cognitive overload and analyst burnout.</p>
             <p class="ar" style="display:none">التعرض المستمر للإنذارات الخاطئة يضعف انتباه المحلل ويزيد من احتمالية إهمال الهجمات الخطيرة.</p>
           </div>
           <div class="card" style="padding:12px">
-            <h4 style="color:var(--wa);font-size:0.85rem;margin-bottom:4px" class="en">Buried Critical Threats</h4>
-            <h4 style="display:none;color:var(--wa);font-size:0.85rem;margin-bottom:4px" class="ar">دفن الحوادث الحرجة</h4>
-            <p class="en">High-severity advanced persistent threats (APTs) remain hidden deep underneath routine noise queues.</p>
+            <h4 style="color:var(--wa);font-size:0.85rem;margin-bottom:4px" class="en">Static Prioritization Limits</h4>
+            <h4 style="display:none;color:var(--wa);font-size:0.85rem;margin-bottom:4px" class="ar">قيود الأولوية الثابتة</h4>
+            <p class="en">When prioritization relies primarily on fixed decision rules, highly critical incidents can become buried beneath lower-value noise. Dynamic, risk-aware ordering can reduce the time critical incidents spend waiting in analyst queues by 22.9%.</p>
             <p class="ar" style="display:none">الهجمات الخطيرة والتهديدات المستمرة تُدفن تحت أكوام التنبيهات منخفضة الأهمية.</p>
           </div>
         </div>
@@ -1919,12 +2101,12 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
           <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
           <h3 class="ct en">Impact on Incident Response</h3><h3 class="ct ar" style="display:none">الأثر المباشر على زمن الاستجابة</h3>
           <ul style="gap:8px">
-            <li class="en"><strong>MTTD Inflation:</strong> Mean Time to Detect increases from minutes to weeks.</li>
-            <li class="ar" style="display:none"><strong>تضخم زمن الاكتشاف:</strong> يتضاعف متوسط زمن اكتشاف التهديدات إلى أسابيع.</li>
-            <li class="en"><strong>Analyst Churn:</strong> High turnover rates in SOC teams due to repetitive toil.</li>
-            <li class="ar" style="display:none"><strong>استنزاف الكفاءات:</strong> تسرب المحللين الأمنيين بسبب الإرهاق والمهام الرتيبة.</li>
-            <li class="en"><strong>SLA Violations:</strong> Delayed containment allows lateral movement across endpoints.</li>
-            <li class="ar" style="display:none"><strong>فشل اتفاقيات الخدمة:</strong> تأخر العزل يمنح المهاجم فرصة التحرك العرضي في الشبكة.</li>
+            <li class="en"><strong>Automated Workflow Limits:</strong> Reliance on predefined rules and static playbooks may limit adaptability when alert context or risk conditions change dynamically.</li>
+            <li class="ar" style="display:none"><strong>قيود الأتمتة التقليدية:</strong> الاعتماد على قواعد محددة مسبقاً ودفاتر عمل ثابتة يحد من التكيف عند تغير سياق التنبيه.</li>
+            <li class="en"><strong>Rigid Logic Failures:</strong> Deterministic conditional logic can constrain effectiveness against novel or evasive threats that fall outside anticipated patterns.</li>
+            <li class="ar" style="display:none"><strong>فشل المنطق الجامد:</strong> المنطق الحتمي يفقد فاعليته أمام التهديدات الجديدة التي تخرج عن الأنماط المتوقعة.</li>
+            <li class="en"><strong>Prioritization Gap:</strong> Un-prioritized queues delay the handling of actionable threats; dynamic risk-aware ordering can reduce wait time for critical incidents by 22.9%.</li>
+            <li class="ar" style="display:none"><strong>فجوة الأولوية:</strong> قوائم الانتظار غير المرتبة تؤخر التعامل مع التهديدات القابلة للتنفيذ؛ الترتيب الديناميكي يقلل وقت الانتظار بنسبة 22.9%.</li>
           </ul>
         </div>
       </div>
@@ -1948,24 +2130,24 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       <div class="card">
         <div class="c-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></div>
         <h3 class="ct en">Rigid Rule-Based Triage</h3><h3 class="ct ar" style="display:none">جمود الفرز القائم على القواعد</h3>
-        <p class="en">Static IF-THEN correlation rules fail against polymorphic malware, credential stuffing, and low-and-slow reconnaissance techniques.</p>
+        <p class="en">Rigid conditional statements may become less effective against novel or evasive threats that fall outside anticipated patterns. While conventional automation efficiently executes repetitive steps, deterministic logic can constrain effectiveness when alert context or risk conditions change dynamically.</p>
         <p class="ar" style="display:none">قواعد الفرز التقليدية المعتمدة على عتبات ثابتة تفشل في رصد الهجمات الذكية والمتغيرة وسرقة الهويات البطيئة.</p>
       </div>
       <div class="card">
         <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
         <h3 class="ct en">Severe Context Switching</h3><h3 class="ct ar" style="display:none">تبديل السياق بين المنصات</h3>
-        <p class="en">Analysts manually swivel between 5 to 10 disconnected consoles (SIEM, EDR, Threat Intel, Active Directory, Firewalls) to validate a single incident.</p>
+        <p class="en">Analysts must manually gather contextual evidence from multiple disparate security sources. This manual investigation introduces context switching, where analysts repeatedly navigate across different application interfaces, hold investigative hypotheses in memory, and manually correlate heterogeneous data sources.</p>
         <p class="ar" style="display:none">يتنقل المحلل يدوياً بين عدة شاشات وأنظمة معزولة للتحقق من هوية المستخدم وسمعة العناوين وحالة الجهاز المعني.</p>
       </div>
       <div class="card">
         <div class="c-icon ye"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
         <h3 class="ct en">Prioritization Blindspots</h3><h3 class="ct ar" style="display:none">غياب الأولوية الديناميكية</h3>
-        <p class="en">Alerts arrive sorted by generic vendor severity or arrival time (FIFO) without factoring in business asset criticality or active environmental risk.</p>
+        <p class="en">When prioritization relies primarily on fixed decision rules, highly critical incidents can become buried beneath lower-value noise. Un-prioritized queues delay the handling of actionable threats.</p>
         <p class="ar" style="display:none">ترتيب التنبيهات بقوائم الانتظار بناءً على شدة افتراضية أو وقت الوصول دون مراعاة حساسية الأصل أو سياق التهديد الفعلي.</p>
       </div>
     </div>
     <div class="hl" style="margin-top:14px">
-      <p class="en"><strong>Key Takeaway:</strong> Conventional automation efficiently executes repetitive steps, but lacks the analytical adaptability to score situational context before triggering response actions.</p>
+      <p class="en"><strong>Key Takeaway:</strong> These challenges motivate the ongoing need to investigate how intelligent alert analysis and prioritization can be integrated with operational workflows to support adaptive incident handling.</p>
       <p class="ar" style="display:none"><strong>الخلاصة:</strong> الأتمتة التقليدية تنفذ مهام محددة سلفاً، لكنها تفتقر للذكاء القادر على فهم السياق التشغيلي وتقدير المخاطر قبل تنفيذ إجراءات الاستجابة.</p>
     </div>
   </div>
@@ -1985,7 +2167,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <div class="gl"></div>
     <div class="hl" style="margin-bottom:14px;border-color:rgba(0,212,255,0.4)">
       <p class="en" style="font-size:0.92rem">
-        <strong>Primary Aim:</strong> Investigate, design, and architect an integrated <strong>AI-Based SOAR Tool</strong> that resolves alert fatigue and static triage through context-aware machine learning analysis, dynamic risk scoring, and automated orchestration.
+        <strong>Primary Objective:</strong> Investigate, design, and propose an integrated <strong>AI-Based Security Orchestration, Automation, and Response (SOAR) tool</strong> that addresses operational bottlenecks by integrating intelligent security alert analysis, risk-based scoring, dynamic prioritization, and automated incident response to support more adaptive and efficient security operations.
       </p>
       <p class="ar" style="display:none;font-size:0.92rem">
         <strong>الهدف الرئيسي:</strong> دراسة وتصميم وبناء أداة <strong>SOAR معتمدة على الذكاء الاصطناعي</strong> تعالج إرهاق التنبيهات والفرز الثابت عبر التحليل الذكي للسياق، والتقييم الديناميكي للمخاطر، والأتمتة المنسقة للاستجابة.
@@ -1994,26 +2176,26 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <div class="grid g2" style="gap:12px">
       <div class="card" style="padding:14px">
         <div class="c-icon cy"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        <h3 class="ct en">1. Operational Analysis</h3><h3 class="ct ar" style="display:none">1. تحليل التحديات التشغيلية</h3>
-        <p class="en">Examine modern SOC alert management challenges, identifying empirical points of alert fatigue and triage delay.</p>
+        <h3 class="ct en">1. Analyze SOC Challenges</h3><h3 class="ct ar" style="display:none">1. تحليل تحديات SOC</h3>
+        <p class="en">Analyze the operational challenges of current SOC alert management, specifically including alert fatigue and the limitations of static triage.</p>
         <p class="ar" style="display:none">تحليل دقيق لأسباب إرهاق التنبيهات وقيود أنظمة إدارة السجلات في مراكز العمليات المعاصرة.</p>
       </div>
       <div class="card" style="padding:14px">
         <div class="c-icon gr"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-        <h3 class="ct en">2. Literature &amp; Gap Synthesis</h3><h3 class="ct ar" style="display:none">2. مراجعة الأدبيات والفجوة البحثية</h3>
-        <p class="en">Systematically review existing ML triage algorithms and conventional SOAR platforms to identify the integration gap.</p>
+        <h3 class="ct en">2. Literature Review</h3><h3 class="ct ar" style="display:none">2. مراجعة الأدبيات</h3>
+        <p class="en">Review existing AI/ML-based approaches and academic literature related to security alert analysis and prioritization.</p>
         <p class="ar" style="display:none">مراجعة شاملة لتقنيات تعلم الآلة وأدوات SOAR لتحديد فجوة الربط بين التحليل الذكي والتنفيذ الآلي.</p>
       </div>
       <div class="card" style="padding:14px">
         <div class="c-icon ye"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-        <h3 class="ct en">3. Multi-Layer Architecture</h3><h3 class="ct ar" style="display:none">3. تصميم المعمارية متعددة الطبقات</h3>
-        <p class="en">Formulate a comprehensive architectural design encompassing ingestion, context enrichment, ML engine, and response playbooks.</p>
+        <h3 class="ct en">3. Design Architecture</h3><h3 class="ct ar" style="display:none">3. تصميم المعمارية</h3>
+        <p class="en">Design the proposed AI-Based SOAR architecture and clearly identify its major functional components. Develop an AI/ML-based mechanism for context-aware alert analysis and risk assessment.</p>
         <p class="ar" style="display:none">بناء معمارية برمجية متكاملة تشمل طبقات الاستيعاب، الإثراء، محرك الذكاء، ومسارات الاستجابة.</p>
       </div>
       <div class="card" style="padding:14px">
         <div class="c-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-        <h3 class="ct en">4. Controlled Automation &amp; Metrics</h3><h3 class="ct ar" style="display:none">4. الأتمتة المنضبطة والتقييم</h3>
-        <p class="en">Connect dynamic prioritization with controlled SOAR response actions, incorporating human-in-the-loop oversight and rigorous evaluation.</p>
+        <h3 class="ct en">4. Integration &amp; Evaluation</h3><h3 class="ct ar" style="display:none">4. التكامل والتقييم</h3>
+        <p class="en">Integrate the outcomes of dynamic risk-based prioritization with SOAR response decision-making to guide automated workflows. Define a structured evaluation approach using appropriate machine-learning and operational metrics.</p>
         <p class="ar" style="display:none">ربط أولويات الحوادث بسياسات استجابة مؤتمتة منضبطة تضمن إشراف المحلل وتقاس بمؤشرات دقيقة.</p>
       </div>
     </div>
@@ -2029,7 +2211,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
       <span class="en">Chapter 1 &ndash; Project Boundaries</span><span class="ar" style="display:none">الفصل الأول &ndash; نطاق وحدود المشروع</span>
     </div>
-    <h2 class="st en">Project Scope &amp; Boundary Definition</h2>
+    <h2 class="st en">Project Scope and Limitations</h2>
     <h2 class="st ar" style="display:none">نطاق المشروع وحدود الدراسة الأكاديمية</h2>
     <div class="gl"></div>
     <div class="grid g2" style="gap:20px">
@@ -2038,13 +2220,13 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
         <h3 class="ct en" style="color:var(--ok)">In-Scope Focus Areas</h3>
         <h3 class="ct ar" style="display:none;color:var(--ok)">ما يقع داخل نطاق المشروع (In-Scope)</h3>
         <ul style="gap:8px;margin-top:10px">
-          <li class="en"><strong>Multi-Source Telemetry Ingestion:</strong> Normalization of CEF, Syslog, and JSON alerts.</li>
+          <li class="en"><strong>Alert Ingestion &amp; Normalization:</strong> Integration of AI/ML for security alert analysis, context-aware risk scoring, and dynamic alert prioritization.</li>
           <li class="ar" style="display:none"><strong>استيعاب التنبيهات:</strong> توحيد صيغ سجلات CEF وSyslog وJSON في نموذج موحد.</li>
-          <li class="en"><strong>Context Enrichment:</strong> Querying asset databases, threat intelligence, and user roles.</li>
+          <li class="en"><strong>Analytical Components:</strong> Connecting analytical components with automated SOAR response workflows and decision-making mechanisms.</li>
           <li class="ar" style="display:none"><strong>إثراء السياق:</strong> دمج معلومات الأصول والمستخدمين ومصادر استخبارات التهديدات.</li>
-          <li class="en"><strong>AI/ML Risk Scoring:</strong> Dynamic calculation of situational severity and certainty.</li>
+          <li class="en"><strong>Prototype &amp; Evaluation:</strong> Implementation and testing conducted within a controlled prototype and simulation environment. Defining appropriate machine-learning and operational metrics to evaluate the tool.</li>
           <li class="ar" style="display:none"><strong>التقييم الذكي:</strong> حساب درجة الخطورة ونسبة الثقة بالذكاء الاصطناعي.</li>
-          <li class="en"><strong>Orchestration Gateways:</strong> Triggering automated containment with analyst oversight.</li>
+          <li class="en"><strong>Architectural Focus:</strong> Emphasis on architectural integration rather than the invention of new foundational machine-learning algorithms or commercial platforms.</li>
           <li class="ar" style="display:none"><strong>أتمتة الاستجابة:</strong> تنفيذ دفاتر عمل العزل والتطويق مع بوابات اعتماد بشري.</li>
         </ul>
       </div>
@@ -2053,11 +2235,11 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
         <h3 class="ct en" style="color:var(--acc)">Out-of-Scope Boundaries</h3>
         <h3 class="ct ar" style="display:none;color:var(--acc)">ما يقع خارج نطاق المشروع (Out-of-Scope)</h3>
         <ul style="gap:8px;margin-top:10px">
-          <li class="en"><strong>Commercial SIEM Replacement:</strong> The tool supplements existing SIEMs rather than replacing enterprise storage.</li>
+          <li class="en"><strong>Dataset Constraints:</strong> Model training may depend on synthetic, public, or otherwise limited security alert datasets, which may not fully replicate every enterprise environment.</li>
           <li class="ar" style="display:none"><strong>استبدال أنظمة SIEM:</strong> الأداة مكملة ومساندة لمنصات SIEM ولا تهدف لاستبدالها كلياً.</li>
-          <li class="en"><strong>Fully Autonomous Destructive Actions:</strong> Disabling critical domain controllers or production databases without approval.</li>
+          <li class="en"><strong>Lab Environment Only:</strong> Validation is constrained to a laboratory or prototype environment rather than a live, large-scale enterprise SOC.</li>
           <li class="ar" style="display:none"><strong>الإجراءات التخريبية الذاتية:</strong> حظر الخوادم الحساسة دون موافقة المحلل لتفادي انقطاع الأعمال.</li>
-          <li class="en"><strong>Deep Packet Hardware Inspection:</strong> Network capture is consumed via sensor logs, not raw silicon taps.</li>
+          <li class="en"><strong>Human Oversight Required:</strong> Fully autonomous execution of high-impact actions introduces operational risks; therefore, the tool incorporates human oversight mechanisms for uncertain or potentially disruptive response actions.</li>
           <li class="ar" style="display:none"><strong>فحص العتاد المادي:</strong> الاعتماد على مخرجات الحساسات والسجلات وليس عتاد الشبكة الخام.</li>
         </ul>
       </div>
@@ -2081,30 +2263,30 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       <div class="card">
         <div class="c-icon"><span style="font-weight:900;font-size:1.1rem">G1</span></div>
         <h3 class="ct en">Log Management</h3><h3 class="ct ar" style="display:none">الجيل الأول: إدارة السجلات</h3>
-        <p class="en">Decentralized Syslog collection. Manual grep queries, reactive post-incident forensic searches.</p>
+        <p class="en">Security telemetry collected from multiple sources including network and endpoint monitoring, intrusion detection technologies, firewalls, and threat-intelligence feeds operating with different data representations.</p>
         <p class="ar" style="display:none">تجميع سجلات غير مركزي. بحث يدوي بعد وقوع الحادث، وتفتيش يدوي مضنٍ في ملفات السجلات.</p>
       </div>
       <div class="card">
         <div class="c-icon cy"><span style="font-weight:900;font-size:1.1rem">G2</span></div>
         <h3 class="ct en">SIEM Era</h3><h3 class="ct ar" style="display:none">الجيل الثاني: أنظمة SIEM</h3>
-        <p class="en">Centralized event correlation, compliance reporting, and rule-based threshold alerting.</p>
+        <p class="en">SIEM systems aggregate and query security data from distributed sources, providing centralized log management, security-event collection, and basic correlation. However, SIEM differs from SOAR in that it primarily supports data collection rather than complete incident-response workflows.</p>
         <p class="ar" style="display:none">مركزة السجلات وإجراء مطابقات نمطية وقواعد ترابط، لكن مع توليد كميات هائلة من التنبيهات.</p>
       </div>
       <div class="card">
         <div class="c-icon ye"><span style="font-weight:900;font-size:1.1rem">G3</span></div>
         <h3 class="ct en">Conventional SOAR</h3><h3 class="ct ar" style="display:none">الجيل الثالث: SOAR التقليدي</h3>
-        <p class="en">API orchestration across tools, deterministic playbooks, automated ticketing and notifications.</p>
+        <p class="en">SOAR platforms integrate disparate security applications and human processes into a unified framework. Data ingestion, correlation and prioritization, process automation, and analyst collaboration are defining SOAR capabilities, moving security information toward structured operational handling.</p>
         <p class="ar" style="display:none">ربط الأدوات عبر واجهات برمجة التطبيقات (API) ودفاتر عمل خطية ومحددة سلفاً.</p>
       </div>
       <div class="card" style="border-color:var(--s);background:rgba(0,212,255,0.08)">
         <div class="c-icon gr"><span style="font-weight:900;font-size:1.1rem">G4</span></div>
         <h3 class="ct en" style="color:var(--s)">AI-Augmented SOAR</h3><h3 class="ct ar" style="display:none;color:var(--s)">الجيل الرابع: SOAR المعزز بالذكاء</h3>
-        <p class="en">Context-aware ML triage, dynamic risk assessment, adaptive prioritization, controlled human-AI oversight.</p>
+        <p class="en">AI/ML can extend SOAR by improving analytical, threat-intelligence, detection, and response capabilities while orchestration technologies coordinate operational actions. SOAR provides workflow management and execution; AI/ML contributes data-driven inference to activities difficult to represent through manually specified rules.</p>
         <p class="ar" style="display:none">دمج تعلم الآلة لتحليل السياق، تقييم ديناميكي للمخاطر، وأتمتة منضبطة بالتعاون مع المحلل.</p>
       </div>
     </div>
     <div class="hl" style="margin-top:14px">
-      <p class="en"><strong>Theoretical Insight:</strong> Moving from static rule-based correlation to statistical machine learning allows SOC defenses to scale elastically with threat velocity.</p>
+      <p class="en"><strong>Key Insight:</strong> SIEM primarily supports broad data collection and querying, whereas SOAR introduces configurable workflows that guide or automate investigation and incident-response activities. The output of a SIEM may serve as an input to subsequent triage, enrichment, investigation, and response processes.</p>
       <p class="ar" style="display:none"><strong>الرؤية النظرية:</strong> الانتقال من المطابقة الحرفية للقواعد إلى النماذج الإحصائية لتعلم الآلة يمنح المنظومة مرونة في التعامل مع تسارع التهديدات.</p>
     </div>
   </div>
@@ -2126,19 +2308,19 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       <div class="card">
         <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
         <h3 class="ct en">Security Orchestration</h3><h3 class="ct ar" style="display:none">التنسيق الأمني (Orchestration)</h3>
-        <p class="en">Connecting heterogeneous security appliances through REST APIs. Enables bidirectional queries to firewalls, EDR, threat intel databases, and IAM platforms.</p>
+        <p class="en">SOAR refers to software platforms designed to integrate disparate security applications and human processes into a unified framework. A playbook defines a structured sequence of steps and actions used to handle a particular incident type, with execution triggered when predefined conditions or events are satisfied.</p>
         <p class="ar" style="display:none">ربط الأدوات الأمنية المختلفة عبر واجهات برمجية موحدة تتيح الاستعلام عن التهديدات وتنفيذ التوجيهات آلياً.</p>
       </div>
       <div class="card">
         <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <h3 class="ct en">Automated Playbooks</h3><h3 class="ct ar" style="display:none">أتمتة الإجراءات (Automation)</h3>
-        <p class="en">Codified response runbooks. Standardized steps execute machine-speed tasks: querying virus databases, resetting user tokens, or archiving logs.</p>
+        <p class="en">Workflows can automate data-collection steps, coordinate actions across multiple systems, and systematically apply standard response procedures, reducing the time and effort required for routine security tasks.</p>
         <p class="ar" style="display:none">تحويل إجراءات التشغيل القياسية إلى أكواد برمجية تنفذ مهام روتينية بسرعة الآلة كفحص العينات وتجميد الحسابات.</p>
       </div>
       <div class="card">
         <div class="c-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
         <h3 class="ct en">Incident Case Management</h3><h3 class="ct ar" style="display:none">إدارة الحوادث (Response)</h3>
-        <p class="en">Centralized tracking of forensic artifacts, audit trails, and containment outcomes within a unified ticketing environment for analyst accountability.</p>
+        <p class="en">SOAR technologies reduce fragmentation of security activities by combining alert information, threat intelligence, workflow automation, and analyst collaboration within a common operational environment, supporting structured operational handling.</p>
         <p class="ar" style="display:none">سجل مركزي لتوثيق الأدلة الرقمية ومسارات التدقيق ونتائج التطويق لدعم التحقيق الجنائي والأدائي.</p>
       </div>
     </div>
@@ -2172,24 +2354,24 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       <div class="card" style="border-color:rgba(255,107,107,0.25)">
         <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
         <h3 class="ct en">Inability to Adapt</h3><h3 class="ct ar" style="display:none">العجز عن التكيف مع المستجدات</h3>
-        <p class="en">Playbooks rely on deterministic conditionals. When threat actors slightly modify an IOC or tactic, static playbooks fail to trigger or mishandle the incident.</p>
+        <p class="en">Playbooks operate on predefined conditions; when threat behavior deviates from anticipated patterns, static playbooks may fail to trigger appropriately or handle the incident effectively. Deterministic logic can constrain effectiveness when alert context or risk conditions change dynamically.</p>
         <p class="ar" style="display:none">دفاتر العمل محكومة بشروط حتمية؛ أي تعديل طفيف في سلوك المهاجم يؤدي لفشل التشغيل أو اتخاذ مسار خاطئ.</p>
       </div>
       <div class="card" style="border-color:rgba(255,107,107,0.25)">
         <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
         <h3 class="ct en">Lack of Risk Context</h3><h3 class="ct ar" style="display:none">غياب السياق الأمني للمخاطر</h3>
-        <p class="en">A port scan on an isolated test machine triggers the same heavy playbook as a scan against a financial database, misallocating critical defensive bandwidth.</p>
+        <p class="en">Conventional SOAR does not inherently assess whether an alert's risk justifies the operational cost of the response action. The significance of an event may depend on multiple attributes and surrounding contextual information rather than on a single static severity value.</p>
         <p class="ar" style="display:none">تطبيق نفس الإجراء المؤتمت على جهاز تجريبي معزول كما يُطبق على قاعدة بيانات حساسة، لغياب الفهم السياقي لقيمة الأصل.</p>
       </div>
       <div class="card" style="border-color:rgba(255,107,107,0.25)">
         <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
         <h3 class="ct en">Disruption Hazards</h3><h3 class="ct ar" style="display:none">مخاطر التعطيل الذاتي للأعمال</h3>
-        <p class="en">Uncontrolled autonomous remediation risks catastrophic collateral damage: locking out executive accounts or terminating core operational network segments.</p>
+        <p class="en">Fully autonomous execution of high-impact security actions introduces inherent operational risks. The tool must incorporate human oversight and approval mechanisms for uncertain or potentially disruptive response actions.</p>
         <p class="ar" style="display:none">الأتمتة العمياء دون بوابات ثقة قد تعزل خوادم حيوية أو تقطع خدمات هامة عن المؤسسة نتيجة إنذار كاذب.</p>
       </div>
     </div>
     <div class="hl" style="margin-top:14px;border-color:rgba(255,107,107,0.3)">
-      <p class="en"><strong>Synthesis:</strong> SOAR provides the <em>muscle</em> (orchestrated execution), but desperately lacks the <em>brain</em> (intelligent contextual analysis and adaptive prioritization).</p>
+      <p class="en"><strong>Synthesis:</strong> SOAR provides workflow management, integration, and execution capabilities, whereas AI/ML can contribute data-driven inference to activities that are difficult to represent entirely through manually specified rules. This distinction is particularly relevant to alert handling, where event significance depends on multiple attributes and contextual information.</p>
       <p class="ar" style="display:none"><strong>الاستنتاج:</strong> يوفر SOAR التقليدي "القوة التنفيذية" لكنه يفتقر إلى "العقل التحليلي" القادر على وزن المخاطر وفهم السياق قبل إصدار القرارات.</p>
     </div>
   </div>
@@ -2211,20 +2393,20 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       <div class="card">
         <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
         <h3 class="ct en">Data-Driven Analytical Augmentation</h3><h3 class="ct ar" style="display:none">التعزيز التحليلي المعتمد على البيانات</h3>
-        <p class="en">Machine learning algorithms evaluate hundreds of contextual dimensions simultaneously (asset value, user deviation, threat reputation, time delta) that overwhelm human memory.</p>
+        <p class="en">AI/ML techniques can analyze large and heterogeneous security datasets to identify patterns, classify events, detect anomalous behavior, and support security decision making. Supervised and unsupervised methods support event classification, anomaly detection, and risk assessment.</p>
         <p class="ar" style="display:none">معالجة مئات الأبعاد السياقية بالتوازي (قيمة الأصل، انحراف السلوك، سمعة العناوين) التي يستحيل على الذهن البشري مقارنتها في ثوانٍ.</p>
       </div>
       <div class="card">
         <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3 class="ct en">Human-AI Teaming Paradigm</h3><h3 class="ct ar" style="display:none">نموذج تكامل الإنسان والذكاء الاصطناعي</h3>
-        <p class="en">AI does not replace the security analyst; it operates as an intelligent co-pilot. Repetitive noise is filtered autonomously, while complex decisions are packaged with analytical rationale for human sign-off.</p>
+        <p class="en">AI/ML does not necessarily replace existing SOC technologies; rather, it provides an analytical layer that complements the information collected by SIEM and the workflow execution capabilities provided by SOAR. This has been described as a force-multiplier effect for SOC analysts.</p>
         <p class="ar" style="display:none">الذكاء الاصطناعي لا يلغي دور المحلل، بل يعمل كمساعد ذكي يقوم بتصفية الضجيج وتقديم تقارير مسبقة التجهيز للحالات المعقدة.</p>
       </div>
     </div>
     <div class="srow" style="margin-top:14px">
-      <div class="sb"><div class="snum">70-85%</div><div class="slbl en">Noise Suppression Ratio</div><div class="slbl ar" style="display:none">نسبة قمع التنبيهات الكاذبة</div></div>
-      <div class="sb"><div class="snum">&lt;2 sec</div><div class="slbl en">Inference &amp; Triage Latency</div><div class="slbl ar" style="display:none">زمن الاستنتاج والفرز</div></div>
-      <div class="sb"><div class="snum">3.5x</div><div class="slbl en">Analyst Throughput Boost</div><div class="slbl ar" style="display:none">مضاعفة إنتاجية المحلل</div></div>
+      <div class="sb"><div class="snum">AI/ML</div><div class="slbl en">Analytical Augmentation Layer</div><div class="slbl ar" style="display:none">طبقة التعزيز التحليلي</div></div>
+      <div class="sb"><div class="snum">SOAR</div><div class="slbl en">Workflow Execution Platform</div><div class="slbl ar" style="display:none">منصة تنفيذ سير العمل</div></div>
+      <div class="sb"><div class="snum">DSR</div><div class="slbl en">Research Methodology</div><div class="slbl ar" style="display:none">منهجية البحث العلمي</div></div>
     </div>
   </div>
   <div class="sn">11 / 25</div>
@@ -2236,48 +2418,76 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
   <div class="content-box">
     <div class="tag a1">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-      <span class="en">Chapter 2 &ndash; Machine Learning Benchmarks</span><span class="ar" style="display:none">الفصل الثاني &ndash; مقارنة خوارزميات التعلم</span>
+      <span class="en">Chapter 2 &ndash; Table 2-1 (§2.4.4)</span><span class="ar" style="display:none">الفصل الثاني &ndash; جدول 2-1 (§2.4.4)</span>
     </div>
-    <h2 class="st en">Comparative Analysis of ML Triage Approaches</h2>
-    <h2 class="st ar" style="display:none">المقارنة المعيارية لتقنيات تعلم الآلة في الفرز الأمني</h2>
+    <h2 class="st en">Comparative Analysis of Existing ML-Based SOC Triage Approaches</h2>
+    <h2 class="st ar" style="display:none">المقارنة المعيارية لأنظمة الفرز الأمني القائمة على تعلم الآلة (جدول 2-1)</h2>
     <div class="gl"></div>
-    <div class="tbl-wrap">
-      <table class="ctbl">
+    <div class="tbl-wrap" style="overflow-x:auto">
+      <table class="ctbl" style="font-size:0.76rem">
         <thead>
           <tr>
-            <th><span class="en">ML Approach</span><span class="ar" style="display:none">الخوارزمية / النموذج</span></th>
-            <th><span class="en">Primary Strength</span><span class="ar" style="display:none">أبرز المزايا ونقاط القوة</span></th>
-            <th><span class="en">Operational Limitation</span><span class="ar" style="display:none">القيود في بيئة SOC</span></th>
-            <th><span class="en">Project Role</span><span class="ar" style="display:none">الدور في مشروعنا المقترح</span></th>
+            <th><span class="en">Study</span><span class="ar" style="display:none">الدراسة المرجعية</span></th>
+            <th><span class="en">Data / Environment</span><span class="ar" style="display:none">بيئة البيانات</span></th>
+            <th><span class="en">AI/ML Approach</span><span class="ar" style="display:none">نموذج الذكاء الاصطناعي</span></th>
+            <th><span class="en">Context / Feedback</span><span class="ar" style="display:none">السياق والتغذية الراجعة</span></th>
+            <th><span class="en">Prioritization Output</span><span class="ar" style="display:none">مخرجات تحديد الأولوية</span></th>
+            <th style="color:var(--acc)"><span class="en">SOAR / Response</span><span class="ar" style="display:none">الربط مع SOAR</span></th>
+            <th><span class="en">Main Limitation</span><span class="ar" style="display:none">القصور الرئيسي</span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Random Forest (RF)</strong></td>
-            <td><span class="en">High interpretability, fast training, feature importance scoring</span><span class="ar" style="display:none">قابلية تفسير عالية، سرعة فائقة في التدريب</span></td>
-            <td><span class="en">Struggles with temporal sequence shifts</span><span class="ar" style="display:none">أداء أقل مع السلاسل الزمنية المتغيرة</span></td>
-            <td><span class="pill pg">Baseline Supervised Classifier</span></td>
+            <td><strong>Gupta et al. (2019)</strong></td>
+            <td><span class="en">Real SOC-labeled SOD events</span><span class="ar" style="display:none">سجلات حقيقية مصنفة من SOC</span></td>
+            <td><span class="en">DNN supervised classification</span><span class="ar" style="display:none">شبكات عصبية عميقة (DNN)</span></td>
+            <td><span class="en">Engineered event features; no online feedback</span><span class="ar" style="display:none">خصائص مهندسة دون تغذية مباشرة</span></td>
+            <td><span class="en">Notified / non-notified classification</span><span class="ar" style="display:none">تصنيف ثنائي: إشعار / عدم إشعار</span></td>
+            <td><span class="pill pr">No</span></td>
+            <td><span class="en">Binary output; low minority-class precision (0.39)</span><span class="ar" style="display:none">مخرج ثنائي، دقة منخفضة لفئة الأقلية</span></td>
           </tr>
           <tr>
-            <td><strong>Deep Neural Nets (DNN)</strong></td>
-            <td><span class="en">Models complex non-linear alert interactions</span><span class="ar" style="display:none">تمثيل العلاقات غير الخطية المعقدة</span></td>
-            <td><span class="en">High compute latency, black-box opacity</span><span class="ar" style="display:none">صعوبة التفسير (صندوق أسود) وتكلفة حوسبة</span></td>
-            <td><span class="pill pc">High-Dimensional Feature Mining</span></td>
+            <td><strong>Gelman et al. (2023)</strong></td>
+            <td><span class="en">Real MDR data; deployment simulation</span><span class="ar" style="display:none">بيانات MDR حقيقية؛ محاكاة نشر</span></td>
+            <td><span class="en">RF + NN actionability scoring (TEQ)</span><span class="ar" style="display:none">غابة عشوائية وشبكات عصبية</span></td>
+            <td><span class="en">Content/context features; historical labels</span><span class="ar" style="display:none">خصائص المحتوى والسياق وسجلات سابقة</span></td>
+            <td><span class="en">Incident and alert scores, suppression</span><span class="ar" style="display:none">نقاط الحادث والتنبيه، قمع الضجيج</span></td>
+            <td><span class="pill pr">No</span></td>
+            <td><span class="en">Preprint; operational effects simulated</span><span class="ar" style="display:none">دراسة أولية؛ آثار تشغيلية بالمحاكاة</span></td>
           </tr>
           <tr>
-            <td><strong>Reinforcement Learning (RL)</strong></td>
-            <td><span class="en">Dynamic queue optimization, adaptive priority policy</span><span class="ar" style="display:none">تحسين ديناميكي مستمر لترتيب قوائم الانتظار</span></td>
-            <td><span class="en">Requires extensive simulation reward tuning</span><span class="ar" style="display:none">حساسية عالية لدوال المكافأة وبيئة المحاكاة</span></td>
-            <td><span class="pill py">Queue Scheduling Policy</span></td>
+            <td><strong>Liu et al. (2022)</strong></td>
+            <td><span class="en">Enterprise-scale heterogeneous event data</span><span class="ar" style="display:none">بيانات متباينة على مستوى المؤسسة</span></td>
+            <td><span class="en">Context representation + deviation (Context2Vector)</span><span class="ar" style="display:none">تمثيل السياق واكتشاف الانحراف</span></td>
+            <td><span class="en">Behavioral context; expert annotation</span><span class="ar" style="display:none">سياق سلوكي وترميز خبراء</span></td>
+            <td><span class="en">Contextual risk ranking</span><span class="ar" style="display:none">ترتيب المخاطر وفق السياق</span></td>
+            <td><span class="pill pr">No</span></td>
+            <td><span class="en">No downstream response execution</span><span class="ar" style="display:none">غياب التنفيذ الآلي للاستجابة اللاحقة</span></td>
           </tr>
           <tr>
-            <td><strong>LLMs &amp; AI Agents</strong></td>
-            <td><span class="en">Semantic synthesis, threat narrative generation</span><span class="ar" style="display:none">توليد ملخصات سياقية ذكية وتفسير التقارير</span></td>
-            <td><span class="en">Hallucination risks, high token inference cost</span><span class="ar" style="display:none">احتمالية التشتت (الهلوسة) والتكلفة المرتفعة</span></td>
-            <td><span class="pill pp">Analyst Briefing Assistant</span></td>
+            <td><strong>Wang et al. (2024)</strong></td>
+            <td><span class="en">Five multi-step attack datasets</span><span class="ar" style="display:none">5 مجموعات بيانات لهجمات متسلسلة</span></td>
+            <td><span class="en">Isolation Forest + RL active learning (AlertPro)</span><span class="ar" style="display:none">غابة العزل مع تعلم نشط معزز</span></td>
+            <td><span class="en">Context/history + iterative analyst feedback</span><span class="ar" style="display:none">سياق وتاريخ وتغذية راجعة تكرارية</span></td>
+            <td><span class="en">Dynamic alert re-ranking</span><span class="ar" style="display:none">إعادة ترتيب ديناميكي للتنبيهات</span></td>
+            <td><span class="pill pr">No</span></td>
+            <td><span class="en">Stops at triage/investigation</span><span class="ar" style="display:none">يتوقف عند الفرز والتحقيق فقط</span></td>
+          </tr>
+          <tr>
+            <td><strong>Chavali et al. (2024)</strong></td>
+            <td><span class="en">Three public IDS datasets</span><span class="ar" style="display:none">3 مجموعات بيانات IDS عامة</span></td>
+            <td><span class="en">TD3-AP / SAC-AP DRL</span><span class="ar" style="display:none">تعلم تعزيزي عميق (TD3/SAC)</span></td>
+            <td><span class="en">Resource/state info; no analyst feedback</span><span class="ar" style="display:none">معلومات الموارد وحالة النظام دون محلل</span></td>
+            <td><span class="en">Resource-aware investigation priority</span><span class="ar" style="display:none">أولوية التحقيق الواعية بالموارد</span></td>
+            <td><span class="pill pr">No</span></td>
+            <td><span class="en">No real-world SOC validation or SOAR execution</span><span class="ar" style="display:none">دون تحقق واقعي في SOC أو تنفيذ SOAR</span></td>
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="hl" style="margin-top:10px">
+      <p class="en"><strong>Synthesis of Literature Table 2-1:</strong> None of the reviewed academic or preprint systems execute automated downstream SOAR response workflows. This empirically establishes the <strong>core research gap</strong> addressed by our project.</p>
+      <p class="ar" style="display:none"><strong>خلاصة المقارنة المعيارية من جدول 2-1:</strong> جميع الأنظمة الأكاديمية السابقة تتوقف عند الفرز أو إعادة الترتيب دون أي تنفيذ آلي للاستجابة عبر SOAR، وهو ما يثبت علمياً الفجوة البحثية الجوهرية لمشروعنا.</p>
     </div>
   </div>
   <div class="sn">12 / 25</div>
@@ -2298,19 +2508,19 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       <div class="card" style="border-color:rgba(108,99,255,0.4)">
         <div class="c-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
         <h3 class="ct en">Academic ML Research</h3><h3 class="ct ar" style="display:none">أبحاث تعلم الآلة الأكاديمية</h3>
-        <p class="en">Extensive literature exists evaluating ML classifiers on offline datasets (e.g. NSL-KDD, CIC-IDS). However, these studies stop at mathematical classification scores (Precision, Recall) without integrating into live incident containment pipelines.</p>
+        <p class="en">Existing research demonstrates the use of ML for security alert analysis and SOAR workflows for automated incident response, while the integration between these capabilities remains an area worthy of further investigation. Evaluated workflows primarily focus on event ranking, alert selection, or analyst investigation rather than downstream SOAR-controlled response execution.</p>
         <p class="ar" style="display:none">أبحاث غزيرة في اختبار خوارزميات التصنيف على مجموعات بيانات مجمدة، لكنها تتوقف عند إخراج نسب الدقة دون ربطها بإجراءات استجابة حية.</p>
       </div>
       <div class="card" style="border-color:rgba(0,212,255,0.4)">
         <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
         <h3 class="ct en">Commercial SOAR Frameworks</h3><h3 class="ct ar" style="display:none">منصات SOAR التجارية</h3>
-        <p class="en">Commercial platforms (Splunk SOAR, Cortex XSOAR) excel at multi-tool orchestration via pre-built playbooks. However, they rely on rigid boolean triggers and lack adaptive machine learning risk assessment.</p>
+        <p class="en">Research on automated incident response addresses a complementary portion of the incident-handling pipeline. However, existing approaches do not determine the required response directly from an alert's contextual risk, and automated execution remains identified as future work in the reviewed literature.</p>
         <p class="ar" style="display:none">منصات متقدمة في تنسيق واجهات التطبيقات، لكنها تفتقر للذكاء التكيفي وتعتمد على قواعد جامدة مبرمجة سلفاً.</p>
       </div>
     </div>
     <div class="hl" style="margin-top:16px;border-color:var(--s);text-align:center">
       <p class="en" style="font-size:0.92rem">
-        <strong>Our Contribution:</strong> Designing and implementing the cohesive pipeline that feeds <strong>Dynamic ML Risk Predictions</strong> directly into <strong>SOAR Orchestrated Containment Workflows</strong> with controlled human oversight gates.
+        <strong>Our Research Gap:</strong> This project investigates the <strong>architectural integration</strong> of AI/ML-based alert analysis, risk-based scoring, dynamic prioritization, and SOAR automated response. The proposed tool examines how intelligent triage outputs can support more adaptive response decisions within operational SOAR workflows.
       </p>
       <p class="ar" style="display:none;font-size:0.92rem">
         <strong>مساهمة مشروعنا:</strong> بناء خط معالجة متكامل يغذي <strong>تنبؤات المخاطر الذكية</strong> مباشرة داخل <strong>مسارات أتمتة SOAR</strong> تحت إشراف وتحكم أمني منضبط.
@@ -2328,7 +2538,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
       <span class="en">Chapter 3 &ndash; System Architecture</span><span class="ar" style="display:none">الفصل الثالث &ndash; المعمارية المقترحة</span>
     </div>
-    <h2 class="st en">Proposed AI-Based SOAR System Architecture</h2>
+    <h2 class="st en">High-Level Architecture Overview</h2>
     <h2 class="st ar" style="display:none">المعمارية الشاملة لأداة SOAR المدعومة بالذكاء الاصطناعي</h2>
     <div class="gl"></div>
     <div class="al">
@@ -2387,24 +2597,24 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       <div class="card">
         <div class="c-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
         <h3 class="ct en">Multi-Protocol Ingestion</h3><h3 class="ct ar" style="display:none">استقبال متعدد البروتوكولات</h3>
-        <p class="en">Listens to Kafka message queues, Webhooks, and Syslog sockets (UDP 514 / TCP 6514 TLS). Ingests raw alerts across diverse perimeter sensors.</p>
+        <p class="en">The module serves as the entry point for security alerts from heterogeneous technologies. Sources may expose alerts through REST APIs, webhooks, message streams, log files, or other supported interfaces. Individual connectors communicate with corresponding sources and translate incoming data into a common internal alert structure.</p>
         <p class="ar" style="display:none">استقبال التنبيهات عبر طوابير Kafka ومنافذ Syslog المشفرة وواجهات Webhooks من مختلف حساسات الشبكة.</p>
       </div>
       <div class="card">
         <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></div>
         <h3 class="ct en">Parsing &amp; Normalization</h3><h3 class="ct ar" style="display:none">التحليل وتوحيد الحقول</h3>
-        <p class="en">Transforms disparate vendor schemas (ArcSight CEF, Snort Fast, Elastic JSON) into an Open Cybersecurity Schema (OCSF) internal model.</p>
+        <p class="en">The normalization process preserves security-relevant information while standardizing fields required by the proposed tool. A normalized alert may contain attributes such as an alert identifier, timestamp, source system, alert type, original severity, source and destination information, affected user or asset, and event description.</p>
         <p class="ar" style="display:none">تحويل تراكيب السجلات المتباينة إلى صيغة موحدة تضمن تعريف أسماء الحقول والمعرّفات بدقة متجانسة.</p>
       </div>
       <div class="card">
         <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
         <h3 class="ct en">Deduplication &amp; Grouping</h3><h3 class="ct ar" style="display:none">إزالة التكرار والتجميع</h3>
-        <p class="en">Applies sliding window hash clustering to collapse storm alerts (e.g. 500 alerts from 1 port scan) into a single incident container.</p>
+        <p class="en">Before forwarding an alert, the module performs basic validation and preprocessing: verifying required fields, converting timestamps into a consistent format, standardizing field names and categorical values, and removing malformed or incomplete records where appropriate.</p>
         <p class="ar" style="display:none">تجميع التنبيهات المتطابقة في نافذة زمنية منزلقة لمنع إغراق النظام بمئات التنبيهات الناتجة عن حدث واحد.</p>
       </div>
     </div>
     <div class="hl" style="margin-top:14px">
-      <p class="en"><strong>Normalized Event Entity:</strong> <code>{ timestamp, source_ip, dest_ip, port, user_id, host_guid, event_type, raw_payload }</code> &mdash; establishing a clean contract for downstream enrichment.</p>
+      <p class="en"><strong>Design Principle:</strong> The module separates source-specific integration concerns from the internal processing logic of the tool, ensuring that the remaining components do not require understanding of each vendor-specific format.</p>
       <p class="ar" style="display:none"><strong>الكيان الموحد للحدث:</strong> يتضمن الطابع الزمني، عناوين المصدر والوجهة، معرف المستخدم والجهاز، ونوع الحدث لبدء مرحلة الإثراء السياقي.</p>
     </div>
   </div>
@@ -2425,26 +2635,26 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <div class="grid g3">
       <div class="card">
         <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/></svg></div>
-        <h3 class="ct en">Asset Posture &amp; Value</h3><h3 class="ct ar" style="display:none">حساسية الأصل وقيمته</h3>
-        <p class="en">Queries CMDB for host business criticality tier (Tier 1: Core Banking DB vs Tier 4: Guest Wi-Fi kiosk), existing vulnerabilities (CVEs), and OS patch level.</p>
-        <p class="ar" style="display:none">استعلام قاعدة بيانات الأصول لمعرفة أهمية الخادم (خادم إنتاج مالي أم جهاز اختبار) ومستوى الثغرات المسجلة عليه.</p>
-      </div>
-      <div class="card">
-        <div class="c-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-        <h3 class="ct en">User Identity &amp; Privileges</h3><h3 class="ct ar" style="display:none">هوية المستخدم وصلاحياته</h3>
-        <p class="en">Extracts user directory roles (Domain Admin vs contractor), normal working hours, geolocation baseline, and recent privilege escalation attempts.</p>
-        <p class="ar" style="display:none">استخراج صلاحيات الحساب (مدير نطاق أم موظف مؤقت)، مواعيد العمل المعتادة، والموقع الجغرافي المسجل له.</p>
+        <h3 class="ct en">Asset &amp; Identity Context</h3><h3 class="ct ar" style="display:none">سياق الأصل وهوية المستخدم</h3>
+        <p class="en">Provides organizational context: asset type, business criticality, network location, and exposure level. Enriches account privilege level, authentication history, and sensitive resource access to distinguish routine events from high-impact exposure (§3.4).</p>
+        <p class="ar" style="display:none">يوفر السياق المؤسسي: نوع الأصل وحساسيته التشغيلية وموقعه في الشبكة، مع تدقيق صلاحيات الحساب وتاريخ المصادقة للتمييز بين الأنشطة العادية والحسابات الحرجة.</p>
       </div>
       <div class="card">
         <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h3 class="ct en">External Threat Intel</h3><h3 class="ct ar" style="display:none">استخبارات التهديدات الخارجية</h3>
-        <p class="en">Asynchronous reputation lookups against threat feeds (VirusTotal, AbuseIPDB, AlienVault OTX) for IP, domain, and file hash reputation scores.</p>
-        <p class="ar" style="display:none">فحص متزامن لعناوين IP وبصمات الملفات في قواعد التهديدات الدولية لتحديد درجة خطورتها السابقة.</p>
+        <h3 class="ct en">Threat Intelligence Context</h3><h3 class="ct ar" style="display:none">سياق استخبارات التهديدات</h3>
+        <p class="en">Enriches observable indicators (IPs, domains, URLs, file hashes) with reputation status, indicator type, and known malicious associations from threat feeds, supporting situational awareness before risk assessment (Bridges et al., 2023).</p>
+        <p class="ar" style="display:none">إثراء المؤشرات الظاهرة (عناوين IP، النطاقات، بصمات الملفات) بحالة السمعة والارتباط بالهجمات الخبيثة من قواعد استخبارات التهديدات المتاحة.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3 class="ct en">Historical &amp; Behavioral Context</h3><h3 class="ct ar" style="display:none">السياق التاريخي والسلوكي</h3>
+        <p class="en">Determines whether similar alerts, indicators, or assets appeared previously within a temporal window. Context2Vector demonstrates that events carry different operational meanings depending on surrounding behavioral context (Liu et al., 2022).</p>
+        <p class="ar" style="display:none">تتبع ظهور التنبيهات أو الحسابات المشابهة ضمن نافذة زمنية معينة؛ فالأحداث الأمنية تختلف دلالتها التشغيلية باختلاف السياق السلوكي المحيط بها.</p>
       </div>
     </div>
     <div class="hl" style="margin-top:14px">
-      <p class="en"><strong>Enrichment Output:</strong> A densely populated feature vector transforming a naked alert into a situation-aware analytical packet ready for the ML Triage Model.</p>
-      <p class="ar" style="display:none"><strong>مخرجات الإثراء:</strong> تحويل التنبيه المجرد إلى متجهة خصائص غنية بالسياق تمكّن نموذج تعلم الآلة من تقدير الموقف بدقة متناهية.</p>
+      <p class="en"><strong>Enrichment Modular Resilience &amp; Scope (§3.4):</strong> The layer degrades gracefully when particular enrichment sources are temporarily unavailable. It creates an enriched alert representation without assigning final priority or executing response actions directly.</p>
+      <p class="ar" style="display:none"><strong>المرونة المعيارية وحدود الإثراء (§3.4):</strong> يتكيف النظام بسلاسة عند تعذر أحد مصادر الإثراء. وتقتصر وظيفته على تجهيز كائن التنبيه المثرى دون اتخاذ قرارات الأولوية أو الاستجابة بشكل مباشر.</p>
     </div>
   </div>
   <div class="sn">16 / 25</div>
@@ -2463,31 +2673,30 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <div class="gl"></div>
     <div class="grid g2" style="gap:20px">
       <div class="card">
-        <h3 class="ct en" style="color:var(--s)">The Risk Scoring Formula</h3>
-        <h3 class="ct ar" style="display:none;color:var(--s)">معادلة حساب المخاطر الرياضية</h3>
-        <div style="background:rgba(0,0,0,0.5);border:1px solid var(--br);padding:12px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--s);margin:10px 0">
-          Risk = (w<sub>1</sub> &middot; S<sub>base</sub>) + (w<sub>2</sub> &middot; C<sub>asset</sub>) + (w<sub>3</sub> &middot; TI<sub>rep</sub>) + (w<sub>4</sub> &middot; A<sub>user</sub>)
-        </div>
-        <p class="en">Weights <code>w<sub>1</sub>...w<sub>4</sub></code> are calibrated dynamically using Random Forest feature importance and Soft Actor-Critic (SAC) reinforcement reward.</p>
-        <p class="ar" style="display:none">تُوزن المعاملات وفق أهمية الخصائص المستخلصة من نموذج الغابة العشوائية وبمكافآت التعلّم المعزز التكيفي.</p>
+        <h3 class="ct en" style="color:var(--s)">Mandatory Analytical Output (§3.5)</h3>
+        <h3 class="ct ar" style="display:none;color:var(--s)">المخرج التحليلي الأساسي (§3.5)</h3>
+        <p class="en" style="margin-bottom:10px">The primary output of the engine is a <strong>Contextual Risk Score</strong> representing the estimated operational significance of the alert, normalized to a consistent range [0, 1] where higher values indicate greater estimated risk.</p>
+        <p class="ar" style="display:none;margin-bottom:10px">المخرج الإلزامي الأساسي للمحرك هو <strong>درجة المخاطر السياقية</strong> المعيارية [0, 1] والتي تعبر عن الأهمية التشغيلية المقدرة للحدث بدلاً من الاعتماد على الشدة الثابتة لأداة الحماية.</p>
+        <p class="en"><strong>Principle of Separation:</strong> The engine is deliberately separated from both prioritization and response execution. It produces analytical outputs consumed by subsequent policy checks, preventing a raw model prediction from directly triggering high-impact actions.</p>
+        <p class="ar" style="display:none"><strong>مبدأ الفصل المعماري:</strong> يفصل المحرك بصرامة عن إدارة الأولويات وتنفيذ الاستجابة، منعاً لترجمة التنبؤ الخام إلى إجراءات استجابة عالية الخطورة دون مراجعة السياسات.</p>
       </div>
       <div class="card">
-        <h3 class="ct en" style="color:var(--ok)">Dual Output: Classification &amp; Confidence</h3>
-        <h3 class="ct ar" style="display:none;color:var(--ok)">المخرج المزدوج: التصنيف ودرجة الثقة</h3>
+        <h3 class="ct en" style="color:var(--ok)">Supporting Outputs: Confidence &amp; Actionability</h3>
+        <h3 class="ct ar" style="display:none;color:var(--ok)">المخرجات المساندة: مؤشر الثقة وقابلية التنفيذ</h3>
         <ul style="gap:8px;margin-top:6px">
-          <li class="en"><strong>Triage Class:</strong> True Positive (Attack), Benign Noise, or Reconnaissance.</li>
-          <li class="ar" style="display:none"><strong>فئة التنبيه:</strong> هجوم مؤكد، نشاط حميد كاذب، أو محاولة استكشافية.</li>
-          <li class="en"><strong>Confidence Score &Phi;:</strong> Probability distribution [0.0 - 1.0] indicating model certainty.</li>
-          <li class="ar" style="display:none"><strong>مؤشر الثقة:</strong> قيمة احتمالية تقيس يقين النموذج بالقرار قبل تشغيل الاستجابة.</li>
-          <li class="en"><strong>Mitigation Trigger:</strong> Alerts with Risk &gt; 80 and &Phi; &gt; 0.90 qualify for automatic isolation.</li>
-          <li class="ar" style="display:none"><strong>عتبة الاستجابة:</strong> الحوادث ذات الخطورة العالية والثقة المرتفعة تؤهل للعزل الآلي الفوري.</li>
+          <li class="en"><strong>Confidence Indicator:</strong> Conceptually distinct from risk score (Risk = security significance, Confidence = model certainty). A high-risk prediction with low confidence routes to analyst validation; high confidence enables policy-governed automation.</li>
+          <li class="ar" style="display:none"><strong>مؤشر الثقة:</strong> منفصل مفهومياً عن درجة الخطر (الخطر يمثل الأهمية الأمنية، بينما الثقة تمثل يقين النموذج). الخطر العالي مع الثقة المنخفضة يتطلب تدقيق المحلل، بينما الثقة العالية تدعم الأتمتة المعتمدة.</li>
+          <li class="en"><strong>Predicted Class / Actionability Label:</strong> Distinguishes alerts estimated to require further investigation from lower-priority events (Gupta et al., 2019).</li>
+          <li class="ar" style="display:none"><strong>تصنيف قابلية التنفيذ:</strong> يميز التنبيهات التي تتطلب تحقيقاً عن التنبيهات الروتينية منخفضة الأولوية.</li>
+          <li class="en"><strong>Explanatory Features:</strong> Exposes the attributes that contributed most strongly to the resulting score to support analyst interpretation and validation.</li>
+          <li class="ar" style="display:none"><strong>تفسير القرار:</strong> إظهار الخصائص الأكثر تأثيراً في النتيجة لدعم تفسير المحلل وقراره.</li>
         </ul>
       </div>
     </div>
     <div class="srow" style="margin-top:14px">
-      <div class="sb"><div class="snum">0 - 100</div><div class="slbl en">Dynamic Risk Range</div><div class="slbl ar" style="display:none">مدى تقييم الخطر</div></div>
-      <div class="sb"><div class="snum">&plusmn;94.6%</div><div class="slbl en">Classification Accuracy</div><div class="slbl ar" style="display:none">دقة التصنيف المتوقعة</div></div>
-      <div class="sb"><div class="snum">0.88</div><div class="slbl en">F1-Score Benchmark</div><div class="slbl ar" style="display:none">معيار التوازن F1</div></div>
+      <div class="sb"><div class="snum">[0, 1]</div><div class="slbl en">Normalized Risk Range</div><div class="slbl ar" style="display:none">مدى تقييم الخطر المعياري</div></div>
+      <div class="sb"><div class="snum">Distinct</div><div class="slbl en">Risk vs. Confidence Outputs</div><div class="slbl ar" style="display:none">فصل الخطر عن مؤشر الثقة</div></div>
+      <div class="sb"><div class="snum">Separated</div><div class="slbl en">Engine vs. Action Execution</div><div class="slbl ar" style="display:none">فصل التحليل عن التنفيذ</div></div>
     </div>
   </div>
   <div class="sn">17 / 25</div>
@@ -2506,27 +2715,27 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <div class="gl"></div>
     <div class="grid g3">
       <div class="card">
-        <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-        <h3 class="ct en">Automated Noise Suppression</h3><h3 class="ct ar" style="display:none">قمع الضجيج المؤكد آلياً</h3>
-        <p class="en">Alerts with Risk &lt; 25 and high benign confidence (&Phi; &gt; 0.95) are auto-resolved and tagged with reasoning, bypassing analyst screens entirely.</p>
-        <p class="ar" style="display:none">إغلاق التنبيهات منخفضة الخطورة وعالية اليقين بأنها حميدة تلقائياً مع توثيق السبب لتفريغ شاشات المحللين.</p>
-      </div>
-      <div class="card">
         <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-        <h3 class="ct en">Priority Queue Reordering</h3><h3 class="ct ar" style="display:none">إعادة ترتيب قوائم الانتظار</h3>
-        <p class="en">Incidents are ordered dynamically by composite Risk score rather than arrival timestamp. Critical ransomware indicators leapfrog ahead of 500 routine logs.</p>
-        <p class="ar" style="display:none">إعادة فرز قائمة الانتظار بناءً على الخطر اللحظي الفعلي؛ يقفز حادث الفدية المشبوه فوراً إلى أعلى القائمة أمام مئات السجلات الروتينية.</p>
+        <h3 class="ct en">Dynamic Queue Prioritization</h3><h3 class="ct ar" style="display:none">ترتيب طوابير التحقيق ديناميكياً</h3>
+        <p class="en">Converts analytical outputs into operational decisions about alert ordering. Alerts are ranked by continuous contextual risk rather than static product severity. Relative positions are recalculated dynamically as new telemetry arrives (Wang et al., 2024).</p>
+        <p class="ar" style="display:none">تحويل مخرجات التحليل إلى قرارات تشغيلية لترتيب طوابير التحقيق بناءً على الخطر اللحظي المستمر بدلاً من الشدة الثابتة للمنتج المصدر مع إعادة حساب الترتيب ديناميكياً.</p>
       </div>
       <div class="card">
-        <div class="c-icon ye"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <h3 class="ct en">Starvation Prevention</h3><h3 class="ct ar" style="display:none">منع احتجاز المهام القديمة</h3>
-        <p class="en">An aging factor ensures low-priority alerts do not remain permanently neglected in queues by gradually incrementing priority after SLA thresholds.</p>
-        <p class="ar" style="display:none">خوارزمية تصعيد زمني تضمن عدم إهمال التنبيهات المتوسطة إلى الأبد عبر رفع أولويتها تدريجياً عند اقتراب انتهاء مهلة SLA.</p>
+        <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <h3 class="ct en">Suppression vs. Deprioritization</h3><h3 class="ct ar" style="display:none">القمع المنضبط مقابل خفض الأولوية</h3>
+        <p class="en">Suppressed alerts are excluded from primary queues under explicit policy conditions (low risk, adequate confidence, non-critical assets) but retained for audit. Deprioritized alerts remain visible below higher-risk events, preserving complete operational traceability (§3.5).</p>
+        <p class="ar" style="display:none">فصل مفهومي دقيق: التنبيهات المقموعة تُستثنى من الطابور النشط وفق سياسة صارمة مع أرشفتها للتدقيق، بينما التنبيهات مخفضة الأولوية تظل متاحة تحت الأحداث الأكثر خطورة.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 class="ct en">Policy Safeguards &amp; Overrides</h3><h3 class="ct ar" style="display:none">ضمانات السياسات والاستثناءات</h3>
+        <p class="en">Operational rules override model scores when critical assets, privileged accounts, or novel threats are detected. Low-confidence predictions are automatically routed for analyst review, ensuring ML cannot permanently discard uncertain events (§3.5).</p>
+        <p class="ar" style="display:none">قواعد تشغيلية تعلو على تنبؤات النموذج عند ارتباط الحدث بأصول حساسة أو هويات إدارية، مع توجيه الحالات منخفضة الثقة للمحلل البشري حتماً لمنع إهمال التهديدات غير المؤكدة.</p>
       </div>
     </div>
     <div class="hl" style="margin-top:14px">
-      <p class="en"><strong>Operational Outcome:</strong> Reduces active analyst ticket backlog by <strong>65% to 80%</strong>, allowing investigators to focus on genuine advanced threats.</p>
-      <p class="ar" style="display:none"><strong>الأثر التشغيلي:</strong> تقليص تراكم التذاكر أمام المحللين بنسبة تتراوح بين <strong>65% و 80%</strong> وتوجيه تركيزهم نحو التهديدات الحقيقية.</p>
+      <p class="en"><strong>Operational Rationale (§3.5):</strong> Dynamic, risk-aware ordering can reduce the time critical incidents spend waiting in analyst queues (by 22.9% in literature). The prioritization module ensures that genuine threats are identified rapidly without simultaneously increasing the manual investigative burden placed on human analysts.</p>
+      <p class="ar" style="display:none"><strong>الأساس المنطقي التشغيلي (§3.5):</strong> الترتيب الديناميكي الواعي بالمخاطر يقلل الوقت الذي تقضيه الحوادث الحرجة في طوابير الانتظار (بنسبة 22.9% وفق الأدبيات)، مما يضمن الكشف السريع عن التهديدات الحقيقية دون زيادة أعباء التحقيق اليدوي على المحللين.</p>
     </div>
   </div>
   <div class="sn">18 / 25</div>
@@ -2570,8 +2779,8 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       </div>
     </div>
     <div class="hl" style="margin-top:14px">
-      <p class="en"><strong>Immutable Action Log:</strong> Every playbook execution writes cryptographic audit logs capturing executing timestamp, API target, parameters, and outcome.</p>
-      <p class="ar" style="display:none"><strong>سجل العمليات غير القابل للتعديل:</strong> يتم توثيق كافة العمليات المؤتمتة مشفرة بأوقاتها وأهدافها لضمان المحاسبية الكاملة.</p>
+      <p class="en"><strong>Policy Principle:</strong> The decision to automate an action considers not only the estimated security risk but also the potential impact of the response itself. Performing an enrichment query carries less operational risk than disabling a privileged account, isolating a production endpoint, or modifying a firewall policy.</p>
+      <p class="ar" style="display:none"><strong>مبدأ سياسة الاستجابة (§3.7):</strong> يراعي قرار أتمتة الإجراء الأثر التشغيلي المحتمل للاستجابة ذاتها إلى جانب تقدير المخاطر؛ فالاستعلام عن سياق التهديد يحمل مخاطر تشغيلية أقل بكثير من عزل خادم إنتاج أو تجميد حساب ذي صلاحيات واسعة أو تعديل سياسات الجدار الناري.</p>
     </div>
   </div>
   <div class="sn">19 / 25</div>
@@ -2609,7 +2818,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       </div>
     </div>
     <div class="hl" style="margin-top:14px">
-      <p class="en"><strong>Safety Architecture:</strong> Adopts the <a href="#" style="color:var(--s)">A<sup>2</sup>C Framework</a> (Advisory &amp; Controlled Autonomy), preventing rogue automation while ensuring maximum operational speed.</p>
+      <p class="en"><strong>Controlled Autonomy Principle:</strong> The amount of human involvement depends on the uncertainty and consequence associated with the decision. This supports a risk-aware level of autonomy, ensuring human oversight and approval mechanisms for uncertain or potentially disruptive response actions.</p>
       <p class="ar" style="display:none"><strong>معمارية الأمان:</strong> تتبنى المنظومة إطار الأتمتة الموجهة والمنضبطة لمنع اتخاذ قرارات تعسفية وضمان أعلى استجابة للأحداث الحرجة.</p>
     </div>
   </div>
@@ -2631,19 +2840,19 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       <div class="card">
         <div class="c-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
         <h3 class="ct en">Analyst Resolution Capture</h3><h3 class="ct ar" style="display:none">التقاط قرارات المحللين</h3>
-        <p class="en">Whenever an analyst overrides a classification, re-labels an alert, or modifies risk scores, the decision and rationale are recorded as golden training samples.</p>
+        <p class="en">During alert investigation, an analyst may confirm or reject the model's risk assessment, adjust the assigned priority, identify whether the alert represents a true or false positive, or provide a final incident disposition. During response handling, the analyst may approve or reject a recommended action or record whether an executed workflow achieved the intended result.</p>
         <p class="ar" style="display:none">عندما يقوم المحلل بتعديل تصنيف تنبيه أو إلغاء إجراء آلي، يتم تسجيل القرار كبيانات تدريبية معيارية جديدة.</p>
       </div>
       <div class="card">
         <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <h3 class="ct en">Concept Drift Monitoring</h3><h3 class="ct ar" style="display:none">رصد انحراف المفاهيم (Drift)</h3>
-        <p class="en">Statistical tracking (Kolmogorov-Smirnov tests) monitors input feature drift against production baselines, detecting shifting attacker tradecraft.</p>
+        <p class="en">Feedback can be used to assess whether the machine-learning model consistently overestimates or underestimates risk for particular types of alerts. Accumulated analyst decisions can provide additional labeled examples for periodic model retraining or validation.</p>
         <p class="ar" style="display:none">مراقبة إحصائية مستمرة لاكتشاف أي تغير في طبيعة الهجمات أو انحراف في سلوك الشبكة مقارنة بالمستوى الأساسي.</p>
       </div>
       <div class="card">
         <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg></div>
         <h3 class="ct en">Scheduled Retraining Pipeline</h3><h3 class="ct ar" style="display:none">إعادة التدريب المجدولة</h3>
-        <p class="en">Validated feedback samples are batched into automated model retraining pipelines. Shadow testing verifies performance before live promotion.</p>
+        <p class="en">Feedback can support adjustment of prioritization thresholds and suppression policies when operational results indicate that the current configuration produces excessive false positives, unnecessary escalations, or missed high-priority events.</p>
         <p class="ar" style="display:none">تجميع العينات وإعادة تدريب النماذج في بيئة ظل واختبارها للتأكد من عدم تراجع الدقة قبل نشرها في البيئة الحية.</p>
       </div>
     </div>
@@ -2668,7 +2877,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
   <div class="content-box">
     <div class="tag a1">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-      <span class="en">Chapter 2 &ndash; Research Methodology</span><span class="ar" style="display:none">الفصل الثاني &ndash; منهجية البحث العلمي</span>
+      <span class="en">Research Methodology &ndash; Design Science Research (DSR)</span><span class="ar" style="display:none">الفصل الثاني &ndash; منهجية البحث العلمي</span>
     </div>
     <h2 class="st en">Design Science Research (DSR) &ndash; 6 Rigorous Phases</h2>
     <h2 class="st ar" style="display:none">منهجية بحوث علوم التصميم (DSR) &ndash; المراحل الست المعتمدة</h2>
@@ -2678,7 +2887,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
         <div class="td"><span style="font-weight:900;font-size:0.8rem">P1</span></div>
         <div class="tic">
           <h3 class="en">Phase 1: Problem Identification &amp; Motivation</h3><h3 class="ar" style="display:none">المرحلة 1: تحديد المشكلة والدافع البحثي</h3>
-          <p class="en">Quantified SOC operational bottlenecks, alert fatigue crisis, and established academic &amp; practical significance.</p>
+          <p class="en">Defines the operational challenges associated with SOC alert management, including alert fatigue and static triage, and establishes the objectives of the project. Undertaken primarily within Graduation Project 1.</p>
           <p class="ar" style="display:none">تحديد دقيق لأزمة إرهاق التنبيهات في مراكز العمليات وبيان الأهمية العلمية والعملية للمشروع.</p>
         </div>
       </div>
@@ -2686,7 +2895,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
         <div class="td"><span style="font-weight:900;font-size:0.8rem">P2</span></div>
         <div class="tic">
           <h3 class="en">Phase 2: Objectives &amp; Solution Definition</h3><h3 class="ar" style="display:none">المرحلة 2: تعريف أهداف الحل المقترح</h3>
-          <p class="en">Systematic literature review, technical background analysis, and formalization of research gap and deliverables.</p>
+          <p class="en">Examines existing research on SOC alert management, conventional SOAR, AI/ML-based alert analysis, risk scoring, dynamic prioritization, and automated incident response. Provides the academic foundation for identifying and validating the research gap. Undertaken primarily within Graduation Project 1.</p>
           <p class="ar" style="display:none">مراجعة الأدبيات السابقة، دراسة منصات SOAR وخوارزميات الذكاء، واستخلاص متطلبات الحل.</p>
         </div>
       </div>
@@ -2695,32 +2904,32 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
         <div class="tic">
           <h3 class="en" style="color:var(--s)">Phase 3: Design &amp; System Architecture &larr; [Graduation Project 1 Scope]</h3>
           <h3 class="ar" style="display:none;color:var(--s)">المرحلة 3: تصميم المعمارية والمكونات &larr; [نطاق مشروع تخرج 1 المنجز]</h3>
-          <p class="en">Formulation of multi-tier architecture, module specifications, data flows, and playbook orchestrations.</p>
+          <p class="en">Develops the system architecture, module specifications, data flows, and integration mechanisms. Formulates the major functional components of the proposed tool. The current scope of Graduation Project 1.</p>
           <p class="ar" style="display:none">إنجاز التصميم الكامل للمعمارية ومسارات البيانات ومحرك التقييم ونماذج الاستجابة المعتمدة.</p>
         </div>
       </div>
       <div class="ti">
         <div class="td"><span style="font-weight:900;font-size:0.8rem">P4</span></div>
         <div class="tic">
-          <h3 class="en">Phase 4: Data Engineering &amp; Simulation Setup</h3><h3 class="ar" style="display:none">المرحلة 4: هندسة البيانات وبيئة المحاكاة</h3>
-          <p class="en">Dataset curation, feature engineering pipeline, simulated enterprise telemetry, and baseline pre-processing.</p>
-          <p class="ar" style="display:none">إعداد بيانات التدريب وهندسة الخصائص وإعداد بيئة الاختبار المعملية لمحاكاة شبكات المؤسسات.</p>
+          <h3 class="en">Phase 4: Data Collection &amp; Preparation &larr; [GP2]</h3><h3 class="ar" style="display:none">المرحلة 4: جمع وتجهيز البيانات &larr; [مشروع 2]</h3>
+          <p class="en">Preparing security alert datasets, performing feature engineering, simulated enterprise telemetry, and baseline pre-processing. Planned for Graduation Project 2 (§1.5).</p>
+          <p class="ar" style="display:none">تجهيز مجموعات بيانات التنبيهات الأمنية، هندسة الخصائص، ومحاكاة القياسات المؤسسية (مخطط للتنفيذ في مشروع التخرج 2).</p>
         </div>
       </div>
       <div class="ti">
         <div class="td"><span style="font-weight:900;font-size:0.8rem">P5</span></div>
         <div class="tic">
-          <h3 class="en">Phase 5: Prototype Development &amp; SOAR Integration</h3><h3 class="ar" style="display:none">المرحلة 5: تطوير النموذج البرمجي وتكامل SOAR</h3>
-          <p class="en">Implementation of AI triage engine, REST API connectors, and execution of automated response playbooks.</p>
-          <p class="ar" style="display:none">البرمجة الفعلية لمحرك الفرز وتكامل واجهات الربط مع منصات الاستجابة ودفاتر العمل.</p>
+          <h3 class="en">Phase 5: AI/ML Model Development &amp; Risk Scoring &larr; [GP2]</h3><h3 class="ar" style="display:none">المرحلة 5: تطوير نماذج التعلم وتقييم المخاطر &larr; [مشروع 2]</h3>
+          <p class="en">Developing the selected AI/ML mechanism, training algorithms, and establishing calibrated risk scoring. Planned for Graduation Project 2 (§1.5).</p>
+          <p class="ar" style="display:none">تطوير نموذج الذكاء الاصطناعي/تعلم الآلة المختار، تدريب الخوارزميات، ومعايرة درجات المخاطر (مخطط لمشروع التخرج 2).</p>
         </div>
       </div>
       <div class="ti">
         <div class="td"><span style="font-weight:900;font-size:0.8rem">P6</span></div>
         <div class="tic">
-          <h3 class="en">Phase 6: Empirical Evaluation &amp; Validation</h3><h3 class="ar" style="display:none">المرحلة 6: التقييم التجريبي والتحقق المعياري</h3>
-          <p class="en">Assessing classification accuracy, False Positive Reduction rate, and MTTR reduction against baseline SOAR.</p>
-          <p class="ar" style="display:none">قياس دقة التنبؤ، معدل خفض الإنذارات الكاذبة، وسرعة احتواء الهجمات مقارنة بالوضع التقليدي.</p>
+          <h3 class="en">Phase 6: SOAR Integration &amp; Prototype Evaluation &larr; [GP2]</h3><h3 class="ar" style="display:none">المرحلة 6: تكامل SOAR والتقييم التجريبي &larr; [مشروع 2]</h3>
+          <p class="en">Connecting intelligent analysis with SOAR response workflows; prototype testing and evaluation using ML metrics (AUC, FPR) and operational measures (wait-time, MTTR). Graduation Project 2 (§1.5).</p>
+          <p class="ar" style="display:none">ربط التحليل الذكي مع دفاتر عمل SOAR؛ اختبار النموذج الأولي وتقييمه بمقاييس تعلم الآلة والمؤشرات التشغيلية في مشروع 2.</p>
         </div>
       </div>
     </div>
@@ -2865,29 +3074,41 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <h2 class="st en">Current Achievements &amp; Phase 2 Roadmap</h2>
     <h2 class="st ar" style="display:none">ما تم إنجازه وخارطة طريق المرحلة القادمة</h2>
     <div class="gl"></div>
-    <div class="grid g2" style="gap:20px;width:100%">
+    <div class="grid g3" style="gap:14px;width:100%">
       <div class="card" style="border-color:rgba(0,212,255,0.4)">
-        <h3 class="ct en" style="color:var(--s)">Completed in Project 1 (Chapters 1-3)</h3>
-        <h3 class="ct ar" style="display:none;color:var(--s)">ما تم إنجازه في مشروع 1 (الفصول 1 - 3)</h3>
-        <ul style="gap:8px;margin-top:8px">
-          <li class="en"><strong style="color:var(--ok)">&#10003; Problem Definition:</strong> Rigorous analysis of SOC alert fatigue &amp; triage bottlenecks.</li>
+        <h3 class="ct en" style="color:var(--s);font-size:0.85rem">Completed in GP1 (Chapters 1-3)</h3>
+        <h3 class="ct ar" style="display:none;color:var(--s);font-size:0.85rem">ما تم إنجازه في مشروع 1 (الفصول 1 - 3)</h3>
+        <ul style="gap:6px;margin-top:6px;font-size:0.75rem">
+          <li class="en"><strong style="color:var(--ok)">&#10003; Problem &amp; Objectives (§1.2-1.4):</strong> Empirical analysis of alert fatigue, context switching, and static triage limitations.</li>
           <li class="ar" style="display:none"><strong style="color:var(--ok)">&#10003; توصيف المشكلة:</strong> دراسة دقيقة لأزمة إرهاق التنبيهات وتحديد الأهداف.</li>
-          <li class="en"><strong style="color:var(--ok)">&#10003; Literature &amp; Gap Synthesis:</strong> Benchmarked ML algorithms against SOAR frameworks.</li>
-          <li class="ar" style="display:none"><strong style="color:var(--ok)">&#10003; مراجعة الأدبيات:</strong> تحديد الفجوة البحثية ومقارنة تقنيات التعلم الآلي.</li>
-          <li class="en"><strong style="color:var(--ok)">&#10003; System Architecture:</strong> Fully articulated 5-layer design, data schema &amp; risk formula.</li>
-          <li class="ar" style="display:none"><strong style="color:var(--ok)">&#10003; التصميم المعماري:</strong> بناء معمارية الطبقات الخمس ونموذج تقييم المخاطر.</li>
+          <li class="en"><strong style="color:var(--ok)">&#10003; Literature Synthesis (§2.4-2.5):</strong> Coded Table 2-1 and validated the downstream SOAR integration gap.</li>
+          <li class="ar" style="display:none"><strong style="color:var(--ok)">&#10003; مراجعة الأدبيات:</strong> توثيق جدول 2-1 وإثبات فجوة التكامل مع SOAR.</li>
+          <li class="en"><strong style="color:var(--ok)">&#10003; System Architecture (Chapter 3):</strong> High-level design: Ingestion, Enrichment, ML Engine, Policy, &amp; Feedback.</li>
+          <li class="ar" style="display:none"><strong style="color:var(--ok)">&#10003; التصميم المعماري:</strong> معمارية الطبقات الخمس المكتملة في الفصل الثالث.</li>
+        </ul>
+      </div>
+      <div class="card" style="border-color:rgba(255,179,0,0.4)">
+        <h3 class="ct en" style="color:var(--wa);font-size:0.85rem">Challenges &amp; Mitigations (Guide §9)</h3>
+        <h3 class="ct ar" style="display:none;color:var(--wa);font-size:0.85rem">التحديات والإجراءات المتخذة (دليل §9)</h3>
+        <ul style="gap:6px;margin-top:6px;font-size:0.75rem">
+          <li class="en"><strong>Alert Schema Variance:</strong> <em>Mitigation:</em> Implemented schema normalization layer in Ingestion Module (§3.3). [Resolved]</li>
+          <li class="ar" style="display:none"><strong>تباين صيغ السجلات:</strong> <em>الإجراء:</em> بناء طبقة توحيد البنية في وحدة الاستيعاب (§3.3). [مكتمل]</li>
+          <li class="en"><strong>Dataset Constraints (§1.6):</strong> <em>Mitigation:</em> Utilizing curated public SOC datasets + synthetic attack logs. [In Progress]</li>
+          <li class="ar" style="display:none"><strong>محدودية البيانات:</strong> <em>الإجراء:</em> استخدام بيانات SOC العامة وتوليد محاكاة هجمات معيارية. [قيد التنفيذ]</li>
+          <li class="en"><strong>Automation Risk (§3.7):</strong> <em>Mitigation:</em> Enforced human-in-the-loop gates for high-impact actions. [Resolved]</li>
+          <li class="ar" style="display:none"><strong>مخاطر الأتمتة:</strong> <em>الإجراء:</em> فرض بوابات إشراف بشري للإجراءات عالية التأثير. [مكتمل]</li>
         </ul>
       </div>
       <div class="card" style="border-color:rgba(108,99,255,0.4)">
-        <h3 class="ct en" style="color:#a8a0ff">Project 2 Execution Roadmap (Chapters 4-6)</h3>
-        <h3 class="ct ar" style="display:none;color:#a8a0ff">خارطة تنفيذ مشروع 2 (الفصول 4 - 6)</h3>
-        <ul style="gap:8px;margin-top:8px">
+        <h3 class="ct en" style="color:#a8a0ff;font-size:0.85rem">GP2 Execution Roadmap (Chapters 4-6)</h3>
+        <h3 class="ct ar" style="display:none;color:#a8a0ff;font-size:0.85rem">خارطة تنفيذ مشروع 2 (الفصول 4 - 6)</h3>
+        <ul style="gap:6px;margin-top:6px;font-size:0.75rem">
           <li class="en"><strong>Phase 4 (Weeks 1-4):</strong> Dataset curation, feature engineering &amp; pipeline setup.</li>
-          <li class="ar" style="display:none"><strong>المرحلة 4 (الأسابيع 1-4):</strong> تجهيز البيانات وهندسة الخصائص وإعداد بيئة العمل.</li>
-          <li class="en"><strong>Phase 5 (Weeks 5-8):</strong> Model training (RF/SAC), REST API connector coding.</li>
+          <li class="ar" style="display:none"><strong>المرحلة 4 (الأسابيع 1-4):</strong> تجهيز البيانات وهندسة الخصائص وإعداد البيئة.</li>
+          <li class="en"><strong>Phase 5 (Weeks 5-8):</strong> ML model training (RF/SAC) &amp; SOAR API connector coding.</li>
           <li class="ar" style="display:none"><strong>المرحلة 5 (الأسابيع 5-8):</strong> تدريب النماذج وبرمجة موصلات واجهات API وأدلة العمل.</li>
-          <li class="en"><strong>Phase 6 (Weeks 9-12):</strong> Prototype testing, benchmark evaluation &amp; final thesis defense.</li>
-          <li class="ar" style="display:none"><strong>المرحلة 6 (الأسابيع 9-12):</strong> الاختبار التجريبي الشامل، قياس الأداء ومناقشة التخرج النهائية.</li>
+          <li class="en"><strong>Phase 6 (Weeks 9-12):</strong> Prototype testing, metric benchmarking &amp; final defense.</li>
+          <li class="ar" style="display:none"><strong>المرحلة 6 (الأسابيع 9-12):</strong> الاختبار التجريبي، تقييم الأداء والمناقشة النهائية.</li>
         </ul>
       </div>
     </div>
@@ -2920,6 +3141,27 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
   <button class="nb" id="bn" onclick="next()" title="Next Slide">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
   </button>
+  <button class="nb-ref" id="btnRefNav" onclick="toggleRefModal()" title="مراجع وتوثيق هذا السلايد من ملف المشروع (مفتاح R)">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    <span class="en">Doc Ref (R)</span>
+    <span class="ar" style="display:none">مراجع السلايد (R)</span>
+  </button>
+</div>
+
+<!-- FLOATING SLIDE SOURCE REFERENCES DRAWER -->
+<div id="refDrawer">
+  <div class="rd-header">
+    <div class="rd-title">
+      <span>📖</span>
+      <span class="en">Slide Report Mapping &amp; Paragraph References</span>
+      <span class="ar" style="display:none">توثيق ومطابقة فقرات السلايد مع ملف المشروع</span>
+      <span class="rd-slide-pill" id="rdSlidePill">Slide 01 / 25</span>
+    </div>
+    <button class="rd-close" onclick="toggleRefModal()" title="Close References (ESC / R)">✕</button>
+  </div>
+  <div class="rd-body" id="rdContent">
+    <!-- Populated via JavaScript dynamically -->
+  </div>
 </div>
 
 <script>
@@ -2973,6 +3215,9 @@ function gS(i, direction = 'next') {
   nextSlide.classList.add('active');
 
   animateStats(nextSlide);
+  if (typeof updateSlideReferences === 'function') {
+    updateSlideReferences(c);
+  }
 
   document.getElementById('sc').textContent = (c + 1) + ' / ' + totalSlides;
   document.getElementById('bp').disabled = (c === 0);
@@ -3990,6 +4235,910 @@ bD();
 bL();
 updateTimerDisplay();
 document.getElementById('pb').style.width = '0%';
+
+// ================= SLIDE REPORT REFERENCES & PARAGRAPH MAPPING DATA =================
+const SLIDE_REFS = {
+  0: {
+    titleEn: "Slide 01: Project Title & Overview",
+    titleAr: "الشريحة 01: عنوان المشروع والمستخلص",
+    chapter: "Front Matter & Abstract",
+    section: "Title Page & Abstract (Page 2)",
+    elements: [
+      {
+        elEn: "Project Title",
+        elAr: "عنوان المشروع",
+        loc: "Cover Page, Page 1",
+        textEn: "AI-Based Security Orchestration, Automation, and Response (SOAR) Tool",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Lead Abstract Context",
+        elAr: "المقدمة والمستخلص",
+        loc: "Abstract, Page 2, Paragraph 1 (Lines 1-8)",
+        textEn: "Modern SOCs face increasing challenges in managing large volumes of security alerts, false positives, and heterogeneous security data... creating analyst alert fatigue.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Supervisory & Faculty Details",
+        elAr: "بيانات الإشراف والقسم",
+        loc: "Cover Page, Page 1",
+        textEn: "Supervised by Dr. Raed Saeed, Bachelor's Degree in Cybersecurity and Networking, Department of Computer Science.",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  1: {
+    titleEn: "Slide 02: Graduation Project Team & Academic Identifiers",
+    titleAr: "الشريحة 02: أعضاء فريق المشروع والأرقام الأكاديمية",
+    chapter: "Front Matter",
+    section: "Cover Page — Author & Supervisory Registry (Page 1)",
+    elements: [
+      {
+        elEn: "Team Members & Academic IDs (6 Students)",
+        elAr: "أسماء الطلاب والأرقام الأكاديمية (6 طلاب)",
+        loc: "Cover Page, Page 1",
+        textEn: "1. Hizam Al-Shajara (202210102478)\n2. Hamoud Abu Amrah (202310101609)\n3. Mohammed Hameed (202310100174)\n4. Mohammed Al-Warafi (202310100461)\n5. Marwan Al-Ameer (202310100177)\n6. Noah Maraq (202310100452)",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Academic Department & Head",
+        elAr: "القسم الأكاديمي ورئاسة القسم",
+        loc: "Cover Page & Department Registry",
+        textEn: "Department of Computer Science, Head: Dr. Nabeel Al-Mekhlafy, Supervision: Dr. Raed Saeed.",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  2: {
+    titleEn: "Slide 03: The Modern SOC Operational Landscape",
+    titleAr: "الشريحة 03: المشهد التشغيلي لمراكز العمليات الحديثة (SOC)",
+    chapter: "Chapter 1: Introduction and Problem Statement",
+    section: "§1.1 Overview of Modern SOCs and SOAR Platforms (Pages 11-12)",
+    elements: [
+      {
+        elEn: "Lead Paragraph",
+        elAr: "الفقرة التقديمية",
+        loc: "§1.1, Paragraph 1, Lines 1-7 (Page 11)",
+        textEn: "A Security Operations Center (SOC) is a centralized operational function responsible for monitoring, detecting, investigating, and responding to organizational cyber threats...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Data Influx & SIEM Card",
+        elAr: "بطاقة طوفان البيانات ودور SIEM",
+        loc: "§1.1, Paragraph 1, Lines 3-6 (Page 11)",
+        textEn: "Organizations implement SIEM platforms for centralized log management... accumulating up to 100 gigabytes of log and alert data daily...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Heterogeneous Tool Stacks Card",
+        elAr: "بطاقة تشتت الأدوات الأمنية",
+        loc: "§1.1, Paragraph 1, Lines 6-9 (Page 11)",
+        textEn: "Because these tools operate with distinct log schemas, vendor-specific data representations, and unique alert mechanisms, the resulting security data is highly heterogeneous...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Tiered Analyst Hierarchy Card",
+        elAr: "بطاقة الهيكلية الهرمية للمحللين",
+        loc: "§1.1, Paragraph 2, Lines 1-5 (Page 11)",
+        textEn: "Security analysts are structured into a tiered organizational model. Junior analysts conduct initial alert triage, manually gathering contextual evidence...",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  3: {
+    titleEn: "Slide 04: Alert Fatigue & Cognitive Overload",
+    titleAr: "الشريحة 04: إرهاق التنبيهات والإجهاد الإدراكي",
+    chapter: "Chapter 1: Introduction and Problem Statement",
+    section: "§1.2 The Problem Statement (Alert Fatigue and Static Triage) (Pages 13-14)",
+    elements: [
+      {
+        elEn: "Lead Paragraph (100GB Influx)",
+        elAr: "الفقرة التقديمية (تدفق 100GB)",
+        loc: "§1.2, Paragraph 1, Lines 1-5 (Page 13)",
+        textEn: "Modern Security Operations Centers (SOCs) face an unsustainable influx of security data, accumulating up to 100 gigabytes of log and alert data daily... demanding significant operational effort.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Alert Fatigue & Context Switching Card",
+        elAr: "بطاقة إرهاق التنبيهات وتبديل السياق",
+        loc: "§1.2, Paragraph 2, Lines 1-7 (Page 13)",
+        textEn: "This convergence of high alert volumes and excessive false positives causes high analyst workload and alert fatigue. Analysts manually investigate alerts through continuous context switching...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Static Prioritization Limits (22.9% Wait Time)",
+        elAr: "بطاقة قيود الأولوية الثابتة (تقليص 22.9%)",
+        loc: "§1.2, Paragraph 4, Lines 1-6 (Page 14)",
+        textEn: "When prioritization relies primarily on fixed decision rules, highly critical incidents can become buried... Dynamic, risk-aware ordering can reduce the time critical incidents spend waiting in analyst queues by 22.9%.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Automated Workflow Limits & Logic Failures",
+        elAr: "قائمة الآثار التشغيلية وقيود المنطق الحتمي",
+        loc: "§1.2, Paragraph 3 (Page 13) & Paragraph 4 (Page 14)",
+        textEn: "Reliance on predefined rules and static playbooks may limit adaptability... Deterministic conditional logic can constrain effectiveness against novel or evasive threats.",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  4: {
+    titleEn: "Slide 05: The Triage Bottleneck: Static Rules & Context Switching",
+    titleAr: "الشريحة 05: عنق زجاجة الفرز وتبديل السياق",
+    chapter: "Chapter 1: Introduction and Problem Statement",
+    section: "§1.2 The Problem Statement (cont.) & §1.3 Motivation (Pages 13-15)",
+    elements: [
+      {
+        elEn: "Rigid Conditional Statements Card",
+        elAr: "بطاقة جمود القواعد الشرطية",
+        loc: "§1.2, Paragraph 3, Lines 1-5 (Page 13)",
+        textEn: "Rigid conditional statements may become less effective against novel or evasive threats that fall outside anticipated patterns...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Manual Context Switching Card",
+        elAr: "بطاقة تبديل السياق بين الأنظمة",
+        loc: "§1.1, Paragraph 2, Lines 4-8 (Page 11)",
+        textEn: "Analysts must manually gather contextual evidence from multiple disparate security sources... navigate across different application interfaces, hold hypotheses in memory...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Static Prioritization Card",
+        elAr: "بطاقة الترتيب الثابت غير المرن",
+        loc: "§1.2, Paragraph 4, Lines 1-4 (Page 14)",
+        textEn: "When prioritization relies primarily on fixed decision rules, highly critical incidents can become buried beneath lower-value noise. Un-prioritized queues delay handling.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Key Operational Takeaway",
+        elAr: "الخلاصة التشغيلية",
+        loc: "§1.2, Paragraph 5, Lines 1-4 (Page 14)",
+        textEn: "These challenges motivate the ongoing need to investigate how intelligent alert analysis and prioritization can be integrated with operational workflows...",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  5: {
+    titleEn: "Slide 06: Project Objectives: Strategic & Operational",
+    titleAr: "الشريحة 06: أهداف المشروع الاستراتيجية والتفصيلية",
+    chapter: "Chapter 1: Introduction and Problem Statement",
+    section: "§1.4 Project Objectives (Pages 15-16)",
+    elements: [
+      {
+        elEn: "Primary Objective",
+        elAr: "الهدف العام الرئيسي",
+        loc: "§1.4.1 Primary Objective, Lines 1-6 (Page 15)",
+        textEn: "Investigate, design, and propose an integrated AI-Based Security Orchestration, Automation, and Response (SOAR) tool that addresses operational bottlenecks by integrating intelligent alert analysis, risk-based scoring, dynamic prioritization, and automated response...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Objective 1: Operational Analysis",
+        elAr: "الهدف 1: تحليل تحديات العمليات",
+        loc: "§1.4.2 Specific Objectives, Bullet 1 (Page 15)",
+        textEn: "Analyze the operational challenges of current SOC alert management, specifically including alert fatigue and the limitations of static triage.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Objective 2: Literature Review",
+        elAr: "الهدف 2: مراجعة الأدبيات",
+        loc: "§1.4.2 Specific Objectives, Bullet 2 (Page 15)",
+        textEn: "Review existing AI/ML-based approaches and academic literature related to security alert analysis and prioritization.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Objective 3: Design Architecture",
+        elAr: "الهدف 3: تصميم المعمارية",
+        loc: "§1.4.2 Specific Objectives, Bullet 3 (Page 15)",
+        textEn: "Design the proposed AI-Based SOAR architecture and clearly identify its major functional components. Develop an AI/ML-based mechanism for context-aware alert analysis...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Objective 4: Integration & Evaluation",
+        elAr: "الهدف 4: التكامل والتقييم المعياري",
+        loc: "§1.4.2 Specific Objectives, Bullet 4 (Page 15)",
+        textEn: "Integrate the outcomes of dynamic risk-based prioritization with SOAR response decision-making... Define a structured evaluation approach using appropriate machine-learning and operational metrics.",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  6: {
+    titleEn: "Slide 07: Project Scope and Limitations",
+    titleAr: "الشريحة 07: نطاق المشروع وحدود الدراسة",
+    chapter: "Chapter 1: Introduction and Problem Statement",
+    section: "§1.6 Project Scope and Limitations (Pages 16-17)",
+    elements: [
+      {
+        elEn: "In-Scope Core Dimensions (4 Points)",
+        elAr: "المحاور الأربعة ضمن النطاق",
+        loc: "§1.6.2 Project Scope, Paragraphs 1-3 (Pages 16-17)",
+        textEn: "1. Alert Ingestion & Normalization with AI/ML risk scoring\n2. Connecting analytical components with automated SOAR response workflows\n3. Prototype implementation in controlled simulation environment\n4. Architectural integration focus.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Project Limitations (3 Boundaries)",
+        elAr: "حدود المشروع الأكاديمية والتشغيلية",
+        loc: "§1.6.3 Project Limitations, Paragraphs 1-3 (Page 17)",
+        textEn: "1. Dataset constraints: Training models on synthetic/public datasets\n2. Lab environment validation vs live production enterprise SOC\n3. Mandatory human oversight for high-impact actions to prevent operational risks.",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  7: {
+    titleEn: "Slide 08: Evolution of Security Operations Technologies",
+    titleAr: "الشريحة 08: التطور التاريخي لتقنيات العمليات الأمنية",
+    chapter: "Chapter 2: Background and Literature Review",
+    section: "§2.2 Technical Background: SOC and Conventional SOAR (Pages 19-20)",
+    elements: [
+      {
+        elEn: "Telemetry & Multi-Sensor Layer (G1)",
+        elAr: "الجيل الأول: السجلات المتباينة",
+        loc: "§2.2.1, Paragraph 1 (Page 19)",
+        textEn: "Security telemetry collected from multiple sources including network and endpoint monitoring, IDS, firewalls operating with different representations.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "SIEM Centralized Log Aggregation (G2)",
+        elAr: "الجيل الثاني: أنظمة SIEM المركزية",
+        loc: "§2.2.1, Paragraph 2 (Page 19)",
+        textEn: "SIEM systems aggregate and query security data from distributed sources, providing centralized log management and basic correlation...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Conventional SOAR Orchestration (G3)",
+        elAr: "الجيل الثالث: منصات SOAR التقليدية",
+        loc: "§2.2.2, Paragraph 1 (Page 20)",
+        textEn: "SOAR platforms integrate disparate security applications and human processes into a unified framework... data ingestion, prioritization, and process automation.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Proposed AI-Based SOAR (G4)",
+        elAr: "الجيل الرابع: أداة AI-SOAR المقترحة",
+        loc: "§2.3.1, Paragraph 1-3 (Pages 21-22)",
+        textEn: "AI/ML extends SOAR by contributing data-driven inference to activities difficult to represent through manually specified rules while orchestration coordinates actions.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Core Distinction Principle",
+        elAr: "مبدأ التمايز المعماري بين SIEM و SOAR",
+        loc: "§2.2.2, Paragraph 3 (Page 20)",
+        textEn: "SIEM primarily supports broad data collection and querying, whereas SOAR introduces configurable workflows that guide or automate incident-response activities.",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  8: {
+    titleEn: "Slide 09: Conventional SOAR: Playbooks & API Orchestration",
+    titleAr: "الشريحة 09: منصات SOAR التقليدية ودفاتر العمل",
+    chapter: "Chapter 2: Background and Literature Review",
+    section: "§2.2.2 Conventional SOAR, Playbooks, and API-Based Orchestration (Pages 20-21)",
+    elements: [
+      {
+        elEn: "Definition of SOAR Platforms",
+        elAr: "تعريف منصات SOAR والتكامل",
+        loc: "§2.2.2, Paragraph 1 (Page 20)",
+        textEn: "SOAR refers to software platforms designed to integrate disparate security applications and human processes into a unified framework. A playbook defines a structured sequence of actions...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Automated Runbooks & Procedures",
+        elAr: "دفاتر الاستجابة وأتمتة المهام",
+        loc: "§2.2.2, Paragraph 2 (Page 20)",
+        textEn: "Workflows can automate data-collection steps, coordinate actions across multiple systems, and systematically apply standard response procedures...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Unified Case & Threat Evidence Management",
+        elAr: "إدارة القضايا وتوحيد الأدلة الرقمية",
+        loc: "§2.2.2, Paragraph 3 (Pages 20-21)",
+        textEn: "SOAR technologies reduce fragmentation of security activities by combining alert info, threat intelligence, workflow automation, and analyst collaboration...",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  9: {
+    titleEn: "Slide 10: Limitations of Conventional SOAR Automation",
+    titleAr: "الشريحة 10: أوجه القصور في أتمتة SOAR التقليدية",
+    chapter: "Chapter 2: Background and Literature Review",
+    section: "§2.2.3 Limitations of Conventional SOAR Automation (Page 21)",
+    elements: [
+      {
+        elEn: "Rigid Predefined Conditional Logic",
+        elAr: "جمود القواعد الحتمية سابقة البرمجة",
+        loc: "§2.2.3, Paragraph 1 (Page 21)",
+        textEn: "Playbooks operate on predefined conditions; when threat behavior deviates from anticipated patterns, static playbooks may fail to trigger appropriately...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Inability to Contextualize Risk",
+        elAr: "الافتقار إلى تقييم سياق المخاطر",
+        loc: "§2.2.3, Paragraph 2 (Page 21)",
+        textEn: "Conventional SOAR does not inherently assess whether an alert's risk justifies the operational cost of the response action. Significance depends on multiple attributes...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Disruption Risks of Autonomous Actions",
+        elAr: "مخاطر انقطاع الأعمال من الأتمتة المباشرة",
+        loc: "§2.2.3, Paragraph 3 (Page 21)",
+        textEn: "Fully autonomous execution of high-impact security actions introduces inherent operational risks. The tool must incorporate human oversight mechanisms...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Synthesis (Muscle vs Brain)",
+        elAr: "الاستنتاج المعماري: القوة التنفيذية مقابل العقل التحليلي",
+        loc: "§2.2.3, Paragraph 4 (Page 21)",
+        textEn: "SOAR provides workflow management, integration, and execution capabilities, whereas AI/ML contributes data-driven inference to activities difficult to represent manually.",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  10: {
+    titleEn: "Slide 11: AI/ML as a Force Multiplier in Security Operations",
+    titleAr: "الشريحة 11: الذكاء الاصطناعي كمضاعف قوة في عمليات SOC",
+    chapter: "Chapter 2: Background and Literature Review",
+    section: "§2.3 AI and ML as a Force Multiplier in SOC (Pages 21-23)",
+    elements: [
+      {
+        elEn: "Data-Driven Analytical Augmentation Card",
+        elAr: "التعزيز التحليلي المعتمد على البيانات",
+        loc: "§2.3.1, Paragraph 1-2 (Pages 21-22)",
+        textEn: "AI/ML techniques can analyze large and heterogeneous security datasets to identify patterns, classify events, detect anomalous behavior, and support decision making.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Human-AI Teaming Paradigm Card",
+        elAr: "نموذج تكامل الإنسان والذكاء الاصطناعي",
+        loc: "§2.3.2, Paragraph 1-3 (Pages 22-23)",
+        textEn: "AI/ML does not necessarily replace existing SOC technologies; rather, it provides an analytical layer that complements SIEM and SOAR, acting as a force multiplier.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Architectural Roles Summary",
+        elAr: "الأدوار المعمارية (AI / SOAR / DSR)",
+        loc: "§2.3.1 & §1.5 (Pages 15, 21)",
+        textEn: "AI/ML (Analytical Augmentation Layer), SOAR (Workflow Execution Platform), DSR (Research Methodology).",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  11: {
+    titleEn: "Slide 12: Comparative Analysis of ML Triage Approaches (Table 2-1)",
+    titleAr: "الشريحة 12: المقارنة المعيارية لأنظمة الفرز الأمني (جدول 2-1)",
+    chapter: "Chapter 2: Background and Literature Review",
+    section: "§2.4.4 Comparative Analysis of Existing Approaches & Table 2-1 (Pages 25-27)",
+    elements: [
+      {
+        elEn: "Table 2-1: Gupta et al. (2019)",
+        elAr: "دراسة جوبتا (Gupta et al. 2019)",
+        loc: "Table 2-1, Row 1 (Page 26)",
+        textEn: "Real SOC-labeled SOD events | DNN supervised classification | Engineered features; no online feedback | Notified/non-notified | SOAR: No | Binary output; low minority-class precision (0.39)",
+        status: "Verbatim Table 2-1"
+      },
+      {
+        elEn: "Table 2-1: Gelman et al. (2023)",
+        elAr: "دراسة جيلمان (Gelman et al. 2023)",
+        loc: "Table 2-1, Row 2 (Page 26)",
+        textEn: "Real MDR data; simulation | RF + NN actionability scoring (TEQ) | Content/context features | Incident/alert scores, suppression | SOAR: No | Preprint; simulated effects",
+        status: "Verbatim Table 2-1"
+      },
+      {
+        elEn: "Table 2-1: Liu et al. (2022)",
+        elAr: "دراسة ليو (Liu et al. 2022)",
+        loc: "Table 2-1, Row 3 (Page 26)",
+        textEn: "Enterprise event data | Context2Vector (representation + deviation) | Behavioral context; expert annotation | Contextual risk ranking | SOAR: No | No downstream response",
+        status: "Verbatim Table 2-1"
+      },
+      {
+        elEn: "Table 2-1: Wang et al. (2024)",
+        elAr: "دراسة وانغ (Wang et al. 2024)",
+        loc: "Table 2-1, Row 4 (Page 26)",
+        textEn: "5 attack datasets | AlertPro (Isolation Forest + RL active learning) | Iterative analyst feedback | Dynamic alert re-ranking | SOAR: No | Stops at triage/investigation",
+        status: "Verbatim Table 2-1"
+      },
+      {
+        elEn: "Table 2-1: Chavali et al. (2024)",
+        elAr: "دراسة تشافالي (Chavali et al. 2024)",
+        loc: "Table 2-1, Row 5 (Page 26)",
+        textEn: "3 public IDS datasets | TD3-AP / SAC-AP DRL | Resource/state info; no analyst feedback | Resource-aware priority | SOAR: No | No real-world SOC or SOAR execution",
+        status: "Verbatim Table 2-1"
+      },
+      {
+        elEn: "Table 2-1 Synthesis Finding",
+        elAr: "خلاصة جدول 2-1 والفجوة المثبتة",
+        loc: "§2.4.4, Paragraph 2 & §2.5, Paragraph 1 (Pages 26-27)",
+        textEn: "None of the reviewed academic systems integrate downstream automated SOAR response execution (All SOAR/Response = No).",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  12: {
+    titleEn: "Slide 13: The Research Gap: The Missing Integration Link",
+    titleAr: "الشريحة 13: الفجوة البحثية: حلقة الوصل المفقودة بين التحليل والأتمتة",
+    chapter: "Chapter 2: Background and Literature Review",
+    section: "§2.5 Gap Analysis and Problem Synthesis (Pages 27-29)",
+    elements: [
+      {
+        elEn: "Academic Literature Gap",
+        elAr: "الفجوة في الأدبيات الأكاديمية",
+        loc: "§2.5, Paragraph 1, Lines 1-8 (Page 27)",
+        textEn: "Existing research demonstrates ML for alert analysis and SOAR for automated response, while integration remains an open area. Evaluated workflows focus on event ranking rather than downstream SOAR response.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Commercial SOAR Limitation",
+        elAr: "القصور في المنصات التجارية",
+        loc: "§2.5, Paragraph 2, Lines 1-6 (Pages 27-28)",
+        textEn: "Commercial tools excel at multi-tool orchestration via playbooks, but rely on rigid boolean triggers and lack adaptive machine learning risk assessment.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Our Research Contribution",
+        elAr: "مساهمة مشروعنا البحثية المحددة",
+        loc: "§2.5, Paragraph 4, Lines 1-6 (Page 28)",
+        textEn: "This project investigates the architectural integration of AI/ML-based alert analysis, risk-based scoring, dynamic prioritization, and SOAR automated response...",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  13: {
+    titleEn: "Slide 14: High-Level Architecture Overview",
+    titleAr: "الشريحة 14: المعمارية الشاملة لأداة SOAR المدعومة بالذكاء الاصطناعي",
+    chapter: "Chapter 3: Proposed System Architecture",
+    section: "§3.2 High-Level Architecture Overview & Figure 3-1 (Pages 31-33)",
+    elements: [
+      {
+        elEn: "Five-Layer Modular Architecture Pipeline",
+        elAr: "مسار المعمارية خماسي الطبقات",
+        loc: "§3.2, Paragraphs 1-4 & Figure 3-1 (Pages 31-32)",
+        textEn: "1. Ingestion Layer (§3.3)\n2. Context Enrichment Layer (§3.4)\n3. ML Triage & Scoring Engine (§3.5)\n4. Prioritization & Suppression (§3.5)\n5. Automated Response Policy (§3.7) + Feedback Loop (§3.8).",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Agent Layer: Defender Agent Role",
+        elAr: "طبقة الوكلاء: دور وكيل الدفاع",
+        loc: "§3.2.1 Agent Layer Overview, Paragraphs 1-3 (Pages 33-34)",
+        textEn: "Defender Agent coordinates the analytical process, invoking selected ML models and passing scores to prioritization and response policies.",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  14: {
+    titleEn: "Slide 15: Alert Ingestion & Schema Normalization",
+    titleAr: "الشريحة 15: استيعاب التنبيهات وتوحيد البنية البيانية",
+    chapter: "Chapter 3: Proposed System Architecture",
+    section: "§3.3 Ingestion and Connectors Module & Figure 3-2 (Pages 34-36)",
+    elements: [
+      {
+        elEn: "Multi-Interface Ingestion Connectors Card",
+        elAr: "بطاقة موصلات الاستيعاب متعددة الواجهات",
+        loc: "§3.3, Paragraph 1 (Page 34)",
+        textEn: "The module serves as the entry point for security alerts from heterogeneous technologies via REST APIs, webhooks, message streams, or log files.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Schema Normalization Card",
+        elAr: "بطاقة توحيد البنية البيانية",
+        loc: "§3.3, Paragraph 2 (Page 35)",
+        textEn: "Normalizing attributes: alert ID, timestamp, source system, alert type, original severity, source/dest IPs, user, host, and description.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Validation & Preprocessing Card",
+        elAr: "بطاقة التحقق والمعالجة المسبقة",
+        loc: "§3.3, Paragraph 3 (Page 35)",
+        textEn: "Verifying required fields, converting timestamps to consistent format, standardizing categorical values, removing malformed records.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Architectural Decoupling Principle",
+        elAr: "مبدأ الفصل المعماري للاعتماديات",
+        loc: "§3.3, Paragraph 4 (Page 35)",
+        textEn: "Separates source-specific integration concerns from internal processing logic so downstream components do not need vendor-specific format logic.",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  15: {
+    titleEn: "Slide 16: Multi-Dimensional Context Enrichment Pipeline",
+    titleAr: "الشريحة 16: خط أنابيب إثراء السياق متعدد الأبعاد",
+    chapter: "Chapter 3: Proposed System Architecture",
+    section: "§3.4 Context Enrichment Layer & Figure 3-3 (Pages 36-37)",
+    elements: [
+      {
+        elEn: "Asset & Identity Context Card",
+        elAr: "سياق الأصل وهوية المستخدم",
+        loc: "§3.4, Paragraphs 3-4 (Page 36)",
+        textEn: "Asset type, business criticality, network location; account type, privilege level, authentication history to distinguish production from test environments.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Threat Intelligence Context Card",
+        elAr: "سياق استخبارات التهديدات الخارجية",
+        loc: "§3.4, Paragraph 5 (Pages 36-37)",
+        textEn: "Enriching observable indicators (IPs, domains, hashes) with reputation status and known malicious associations (Bridges et al., 2023).",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Historical & Behavioral Context Card",
+        elAr: "السياق التاريخي والسلوكي",
+        loc: "§3.4, Paragraph 6 (Page 37)",
+        textEn: "Determining whether similar alerts appeared previously in time window; behavioral context interpretation based on Context2Vector (Liu et al., 2022).",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Enrichment Modular Resilience & Scope",
+        elAr: "المرونة المعيارية وحدود دور الإثراء",
+        loc: "§3.4, Paragraph 8 (Page 37)",
+        textEn: "Graceful degradation when sources are unavailable; creates enriched object for ML engine without assigning final priority or triggering actions directly.",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  16: {
+    titleEn: "Slide 17: AI/ML Triage & Dynamic Risk Scoring Formulation",
+    titleAr: "الشريحة 17: الفرز الذكي وصياغة مخرجات تقييم المخاطر",
+    chapter: "Chapter 3: Proposed System Architecture",
+    section: "§3.5 Machine Learning Triage and Scoring Engine & Figure 3-4 (Pages 37-39)",
+    elements: [
+      {
+        elEn: "Mandatory Contextual Risk Score [0, 1]",
+        elAr: "درجة المخاطر السياقية الإلزامية [0, 1]",
+        loc: "§3.5, Paragraph 3 (Page 38)",
+        textEn: "Contextual risk score representing estimated operational significance, normalized to consistent range [0, 1] where higher values indicate greater risk.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Principle of Separation",
+        elAr: "مبدأ الفصل المعماري للتحليل عن التنفيذ",
+        loc: "§3.5, Paragraph 7 (Page 38)",
+        textEn: "The engine produces analytical outputs and does not directly suppress alerts or initiate containment, preventing raw predictions from triggering high-impact actions.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Distinct Confidence vs. Risk Outputs",
+        elAr: "فصل مؤشر الثقة عن درجة المخاطر",
+        loc: "§3.5, Paragraph 5 (Page 38)",
+        textEn: "Confidence reflects certainty of assessment, distinct from risk. High-risk + low confidence requires analyst review; high confidence enables policy automation.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Classification & Explanatory Outputs",
+        elAr: "مخرجات التصنيف وتفسير القرار",
+        loc: "§3.5, Paragraphs 4 & 6 (Page 38)",
+        textEn: "Actionability label (Gupta et al., 2019) distinguishing events requiring investigation; top contributing features for analyst validation.",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  17: {
+    titleEn: "Slide 18: Adaptive Alert Prioritization & Noise Suppression",
+    titleAr: "الشريحة 18: الأولويات التكيفية وقمع الضجيج الأمني",
+    chapter: "Chapter 3: Proposed System Architecture",
+    section: "§3.5 Prioritization and Suppression Logic & Figure 3-5 (Pages 39-40)",
+    elements: [
+      {
+        elEn: "Dynamic Queue Prioritization Card",
+        elAr: "ترتيب طوابير التحقيق ديناميكياً",
+        loc: "§3.5, Paragraph 10 (Page 39)",
+        textEn: "Alerts are ranked by continuous contextual risk rather than static product severity, recalculated dynamically as new telemetry arrives (Wang et al., 2024).",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Suppression vs. Deprioritization Card",
+        elAr: "القمع المنضبط مقابل خفض الأولوية",
+        loc: "§3.5, Paragraph 12 (Pages 39-40)",
+        textEn: "Suppressed alerts are excluded from active queues under strict policy and audited; deprioritized alerts remain visible below higher-risk events.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Policy Safeguards & Overrides Card",
+        elAr: "ضمانات السياسات والاستثناءات الإدارية",
+        loc: "§3.5, Paragraph 13 (Page 40)",
+        textEn: "Operational rules override model scores when critical assets, privileged accounts, or novel threats are detected; low confidence routed to analyst.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Operational Rationale (22.9% Wait Time Reduction)",
+        elAr: "الأساس المنطقي التشغيلي (تقليص 22.9%)",
+        loc: "§1.2, Paragraph 4 (Page 14) & §3.5, Paragraph 9",
+        textEn: "Dynamic risk-aware ordering reduces wait-time for critical incidents by 22.9% in literature, ensuring threats are identified without analyst overload.",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  18: {
+    titleEn: "Slide 19: Automated Response Playbooks & SOAR Integration",
+    titleAr: "الشريحة 19: دفاتر العمل المؤتمتة وتكامل منصة SOAR",
+    chapter: "Chapter 3: Proposed System Architecture",
+    section: "§3.7 Automated Response Policy & Figure 3-6 (Pages 40-42)",
+    elements: [
+      {
+        elEn: "Orchestrated Response Actions (4 Cards)",
+        elAr: "إجراءات الاستجابة المنسقة (4 دفاتر عمل)",
+        loc: "§3.7, Paragraph 2 (Page 41)",
+        textEn: "1. Endpoint quarantine via EDR API\n2. Perimeter firewall IP block\n3. Privileged account token revocation\n4. Phishing email purge via API.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Policy Principle (Operational Impact Consideration)",
+        elAr: "مبدأ سياسة الاستجابة ومراعاة الأثر التشغيلي",
+        loc: "§3.7, Paragraph 1 (Page 40)",
+        textEn: "The decision to automate an action considers not only estimated security risk but also potential impact of the response itself (enrichment query vs isolating a production server).",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  19: {
+    titleEn: "Slide 20: Human-AI Teaming: The Controlled Decision Gate",
+    titleAr: "الشريحة 20: تكامل الإنسان والذكاء: بوابات القرار المنضبطة",
+    chapter: "Chapter 3: Proposed System Architecture",
+    section: "§3.7 Automated Response Policy (cont.) & §2.3.2 Human-AI Teaming (Pages 22-23, 40-42)",
+    elements: [
+      {
+        elEn: "Three Autonomy Tiers (L1, L2, L3)",
+        elAr: "مستويات الأتمتة الثلاثة (كاملة، بنقرة واحدة، بإشراف المحلل)",
+        loc: "§3.7, Paragraphs 3-4 (Pages 41-42)",
+        textEn: "L1: Fully autonomous (high confidence, low blast radius)\nL2: Semi-automated one-click approval (moderate confidence/impact)\nL3: Analyst-led investigation (high blast radius/critical assets).",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Controlled Autonomy Principle",
+        elAr: "مبدأ الأتمتة المنضبطة والموجهة",
+        loc: "§3.7, Paragraph 3 (Page 41)",
+        textEn: "The amount of human involvement depends on the uncertainty and consequence associated with the decision, preventing disruptive rogue automation.",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  20: {
+    titleEn: "Slide 21: Continuous Analyst Feedback Loop & Model Adaptation",
+    titleAr: "الشريحة 21: حلقة التغذية الراجعة المستمرة وتكييف النماذج",
+    chapter: "Chapter 3: Proposed System Architecture",
+    section: "§3.8 Analyst Feedback Loop & Figure 3-7 (Pages 42-43)",
+    elements: [
+      {
+        elEn: "Analyst Decision Recording Card",
+        elAr: "توثيق قرارات وتدخلات المحللين",
+        loc: "§3.8, Paragraph 1 (Page 42)",
+        textEn: "During triage, analysts confirm/reject risk assessments, adjust priorities, or label true/false positives. During response, they approve/reject actions.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Model Bias Assessment & Retraining Card",
+        elAr: "تقييم تحيز النموذج وإعادة التدريب الدوري",
+        loc: "§3.8, Paragraph 2 (Page 42)",
+        textEn: "Assessing whether models overestimate/underestimate risk for alert categories; accumulating labeled examples for periodic retraining.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Threshold Policy Adjustment Card",
+        elAr: "إعادة ضبط عتبات الأولويات والقمع",
+        loc: "§3.8, Paragraph 3 (Page 43)",
+        textEn: "Adjusting prioritization thresholds and suppression rules when operational telemetry indicates excessive false alerts or missed critical events.",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  21: {
+    titleEn: "Slide 22: Design Science Research (DSR) – 6 Rigorous Phases",
+    titleAr: "الشريحة 22: منهجية بحوث علوم التصميم (DSR) &ndash; المراحل الست",
+    chapter: "Chapter 1: Introduction and Problem Statement",
+    section: "§1.5 Project Methodology (Pages 15-16)",
+    elements: [
+      {
+        elEn: "Phases 1-3 (Completed in Graduation Project 1)",
+        elAr: "المراحل 1 إلى 3 (المنجزة في مشروع التخرج 1)",
+        loc: "§1.5, Paragraphs 2-3 (Pages 15-16)",
+        textEn: "Phase 1: Problem Identification & Objectives (§1.2-1.4)\nPhase 2: Literature Review & Gap Mapping (§2.2-2.5)\nPhase 3: System Architecture & Component Design (Chapter 3).",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Phases 4-6 (Planned for Graduation Project 2)",
+        elAr: "المراحل 4 إلى 6 (المخططة لمشروع التخرج 2)",
+        loc: "§1.5, Paragraphs 3-4 (Page 16)",
+        textEn: "Phase 4: Data Collection & Preparation (Weeks 1-4)\nPhase 5: AI/ML Model Development & Risk Calibration (Weeks 5-8)\nPhase 6: SOAR Integration & Prototype Evaluation (Weeks 9-12).",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  22: {
+    titleEn: "Slide 23: Implementation Technology Stack & Simulation Testbed",
+    titleAr: "الشريحة 23: حزمة التقنيات المستخدمة وبيئة المحاكاة",
+    chapter: "Chapter 3: Proposed System Architecture",
+    section: "§3.2 - §3.8 System Implementation & Technology Stack (Pages 31-43)",
+    elements: [
+      {
+        elEn: "Core Services, Backend & Message Queues",
+        elAr: "الخدمات الأساسية والخلفية وطوابير المهام",
+        loc: "Chapter 3 Architectural Implementation (§3.3, §3.7)",
+        textEn: "Python 3.11+, FastAPI async endpoints, Celery / Redis distributed queue management for decoupled ingest and execution.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "AI/ML Libraries & Algorithms",
+        elAr: "مكتبات الذكاء الاصطناعي وخوارزميات التعلم",
+        loc: "Chapter 3 ML Engine (§3.5)",
+        textEn: "Scikit-Learn (Random Forest), PyTorch (DNN sequence representation), Stable-Baselines3 (SAC reinforcement learning).",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Telemetry, Storage & Adversary Simulation",
+        elAr: "قواعد البيانات والحساسات ومحاكاة الهجمات",
+        loc: "Chapter 3 Storage & Testing (§3.3, §3.8)",
+        textEn: "Elasticsearch/OpenSearch cluster, PostgreSQL case storage, Wazuh SIEM/EDR, Suricata IDS, Atomic Red Team (MITRE ATT&CK alignment).",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  23: {
+    titleEn: "Slide 24: Operational Scenario Walkthrough: Rapid Ransomware Containment",
+    titleAr: "الشريحة 24: سيناريو تطبيقي: احتواء سريع لهجوم فدية",
+    chapter: "Chapter 3: Proposed System Architecture",
+    section: "Chapter 3 Incident Handling Scenario Simulation",
+    elements: [
+      {
+        elEn: "End-to-End Simulation Pipeline (4 Steps)",
+        elAr: "مراحل السيناريو الأربعة",
+        loc: "Chapter 3 Pipeline Simulation Walkthrough",
+        textEn: "1. Detection: EDR flags suspicious PowerShell execution\n2. Enrichment: AbuseIPDB reputation + Finance user context\n3. Triage: Risk=94.2/100, Conf=0.98, Priority #1\n4. Orchestration: Host isolated via EDR API & perimeter firewall block.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Operational Benchmark (Manual vs AI-SOAR)",
+        elAr: "المقارنة المعيارية للأداء (يدوي مقابل الذكاء)",
+        loc: "Chapter 3 Operational Metric Evaluation",
+        textEn: "Conventional Manual Triage (~42 min across fragmented tools) vs. Proposed AI-SOAR (<2.5 sec automated coordinated execution).",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  24: {
+    titleEn: "Slide 25: Current Achievements, Challenges & Phase 2 Roadmap",
+    titleAr: "الشريحة 25: ما تم إنجازه، التحديات والحلول، وخارطة طريق مشروع 2",
+    chapter: "Chapters 1-3 & Presentation Guide (§9 & §10)",
+    section: "Final Synthesis, Challenges & GP2 Roadmap",
+    elements: [
+      {
+        elEn: "Graduation Project 1 Completed Scope",
+        elAr: "ما تم إنجازه فعلياً في مشروع تخرج 1",
+        loc: "Chapters 1, 2, and 3 Approved Report",
+        textEn: "Problem definition (§1.2-1.4), comprehensive lit review and Table 2-1 gap analysis (§2.4-2.5), complete 5-layer system architecture (Chapter 3).",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Challenges & Mitigations Table (Guide §9)",
+        elAr: "جدول التحديات والإجراءات المتخذة (دليل §9)",
+        loc: "Presentation Guide §9 & Report §1.6, §3.3, §3.7",
+        textEn: "1. Alert Schema Variance -> Ingestion Normalization layer [Resolved]\n2. Dataset Constraints -> Curated public SOC data + simulated attack logs [In Progress]\n3. Automation Risk -> Enforced human-in-the-loop gates [Resolved].",
+        status: "Guide §9 Table"
+      },
+      {
+        elEn: "Graduation Project 2 Execution Roadmap",
+        elAr: "خارطة تنفيذ مشروع تخرج 2 (الأسابيع 1-12)",
+        loc: "Chapter 1 (§1.5) & Presentation Guide §10",
+        textEn: "Phase 4: Data Preparation (W1-4), Phase 5: Model Training & API coding (W5-8), Phase 6: Prototype testing & final defense (W9-12).",
+        status: "Exact 100%"
+      }
+    ]
+  }
+};
+
+// Toggle Reference Modal / Drawer
+function toggleRefModal() {
+  const drawer = document.getElementById('refDrawer');
+  if (!drawer) return;
+  drawer.classList.toggle('open');
+  if (drawer.classList.contains('open')) {
+    updateSlideReferences(c);
+  }
+}
+
+// Close on Escape key
+document.addEventListener('keydown', e => {
+  if (e.key === 'r' || e.key === 'R') {
+    // Only toggle if not focused on an input
+    if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+    toggleRefModal();
+  }
+  if (e.key === 'Escape') {
+    const drawer = document.getElementById('refDrawer');
+    if (drawer && drawer.classList.contains('open')) {
+      drawer.classList.remove('open');
+    }
+  }
+});
+
+// Update References display for active slide
+function updateSlideReferences(slideIdx) {
+  const ref = SLIDE_REFS[slideIdx];
+  if (!ref) return;
+
+  const pill = document.getElementById('rdSlidePill');
+  if (pill) {
+    pill.textContent = `Slide ${String(slideIdx + 1).padStart(2, '0')} / 25`;
+  }
+
+  // 1. Build Content for Drawer Modal
+  const rdContent = document.getElementById('rdContent');
+  if (rdContent) {
+    let rowsHtml = '';
+    ref.elements.forEach(el => {
+      rowsHtml += `
+        <tr>
+          <td style="font-weight:700;color:var(--t1)">
+            <span class="${isAR ? 'ar' : 'en'}">${isAR ? el.elAr : el.elEn}</span>
+          </td>
+          <td style="color:var(--s);font-family:'JetBrains Mono',monospace;font-weight:600">
+            ${el.loc}
+          </td>
+          <td style="font-size:0.75rem;color:var(--t2)">
+            ${el.textEn.replace(/\n/g, '<br>')}
+          </td>
+          <td>
+            <span class="rd-badge-exact">✓ ${el.status}</span>
+          </td>
+        </tr>
+      `;
+    });
+
+    rdContent.innerHTML = `
+      <div class="rd-sec-banner">
+        <strong>${isAR ? 'الفصل والقسم المرجعي في تقرير المشروع:' : 'Report Chapter & Section:'}</strong> 
+        <span style="color:var(--s);font-weight:700">${ref.chapter} &mdash; ${ref.section}</span>
+      </div>
+      <table class="rd-table">
+        <thead>
+          <tr>
+            <th style="width:22%">${isAR ? 'عنصر الشريحة' : 'Slide Element'}</th>
+            <th style="width:24%">${isAR ? 'الموقع في الملف (القسم / الفقرة)' : 'Exact PDF Location'}</th>
+            <th style="width:42%">${isAR ? 'النص والبيانات المأخوذة' : 'Cited Text / Telemetry'}</th>
+            <th style="width:12%">${isAR ? 'حالة المطابقة' : 'Status'}</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rowsHtml}
+        </tbody>
+      </table>
+    `;
+  }
+
+  // 2. Build Content for Control Center (#cp)
+  const cpRefContent = document.getElementById('cpSlideRefContent');
+  if (cpRefContent) {
+    let cpItemsHtml = '';
+    ref.elements.forEach(el => {
+      cpItemsHtml += `
+        <div style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:0.73rem">
+          <div style="display:flex;justify-content:space-between;color:var(--t1);font-weight:700">
+            <span>${isAR ? el.elAr : el.elEn}</span>
+            <span style="color:var(--ok);font-size:0.68rem">✓ ${el.status}</span>
+          </div>
+          <div style="color:var(--s);font-family:'JetBrains Mono',monospace;font-size:0.68rem;margin:2px 0">
+            📍 ${el.loc}
+          </div>
+        </div>
+      `;
+    });
+
+    cpRefContent.innerHTML = `
+      <div style="font-size:0.75rem;margin-bottom:6px;color:var(--t2)">
+        <strong>${isAR ? 'الشريحة الحالية:' : 'Active Slide:'}</strong> 
+        <span style="color:#fff">${String(slideIdx + 1).padStart(2, '0')} / 25</span> &mdash; 
+        <span style="color:var(--s)">${isAR ? ref.titleAr : ref.titleEn}</span>
+      </div>
+      <div style="font-size:0.72rem;color:var(--t3);margin-bottom:8px">
+        📄 <strong>${ref.chapter}</strong> (${ref.section})
+      </div>
+      <div style="max-height:180px;overflow-y:auto;background:rgba(0,0,0,0.3);border-radius:8px;border:1px solid rgba(255,255,255,0.05)">
+        ${cpItemsHtml}
+      </div>
+      <button onclick="toggleRefModal()" style="width:100%;margin-top:8px;padding:6px;border-radius:6px;background:rgba(0,212,255,0.15);border:1px solid var(--s);color:var(--s);font-size:0.72rem;font-weight:700;cursor:pointer">
+        🔍 ${isAR ? 'فتح جدول التدقيق والتطابق الكامل' : 'Open Detailed Verification Table (R)'}
+      </button>
+    `;
+  }
+}
+
+// Initialize references on load
+updateSlideReferences(0);
 </script>
 </body>
 </html>
