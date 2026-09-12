@@ -1,0 +1,92 @@
+{
+  0: {
+    titleEn: "Slide 01: Project Title & Overview",
+    titleAr: "الشريحة 01: عنوان المشروع والمستخلص",
+    chapter: "Front Matter & Abstract",
+    section: "Title Page & Abstract (Page 2)",
+    elements: [
+      {
+        elEn: "Project Title",
+        elAr: "عنوان المشروع",
+        loc: "Cover Page, Page 1",
+        textEn: "AI-Based Security Orchestration, Automation, and Response (SOAR) Tool",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Lead Abstract Context",
+        elAr: "المقدمة والمستخلص",
+        loc: "Abstract, Page 2, Paragraph 1 (Lines 1-8)",
+        textEn: "Modern SOCs face increasing challenges in managing large volumes of security alerts, false positives, and heterogeneous security data... creating analyst alert fatigue.",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Supervisory & Faculty Details",
+        elAr: "بيانات الإشراف والقسم",
+        loc: "Cover Page, Page 1",
+        textEn: "Supervised by Dr. Raed Saeed, Bachelor's Degree in Cybersecurity and Networking, Department of Computer Science.",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  1: {
+    titleEn: "Slide 02: Research & Engineering Team",
+    titleAr: "الشريحة 02: فريق البحث والتطوير الهندسي",
+    chapter: "Front Matter",
+    section: "Cover Page — Author & Supervisory Registry (Page 1)",
+    elements: [
+      {
+        elEn: "Team Members & Academic IDs (6 Students)",
+        elAr: "أسماء الطلاب والأرقام الأكاديمية (6 طلاب)",
+        loc: "Cover Page, Page 1",
+        textEn: "1. Hizam Al-Shajara (202210102478)\n2. Hamoud Abu Amrah (202310101609)\n3. Mohammed Hameed (202310100174)\n4. Mohammed Al-Warafi (202310100461)\n5. Marwan Al-Ameer (202310100177)\n6. Noah Maraq (202310100452)",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Academic Department & Head",
+        elAr: "القسم الأكاديمي ورئاسة القسم",
+        loc: "Cover Page & Department Registry",
+        textEn: "Department of Computer Science, Head: Dr. Nabeel Al-Mekhlafy, Supervision: Dr. Raed Saeed.",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  2: {
+    titleEn: "Slide 03: The Modern SOC Operational Landscape",
+    titleAr: "الشريحة 03: المشهد التشغيلي لمراكز العمليات الحديثة (SOC)",
+    chapter: "Chapter 1: Introduction and Problem Statement",
+    section: "§1.1 Overview of Modern SOCs and SOAR Platforms (Pages 11-12)",
+    elements: [
+      {
+        elEn: "Lead Paragraph",
+        elAr: "الفقرة التقديمية",
+        loc: "§1.1, Paragraph 1, Lines 1-7 (Page 11)",
+        textEn: "A Security Operations Center (SOC) is a centralized operational function responsible for monitoring, detecting, investigating, and responding to organizational cyber threats...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Data Influx & SIEM Card",
+        elAr: "بطاقة طوفان البيانات ودور SIEM",
+        loc: "§1.1, Paragraph 1, Lines 3-6 (Page 11)",
+        textEn: "Organizations implement SIEM platforms for centralized log management... accumulating up to 100 gigabytes of log and alert data daily...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Heterogeneous Tool Stacks Card",
+        elAr: "بطاقة تشتت الأدوات الأمنية",
+        loc: "§1.1, Paragraph 1, Lines 6-9 (Page 11)",
+        textEn: "Because these tools operate with distinct log schemas, vendor-specific data representations, and unique alert mechanisms, the resulting security data is highly heterogeneous...",
+        status: "Exact 100%"
+      },
+      {
+        elEn: "Tiered Analyst Hierarchy Card",
+        elAr: "بطاقة الهيكلية الهرمية للمحللين",
+        loc: "§1.1, Paragraph 2, Lines 1-5 (Page 11)",
+        textEn: "Security analysts are structured into a tiered organizational model. Junior analysts conduct initial alert triage, manually gathering contextual evidence...",
+        status: "Exact 100%"
+      }
+    ]
+  },
+  3: {
+    titleEn: "Slide 04: Alert Fatigue & Cognitive Overload",
+    titleAr: "الشريحة 04: إرهاق التنبيهات والإجهاد الإدراكي",
+    ch
