@@ -20,6 +20,9 @@ const MIME_TYPES = {
 function createServer() {
   const server = http.createServer((req, res) => {
     let reqUrl = req.url.split('?')[0];
+    if (reqUrl.startsWith('/presentation/')) {
+      reqUrl = reqUrl.replace('/presentation/', '/');
+    }
     if (reqUrl === '/' || reqUrl === '') {
       reqUrl = '/index.html';
     }
@@ -38,7 +41,12 @@ function createServer() {
           res.end(`Server Error: ${err.code}`);
         }
       } else {
-        res.writeHead(200, { 'Content-Type': contentType });
+        res.writeHead(200, {
+          'Content-Type': contentType,
+          'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0, proxy-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        });
         res.end(content);
       }
     });

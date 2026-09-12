@@ -1,0 +1,238 @@
+Chapter 1:
+
+Introduction and Problem Statement
+
+ 
+
+1.1	Overview of Modern SOCs and SOAR Platforms
+
+A Security Operations Center (SOC) is a centralized operational function responsible for monitoring, detecting, investigating, and responding to organizational cyber threats (Khayat et al., 2025). To protect corporate networks, modern SOCs deploy a diverse array of security sensors across network and host layers (Kinyua & Awuah, 2021). To manage the resulting data, organizations implement Security Information and Event Management (SIEM) platforms, which provide centralized log management, security-event collection, and basic correlation (Bridges et al., 2023; Khayat et al., 2025). However, security monitoring inherently
+
+relies on the diverse outputs produced by multi-vendor security stacks. Because these tools operate with distinct log schemas, vendor-specific data representations, and unique alert mechanisms, the resulting
+
+security data is highly heterogeneous and complex to analyze (Kinyua & Awuah, 2021).
+
+
+
+Within the SOC, security analysts are structured into a tiered organizational model to monitor security feeds and manage incidents (Bridges et al., 2023). Junior analysts conduct initial alert triage, following
+
+standard operating procedures to evaluate whether an incoming alert represents a legitimate threat or benign activity (Bridges et al., 2023). When an alert requires investigation, analysts must manually gather
+
+contextual evidence from multiple disparate security sources (Khayat et al., 2025). This manual
+
+investigation process introduces a phenomenon known as context switching, where analysts repeatedly navigate across different application interfaces, hold investigative hypotheses in memory, and manually
+
+correlate heterogeneous data sources (Bridges et al., 2023). Consequently, pivoting between isolated security consoles to execute repetitive diagnostic steps creates significant operational complexity (Kinyua & Awuah, 2021).
+
+To address the operational friction of managing fragmented toolstacks, Security Orchestration, Automation, and Response (SOAR) emerged as a critical architectural paradigm (Kinyua & Awuah, 2021).
+
+SOAR refers to software platforms designed to integrate disparate security applications and human processes into a unified framework (Kinyua & Awuah, 2021). While SIEM systems focus on log
+
+management and threat identification, SOAR complements them by extending the incident response
+
+lifecycle to support automated containment, eradication, and recovery (Karlzén & Sommestad, 2023). By
+
+automating routine diagnostic tasks and orchestrating security tools at the application programming interface (API) layer, SOAR accelerates response operations through predefined checklists known as playbooks or workflows (Bridges et al., 2023; Ismail et al., 2025). Rather than replacing personnel, SOAR acts as a force multiplier that empowers human analysts by standardizing procedures while keeping them involved in
+
+critical oversight (Bridges et al., 2023; Kinyua & Awuah, 2021).
+
+ 
+
+A representative conventional SOAR workflow progresses through a structured sequence:
+
+
+
+Alert/Input → Enrichment → Decision/Rule → Playbook Execution → Automated Action → Case Documentation (Karlzén & Sommestad, 2023). The process begins when the platform ingests a raw security
+
+alert from a detection sensor (Zhang et al., 2025). In the enrichment stage, the system automatically executes diagnostic queries to gather additional context, such as retrieving user attributes or querying external
+
+reputation databases (Bridges et al., 2023). This accumulated evidence is evaluated against static threshold rules during the decision stage (Zhang et al., 2025). If the criteria are met, the playbook execution stage activates a pre-codified sequence of steps (Ismail et al., 2025), leading to an automated action where
+
+technical countermeasures are executed directly on targeted infrastructure (Agrawal et al., 2026). Finally, the case documentation stage logs the execution outcomes and updates incident tickets for analyst review (Bridges et al., 2023). Although SOAR automation can reduce repetitive manual effort, its effectiveness depends in part on the volume, quality, and contextual clarity of incoming security alerts.
+
+1.2	The Problem Statement (Alert Fatigue and Static Triage)
+
+Modern Security Operations Centers (SOCs) face an unsustainable influx of security data,
+
+accumulating up to 100 gigabytes of log and alert data daily. A substantial portion of security alerts may consist of false positives and non-actionable noise. Processing this low-fidelity noise demands significant operational effort and detracts from proactive threat hunting.
+
+This convergence of high alert volumes and excessive false positives causes high analyst workload and alert fatigue. In conventional workflows, analysts manually investigate alerts through continuous
+
+context switching—repeatedly pivoting across disparate application windows to gather evidence. This repetitive manual triage creates cognitive overload, contributing to acute stress and analyst burnout.
+
+ 
+
+To alleviate these burdens, organizations implement automated workflows; however, reliance on predefined rules and static playbooks may limit adaptability. While conventional automation efficiently
+
+executes repetitive steps, deterministic logic can constrain effectiveness when alert context or risk conditions change dynamically. Rigid conditional statements may become less effective against novel or evasive threats that fall outside anticipated patterns.
+
+Beyond static logic, the core operational challenge is prioritization. When prioritization relies
+
+primarily on fixed decision rules, highly critical incidents can become buried beneath lower-value noise. Un-prioritized queues delay the handling of actionable threats, whereas dynamic, risk-aware ordering can reduce the time critical incidents spend waiting in analyst queues by 22.9%. Ultimately, these challenges motivate
+
+the ongoing need to investigate how intelligent alert analysis and prioritization can be integrated with operational workflows to support adaptive incident handling.
+
+1.3	Motivation and Project Significance
+
+The operational challenges of alert fatigue, cognitive overload, and excessive false positives establish a critical need for a more intelligent approach to security alert handling. As modern Security Operations Centers (SOCs) navigate increasingly complex network environments, traditional manual triage processes
+
+struggle to scale effectively. Security teams require advanced mechanisms capable of distinguishing high-value, actionable incidents from low-value, benign security noise. Consequently, there is a fundamental
+
+operational motivation to improve triage efficiency, ensuring that genuine threats are identified rapidly without simultaneously increasing the manual investigative burden placed on human analysts.
+
+From a technological perspective, this project is motivated by the complementary capabilities of
+
+artificial intelligence and existing security platforms. Artificial Intelligence and Machine Learning (AI/ML) provide data-driven capabilities for intelligent alert analysis, classification, contextual assessment, and
+
+decision support. Conversely, Security Orchestration, Automation, and Response (SOAR) platforms
+
+specialize in deterministic execution, providing the infrastructure for multi-tool orchestration, workflow
+
+automation, playbook execution, and rapid response deployment. Integrating these distinct domains provides an opportunity to connect intelligent, context-aware analysis directly with automated execution pipelines, extending the analytical capabilities available within conventional SOAR operations.
+
+Academically, this study aims to investigate an integration challenge identified in the reviewed cybersecurity literature. Existing research demonstrates the use of machine learning for security alert
+
+analysis and the use of SOAR workflows for automated incident response, while the integration between these capabilities remains an area worthy of further investigation. This project therefore investigates the architectural integration of AI/ML-based alert analysis, risk-based scoring, dynamic prioritization, and
+
+SOAR automated response. Specifically, the proposed tool seeks to examine how intelligent triage outputs can support more adaptive response decisions within operational SOAR workflows.
+
+ 
+
+Practically, the integration of intelligent prioritization with automated response mechanisms may
+
+provide operational value for SOC environments. By applying contextual risk assessment to incoming alerts, the proposed system is intended to reduce unnecessary manual triage effort and minimize distractions caused by low-value alerts. This approach aims to help security analysts focus their time and attention on higher-priority incidents. By improving the coordination between alert analysis and automated incident response,
+
+the tool could support more context-aware response decisions and contribute to more efficient SOC operations.
+
+1.4	Project Objectives 1.4.1 Primary Objective
+
+The primary objective of this project is to investigate, design, and propose an integrated AI-Based Security Orchestration, Automation, and Response (SOAR) tool. This tool aims to address operational
+
+bottlenecks by integrating intelligent security alert analysis, risk-based scoring, dynamic prioritization, and automated incident response to support more adaptive and efficient security operations.
+
+1.4.2	Specific Objectives The specific objectives of this project are to:
+
+
+
+1.	Analyze the operational challenges of current SOC alert management, specifically including alert fatigue and the limitations of static triage.
+
+2.	Review existing AI/ML-based approaches and academic literature related to security alert analysis and prioritization.
+
+3.	Design the proposed AI-Based SOAR architecture and clearly identify its major functional components.
+
+4.	Develop an AI/ML-based mechanism designed for context-aware alert analysis and risk assessment.
+
+5.	Integrate the outcomes of dynamic risk-based prioritization with SOAR response decision-making to guide automated workflows.
+
+6.	Define a structured evaluation approach to assess the proposed tool using appropriate machine-learning and operational metrics.
+
+1.5	Project Methodology
+
+This project adopts a tailored Design Science Research (DSR) methodology, selected because it
+
+provides a structured academic framework for designing, developing, and evaluating an IT artifact intended to address a practical cybersecurity problem. The methodology is adapted to the requirements of the AI-Based SOAR project by incorporating the research, architectural design, machine learning development,
+
+integration, and evaluation activities required to investigate intelligent security alert management.
+
+
+
+The first phase, Problem Identification and Objectives, focuses on defining the operational challenges associated with SOC alert management, including alert fatigue and static triage, and establishing the
+
+ 
+
+objectives of the project. The second phase, Literature Review and Evidence Mapping, examines existing
+
+research on SOC alert management, conventional SOAR, AI/ML-based alert analysis, risk scoring, dynamic prioritization, and automated incident response. These activities provide the academic foundation for identifying and validating the research gap. Both phases are undertaken primarily within Graduation Project 1.
+
+The third phase, System Architecture and Component Design, develops the proposed high-level
+
+architecture for integrating AI-based alert analysis, risk scoring, dynamic prioritization, and SOAR response workflows. The initial architecture is established during Graduation Project 1 and may be refined during Graduation Project 2 as implementation requirements are identified. The fourth phase, Data Collection and Preparation, and the fifth phase, AI/ML Model Development and Risk Scoring, are planned for Graduation Project 2. These phases will involve preparing security alert data, performing feature engineering,
+
+developing the selected AI/ML mechanism, and establishing an appropriate risk-scoring approach.
+
+
+
+The sixth phase, SOAR Integration and Workflow Automation, will connect the intelligent analysis and prioritization mechanisms with the proposed SOAR response workflows. The final phase, Prototype Testing and Evaluation, will assess the resulting tool using appropriate machine-learning metrics and
+
+operational measures, such as false-positive rates, prioritization performance, and queue-related indicators. Findings from evaluation will be used to support iterative refinement of the proposed artifact and to assess its alignment with the project objectives.
+
+1.6	Project Scope and Limitations
+
+1.6.1	Project Scope
+
+This project encompasses the design and planned development of an integrated AI-Based Security Orchestration, Automation, and Response (SOAR) tool. The primary operational context focuses on Security Operations Center (SOC) alert management. Specifically, the scope encompasses the integration of artificial intelligence and machine learning for security alert analysis, context-aware risk scoring, and
+
+dynamic alert prioritization. Furthermore, it includes connecting these analytical components with
+
+automated SOAR response workflows and decision-making mechanisms. Implementation and testing are planned to be conducted within a controlled prototype and simulation environment appropriate for a
+
+graduation project. The project scope also involves defining appropriate machine-learning and operational metrics to evaluate the tool. Finally, the scope emphasizes architectural integration rather than the invention of new foundational machine-learning algorithms or commercial platforms.
+
+1.6.2	Project Limitations
+
+Several realistic limitations bound this study. First, model training and evaluation may depend on synthetic, public, or otherwise limited security alert datasets, which may not fully replicate the complex
+
+telemetry of every enterprise environment. Consequently, machine-learning performance can be influenced
+
+ 
+
+by data quality, distribution changes, and evolving threat behaviors over time. Second, validation is constrained to a laboratory or prototype environment rather than a live, large-scale enterprise SOC,
+
+restricting large-scale operational testing. Third, fully autonomous execution of high-impact security actions introduces inherent operational risks; therefore, the tool incorporates human oversight and approval
+
+mechanisms for uncertain or potentially disruptive response actions. Finally, project time and resource
+
+constraints may restrict deep integration with proprietary commercial security infrastructure and limit testing across legacy systems.
+
+1.7	Report Organization
+
+This report is organized into six chapters that systematically present the research, system architecture, methodology, implementation, and expected outcomes of the AI-Based SOAR project.
+
+Chapter 1: Introduction and Problem Statement
+
+introduces the project context by providing an overview of modern Security Operations Centers and SOAR platforms, formulating the problem statement regarding alert fatigue and static triage, and
+
+outlining the project motivation, objectives, methodology, scope, limitations, and report structure.
+
+
+
+Chapter 2: Background and Literature Review:
+
+establishes the technical background and literature review, covering SOC operations, conventional SOAR workflows, the role of artificial intelligence and machine learning in SOC operations, existing AI/ML-based alert triage approaches, risk scoring and dynamic prioritization, and the resulting research gap.
+
+Chapter 3: Proposed System Architecture
+
+presents the proposed AI-Based SOAR system architecture, describing its major functional components, including alert ingestion, context enrichment, AI/ML-based triage and scoring, prioritization and suppression logic, automated response policies, and SOAR integration.
+
+Chapter 4: Research Methodology and Model Development
+
+describes the research methodology and model development process, including data collection and preparation, feature engineering, model selection and training, risk-scoring development, threshold tuning, and evaluation metrics.
+
+Chapter 5: Preliminary Implementation and Initial Results
+
+presents the preliminary implementation and initial evaluation activities, including the development environment, initial testing data, model performance analysis, and preliminary operational observations.
+
+Chapter 6: Expected Outcomes and Project Timeline
+
+presents the expected outcomes, project deliverables, foundation for future development in Graduation Project 2, and the overall project timeline.
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+[01] id=s0   | sn=01 / 25 | Title=AI-Based Security Orchestration, Automation &amp;  | Footer=📖 Report Source: Front Matter &middot; Title Page &amp; Student Author
+[02] id=s1   | sn=02 / 25 | Title=The Modern SOC Operational Landscape               | Footer=📖 Report Source: Chapter 1 &middot; §1.1-1.2 Overview of Modern SOCs &
+[03] id=s2   | sn=03 / 25 | Title=The Core Crisis: Alert Fatigue &amp; Cognitive Ove | Footer=📖 Report Source: Chapter 1 &middot; §1.2 Problem Statement &amp; Alert
+[04] id=s3   | sn=04 / 25 | Title=The Triage Bottleneck: Static Rules &amp; Context  | Footer=📖 Report Source: Chapter 1 &middot; §1.2-1.3 The Triage Bottleneck &am
+[05] id=s4   | sn=05 / 25 | Title=Project Objectives: Strategic &amp; Operational    | Footer=📖 Report Source: Chapter 1 &middot; §1.4 Research Objectives (1 Genera
+[06] id=s5   | sn=06 / 25 | Title=Project Scope and Limitations                      | Footer=📖 Report Source: Chapter 1 &middot; §1.6 Scope &amp; Limitations of th
+[07] id=s6   | sn=07 / 25 | Title=Evolution of Security Operations Technologies      | Footer=📖 Report Source: Chapter 2 &middot; §2.1-2.2 Evolution of Security Ope
+[08] id=s7   | sn=08 / 25 | Title=Conventional SOAR: Playbooks &amp; API Orchestrati | Footer=📖 Report Source: Chapter 2 &middot; §2.2.2 SOAR Frameworks &amp; Autom
+[09] id=s8   | sn=09 / 25 | Title=Limitations of Conventional SOAR Automation        | Footer=📖 Report Source: Chapter 2 &middot; §2.2.3 Limitations of Conventional
+[10] id=s9   | sn=10 / 25 | Title=AI/ML as a Force Multiplier in Security Operations | Footer=📖 Report Source: Chapter 2 &middot; §2.4 Machine Learning &amp; AI Aug
+[11] id=s10  | sn=11 / 25 | Title=Comparative Analysis of Existing ML-Based SOC Tria | Footer=📖 Report Source: Chapter 2 &middot; §2.4.4 Comparative Synthesis of ML
+[12] id=s11  | sn=12 / 25 | Title=The Research Gap: The Missing Integration Link     | Footer=📖 Report Source: Chapter 2 &middot; §2.5 The Research Gap: Disconnect 
+[13] id=s12  | sn=13 / 25 | Title=High-Level Architecture Overview                   | Footer=📖 Report Source: Chapter 3 &middot; §3.1-3.2 Proposed 5-Layer AI-SOAR 
+[14] id=s13  | sn=14 / 25 | Title=Alert Ingestion &amp; Schema Normalization         | Footer=📖 Report Source: Chapter 3 &middot; §3.3 Layer 1: Ingestion Connectors
+[15] id=s14  | sn=15 / 25 | Title=Multi-Dimensional Context Enrichment Pipeline      | Footer=📖 Report Source: Chapter 3 &middot; §3.4 Layer 2: Multi-Dimensional Co
+[16] id=s15  | sn=16 / 25 | Title=AI/ML Triage &amp; Dynamic Risk Scoring Formulatio | Footer=📖 Report Source: Chapter 3 &middot; §3.5 Layer 3: AI/ML Triage Engine 
+[17] id=s16  | sn=17 / 25 | Title=Adaptive Alert Prioritization &amp; Noise Suppress | Footer=📖 Report Source: Chapter 3 &middot; §3.5-3.6 Layer 3/4: Adaptive Prior
+[18] id=s17  | sn=18 / 25 | Title=Automated Response Playbooks &amp; SOAR Integratio | Footer=📖 Report Source: Chapter 3 &middot; §3.7 Layer 4: Automated Response P
+[19] id=s18  | sn=19 / 25 | Title=Human-AI Teaming: Policy States &amp; Controlled D | Footer=📖 Report Source: Chapter 2 &middot; §2.3.2 &amp; Chapter 3 &middot; §3
+[20] id=s19  | sn=20 / 25 | Title=Continuous Analyst Feedback Loop &amp; Model Adapt | Footer=📖 Report Source: Chapter 3 &middot; §3.8 Continuous Analyst Feedback L
+[21] id=s20  | sn=21 / 25 | Title=Design Science Research (DSR) &ndash; 6 Rigorous P | Footer=📖 Report Source: Chapter 1 &middot; §1.5 Research Methodology &amp; De
+[22] id=s21  | sn=22 / 25 | Title=System Architecture &amp; Prototype Integration En | Footer=📖 Report Source: Chapter 3 &middot; §3.2-3.3, §1.6 System Architecture
+[23] id=s22  | sn=23 / 25 | Title=Operational Incident Handling Workflow &amp; Empir | Footer=📖 Report Source: Chapter 3 &middot; §3.2, §3.7, §2.4 End-to-End Incide
+[24] id=s23  | sn=24 / 25 | Title=Operational Challenges, Risks &amp; Technical Adap | Footer=📖 Report Source: Graduation Defense Guide §9 &amp; Report §1.2, §2.4, 
+[25] id=s24  | sn=25 / 25 | Title=Current Achievements &amp; Phase 2 Execution Roadm | Footer=📖 Report Source: Chapter 1 (§1.5), Chapter 2 (§2.5), Chapter 3 (§3.1-3

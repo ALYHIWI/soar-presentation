@@ -1,0 +1,223 @@
+
+======================================================================
+SLIDE 01 (s0)
+======================================================================
+Heading: AI-Based Security Orchestration, Automation &amp; Response (SOAR) Tool 
+       أداة أمنية ذكية للتنسيق والأتمتة والاستجابة للحوادث السيبرانية (SOAR)
+Lead: An intelligent framework bridging context-aware machine learning triage, dynamic risk prioritization, and automated response orchestration to resolve alert fatigue in modern Security Operations Centers (SOC).
+Cards count: 0
+
+======================================================================
+SLIDE 02 (s1)
+======================================================================
+Heading: The Modern SOC Operational Landscape
+Lead: A Security Operations Center (SOC) centralizes cyber threat monitoring, detection, and incident response, but faces acute operational strain from massive log volumes and heterogeneous data schemas (§1.1).
+Cards count: 3
+  Card 1: Data Influx &amp; SIEM Role
+  Card 2: Heterogeneous Tool Stacks
+  Card 3: Tiered Analyst Hierarchy
+  Stat boxes found: 3
+
+======================================================================
+SLIDE 03 (s2)
+======================================================================
+Heading: The Core Crisis: Alert Fatigue &amp; Cognitive Overload
+Lead: The convergence of massive alert volumes and excessive false positives creates acute analyst workload, cognitive burnout, and critical response delays (§1.2).
+Cards count: 4
+  Card 1: Alert Influx &amp; Noise
+  Card 2: Context Switching
+  Card 3: Static Rules &amp; Queues
+  Card 4: No Title
+
+======================================================================
+SLIDE 04 (s3)
+======================================================================
+Heading: The Triage Bottleneck: Static Rules &amp; Context Switching
+Cards count: 3
+  Card 1: Rigid Rule-Based Triage
+  Card 2: Severe Context Switching
+  Card 3: Prioritization Blindspots
+
+======================================================================
+SLIDE 05 (s4)
+======================================================================
+Heading: Project Objectives: Strategic &amp; Operational
+Cards count: 4
+  Card 1: 1. Analyze SOC Challenges
+  Card 2: 2. Literature Review
+  Card 3: 3. Design Architecture
+  Card 4: 4. Integration &amp; Evaluation
+
+======================================================================
+SLIDE 06 (s5)
+======================================================================
+Heading: Project Scope and Limitations
+Cards count: 2
+  Card 1: In-Scope Focus Areas
+  Card 2: Out-of-Scope Boundaries
+
+======================================================================
+SLIDE 07 (s6)
+======================================================================
+Heading: Evolution of Security Operations Technologies
+Cards count: 4
+  Card 1: Log Management
+  Card 2: SIEM Era
+  Card 3: Conventional SOAR
+  Card 4: AI-Augmented SOAR
+
+======================================================================
+SLIDE 08 (s7)
+======================================================================
+Heading: Conventional SOAR: Playbooks &amp; API Orchestration
+Cards count: 3
+  Card 1: Security Orchestration
+  Card 2: Automated Playbooks
+  Card 3: Incident Case Management
+
+======================================================================
+SLIDE 09 (s8)
+======================================================================
+Heading: Limitations of Conventional SOAR Automation
+Cards count: 3
+  Card 1: Inability to Adapt
+  Card 2: Lack of Risk Context
+  Card 3: Disruption Hazards
+
+======================================================================
+SLIDE 10 (s9)
+======================================================================
+Heading: AI/ML as a Force Multiplier in Security Operations
+Cards count: 2
+  Card 1: Data-Driven Analytical Augmentation
+  Card 2: Human-AI Teaming Paradigm
+  Stat boxes found: 3
+
+======================================================================
+SLIDE 11 (s10)
+======================================================================
+Heading: Comparative Analysis of Existing ML-Based SOC Triage Approaches
+Cards count: 0
+
+======================================================================
+SLIDE 12 (s11)
+======================================================================
+Heading: The Research Gap: The Missing Integration Link
+Cards count: 2
+  Card 1: Academic ML Research
+  Card 2: Commercial SOAR Frameworks
+
+======================================================================
+SLIDE 13 (s12)
+======================================================================
+Heading: High-Level Architecture Overview
+Cards count: 0
+
+======================================================================
+SLIDE 14 (s13)
+======================================================================
+Heading: Alert Ingestion &amp; Schema Normalization
+Cards count: 3
+  Card 1: Multi-Protocol Ingestion
+  Card 2: Parsing &amp; Normalization
+  Card 3: Deduplication &amp; Grouping
+
+======================================================================
+SLIDE 15 (s14)
+======================================================================
+Heading: Multi-Dimensional Context Enrichment Pipeline
+Cards count: 3
+  Card 1: Asset &amp; Identity Context
+  Card 2: Threat Intelligence Context
+  Card 3: Historical &amp; Behavioral Context
+
+======================================================================
+SLIDE 16 (s15)
+======================================================================
+Heading: AI/ML Triage &amp; Dynamic Risk Scoring Formulation
+Cards count: 2
+  Card 1: Mandatory Analytical Output (§3.5)
+  Card 2: Supporting Outputs: Confidence &amp; Actionability
+  Stat boxes found: 3
+
+======================================================================
+SLIDE 17 (s16)
+======================================================================
+Heading: Adaptive Alert Prioritization &amp; Noise Suppression
+Cards count: 3
+  Card 1: Dynamic Queue Prioritization
+  Card 2: Suppression vs. Deprioritization
+  Card 3: Policy Safeguards &amp; Overrides
+
+======================================================================
+SLIDE 18 (s17)
+======================================================================
+Heading: Automated Response Playbooks &amp; SOAR Integration
+Cards count: 4
+  Card 1: Host Isolation
+  Card 2: Firewall IP Block
+  Card 3: Account Revocation
+  Card 4: Phishing Purge
+
+======================================================================
+SLIDE 19 (s18)
+======================================================================
+Heading: Human-AI Teaming: Policy States &amp; Controlled Decision Gates
+Cards count: 4
+  Card 1: Automated Response
+  Card 2: Human Approval Required
+  Card 3: Analyst Investigation
+  Card 4: Monitor / Record
+
+======================================================================
+SLIDE 20 (s19)
+======================================================================
+Heading: Continuous Analyst Feedback Loop &amp; Model Adaptation
+Cards count: 3
+  Card 1: Analyst Resolution Capture
+  Card 2: Concept Drift Monitoring
+  Card 3: Scheduled Retraining Pipeline
+
+======================================================================
+SLIDE 21 (s20)
+======================================================================
+Heading: Design Science Research (DSR) &ndash; 6 Rigorous Phases
+Cards count: 0
+
+======================================================================
+SLIDE 22 (s21)
+======================================================================
+Heading: System Architecture &amp; Prototype Integration Environment
+Cards count: 4
+  Card 1: Multi-Agent Layer
+  Card 2: Ingestion &amp; Connectors
+  Card 3: Analytical Scoring Engine
+  Card 4: SOAR API Playbooks
+
+======================================================================
+SLIDE 23 (s22)
+======================================================================
+Heading: Operational Incident Handling Workflow &amp; Empirical Benchmarks
+Cards count: 2
+  Card 1: End-to-End Operational Pipeline (§3.2)
+  Card 2: Empirical Benchmarks from Literature
+  Stat boxes found: 1
+
+======================================================================
+SLIDE 24 (s23)
+======================================================================
+Heading: Operational Challenges, Risks &amp; Technical Adaptations
+Lead: Real-world SOC deployments encounter severe friction across data variance, high-speed triage risks, and temporal model degradation. The proposed architecture directly embeds countermeasures at each architectural layer (§1.2, §2.4, §3.8).
+Cards count: 3
+  Card 1: Log Schema Divergence
+  Card 2: False-Positive Automation
+  Card 3: Temporal Concept Drift
+
+======================================================================
+SLIDE 25 (s24)
+======================================================================
+Heading: Current Achievements &amp; Phase 2 Execution Roadmap
+Cards count: 3
+  Card 1: Completed in GP1
+  Card 2: GP2 Roadmap (Weeks 1-12)
+  Card 3: Evaluation Target Metrics

@@ -1,0 +1,176 @@
+
+======================================================================
+SLIDE 1 (id='s0')
+======================================================================
+Headers: AI-Based Security Orchestration, Automation &amp; Response (SOAR) Tool
+      أداة أمنية ذكية للتنسيق والأتمتة والاستجابة للحوادث السيبرانية (SOAR)
+Numbers/Units: ['1', '2', '3', '1', '2', '3', 'alert', '202210102478', '202310101609', '202310100174', '202310100461', '202310100177', '202310100452', '1', '3']
+Content preview: Graduation Project Defense &middot; Chapters 1, 2 &amp; 3 مناقشة مشروع التخرج &middot; الفصول 1، 2 و 3 University of Science and Technology &middot; Faculty of Computer Science and Technology &middot; Department of Computer Science جامعة العلوم والتكنولوجيا &middot; كلية علوم وحوسبة الحاسوب &middot;...
+
+======================================================================
+SLIDE 2 (id='s1')
+======================================================================
+Headers: The Modern SOC Operational Landscape | المشهد التشغيلي لمراكز العمليات الأمنية الحديثة (SOC) | Data Influx &amp; SIEM Role | طوفان البيانات ودور SIEM | Heterogeneous Tool Stacks | تشتت الأدوات الأمنية | Tiered Analyst Hierarchy | هرمية المحللين المرهقة
+Numbers/Units: ['1', '1.1', '1.2', '1.1', '1.2', '1.1', '1.1', 'event', '100', 'alert', '1.1', '1.2', '1.1', '1.2', 'alert']
+Content preview: Chapter 1 &ndash; Operational Context (§1.1-1.2) الفصل الأول &ndash; السياق التشغيلي (§1.1-1.2) The Modern SOC Operational Landscape المشهد التشغيلي لمراكز العمليات الأمنية الحديثة (SOC) A Security Operations Center (SOC) centralizes cyber threat monitoring, detection, and incident response, but fac...
+
+======================================================================
+SLIDE 3 (id='s2')
+======================================================================
+Headers: The Core Crisis: Alert Fatigue &amp; Cognitive Overload | الأزمة المركزية: إرهاق التنبيهات والإجهاد الذهني | Alert Influx &amp; Noise | فيضان التنبيهات والضجيج | Context Switching | عنق زجاجة تبديل السياق | Static Rules &amp; Queues | القواعد الثابتة وطوابير الانتظار
+Numbers/Units: ['1', 'alert', '1.2', '1.2', '100', 'GB', '100', '100', 'GB', '1.2', '100', '1.2', 'alerts', '1.1', '1.2']
+Content preview: Chapter 1 &ndash; Problem Formulation الفصل الأول &ndash; صياغة المشكلة الأساسية The Core Crisis: Alert Fatigue &amp; Cognitive Overload الأزمة المركزية: إرهاق التنبيهات والإجهاد الذهني The convergence of massive alert volumes and excessive false positives creates acute analyst workload, cognitive b...
+
+======================================================================
+SLIDE 4 (id='s3')
+======================================================================
+Headers: The Triage Bottleneck: Static Rules &amp; Context Switching | عنق زجاجة الفرز: القواعد الثابتة وتبديل السياق | Rigid Rule-Based Triage | جمود الفرز القائم على القواعد | Severe Context Switching | تبديل السياق بين المنصات | Prioritization Blindspots | غياب الأولوية الديناميكية
+Numbers/Units: ['1', 'alert', 'alert', '1', '1.2', '1.3', '13', '14', '1.2', '1.3', '13', '14', '1.2', '1.3', '04']
+Content preview: Chapter 1 &ndash; Operational Friction الفصل الأول &ndash; قيود الفرز اليدوي The Triage Bottleneck: Static Rules &amp; Context Switching عنق زجاجة الفرز: القواعد الثابتة وتبديل السياق Rigid Rule-Based Triage جمود الفرز القائم على القواعد Rigid conditional statements may become less effective against...
+
+======================================================================
+SLIDE 5 (id='s4')
+======================================================================
+Headers: Project Objectives: Strategic &amp; Operational | أهداف المشروع: الاستراتيجية والتشغيلية | 1. Analyze SOC Challenges | 1. تحليل تحديات SOC | 2. Literature Review | 2. مراجعة الأدبيات | 3. Design Architecture | 3. تصميم المعمارية | 4. Integration &amp; Evaluation | 4. التكامل والتقييم
+Numbers/Units: ['1', 'alert', '1', '1', 'alert', 'alert', '2', '2', 'alert', '3', '3', 'alert', '4', '4', '1']
+Content preview: Chapter 1 &ndash; Project Goals الفصل الأول &ndash; أهداف المشروع Project Objectives: Strategic &amp; Operational أهداف المشروع: الاستراتيجية والتشغيلية Primary Objective: Investigate, design, and propose an integrated AI-Based Security Orchestration, Automation, and Response (SOAR) tool that addres...
+
+======================================================================
+SLIDE 6 (id='s5')
+======================================================================
+Headers: Project Scope and Limitations | نطاق المشروع وحدود الدراسة الأكاديمية | In-Scope Focus Areas | ما يقع داخل نطاق المشروع (In-Scope) | Out-of-Scope Boundaries | ما يقع خارج نطاق المشروع (Out-of-Scope)
+Numbers/Units: ['1', 'alert', 'alert', 'alert', '1', '1.6', '17', '18', '1.6', '17', '18', '1.6', '06', '25']
+Content preview: Chapter 1 &ndash; Project Boundaries الفصل الأول &ndash; نطاق وحدود المشروع Project Scope and Limitations نطاق المشروع وحدود الدراسة الأكاديمية In-Scope Focus Areas ما يقع داخل نطاق المشروع (In-Scope) Alert Ingestion &amp; Normalization: Integration of AI/ML for security alert analysis, context-awar...
+
+======================================================================
+SLIDE 7 (id='s6')
+======================================================================
+Headers: Evolution of Security Operations Technologies | التطور التاريخي لتقنيات عمليات الأمن السيبراني | Log Management | الجيل الأول: إدارة السجلات | SIEM Era | الجيل الثاني: أنظمة SIEM | Conventional SOAR | الجيل الثالث: SOAR التقليدي | AI-Augmented SOAR | الجيل الرابع: SOAR المعزز بالذكاء
+Numbers/Units: ['2', '1', '2', 'event', '3', '4', '2', '2.1', '2.2', '20', '22', '2.1', '2.2', '20', '22']
+Content preview: Chapter 2 &ndash; Literature Review الفصل الثاني &ndash; الإطار النظري Evolution of Security Operations Technologies التطور التاريخي لتقنيات عمليات الأمن السيبراني G1 Log Management الجيل الأول: إدارة السجلات Security telemetry collected from multiple sources including network and endpoint monitorin...
+
+======================================================================
+SLIDE 8 (id='s7')
+======================================================================
+Headers: Conventional SOAR: Playbooks &amp; API Orchestration | منصات SOAR التقليدية: دفاتر العمل وتنسيق الواجهات | Security Orchestration | التنسيق الأمني (Orchestration) | Automated Playbooks | أتمتة الإجراءات (Automation) | Incident Case Management | إدارة الحوادث (Response)
+Numbers/Units: ['2', 'events', 'alert', '2', '2.2', '2', '22', '24', '2023', '609', '2.2', '2', '22', '24', '2023']
+Content preview: Chapter 2 &ndash; Background الفصل الثاني &ndash; الخلفية التقنية Conventional SOAR: Playbooks &amp; API Orchestration منصات SOAR التقليدية: دفاتر العمل وتنسيق الواجهات Security Orchestration التنسيق الأمني (Orchestration) SOAR refers to software platforms designed to integrate disparate security ap...
+
+======================================================================
+SLIDE 9 (id='s8')
+======================================================================
+Headers: Limitations of Conventional SOAR Automation | أوجه القصور في أتمتة منصات SOAR التقليدية | Inability to Adapt | العجز عن التكيف مع المستجدات | Lack of Risk Context | غياب السياق الأمني للمخاطر | Disruption Hazards | مخاطر التعطيل الذاتي للأعمال
+Numbers/Units: ['2', 'alert', 'alert', 'event', 'alert', 'event', '2', '2.2', '3', '24', '25', '2.2', '3', '24', '25']
+Content preview: Chapter 2 &ndash; Critical Analysis الفصل الثاني &ndash; نقد وقصور الأدبيات Limitations of Conventional SOAR Automation أوجه القصور في أتمتة منصات SOAR التقليدية Inability to Adapt العجز عن التكيف مع المستجدات Playbooks operate on predefined conditions; when threat behavior deviates from anticipated...
+
+======================================================================
+SLIDE 10 (id='s9')
+======================================================================
+Headers: AI/ML as a Force Multiplier in Security Operations | الذكاء الاصطناعي كمضاعف قوة في مراكز العمليات | Data-Driven Analytical Augmentation | التعزيز التحليلي المعتمد على البيانات | Human-AI Teaming Paradigm | نموذج تكامل الإنسان والذكاء الاصطناعي
+Numbers/Units: ['2', 'events', 'event', '2', '2.4', '27', '28', '2.4', '27', '28', '2.4', '10', '25']
+Content preview: Chapter 2 &ndash; Intelligent Augmentation الفصل الثاني &ndash; التعزيز بالذكاء الاصطناعي AI/ML as a Force Multiplier in Security Operations الذكاء الاصطناعي كمضاعف قوة في مراكز العمليات Data-Driven Analytical Augmentation التعزيز التحليلي المعتمد على البيانات AI/ML techniques can analyze large and ...
+
+======================================================================
+SLIDE 11 (id='s10')
+======================================================================
+Headers: Comparative Analysis of Existing ML-Based SOC Triage Approaches | المقارنة المعيارية لأنظمة الفرز الأمني القائمة على تعلم الآلة (جدول 2-1)
+Numbers/Units: ['2', '2', '1', '2.4', '4', '2', '1', '2.4', '4', '2', '1', '2019', 'events', 'event', '0.39']
+Content preview: Chapter 2 &ndash; Table 2-1 (§2.4.4) الفصل الثاني &ndash; جدول 2-1 (§2.4.4) Comparative Analysis of Existing ML-Based SOC Triage Approaches المقارنة المعيارية لأنظمة الفرز الأمني القائمة على تعلم الآلة (جدول 2-1) Study الدراسة المرجعية Data / Environment بيئة البيانات AI/ML Approach نموذج الذكاء الا...
+
+======================================================================
+SLIDE 12 (id='s11')
+======================================================================
+Headers: The Research Gap: The Missing Integration Link | الفجوة البحثية: حلقة الوصل المفقودة بين التحليل والأتمتة | Academic ML Research | أبحاث تعلم الآلة الأكاديمية | Commercial SOAR Frameworks | منصات SOAR التجارية
+Numbers/Units: ['2', 'alert', 'event', 'alert', 'alert', 'alert', '2', '2.5', '33', '35', '2.5', '33', '35', '2.5', '12']
+Content preview: Chapter 2 &ndash; Research Gap الفصل الثاني &ndash; الفجوة البحثية The Research Gap: The Missing Integration Link الفجوة البحثية: حلقة الوصل المفقودة بين التحليل والأتمتة Academic ML Research أبحاث تعلم الآلة الأكاديمية Existing research demonstrates the use of ML for security alert analysis and SOA...
+
+======================================================================
+SLIDE 13 (id='s12')
+======================================================================
+Headers: High-Level Architecture Overview | المعمارية الشاملة لأداة SOAR المدعومة بالذكاء الاصطناعي
+Numbers/Units: ['3', '3', '3.1', '3.2', '5', '37', '39', '3.1', '3.2', '37', '39', '3.1', '3.2', '13', '25']
+Content preview: Chapter 3 &ndash; System Architecture الفصل الثالث &ndash; المعمارية المقترحة High-Level Architecture Overview المعمارية الشاملة لأداة SOAR المدعومة بالذكاء الاصطناعي Ingestion الاستيعاب SIEM Events EDR Telemetry IDS/IPS Alerts Firewall Logs CEF/Syslog Parser Enrichment الإثراء Asset Criticality DB ...
+
+======================================================================
+SLIDE 14 (id='s13')
+======================================================================
+Headers: Alert Ingestion &amp; Schema Normalization | استيعاب التنبيهات وتوحيد البنية البيانية | Multi-Protocol Ingestion | استقبال متعدد البروتوكولات | Parsing &amp; Normalization | التحليل وتوحيد الحقول | Deduplication &amp; Grouping | إزالة التكرار والتجميع
+Numbers/Units: ['3', '1', 'alerts', 'alerts', 'alert', 'alert', 'alert', 'alert', 'event', 'alert', '3', '3.3', '1', '39', '41']
+Content preview: Chapter 3 &ndash; Layer 1: Ingestion الفصل الثالث &ndash; الطبقة الأولى: الاستيعاب Alert Ingestion &amp; Schema Normalization استيعاب التنبيهات وتوحيد البنية البيانية Multi-Protocol Ingestion استقبال متعدد البروتوكولات The module serves as the entry point for security alerts from heterogeneous techn...
+
+======================================================================
+SLIDE 15 (id='s14')
+======================================================================
+Headers: Multi-Dimensional Context Enrichment Pipeline | خط أنابيب إثراء السياق متعدد الأبعاد | Asset &amp; Identity Context | سياق الأصل وهوية المستخدم | Threat Intelligence Context | سياق استخبارات التهديدات | Historical &amp; Behavioral Context | السياق التاريخي والسلوكي
+Numbers/Units: ['3', '2', 'events', '3.4', '2023', 'alerts', '2', 'events', '2022', '3.4', 'alert', '3.4', '3', '3.4', '2']
+Content preview: Chapter 3 &ndash; Layer 2: Enrichment الفصل الثالث &ndash; الطبقة الثانية: إثراء السياق Multi-Dimensional Context Enrichment Pipeline خط أنابيب إثراء السياق متعدد الأبعاد Asset &amp; Identity Context سياق الأصل وهوية المستخدم Provides organizational context: asset type, business criticality, network...
+
+======================================================================
+SLIDE 16 (id='s15')
+======================================================================
+Headers: AI/ML Triage &amp; Dynamic Risk Scoring Formulation | الفرز الذكي وصياغة معادلة تقييم المخاطر الديناميكية | Mandatory Analytical Output (§3.5) | المخرج التحليلي الأساسي (§3.5) | Supporting Outputs: Confidence &amp; Actionability | المخرجات المساندة: مؤشر الثقة وقابلية التنفيذ
+Numbers/Units: ['3', '3', '3.5', '3.5', 'alert', '0', '1', '0', '1', 'alerts', 'events', '2019', '0', '1', '3']
+Content preview: Chapter 3 &ndash; Layer 3: AI Engine الفصل الثالث &ndash; الطبقة الثالثة: محرك الذكاء AI/ML Triage &amp; Dynamic Risk Scoring Formulation الفرز الذكي وصياغة معادلة تقييم المخاطر الديناميكية Mandatory Analytical Output (§3.5) المخرج التحليلي الأساسي (§3.5) The primary output of the engine is a Contex...
+
+======================================================================
+SLIDE 17 (id='s16')
+======================================================================
+Headers: Adaptive Alert Prioritization &amp; Noise Suppression | الأولويات التكيفية وقمع الضجيج الأمني | Dynamic Queue Prioritization | ترتيب طوابير التحقيق ديناميكياً | Suppression vs. Deprioritization | القمع المنضبط مقابل خفض الأولوية | Policy Safeguards &amp; Overrides | ضمانات السياسات والاستثناءات
+Numbers/Units: ['3', 'alert', '2024', 'alerts', 'alerts', 'events', '3.5', 'events', '3.5', '3.5', '22.9%', '3.5', '22.9%', '3', '3.5']
+Content preview: Chapter 3 &ndash; Dynamic Queue الفصل الثالث &ndash; إدارة الأولويات الذكية Adaptive Alert Prioritization &amp; Noise Suppression الأولويات التكيفية وقمع الضجيج الأمني Dynamic Queue Prioritization ترتيب طوابير التحقيق ديناميكياً Converts analytical outputs into operational decisions about alert orde...
+
+======================================================================
+SLIDE 18 (id='s17')
+======================================================================
+Headers: Automated Response Playbooks &amp; SOAR Integration | دفاتر العمل المؤتمتة وتكامل منصة SOAR | Host Isolation | عزل الأجهزة الطرفية | Firewall IP Block | حظر العناوين بالجدار الناري | Account Revocation | تجميد حسابات المستخدمين | Phishing Purge | سحب رسائل الاصطياد
+Numbers/Units: ['3', '4', '2', '2', '365', '3.7', '3', '3.7', '4', '47', '49', '3.7', '47', '49', '3.7']
+Content preview: Chapter 3 &ndash; Layer 4: Orchestration الفصل الثالث &ndash; الطبقة الرابعة: دفاتر الاستجابة Automated Response Playbooks &amp; SOAR Integration دفاتر العمل المؤتمتة وتكامل منصة SOAR Host Isolation عزل الأجهزة الطرفية Quarantines compromised endpoints via EDR API, cutting off network lateral moveme...
+
+======================================================================
+SLIDE 19 (id='s18')
+======================================================================
+Headers: Human-AI Teaming: Policy States &amp; Controlled Decision Gates | تكامل الإنسان والذكاء: حالات السياسة وبوابات القرار المنضبطة | Automated Response | المستوى 1: استجابة مؤتمتة | Human Approval Required | المستوى 2: اشتراط الموافقة | Analyst Investigation | المستوى 3: تحقيق المحلل | Monitor / Record | المستوى 4: المراقبة والتوثيق
+Numbers/Units: ['3', '3.7', '3.7', '1', '1', '3.7', '3.7', '2', '2', '3.7', '3.7', '3', '3', 'alert', '3.7']
+Content preview: Chapter 3 &ndash; Controlled Autonomy (§3.7) الفصل الثالث &ndash; بوابات التحكم والرقابة (§3.7) Human-AI Teaming: Policy States &amp; Controlled Decision Gates تكامل الإنسان والذكاء: حالات السياسة وبوابات القرار المنضبطة S1 Automated Response المستوى 1: استجابة مؤتمتة High Confidence + Low Blast Rad...
+
+======================================================================
+SLIDE 20 (id='s19')
+======================================================================
+Headers: Continuous Analyst Feedback Loop &amp; Model Adaptation | حلقة التغذية الراجعة المستمرة وتكييف النماذج | Analyst Resolution Capture | التقاط قرارات المحللين | Concept Drift Monitoring | رصد انحراف المفاهيم (Drift) | Scheduled Retraining Pipeline | إعادة التدريب المجدولة
+Numbers/Units: ['3', 'alert', 'alert', 'alerts', 'events', '3', '3.8', '50', '51', '3.8', '50', '51', '3.8', '20', '25']
+Content preview: Chapter 3 &ndash; Continuous Learning الفصل الثالث &ndash; حلقة التعلم المستمر Continuous Analyst Feedback Loop &amp; Model Adaptation حلقة التغذية الراجعة المستمرة وتكييف النماذج Analyst Resolution Capture التقاط قرارات المحللين During alert investigation, an analyst may confirm or reject the model...
+
+======================================================================
+SLIDE 21 (id='s20')
+======================================================================
+Headers: Design Science Research (DSR) &ndash; 6 Rigorous Phases | منهجية بحوث علوم التصميم (DSR) &ndash; المراحل الست المعتمدة | Phase 1: Problem Identification &amp; Motivation | المرحلة 1: تحديد المشكلة والدافع البحثي | Phase 2: Objectives &amp; Solution Definition | المرحلة 2: تعريف أهداف الحل المقترح | Phase 3: Design &amp; System Architecture &larr; [Graduation Project 1 Scope] | المرحلة 3: تصميم المعمارية والمكونات &larr; [نطاق مشروع تخرج 1 المنجز] | Phase 4: Data Collection &amp; Preparation &larr; [GP2] | المرحلة 4: جمع وتجهيز البيانات &larr; [مشروع 2] | Phase 5: AI/ML Model Development &amp; Risk Scoring &larr; [GP2] | المرحلة 5: تطوير نماذج التعلم وتقييم المخاطر &larr; [مشروع 2] | Phase 6: SOAR Integration &amp; Prototype Evaluation &larr; [GP2] | المرحلة 6: تكامل SOAR والتقييم التجريبي &larr; [مشروع 2]
+Numbers/Units: ['6', '1', '1', '1', 'alert', 'alert', '1', '2', '2', '2', 'alert', 'alert', '1', '3', '3']
+Content preview: Research Methodology &ndash; Design Science Research (DSR) الفصل الثاني &ndash; منهجية البحث العلمي Design Science Research (DSR) &ndash; 6 Rigorous Phases منهجية بحوث علوم التصميم (DSR) &ndash; المراحل الست المعتمدة P1 Phase 1: Problem Identification &amp; Motivation المرحلة 1: تحديد المشكلة والداف...
+
+======================================================================
+SLIDE 22 (id='s21')
+======================================================================
+Headers: System Architecture &amp; Prototype Integration Environment | معمارية النظام وبيئة التكامل والمحاكاة للنموذج الأولي | Multi-Agent Layer | طبقة الوكلاء الأذكياء | Ingestion &amp; Connectors | الاستيعاب وموصلات المصادر | Analytical Scoring Engine | محرك التحليل والتقييم | SOAR API Playbooks | دفاتر عمل SOAR والواجهات
+Numbers/Units: ['3', '3.2', '3.3', '1.6', '3.2', '3.3', '1.6', '2026', 'alert', '3.2', '1', '2026', '3.2', '1', 'alerts']
+Content preview: Chapter 3 &ndash; System Architecture &sect;3.2-3.3, &sect;1.6 الفصل الثالث &ndash; المعمارية وبيئة المحاكاة &sect;3.2-3.3, &sect;1.6 System Architecture &amp; Prototype Integration Environment معمارية النظام وبيئة التكامل والمحاكاة للنموذج الأولي Multi-Agent Layer طبقة الوكلاء الأذكياء Informed by ...
+
+======================================================================
+SLIDE 23 (id='s22')
+======================================================================
+Headers: Operational Incident Handling Workflow &amp; Empirical Benchmarks | مسار المعالجة التشغيلي للحوادث والمؤشرات المعيارية من الأدبيات | End-to-End Operational Pipeline (§3.2) | المسار التشغيلي المتكامل لمعالجة الحادث (§3.2) | 1. Alert Ingestion &amp; Normalization (§3.3) | 1. استيعاب التنبيه وتوحيد الحقول (§3.3) | 2. Multi-Dimensional Context Enrichment (§3.4) | 2. إثراء السياق متعدد الأبعاد (§3.4) | 3. AI Triage &amp; Risk Scoring (§3.5) | 3. التقييم الذكي للمخاطر (§3.5) | 4. Dynamic Prioritization &amp; Policy Gate (§3.6, §3.7) | 4. الترتيب الديناميكي وبوابة السياسات (§3.6, §3.7) | 5. Controlled SOAR Execution &amp; Feedback (§3.7, §3.8) | 5. التنفيذ عبر SOAR وتسجيل التغذية (§3.7, §3.8) | Empirical Benchmarks from Literature | المؤشرات والأرقام المعيارية المثبتة بالأدبيات
+Numbers/Units: ['3', '3.2', '3.7', '2.4', '3.2', '3.7', '2.4', '3.2', '3.2', '1', '1', '3.3', '1', '3.3', '2']
+Content preview: Chapter 3 &ndash; Operational Workflow &amp; Literature Benchmarks (§3.2, §3.7, §2.4) الفصل الثالث &ndash; مسار المعالجة التشغيلي والمقارنات المعيارية للأدبيات (§3.2, §3.7, §2.4) Operational Incident Handling Workflow &amp; Empirical Benchmarks مسار المعالجة التشغيلي للحوادث والمؤشرات المعيارية من ا...
+
+======================================================================
+SLIDE 24 (id='s23')
+======================================================================
+Headers: Operational Challenges, Risks &amp; Technical Adaptations | التحديات والمخاطر التشغيلية والإجراءات التقنية المتخذة | Log Schema Divergence | تباين صيغ السجلات الأمنية | False-Positive Automation | مخاطر الأتمتة على الإنذارات الكاذبة | Temporal Concept Drift | انحراف النماذج مع تطور التهديدات
+Numbers/Units: ['9', '9', '1.2', '2.4', '3.8', '1.2', '2.4', '3.8', '1.1', '3.3', '1.1', '3.3', '3.3', 'alerts', '2.2']
+Content preview: Graduation Defense Guide §9 &middot; Operational Risk Controls دليل إعداد العرض §9 &middot; إدارة المخاطر والإجراءات الدفاعية Operational Challenges, Risks &amp; Technical Adaptations التحديات والمخاطر التشغيلية والإجراءات التقنية المتخذة Real-world SOC deployments encounter severe friction across d...
+
+======================================================================
+SLIDE 25 (id='s24')
+======================================================================
+Headers: Current Achievements &amp; Phase 2 Execution Roadmap | ما تم إنجازه وخارطة طريق تنفيذ المرحلة الثانية (مشروع 2) | Completed in GP1 | ما تم إنجازه في مشروع 1 | GP2 Roadmap (Weeks 1-12) | خارطة مشروع 2 (الأسابيع 1-12) | Evaluation Target Metrics | معايير التقييم المستهدفة | Thank You &ndash; Open for Discussion &amp; Defense Questions | شكراً لحسن استماعكم &ndash; مستعدون لأسئلة وملاحظات لجنة المناقشة الموقرة
+Numbers/Units: ['1', '3', '1', '3', '2', '2', '1', '1', '1.2', '1.4', 'alert', '100', 'GB', '2.4', '2.5']
+Content preview: Chapter 1-3 Synthesis &middot; Project Defense Wrap-Up خلاصة إنجاز الفصول 1-3 &middot; خاتمة مناقشة المشروع Current Achievements &amp; Phase 2 Execution Roadmap ما تم إنجازه وخارطة طريق تنفيذ المرحلة الثانية (مشروع 2) Completed in GP1 ما تم إنجازه في مشروع 1 Empirical Problem Formulation (§1.2-1.4):...

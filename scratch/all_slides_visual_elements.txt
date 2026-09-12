@@ -1,0 +1,461 @@
+
+================================================================================
+SLIDE 01 (id='s0')
+================================================================================
+Title: AI-Based Security Orchestration, Automation &amp; Response (SOAR) Tool 
+  أداة أمنية ذكية للتنسيق والأتمتة والاستجابة للحوادث السيبرانية (SOAR)
+Tag: 
+Lead: An intelligent framework bridging context-aware machine learning triage, dynamic risk prioritization, and automated response orchestration to resolve alert fatigue in modern Security Operations Centers (SOC).
+Banner/HL: Academic Supervisor:  Dr. Raed Saeed &nbsp;|&nbsp;
+  Major:  Bachelor's in Cybersecurity and Networking &nbsp;|&nbsp;
+  Department:  Computer Science
+  
+  
+  المشرف العلمي:  د. رائد سعيد &nbsp;|&nbsp;
+  التخصص:  الأمن السيبراني والشبكات &nbsp;|&nbsp;
+  القسم:  علوم الحاسوب
+Cards found: 0
+Stat boxes found: 0
+
+================================================================================
+SLIDE 02 (id='s1')
+================================================================================
+Title: The Modern SOC Operational Landscape
+Tag: Chapter 1 &ndash; Operational Context  الفصل الأول &ndash; السياق التشغيلي
+Lead: A Security Operations Center (SOC) centralizes cyber threat monitoring, detection, and incident response, but faces acute operational strain from massive log volumes and heterogeneous data schemas.
+Cards found: 3
+  Card 1: Data Influx &amp; SIEM Role
+    Content: طوفان البيانات ودور SIEM 
+  Organizations implement SIEM platforms for centralized log management, security-event collec...
+  Card 2: Heterogeneous Tool Stacks
+    Content: تشتت الأدوات الأمنية 
+  Security monitoring relies on diverse outputs from multi-vendor security stacks. Because these t...
+  Card 3: Tiered Analyst Hierarchy
+    Content: هرمية المحللين المرهقة 
+  Security analysts are structured into a tiered organizational model. Junior analysts conduct i...
+Stat boxes found: 3
+  Stat 1: 100 GB - Daily Log &amp; Alert Influx
+  Stat 2: 22.9% - Queue Dwell Time Reduction
+  Stat 3: 54% - FP Suppression (95.1% Capture)
+
+================================================================================
+SLIDE 03 (id='s2')
+================================================================================
+Title: The Core Crisis: Alert Fatigue &amp; Cognitive Overload
+Tag: 
+Lead: The convergence of massive alert volumes and excessive false positives creates acute analyst workload, cognitive burnout, and critical response delays.
+Cards found: 3
+  Card 1: Alert Influx &amp; Noise
+    Content: فيضان التنبيهات والضجيج 
+  Modern SOCs accumulate up to 100 GB of log data daily. A substantial portion consists of non-...
+  Card 2: Context Switching
+    Content: عنق زجاجة تبديل السياق 
+  Analysts manually investigate alerts through continuous context switching—repeatedly pivoting ...
+  Card 3: Static Rules &amp; Queues
+    Content: القواعد الثابتة وطوابير الانتظار 
+  Conventional SOAR relies on deterministic rules and static playbooks that cannot ada...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 04 (id='s3')
+================================================================================
+Title: The Triage Bottleneck: Static Rules &amp; Context Switching
+Tag: Chapter 1 &ndash; Operational Friction  الفصل الأول &ndash; قيود الفرز اليدوي
+Banner/HL: Key Takeaway:  These challenges motivate the ongoing need to investigate how intelligent alert analysis and prioritization can be integrated with operational workflows to support adaptive incident handling. 
+   الخلاصة:  الأتمتة التقليدية تنفذ مهام محددة سلفاً، لكنها تفتقر للذكاء القادر على فهم السياق التشغيلي وتقدير المخاطر قبل تنفيذ إجراءات الاستجابة.
+Cards found: 3
+  Card 1: Rigid Rule-Based Triage
+    Content: جمود الفرز القائم على القواعد 
+  Rigid conditional statements may become less effective against novel or evasive threats...
+  Card 2: Severe Context Switching
+    Content: تبديل السياق بين المنصات 
+  Analysts must manually gather contextual evidence from multiple disparate security sources. ...
+  Card 3: Prioritization Blindspots
+    Content: غياب الأولوية الديناميكية 
+  When prioritization relies primarily on fixed decision rules, highly critical incidents can...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 05 (id='s4')
+================================================================================
+Title: Project Objectives: Strategic &amp; Operational
+Tag: Chapter 1 &ndash; Project Goals  الفصل الأول &ndash; أهداف المشروع
+Banner/HL: Primary Objective:  Investigate, design, and propose an integrated  AI-Based Security Orchestration, Automation, and Response (SOAR) tool  that addresses operational bottlenecks by integrating intelligent security alert analysis, risk-based scoring, dynamic prioritization, and automated incident response to support more adaptive and efficient security operations.
+  
+  
+  الهدف الرئيسي:  دراسة وتصميم وبناء أداة  SOAR معتمدة على الذكاء الاصطناعي  تعالج إرهاق التنبيهات والفرز الثابت عبر التحليل الذكي للسياق، والتقييم الديناميكي للمخاطر، والأتمتة المنسقة للاستجابة.
+Cards found: 4
+  Card 1: 1. Analyze SOC Challenges
+    Content: 1. تحليل تحديات SOC 
+  Analyze the operational challenges of current SOC alert management, specifically including alert ...
+  Card 2: 2. Literature Review
+    Content: 2. مراجعة الأدبيات 
+  Review existing AI/ML-based approaches and academic literature related to security alert analysis ...
+  Card 3: 3. Design Architecture
+    Content: 3. تصميم المعمارية 
+  Design the proposed AI-Based SOAR architecture and clearly identify its major functional component...
+  Card 4: 4. Integration &amp; Evaluation
+    Content: 4. التكامل والتقييم 
+  Integrate the outcomes of dynamic risk-based prioritization with SOAR response decision-making to...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 06 (id='s5')
+================================================================================
+Title: Project Scope and Limitations
+Tag: Chapter 1 &ndash; Project Boundaries  الفصل الأول &ndash; نطاق وحدود المشروع
+Cards found: 2
+  Card 1: In-Scope Focus Areas
+    Content: ما يقع داخل نطاق المشروع (In-Scope) 
+  
+   Alert Ingestion &amp; Normalization:  Integration of AI/ML for security alert...
+  Card 2: Out-of-Scope Boundaries
+    Content: ما يقع خارج نطاق المشروع (Out-of-Scope) 
+  
+   Dataset Constraints:  Model training may depend on synthetic, public, or ...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 07 (id='s6')
+================================================================================
+Title: Evolution of Security Operations Technologies
+Tag: Chapter 2 &ndash; Literature Review  الفصل الثاني &ndash; الإطار النظري
+Banner/HL: Key Insight:  SIEM primarily supports broad data collection and querying, whereas SOAR introduces configurable workflows that guide or automate investigation and incident-response activities. The output of a SIEM may serve as an input to subsequent triage, enrichment, investigation, and response processes. 
+   الرؤية النظرية:  الانتقال من المطابقة الحرفية للقواعد إلى النماذج الإحصائية لتعلم الآلة يمنح المنظومة مرونة في التعامل مع تسارع التهديدات.
+Cards found: 4
+  Card 1: Log Management
+    Content: الجيل الأول: إدارة السجلات 
+  Security telemetry collected from multiple sources including network and endpoint monitori...
+  Card 2: SIEM Era
+    Content: الجيل الثاني: أنظمة SIEM 
+  SIEM systems aggregate and query security data from distributed sources, providing centraliz...
+  Card 3: Conventional SOAR
+    Content: الجيل الثالث: SOAR التقليدي 
+  SOAR platforms integrate disparate security applications and human processes into a unifi...
+  Card 4: AI-Augmented SOAR
+    Content: الجيل الرابع: SOAR المعزز بالذكاء 
+  AI/ML can extend SOAR by improving analytical, threat-intelligence, detection, and ...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 08 (id='s7')
+================================================================================
+Title: Conventional SOAR: Playbooks &amp; API Orchestration
+Tag: Chapter 2 &ndash; Background  الفصل الثاني &ndash; الخلفية التقنية
+Cards found: 3
+  Card 1: Security Orchestration
+    Content: التنسيق الأمني (Orchestration) 
+  SOAR refers to software platforms designed to integrate disparate security application...
+  Card 2: Automated Playbooks
+    Content: أتمتة الإجراءات (Automation) 
+  Workflows can automate data-collection steps, coordinate actions across multiple systems...
+  Card 3: Incident Case Management
+    Content: إدارة الحوادث (Response) 
+  SOAR technologies reduce fragmentation of security activities by combining alert information...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 09 (id='s8')
+================================================================================
+Title: Limitations of Conventional SOAR Automation
+Tag: Chapter 2 &ndash; Critical Analysis  الفصل الثاني &ndash; نقد وقصور الأدبيات
+Banner/HL: Synthesis:  SOAR provides workflow management, integration, and execution capabilities, whereas AI/ML can contribute data-driven inference to activities that are difficult to represent entirely through manually specified rules. This distinction is particularly relevant to alert handling, where event significance depends on multiple attributes and contextual information. 
+   الاستنتاج:  يوفر SOAR التقليدي "القوة التنفيذية" لكنه يفتقر إلى "العقل التحليلي" القادر على وزن المخاطر وفهم السياق قبل إصدار القرارات.
+Cards found: 3
+  Card 1: Inability to Adapt
+    Content: العجز عن التكيف مع المستجدات 
+  Playbooks operate on predefined conditions; when threat behavior deviates from anticipat...
+  Card 2: Lack of Risk Context
+    Content: غياب السياق الأمني للمخاطر 
+  Conventional SOAR does not inherently assess whether an alert's risk justifies the operati...
+  Card 3: Disruption Hazards
+    Content: مخاطر التعطيل الذاتي للأعمال 
+  Fully autonomous execution of high-impact security actions introduces inherent operation...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 10 (id='s9')
+================================================================================
+Title: AI/ML as a Force Multiplier in Security Operations
+Tag: Chapter 2 &ndash; Intelligent Augmentation  الفصل الثاني &ndash; التعزيز بالذكاء الاصطناعي
+Cards found: 2
+  Card 1: Data-Driven Analytical Augmentation
+    Content: التعزيز التحليلي المعتمد على البيانات 
+  AI/ML techniques can analyze large and heterogeneous security datasets to ident...
+  Card 2: Human-AI Teaming Paradigm
+    Content: نموذج تكامل الإنسان والذكاء الاصطناعي 
+  AI/ML does not necessarily replace existing SOC technologies; rather, it provid...
+Stat boxes found: 3
+  Stat 1: AI/ML - Analytical Augmentation Layer
+  Stat 2: SOAR - Workflow Execution Platform
+  Stat 3: DSR - Research Methodology
+
+================================================================================
+SLIDE 11 (id='s10')
+================================================================================
+Title: Comparative Analysis of Existing ML-Based SOC Triage Approaches
+Tag: Chapter 2 &ndash; Table 2-1  الفصل الثاني &ndash; جدول 2-1
+Banner/HL: Synthesis of Literature Table 2-1:  None of the reviewed academic or preprint systems execute automated downstream SOAR response workflows. This empirically establishes the  core research gap  addressed by our project. 
+   خلاصة المقارنة المعيارية من جدول 2-1:  جميع الأنظمة الأكاديمية السابقة تتوقف عند الفرز أو إعادة الترتيب دون أي تنفيذ آلي للاستجابة عبر SOAR، وهو ما يثبت علمياً الفجوة البحثية الجوهرية لمشروعنا.
+Cards found: 0
+Stat boxes found: 0
+Table rows found: 6
+
+================================================================================
+SLIDE 12 (id='s11')
+================================================================================
+Title: The Research Gap: The Missing Integration Link
+Tag: Chapter 2 &ndash; Research Gap  الفصل الثاني &ndash; الفجوة البحثية
+Banner/HL: Our Research Gap:  This project investigates the  architectural integration  of AI/ML-based alert analysis, risk-based scoring, dynamic prioritization, and SOAR automated response. The proposed tool examines how intelligent triage outputs can support more adaptive response decisions within operational SOAR workflows.
+  
+  
+  مساهمة مشروعنا:  بناء خط معالجة متكامل يغذي  تنبؤات المخاطر الذكية  مباشرة داخل  مسارات أتمتة SOAR  تحت إشراف وتحكم أمني منضبط.
+Cards found: 2
+  Card 1: Academic ML Research
+    Content: أبحاث تعلم الآلة الأكاديمية 
+  Existing research demonstrates the use of ML for security alert analysis and SOAR workflo...
+  Card 2: Commercial SOAR Frameworks
+    Content: منصات SOAR التجارية 
+  Research on automated incident response addresses a complementary portion of the incident-handlin...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 13 (id='s12')
+================================================================================
+Title: High-Level Architecture Overview
+Tag: Chapter 3 &ndash; System Architecture  الفصل الثالث &ndash; المعمارية المقترحة
+Cards found: 0
+Stat boxes found: 0
+
+================================================================================
+SLIDE 14 (id='s13')
+================================================================================
+Title: Alert Ingestion &amp; Schema Normalization
+Tag: Chapter 3 &ndash; Layer 1: Ingestion  الفصل الثالث &ndash; الطبقة الأولى: الاستيعاب
+Banner/HL: Design Principle:  The module separates source-specific integration concerns from the internal processing logic of the tool, ensuring that the remaining components do not require understanding of each vendor-specific format. 
+   الكيان الموحد للحدث:  يتضمن الطابع الزمني، عناوين المصدر والوجهة، معرف المستخدم والجهاز، ونوع الحدث لبدء مرحلة الإثراء السياقي.
+Cards found: 3
+  Card 1: Multi-Protocol Ingestion
+    Content: استقبال متعدد البروتوكولات 
+  The module serves as the entry point for security alerts from heterogeneous technologies. ...
+  Card 2: Parsing &amp; Normalization
+    Content: التحليل وتوحيد الحقول 
+  The normalization process preserves security-relevant information while standardizing fields re...
+  Card 3: Deduplication &amp; Grouping
+    Content: إزالة التكرار والتجميع 
+  Before forwarding an alert, the module performs basic validation and preprocessing: verifying ...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 15 (id='s14')
+================================================================================
+Title: Multi-Dimensional Context Enrichment Pipeline
+Tag: Chapter 3 &ndash; Layer 2: Enrichment  الفصل الثالث &ndash; الطبقة الثانية: إثراء السياق
+Banner/HL: Enrichment Modular Resilience &amp; Scope:  The layer degrades gracefully when particular enrichment sources are temporarily unavailable. It creates an enriched alert representation without assigning final priority or executing response actions directly. 
+   المرونة المعيارية وحدود الإثراء:  يتكيف النظام بسلاسة عند تعذر أحد مصادر الإثراء. وتقتصر وظيفته على تجهيز كائن التنبيه المثرى دون اتخاذ قرارات الأولوية أو الاستجابة بشكل مباشر.
+Cards found: 3
+  Card 1: Asset &amp; Identity Context
+    Content: سياق الأصل وهوية المستخدم 
+  Provides organizational context: asset type, business criticality, network location, and ex...
+  Card 2: Threat Intelligence Context
+    Content: سياق استخبارات التهديدات 
+  Enriches observable indicators (IPs, domains, URLs, file hashes) with reputation status, ind...
+  Card 3: Historical &amp; Behavioral Context
+    Content: السياق التاريخي والسلوكي 
+  Determines whether similar alerts, indicators, or assets appeared previously within a tempor...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 16 (id='s15')
+================================================================================
+Title: AI/ML Triage &amp; Dynamic Risk Scoring Formulation
+Tag: Chapter 3 &ndash; Layer 3: AI Engine  الفصل الثالث &ndash; الطبقة الثالثة: محرك الذكاء
+Cards found: 2
+  Card 1: Mandatory Analytical Output
+    Content: المخرج التحليلي الأساسي 
+  The primary output of the engine is a  Contextual Risk Score  representing the estimated oper...
+  Card 2: Supporting Outputs: Confidence &amp; Actionability
+    Content: المخرجات المساندة: مؤشر الثقة وقابلية التنفيذ 
+  
+   Confidence Indicator:  Conceptually distinct from risk score (Risk ...
+Stat boxes found: 3
+  Stat 1: [0, 1] - Normalized Risk Range
+  Stat 2: Distinct - Risk vs. Confidence Outputs
+  Stat 3: Separated - Engine vs. Action Execution
+
+================================================================================
+SLIDE 17 (id='s16')
+================================================================================
+Title: Adaptive Alert Prioritization &amp; Noise Suppression
+Tag: Chapter 3 &ndash; Dynamic Queue  الفصل الثالث &ndash; إدارة الأولويات الذكية
+Banner/HL: Operational Rationale:  Dynamic, risk-aware ordering can reduce the time critical incidents spend waiting in analyst queues (by 22.9% in literature). The prioritization module ensures that genuine threats are identified rapidly without simultaneously increasing the manual investigative burden placed on human analysts. 
+   الأساس المنطقي التشغيلي:  الترتيب الديناميكي الواعي بالمخاطر يقلل الوقت الذي تقضيه الحوادث الحرجة في طوابير الانتظار (بنسبة 22.9% وفق الأدبيات)، مما يضمن الكشف السريع عن التهديدات الحقيقية دون زيادة أعباء التحقيق اليدوي على المحللين.
+Cards found: 3
+  Card 1: Dynamic Queue Prioritization
+    Content: ترتيب طوابير التحقيق ديناميكياً 
+  Converts analytical outputs into operational decisions about alert ordering. Alerts a...
+  Card 2: Suppression vs. Deprioritization
+    Content: القمع المنضبط مقابل خفض الأولوية 
+  Suppressed alerts are excluded from primary queues under explicit policy conditions ...
+  Card 3: Policy Safeguards &amp; Overrides
+    Content: ضمانات السياسات والاستثناءات 
+  Operational rules override model scores when critical assets, privileged accounts, or no...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 18 (id='s17')
+================================================================================
+Title: Automated Response Playbooks &amp; SOAR Integration
+Tag: Chapter 3 &ndash; Layer 4: Orchestration  الفصل الثالث &ndash; الطبقة الرابعة: دفاتر الاستجابة
+Banner/HL: Policy Principle:  The decision to automate an action considers not only the estimated security risk but also the potential impact of the response itself. Performing an enrichment query carries less operational risk than disabling a privileged account, isolating a production endpoint, or modifying a firewall policy. 
+   مبدأ سياسة الاستجابة:  يراعي قرار أتمتة الإجراء الأثر التشغيلي المحتمل للاستجابة ذاتها إلى جانب تقدير المخاطر؛ فالاستعلام عن سياق التهديد يحمل مخاطر تشغيلية أقل بكثير من عزل خادم إنتاج أو تجميد حساب ذي صلاحيات واسعة أو تعديل سياسات الجدار الناري.
+Cards found: 4
+  Card 1: Host Isolation
+    Content: عزل الأجهزة الطرفية 
+  Quarantines compromised endpoints via EDR API, cutting off network lateral movement while preserv...
+  Card 2: Firewall IP Block
+    Content: حظر العناوين بالجدار الناري 
+  Pushes dynamic blacklists to perimeter firewalls via API to sever active Command &amp; Co...
+  Card 3: Account Revocation
+    Content: تجميد حسابات المستخدمين 
+  Revokes compromised Kerberos tickets and disables Active Directory accounts exhibiting anomal...
+  Card 4: Phishing Purge
+    Content: سحب رسائل الاصطياد 
+  Searches Exchange/O365 mailboxes via Graph API to purge matching malicious phishing messages enter...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 19 (id='s18')
+================================================================================
+Title: Human-AI Teaming: Policy States &amp; Controlled Decision Gates
+Tag: Chapter 3 &ndash; Controlled Autonomy  الفصل الثالث &ndash; بوابات التحكم والرقابة
+Banner/HL: Controlled Autonomy Principle:  The decision to automate an action considers not only the estimated security risk but also the potential operational impact of the response itself. Strict policy safeguards prevent automatic suppression of critical assets or privileged identities regardless of model score. 
+   مبدأ الأتمتة المنضبطة:  قرار الأتمتة لا يكتفي بحساب درجة الخطر الأمني بل يوازن الأثر التشغيلي للاستجابة ذاتها، مع حظر قمع أي تنبيه يرتبط بأصول بالغة الأهمية أو حسابات حساسة مهما كانت تنبؤات النموذج.
+Cards found: 4
+  Card 1: Automated Response
+    Content: المستوى 1: استجابة مؤتمتة 
+   High Confidence + Low Blast Radius:  Executes approved low-risk or well-defined response w...
+  Card 2: Human Approval Required
+    Content: المستوى 2: اشتراط الموافقة 
+   Operational Consequences:  Generates a recommended response action but requires explicit ...
+  Card 3: Analyst Investigation
+    Content: المستوى 3: تحقيق المحلل 
+   Low Confidence or Critical Assets:  Forwards the alert to the active analyst queue for compr...
+  Card 4: Monitor / Record
+    Content: المستوى 4: المراقبة والتوثيق 
+   Audit &amp; Baseline Telemetry:  Retains the alert and all associated contextual eviden...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 20 (id='s19')
+================================================================================
+Title: Continuous Analyst Feedback Loop &amp; Model Adaptation
+Tag: Chapter 3 &ndash; Continuous Learning  الفصل الثالث &ndash; حلقة التعلم المستمر
+Cards found: 3
+  Card 1: Analyst Resolution Capture
+    Content: التقاط قرارات المحللين 
+  During alert investigation, an analyst may confirm or reject the model's risk assessment, adju...
+  Card 2: Concept Drift Monitoring
+    Content: رصد انحراف المفاهيم (Drift) 
+  Feedback can be used to assess whether the machine-learning model consistently overestima...
+  Card 3: Scheduled Retraining Pipeline
+    Content: إعادة التدريب المجدولة 
+  Feedback can support adjustment of prioritization thresholds and suppression policies when ope...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 21 (id='s20')
+================================================================================
+Title: Design Science Research (DSR) &ndash; 6 Rigorous Phases
+Tag: Research Methodology &ndash; Design Science Research (DSR)  الفصل الثاني &ndash; منهجية البحث العلمي
+Cards found: 0
+Stat boxes found: 0
+
+================================================================================
+SLIDE 22 (id='s21')
+================================================================================
+Title: System Architecture &amp; Prototype Integration Environment
+Tag: Chapter 3 &ndash; System Architecture &sect;3.2-3.3, &sect;1.6  الفصل الثالث &ndash; المعمارية وبيئة المحاكاة &sect;3.2-3.3, &sect;1.6
+Banner/HL: Graduation Project Scope &amp; Simulation Testbed:  The project focuses on architectural integration and prototype evaluation within a controlled laboratory and simulation environment appropriate for academic research, using benchmark datasets rather than live proprietary enterprise SOCs. 
+   نطاق المشروع وبيئة المحاكاة:  يركز المشروع على التكامل المعماري والتقييم التجريبي ضمن بيئة محاكاة واختبار معملية منضبطة تناسب المشروعات الأكاديمية، معتمدة على مجموعات بيانات معيارية بدلاً من بيئات الشركات التجارية المغلقة.
+Cards found: 4
+  Card 1: Multi-Agent Layer
+    Content: طبقة الوكلاء الأذكياء 
+  Attacker Agent simulates adaptive multi-stage cyber attacks in a controlled testbed; Defender A...
+  Card 2: Ingestion &amp; Connectors
+    Content: الاستيعاب وموصلات المصادر 
+  Connectors interface with SIEM, EDR, IDS, and network telemetry via REST APIs, webhooks, or...
+  Card 3: Analytical Scoring Engine
+    Content: محرك التحليل والتقييم 
+  Processes multi-dimensional context (asset criticality, identity sensitivity, threat intelligen...
+  Card 4: SOAR API Playbooks
+    Content: دفاتر عمل SOAR والواجهات 
+  Translates approved response decisions into automated API executions across target security ...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 23 (id='s22')
+================================================================================
+Title: Operational Incident Handling Workflow &amp; Empirical Benchmarks
+Tag: Chapter 3 &ndash; Operational Workflow &amp; Literature Benchmarks  الفصل الثالث &ndash; مسار المعالجة التشغيلي والمقارنات المعيارية للأدبيات
+Banner/HL: Theoretical &amp; Empirical Alignment:  Rather than relying on unverified operational claims, the workflow connects the 5-layer architecture directly with verified empirical metrics from peer-reviewed SOC literature. 
+   المطابقة العلمية والعملية:  بدلاً من التقديرات غير الموثقة، يربط المسار التشغيلي طبقات المعمارية الخمس مباشرة بمؤشرات الأداء المثبتة علمياً في أبحاث مراكز العمليات.
+Cards found: 2
+  Card 1: End-to-End Operational Pipeline
+    Content: المسار التشغيلي المتكامل لمعالجة الحادث 
+  
+  
+  1...
+  Card 2: Empirical Benchmarks from Literature
+    Content: المؤشرات والأرقام المعيارية المثبتة بالأدبيات 
+  
+  
+  
+  Queue Dwell Time Reduction 
+  تقليص زمن انتظار الحوادث الحرجة ...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 24 (id='s23')
+================================================================================
+Title: Operational Challenges, Risks &amp; Technical Adaptations
+Tag: Graduation Defense Guide &middot; Operational Risk Controls 
+  دليل إعداد العرض &middot; إدارة المخاطر والإجراءات الدفاعية
+Lead: Real-world SOC deployments encounter severe friction across data variance, high-speed triage risks, and temporal model degradation. The proposed architecture directly embeds countermeasures at each architectural layer.
+Cards found: 3
+  Card 1: Log Schema Divergence
+    Content: تباين صيغ السجلات الأمنية 
+  Multi-vendor tool telemetry (firewalls, EDR, SIEM) outputs incompatible fields, causing pip...
+  Card 2: False-Positive Automation
+    Content: مخاطر الأتمتة على الإنذارات الكاذبة 
+  Uncontrolled automated containment on benign alerts risks cutting business-critic...
+  Card 3: Temporal Concept Drift
+    Content: انحراف النماذج مع تطور التهديدات 
+  Adversarial TTPs evolve rapidly, causing static machine learning classifiers to expe...
+Stat boxes found: 0
+
+================================================================================
+SLIDE 25 (id='s24')
+================================================================================
+Title: Current Achievements &amp; Phase 2 Execution Roadmap
+Tag: Chapter 1-3 Synthesis &middot; Project Defense Wrap-Up 
+  خلاصة إنجاز الفصول 1-3 &middot; خاتمة مناقشة المشروع
+Banner/HL: Thank You &ndash; Open for Discussion &amp; Defense Questions 
+  شكراً لحسن استماعكم &ndash; مستعدون لأسئلة وملاحظات لجنة المناقشة الموقرة 
+  Supervised by Dr. Raed Saeed &middot; Department of Computer Science &middot; University of Science and Technology 
+  إشراف الدكتور رائد سعيد &middot; قسم علوم الحاسوب &middot; جامعة العلوم والتكنولوجيا
+Cards found: 3
+  Card 1: Completed in GP1
+    Content: ما تم إنجازه في مشروع 1 
+  
+   Empirical Problem Formulation:  Documented alert fatigue, 100 GB daily influx, and triage...
+  Card 2: GP2 Roadmap (Weeks 1-12)
+    Content: خارطة مشروع 2 (الأسابيع 1-12) 
+  
+   Phase 4 (Weeks 1-4):  SOC alert dataset curation, schema parsing &amp; feature vect...
+  Card 3: Evaluation Target Metrics
+    Content: معايير التقييم المستهدفة 
+  
+   Dwell Time Reduction:  Target >= 22.9% reduction in queue dwell time. 
+   Noise Suppress...
+Stat boxes found: 0

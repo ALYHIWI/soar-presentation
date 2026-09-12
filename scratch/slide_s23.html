@@ -1,0 +1,79 @@
+<section class="slide" id="s23">
+  <div class="orb o2" style="opacity:0.4"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      <span class="en">Chapter 3 &ndash; Operational Scenario</span><span class="ar" style="display:none">الفصل الثالث &ndash; سيناريو تطبيقي واقعي</span>
+    </div>
+    <h2 class="st en">Operational Scenario Walkthrough: Rapid Ransomware Containment</h2>
+    <h2 class="st ar" style="display:none">سيناريو تطبيقي: احتواء سريع لهجوم فدية واختراق شبكي</h2>
+    <div class="gl"></div>
+    <div class="grid g2" style="gap:20px">
+      <div class="card" style="padding:14px">
+        <h3 class="ct en" style="color:var(--acc)">Incident Timeline (Simulated)</h3>
+        <h3 class="ct ar" style="display:none;color:var(--acc)">المسار الزمني للحادث</h3>
+        <div class="tl" style="margin-top:10px">
+          <div class="ti">
+            <div class="td" style="font-size:0.7rem">00s</div>
+            <div class="tic">
+              <h4 class="en" style="font-size:0.8rem">1. Alert Ingestion</h4><h4 class="ar" style="display:none;font-size:0.8rem">1. وصول التنبيه</h4>
+              <p class="en">EDR flags suspicious PowerShell execution on Workstation-42 attempting volume shadow deletion.</p>
+              <p class="ar" style="display:none">حساس EDR يلتقط تشغيل أوامر مريبة تحاول حذف النسخ الاحتياطية على جهاز موظف.</p>
+            </div>
+          </div>
+          <div class="ti">
+            <div class="td" style="font-size:0.7rem">0.4s</div>
+            <div class="tic">
+              <h4 class="en" style="font-size:0.8rem">2. Context Enrichment</h4><h4 class="ar" style="display:none;font-size:0.8rem">2. إثراء السياق</h4>
+              <p class="en">IP matched to malicious C2 server on AbuseIPDB; user account belongs to Finance department.</p>
+              <p class="ar" style="display:none">مطابقة العنوان مع خادم C2 مشبوه دولياً وتبين أن الحساب يتبع الإدارة المالية.</p>
+            </div>
+          </div>
+          <div class="ti">
+            <div class="td" style="font-size:0.7rem">0.9s</div>
+            <div class="tic">
+              <h4 class="en" style="font-size:0.8rem">3. AI Triage &amp; Risk Scoring</h4><h4 class="ar" style="display:none;font-size:0.8rem">3. التقييم الذكي</h4>
+              <p class="en">ML Model computes <strong>Risk = 94.2 / 100</strong> and <strong>Confidence &Phi; = 0.98</strong>. Priority jumped to #1.</p>
+              <p class="ar" style="display:none">محرك الذكاء يقدر درجة الخطر بـ 94.2 وثقة 98% وتتصدر الحالة قائمة الأولويات فوراً.</p>
+            </div>
+          </div>
+          <div class="ti">
+            <div class="td" style="font-size:0.7rem">1.5s</div>
+            <div class="tic">
+              <h4 class="en" style="font-size:0.8rem">4. Automated Containment</h4><h4 class="ar" style="display:none;font-size:0.8rem">4. التطويق الآلي</h4>
+              <p class="en">Workstation-42 isolated from LAN via EDR API; outbound C2 IP blocked at perimeter firewall.</p>
+              <p class="ar" style="display:none">عزل الجهاز آلياً عن الشبكة المحلية وحظر عنوان المهاجم في الجدار الناري خلال 1.5 ثانية.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="padding:14px;background:rgba(0,0,0,0.4)">
+        <h3 class="ct en" style="color:var(--ok)">Performance Comparison</h3>
+        <h3 class="ct ar" style="display:none;color:var(--ok)">مقارنة الأداء وسرعة المعالجة</h3>
+        <div class="srow" style="flex-direction:column;gap:12px;margin-top:10px">
+          <div class="sb" style="text-align:left;border-color:rgba(255,107,107,0.3)">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span class="en" style="font-size:0.82rem;font-weight:700;color:var(--acc)">Conventional Manual Response</span>
+              <span class="ar" style="display:none;font-size:0.82rem;font-weight:700;color:var(--acc)">الاستجابة اليدوية التقليدية</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:1.1rem;color:var(--acc);font-weight:900">~ 42.0 min</span>
+            </div>
+            <div style="background:rgba(255,107,107,0.2);height:6px;border-radius:3px;margin-top:6px;width:100%"></div>
+            <p class="en" style="font-size:0.72rem;margin-top:4px;color:var(--t3)">Analyst checks queue &rarr; logs into EDR &rarr; queries VirusTotal &rarr; calls network admin to block IP.</p>
+            <p class="ar" style="display:none;font-size:0.72rem;margin-top:4px;color:var(--t3)">انتظار المحلل &rarr; فحص السجلات &rarr; استعلام المواقع &rarr; التواصل مع مسؤول الشبكة للحظر.</p>
+          </div>
+          <div class="sb" style="text-align:left;border-color:rgba(0,230,118,0.4)">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span class="en" style="font-size:0.82rem;font-weight:700;color:var(--ok)">Proposed AI-SOAR Response</span>
+              <span class="ar" style="display:none;font-size:0.82rem;font-weight:700;color:var(--ok)">استجابة نظام AI-SOAR المقترح</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:1.1rem;color:var(--ok);font-weight:900">&lt; 2.5 sec</span>
+            </div>
+            <div style="background:var(--ok);height:6px;border-radius:3px;margin-top:6px;width:12%"></div>
+            <p class="en" style="font-size:0.72rem;margin-top:4px;color:var(--t2)">Sub-second ML inference, automated enrichment, orchestrated firewall &amp; host quarantine.</p>
+            <p class="ar" style="display:none;font-size:0.72rem;margin-top:4px;color:var(--t2)">تحليل لحظي بالذكاء الاصطناعي، إثراء فوري، وتنفيذ منسق للعزل وحماية الشبكة في ثوانٍ.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sn">24 / 25</div>
+</section>

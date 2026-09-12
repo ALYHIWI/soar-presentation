@@ -1,0 +1,57 @@
+<section class="slide" id="s24">
+  <div class="orb o1" style="opacity:0.45"></div><div class="orb o2" style="opacity:0.35"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span class="en">Chapter 3 &ndash; Roadmap &amp; Conclusion</span><span class="ar" style="display:none">الفصل الثالث &ndash; خطة العمل والخاتمة</span>
+    </div>
+    <h2 class="st en">Current Achievements &amp; Phase 2 Roadmap</h2>
+    <h2 class="st ar" style="display:none">ما تم إنجازه وخارطة طريق المرحلة القادمة</h2>
+    <div class="gl"></div>
+    <div class="grid g3" style="gap:14px;width:100%">
+      <div class="card" style="border-color:rgba(0,212,255,0.4)">
+        <h3 class="ct en" style="color:var(--s);font-size:0.85rem">Completed in GP1 (Chapters 1-3)</h3>
+        <h3 class="ct ar" style="display:none;color:var(--s);font-size:0.85rem">ما تم إنجازه في مشروع 1 (الفصول 1 - 3)</h3>
+        <ul style="gap:6px;margin-top:6px;font-size:0.75rem">
+          <li class="en"><strong style="color:var(--ok)">&#10003; Problem &amp; Objectives (§1.2-1.4):</strong> Empirical analysis of alert fatigue, context switching, and static triage limitations.</li>
+          <li class="ar" style="display:none"><strong style="color:var(--ok)">&#10003; توصيف المشكلة:</strong> دراسة دقيقة لأزمة إرهاق التنبيهات وتحديد الأهداف.</li>
+          <li class="en"><strong style="color:var(--ok)">&#10003; Literature Synthesis (§2.4-2.5):</strong> Coded Table 2-1 and validated the downstream SOAR integration gap.</li>
+          <li class="ar" style="display:none"><strong style="color:var(--ok)">&#10003; مراجعة الأدبيات:</strong> توثيق جدول 2-1 وإثبات فجوة التكامل مع SOAR.</li>
+          <li class="en"><strong style="color:var(--ok)">&#10003; System Architecture (Chapter 3):</strong> High-level design: Ingestion, Enrichment, ML Engine, Policy, &amp; Feedback.</li>
+          <li class="ar" style="display:none"><strong style="color:var(--ok)">&#10003; التصميم المعماري:</strong> معمارية الطبقات الخمس المكتملة في الفصل الثالث.</li>
+        </ul>
+      </div>
+      <div class="card" style="border-color:rgba(255,179,0,0.4)">
+        <h3 class="ct en" style="color:var(--wa);font-size:0.85rem">Challenges &amp; Mitigations (Guide §9)</h3>
+        <h3 class="ct ar" style="display:none;color:var(--wa);font-size:0.85rem">التحديات والإجراءات المتخذة (دليل §9)</h3>
+        <ul style="gap:6px;margin-top:6px;font-size:0.75rem">
+          <li class="en"><strong>Alert Schema Variance:</strong> <em>Mitigation:</em> Implemented schema normalization layer in Ingestion Module (§3.3). [Resolved]</li>
+          <li class="ar" style="display:none"><strong>تباين صيغ السجلات:</strong> <em>الإجراء:</em> بناء طبقة توحيد البنية في وحدة الاستيعاب (§3.3). [مكتمل]</li>
+          <li class="en"><strong>Dataset Constraints (§1.6):</strong> <em>Mitigation:</em> Utilizing curated public SOC datasets + synthetic attack logs. [In Progress]</li>
+          <li class="ar" style="display:none"><strong>محدودية البيانات:</strong> <em>الإجراء:</em> استخدام بيانات SOC العامة وتوليد محاكاة هجمات معيارية. [قيد التنفيذ]</li>
+          <li class="en"><strong>Automation Risk (§3.7):</strong> <em>Mitigation:</em> Enforced human-in-the-loop gates for high-impact actions. [Resolved]</li>
+          <li class="ar" style="display:none"><strong>مخاطر الأتمتة:</strong> <em>الإجراء:</em> فرض بوابات إشراف بشري للإجراءات عالية التأثير. [مكتمل]</li>
+        </ul>
+      </div>
+      <div class="card" style="border-color:rgba(108,99,255,0.4)">
+        <h3 class="ct en" style="color:#a8a0ff;font-size:0.85rem">GP2 Execution Roadmap (Chapters 4-6)</h3>
+        <h3 class="ct ar" style="display:none;color:#a8a0ff;font-size:0.85rem">خارطة تنفيذ مشروع 2 (الفصول 4 - 6)</h3>
+        <ul style="gap:6px;margin-top:6px;font-size:0.75rem">
+          <li class="en"><strong>Phase 4 (Weeks 1-4):</strong> Dataset curation, feature engineering &amp; pipeline setup.</li>
+          <li class="ar" style="display:none"><strong>المرحلة 4 (الأسابيع 1-4):</strong> تجهيز البيانات وهندسة الخصائص وإعداد البيئة.</li>
+          <li class="en"><strong>Phase 5 (Weeks 5-8):</strong> ML model training (RF/SAC) &amp; SOAR API connector coding.</li>
+          <li class="ar" style="display:none"><strong>المرحلة 5 (الأسابيع 5-8):</strong> تدريب النماذج وبرمجة موصلات واجهات API وأدلة العمل.</li>
+          <li class="en"><strong>Phase 6 (Weeks 9-12):</strong> Prototype testing, metric benchmarking &amp; final defense.</li>
+          <li class="ar" style="display:none"><strong>المرحلة 6 (الأسابيع 9-12):</strong> الاختبار التجريبي، تقييم الأداء والمناقشة النهائية.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="hl" style="margin-top:16px;text-align:center">
+      <h3 class="en" style="font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:6px">Thank You &ndash; Open for Discussion &amp; Defense Questions</h3>
+      <h3 class="ar" style="display:none;font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:6px">شكراً لحسن استماعكم &ndash; مستعدون لأسئلة وملاحظات لجنة المناقشة</h3>
+      <p class="en" style="font-size:0.8rem;color:var(--t2)">Supervised by Dr. Raed Saeed &middot; Department of Computer Science &middot; University of Science and Technology</p>
+      <p class="ar" style="display:none;font-size:0.8rem;color:var(--t2)">إشراف الدكتور رائد سعيد &middot; قسم علوم الحاسوب &middot; جامعة العلوم والتكنولوجيا</p>
+    </div>
+  </div>
+  <div class="sn">25 / 25</div>
+</section>

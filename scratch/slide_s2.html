@@ -1,0 +1,58 @@
+<section class="slide" id="s2">
+  <div class="orb o2" style="opacity:0.35"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+      <span class="en">Chapter 1 &ndash; Operational Context</span><span class="ar" style="display:none">الفصل الأول &ndash; السياق التشغيلي</span>
+    </div>
+    <h2 class="st en">The Modern SOC Operational Landscape</h2>
+    <h2 class="st ar" style="display:none">المشهد التشغيلي لمراكز العمليات الأمنية الحديثة (SOC)</h2>
+    <div class="gl"></div>
+    <p class="lead en">A Security Operations Center (SOC) centralizes cyber threat monitoring, detection, and incident response, but faces acute operational strain from massive log volumes and heterogeneous data schemas (§1.1).</p>
+    <p class="lead ar" style="display:none">مركز العمليات الأمنية (SOC) هو الوحدة المركزية لرصد التهديدات والاستجابة لها، لكنه يواجه تعقيداً تشغيلياً كبيراً بسبب طوفان البيانات وتشتت السجلات الأمنية (§1.1).</p>
+    <div class="grid g3">
+      <div class="card">
+        <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <h3 class="ct en">Data Influx &amp; SIEM Role</h3><h3 class="ct ar" style="display:none">طوفان البيانات ودور SIEM</h3>
+        <p class="en">Organizations implement SIEM platforms for centralized log management, security-event collection, and basic correlation. Accumulating up to 100 gigabytes of log and alert data daily, a substantial portion may consist of false positives and non-actionable noise.</p>
+        <p class="ar" style="display:none">تجميع غيغابايتات من السجلات يومياً من حساسات الشبكة والأنظمة الطرفية. تقوم أنظمة SIEM بمركزة السجلات وإجراء مطابقات نمطية.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 class="ct en">Heterogeneous Tool Stacks</h3><h3 class="ct ar" style="display:none">تشتت الأدوات الأمنية</h3>
+        <p class="en">Security monitoring relies on diverse outputs from multi-vendor security stacks. Because these tools operate with distinct log schemas, vendor-specific data representations, and unique alert mechanisms, the resulting security data is highly heterogeneous and complex to analyze.</p>
+        <p class="ar" style="display:none">بيانات أمنية بصيغ متباينة وغير موحدة، مما يخلق عزلة بين الأدوات ويعيق الرؤية الشاملة للمحللين الأمنيين.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon ye"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <h3 class="ct en">Tiered Analyst Hierarchy</h3><h3 class="ct ar" style="display:none">هرمية المحللين المرهقة</h3>
+        <p class="en">Security analysts are structured into a tiered organizational model. Junior analysts conduct initial alert triage, following standard operating procedures to evaluate whether an incoming alert represents a legitimate threat or benign activity, manually gathering contextual evidence from multiple disparate security sources.</p>
+        <p class="ar" style="display:none">يقضي محللو المستوى الأول ساعات طويلة في الفرز اليدوي لآلاف التنبيهات للتحقق منها قبل تصعيدها، مما يؤخر الاستجابة الفعلية.</p>
+      </div>
+    </div>
+    <div class="srow" style="margin-top:14px">
+      <div class="sb">
+        <div class="snum">10K+</div>
+        <div class="slbl en">Daily Alerts / Enterprise</div>
+        <div class="slbl ar" style="display:none">تنبيه يومي لكل مؤسسة</div>
+        <div class="sref en">Ref: Gartner &amp; Cisco Benchmark (§1.1)</div>
+        <div class="sref ar" style="display:none">المرجع: معايير Cisco &amp; Gartner (§1.1)</div>
+      </div>
+      <div class="sb">
+        <div class="snum">&gt;50%</div>
+        <div class="slbl en">False Positive Overhead</div>
+        <div class="slbl ar" style="display:none">إنذارات كاذبة غير مجدية</div>
+        <div class="sref en">Ref: Ponemon SOC Study / §1.2</div>
+        <div class="sref ar" style="display:none">المرجع: دراسات Ponemon و §1.2</div>
+      </div>
+      <div class="sb">
+        <div class="snum">45 min</div>
+        <div class="slbl en">Avg Manual Triage Time</div>
+        <div class="slbl ar" style="display:none">متوسط زمن الفرز اليدوي</div>
+        <div class="sref en">Ref: Bridges et al. (2023) (§1.1)</div>
+        <div class="sref ar" style="display:none">المرجع: بريدجز وآخرون (2023) (§1.1)</div>
+      </div>
+    </div>
+  </div>
+  <div class="sn">03 / 25</div>
+</section>

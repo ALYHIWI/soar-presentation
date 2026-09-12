@@ -1,0 +1,37 @@
+<section class="slide" id="s17">
+  <div class="orb o2" style="opacity:0.35"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+      <span class="en">Chapter 3 &ndash; Dynamic Queue</span><span class="ar" style="display:none">الفصل الثالث &ndash; إدارة الأولويات الذكية</span>
+    </div>
+    <h2 class="st en">Adaptive Alert Prioritization &amp; Noise Suppression</h2>
+    <h2 class="st ar" style="display:none">الأولويات التكيفية وقمع الضجيج الأمني</h2>
+    <div class="gl"></div>
+    <div class="grid g3">
+      <div class="card">
+        <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3 class="ct en">Dynamic Queue Prioritization</h3><h3 class="ct ar" style="display:none">ترتيب طوابير التحقيق ديناميكياً</h3>
+        <p class="en">Converts analytical outputs into operational decisions about alert ordering. Alerts are ranked by continuous contextual risk rather than static product severity. Relative positions are recalculated dynamically as new telemetry arrives (Wang et al., 2024).</p>
+        <p class="ar" style="display:none">تحويل مخرجات التحليل إلى قرارات تشغيلية لترتيب طوابير التحقيق بناءً على الخطر اللحظي المستمر بدلاً من الشدة الثابتة للمنتج المصدر مع إعادة حساب الترتيب ديناميكياً.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <h3 class="ct en">Suppression vs. Deprioritization</h3><h3 class="ct ar" style="display:none">القمع المنضبط مقابل خفض الأولوية</h3>
+        <p class="en">Suppressed alerts are excluded from primary queues under explicit policy conditions (low risk, adequate confidence, non-critical assets) but retained for audit. Deprioritized alerts remain visible below higher-risk events, preserving complete operational traceability (§3.5).</p>
+        <p class="ar" style="display:none">فصل مفهومي دقيق: التنبيهات المقموعة تُستثنى من الطابور النشط وفق سياسة صارمة مع أرشفتها للتدقيق، بينما التنبيهات مخفضة الأولوية تظل متاحة تحت الأحداث الأكثر خطورة.</p>
+      </div>
+      <div class="card">
+        <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 class="ct en">Policy Safeguards &amp; Overrides</h3><h3 class="ct ar" style="display:none">ضمانات السياسات والاستثناءات</h3>
+        <p class="en">Operational rules override model scores when critical assets, privileged accounts, or novel threats are detected. Low-confidence predictions are automatically routed for analyst review, ensuring ML cannot permanently discard uncertain events (§3.5).</p>
+        <p class="ar" style="display:none">قواعد تشغيلية تعلو على تنبؤات النموذج عند ارتباط الحدث بأصول حساسة أو هويات إدارية، مع توجيه الحالات منخفضة الثقة للمحلل البشري حتماً لمنع إهمال التهديدات غير المؤكدة.</p>
+      </div>
+    </div>
+    <div class="hl" style="margin-top:14px">
+      <p class="en"><strong>Operational Rationale (§3.5):</strong> Dynamic, risk-aware ordering can reduce the time critical incidents spend waiting in analyst queues (by 22.9% in literature). The prioritization module ensures that genuine threats are identified rapidly without simultaneously increasing the manual investigative burden placed on human analysts.</p>
+      <p class="ar" style="display:none"><strong>الأساس المنطقي التشغيلي (§3.5):</strong> الترتيب الديناميكي الواعي بالمخاطر يقلل الوقت الذي تقضيه الحوادث الحرجة في طوابير الانتظار (بنسبة 22.9% وفق الأدبيات)، مما يضمن الكشف السريع عن التهديدات الحقيقية دون زيادة أعباء التحقيق اليدوي على المحللين.</p>
+    </div>
+  </div>
+  <div class="sn">18 / 25</div>
+</section>

@@ -1,0 +1,440 @@
+Chapter 2
+
+Background and Literature Review
+
+ 
+
+2.1	Introduction
+
+Modern Security Operations Centers (SOCs) operate in increasingly complex environments
+
+characterized by heterogeneous security technologies, large volumes of security telemetry, and substantial
+
+dependence on human analysts for investigation and incident handling. The use of multiple security products from different vendors can create fragmented workflows and inconsistent data representations, increasing
+
+the difficulty of maintaining an integrated view of security operations (Kinyua & Awuah, 2021). In response to these challenges, artificial intelligence and machine learning (AI/ML) have been increasingly investigated as mechanisms for augmenting SOC capabilities through automated analysis, threat detection, classification, behavioral analytics, and decision support (Khayat et al., 2025). Recent research has further explored AI-
+
+assisted and agent-based approaches for tasks such as alert triage, threat intelligence analysis, incident response, and security reporting, while emphasizing the continued importance of human oversight in operational environments (Srinivas et al., 2025).
+
+This chapter reviews the technical foundations and prior research relevant to the proposed AI-Based SOAR tool. It first examines conventional SOC and SOAR operations, then discusses the role of AI/ML in augmenting security operations. Existing machine-learning-based alert triage and prioritization approaches are subsequently reviewed and compared. Finally, the chapter synthesizes the limitations of existing
+
+approaches to establish the research gap addressed by the proposed tool.
+
+
+
+2.2	Technical Background: SOC an Conventional SOAR
+
+2.2.1	SOC Operational Workflow and SIEM
+
+A modern Security Operations Center operates as a coordinated environment in which security
+
+telemetry is collected from multiple sources, analyzed for indicators of malicious activity, and escalated for investigation when necessary. These sources may include network and endpoint monitoring systems,
+
+intrusion detection technologies, firewalls, threat-intelligence feeds, and other security controls. Because individual products frequently use different data representations and operate independently, SOC
+
+environments require mechanisms that consolidate security information and provide analysts with a broader operational view (Kinyua & Awuah, 2021).
+
+Security Information and Event Management (SIEM) systems provide an important foundation for this process by aggregating and querying security data from distributed sources. However, the operational role of a SIEM differs from that of a SOAR platform. Bridges et al. (2023) distinguish the two by emphasizing that SIEM primarily supports broad data collection and querying, whereas SOAR introduces
+
+configurable workflows that guide or automate investigation and incident-response activities. Consequently, the output of a SIEM may serve as an input to subsequent triage, enrichment, investigation, and response
+
+processes rather than representing the complete incident-response lifecycle.
+
+ 
+
+Within this workflow, analysts must determine whether incoming alerts warrant further
+
+investigation, collect supporting evidence, and coordinate response activities. SOAR technologies seek to reduce the fragmentation of these activities by combining alert information, threat intelligence, workflow automation, and analyst collaboration within a common operational environment (Bridges et al., 2023).
+
+Bridges et al. identify data ingestion, correlation and prioritization, process automation, and analyst
+
+collaboration as defining capabilities of SOAR systems. These functions allow security information to move beyond simple collection toward structured operational handling.
+
+2.2.2	Conventional SOAR, Playbooks, and API-Based Orchestration
+
+The core operational mechanism of conventional SOAR is the playbook or workflow. A playbook defines a structured sequence of steps and actions used to handle a particular incident type, with execution
+
+triggered when predefined conditions or events are satisfied (Kinyua & Awuah, 2021). Such workflows can automate activities including information enrichment, ticket creation, notifications, containment procedures, and interactions with security controls. Runbooks may additionally introduce conditional flow-control
+
+mechanisms and points at which an analyst can intervene before execution continues (Kinyua & Awuah, 2021).
+
+The concept of orchestration extends beyond automating a single action. Many incidents require
+
+coordinated operations across multiple security technologies. For example, responding to a phishing incident may involve inspecting a suspicious file, querying external reputation information, blocking a sender, and
+
+modifying a firewall policy. Karlzén and Sommestad (2023) note that pre-prepared playbooks provide a
+
+mechanism for coordinating such defensive actions, while their analysis of commercial SOAR repositories shows that practical playbooks perform both detection-oriented enrichment and concrete response
+
+operations. Their study analyzed 609 publicly available playbooks from Rapid7, Microsoft Sentinel, ThreatConnect, and Splunk SOAR, demonstrating the breadth of actions represented in operational SOAR ecosystems (Karlzén & Sommestad, 2023).
+
+At the implementation level, orchestration depends heavily on Application Programming
+
+Interfaces (APIs). Security tools expose APIs through which a SOAR platform can query information or initiate actions on external technologies. This creates a logical relationship in which an incident-response task is translated into an operation supported by a specific security product. Sworna et al. (2023), for
+
+example, describe response tasks in Cortex SOAR that require APIs from technologies such as VirusTotal, CrowdStrike, and Carbon Black Response. Their work highlights that tool and API selection is an important technical component of multi-vendor SOAR orchestration, particularly because different products expose different interfaces, documentation structures, parameters, and capabilities.
+
+ 
+
+2.2.3	Limitations of Conventional SOAR Automation
+
+Although conventional SOAR improves coordination and reduces repetitive manual activity,
+
+automation does not eliminate operational complexity. Playbooks must be designed, configured, maintained, and integrated with the security technologies available in a particular environment. Bridges et al. (2023) note that SOAR adoption can involve substantial configuration effort, organizational process changes, training
+
+requirements, and technical integration costs. Furthermore, heterogeneous security tools can complicate orchestration because response tasks may require SOC personnel to identify and maintain appropriate
+
+vendor-specific APIs (Sworna et al., 2023).
+
+
+
+Conventional workflows are also strongly dependent on the logic encoded into their playbooks.
+
+Predefined sequences are well suited to repeatable procedures when the necessary conditions and actions are known in advance, but their adaptability is constrained by the information and decision logic incorporated during workflow design (Ismail et al., 2025). Consequently, conventional orchestration provides a structured execution layer but does not, by itself, provide intelligent interpretation of changing alert context or adaptive alert prioritization. This limitation motivates the use of AI/ML as an analytical and decision-support layer
+
+that can complement conventional SOAR automation, as examined in the following section.
+
+
+
+2.3	AI and ML as a Force Multiplier in SOC
+
+2.3.1	AI/ML Capabilities in Security Operations
+
+The integration of artificial intelligence and machine learning (AI/ML) into security operations extends the capabilities of conventional rule-based monitoring and automation. While traditional security workflows are generally designed around predefined conditions and known response procedures, AI/ML
+
+techniques can analyze large and heterogeneous security datasets to identify patterns, classify events, detect anomalous behavior, and support security decision making (Khayat et al., 2025). Khayat et al. (2025) identify applications of AI/ML across several SOC functions, including threat detection and classification, behavioral analytics, threat intelligence, and automated incident response. In this role, AI/ML does not
+
+necessarily replace existing SOC technologies; rather, it can provide an analytical layer that complements the information collected by SIEM and the workflow execution capabilities provided by SOAR.
+
+This relationship has been described as a force-multiplier effect for SOC analysts. Kinyua and Awuah (2021) argue that AI/ML can extend SOAR by improving analytical, threat-intelligence, detection, and response capabilities while orchestration technologies continue to coordinate operational actions. From this perspective, the complementary roles of the technologies can be distinguished: SOAR provides workflow management, integration, and execution, whereas AI/ML can contribute data-driven inference to activities that are difficult to represent entirely through manually specified rules. This distinction is
+
+ 
+
+particularly relevant to alert handling, where the significance of an event may depend on multiple attributes and surrounding contextual information rather than on a single static severity value.
+
+The range of AI techniques applicable to SOC operations has also expanded. Supervised and unsupervised machine-learning methods can support functions such as event classification, anomaly
+
+detection, and risk assessment, while deep-learning and reinforcement-learning approaches can support more complex pattern recognition and adaptive decision processes (Khayat et al., 2025). More recently,
+
+Large Language Models (LLMs) and AI agents have been investigated for functions such as log
+
+summarization, alert triage, threat-intelligence analysis, incident response, and report generation (Srinivas et al., 2025). This broader use of AI indicates a shift from applying intelligence primarily to isolated detection tasks toward incorporating AI into multiple stages of SOC workflows. However, the suitability of a
+
+particular technique depends on factors such as data availability, interpretability, computational requirements, operational risk, and the degree of autonomy permitted within the environment.
+
+2.3.2	Human-AI Teaming and Controlled Automation
+
+Increasing AI capability does not imply that all SOC decisions should be fully automated. Security operations include actions with substantially different levels of uncertainty and operational impact. A low-
+
+risk enrichment query, for example, does not carry the same consequences as disabling an account, isolating a production endpoint, or modifying a network-control policy. Consequently, the relationship between AI
+
+recommendations and human authority becomes an important design consideration when intelligent analysis is connected to automated response.
+
+Chhetri et al. (2024) propose the A2C framework for human-AI teaming in SOC environments, emphasizing flexible autonomy rather than a fixed division between manual and automated operation. Their framework distinguishes among automated handling, selective deferral to human experts, and collaborative exploration. Under this approach, routine cases may be handled automatically, whereas uncertain or
+
+complex cases can be transferred to analysts with supporting information. The framework further argues that an AI system should recognize limitations in its own capabilities and escalate cases when its confidence is low or when the associated risk is high (Chhetri et al., 2024). Importantly, A2C remains a conceptual framework, with prototype development and empirical evaluation identified by the authors as future work.
+
+This controlled-autonomy perspective is consistent with broader research on AI-augmented SOCs. Srinivas et al. (2025) emphasize the importance of balancing automation with human oversight, particularly because AI systems may face limitations involving explainability, generalization, adversarial robustness,
+
+hallucinations, and other unreliable outputs. Accordingly, AI augmentation should not be interpreted simply as maximizing autonomous execution. Instead, the level of automation should reflect factors such as task
+
+complexity, system confidence, and the operational consequences of an incorrect decision, while preserving human involvement where expert judgment is required.
+
+ 
+
+For the proposed AI-Based SOAR tool, this creates an important architectural principle: intelligent analysis and automated execution should be connected through a controlled decision layer rather than directly coupled without supervision. AI/ML can assist with alert analysis, contextual risk assessment, prioritization, and response recommendations, while SOAR provides the mechanisms for executing approved operational actions. The specific machine-learning approaches proposed for alert triage and
+
+prioritization are examined in the following section.
+
+
+
+2.4	Review of Existing ML Triage Systems
+
+The application of machine learning to SOC alert triage has evolved from supervised classification of individual security events toward context-aware, feedback-driven, and adaptive prioritization mechanisms.
+
+Existing approaches differ in the information they use, the form of prioritization they produce, the extent of analyst involvement, and their assumptions about operational resources. This section reviews representative systems that illustrate this progression and evaluates their relevance to intelligent alert handling.
+
+2.4.1	Supervised Event Classification and Actionability Assessment
+
+An early approach to automating SOC event handling was proposed by Gupta et al. (2019), who developed a deep-learning-based classification method using event data obtained from a real Security
+
+Operations Center. The dataset contained 39,427 labeled security events, where the labels indicated whether SOC analysts had notified the customer about an event. These labels can therefore be interpreted as an
+
+operational proxy for actionability rather than as direct malicious/benign ground truth. The authors
+
+performed feature engineering and selection before training a deep neural network to distinguish notified from non-notified events (Gupta et al., 2019).
+
+The study demonstrated the feasibility of learning patterns associated with historical analyst
+
+decisions from operational SOC data. However, its results also illustrate the challenges associated with imbalanced alert populations. For the notified class, the proposed model achieved a recall of 0.92 but a
+
+precision of only 0.39, indicating that it identified most historically notified events while still producing a considerable proportion of false-positive predictions for that class. The post-tuned model reported an AUC of 92.67% on the labeled dataset (Gupta et al., 2019). Despite the use of the term prioritization in the study, the implemented output is primarily a binary notified/non-notified classification rather than a continuously ranked or dynamically updated alert queue.
+
+A more operationally oriented approach was presented in a preprint study by Gelman et al. (2023) through the That Escalated Quickly (TEQ) framework. TEQ generates both alert-level and incident-level actionability scores and uses these scores for incident prioritization, false-positive suppression, and within-incident alert ordering. In a deployment simulation based on real data from a beta Managed Detection and
+
+ 
+
+Response product, reordering incidents according to TEQ scores reduced the average queue time of
+
+actionable incidents by approximately 22.9% in the shortest evaluated queue configuration. Furthermore, a high-recall decision threshold suppressed 54% of false-positive incidents while capturing 95.1% of
+
+actionable incidents (Gelman et al., 2023). These results suggest that ML-based scoring can influence
+
+operational workload in addition to classification performance. Nevertheless, the reported improvements
+
+were obtained through a simulated deployment rather than a controlled live SOC deployment, and TEQ does not extend the prioritization decision into automated SOAR response execution.
+
+2.4.2	Context-Aware Alert Triage and Prioritization
+
+A limitation of approaches based predominantly on individual event attributes is that similar alerts may have different meanings depending on the surrounding activity. Liu et al. (2022) addressed this issue through Context2Vector, a context-representation-learning framework designed to support security-event triage. The system constructs behavioral contexts from event sequences and applies representation learning and deviation detection to generate interpretable contextual features that can support event risk ranking.
+
+Context2Vector was evaluated using an enterprise-scale dataset collected from heterogeneous
+
+security sources, including IDS/IPS, EDR, sandbox, mail gateway, WAF, and UEBA systems. Across the prewar, warfare, and peacetime stages, the dataset contained approximately 2.45 million events (Liu et al.,
+
+2022). The study illustrates why an alert's isolated severity or signature may be insufficient for prioritization. For example, Remote Code Execution alerts occurring within an internal vulnerability-scanning context may reflect expected scanning activity, whereas similar vulnerability alerts occurring alongside authentication and login activity may indicate a potentially more concerning security context requiring further
+
+investigation. Thus, the operational significance of an alert can depend on its surrounding behavioral context rather than on the alert signature alone.
+
+In its Top-N risk-ranking evaluation, Context2Vector improved attacker-IP recall by up to 2.25 times compared with traditional experience-driven approaches when evaluation was restricted to the top 500
+
+events (Liu et al., 2022). This result should be interpreted specifically as an improvement in identifying attacker-associated sources within a limited investigation set, rather than as a direct 2.25-fold reduction in
+
+false-positive alerts. Although Context2Vector demonstrates the value of contextual representation for event classification and risk ranking, the evaluated framework focuses on triage and does not extend the resulting risk information into automated SOAR response execution.
+
+Wang et al. (2024) extended context-aware prioritization by incorporating analyst feedback into
+
+AlertPro. The framework combines alert properties with contextual and historical features, initially ranks alerts using Isolation Forest, and subsequently re-ranks them through an active-learning process informed by analyst validation. Reinforcement-learning algorithms, including D3QN, A2C, and PPO2, were evaluated to support this feedback-driven re-ranking process (Wang et al., 2024).
+
+ 
+
+AlertPro was evaluated across five datasets containing multi-step attacks. Its feedback mechanism
+
+allows analyst validation to influence subsequent alert rankings rather than treating the initial anomaly score as final. Across the evaluated datasets, AlertPro-A2C achieved average cumulative precision and cumulative recall values of 96.32% and 98.47%, respectively, compared with 64.65% and 66.03% for the Isolation
+
+Forest baseline (Wang et al., 2024). These results indicate that combining contextual information with
+
+iterative expert feedback can improve the concentration of genuine attack alerts within the set prioritized for analyst investigation. However, the evaluated framework remains focused on alert analysis and
+
+prioritization; response generation and SOAR-based incident-response execution are outside its evaluated scope.
+
+2.4.3	Adaptive and Resource-Aware Prioritization
+
+Alert prioritization can also be formulated as a resource-allocation problem because SOC analysts may not have sufficient capacity to investigate every alert generated by security systems. Chavali et al. (2024) addressed this problem using off-policy actor-critic deep reinforcement learning (DRL). Their proposed TD3-AP and SAC-AP methods model interactions between an adversary generating attack-related alerts and a defender operating under a limited alert-investigation budget. A game-theoretic double-oracle
+
+procedure is then used to derive adaptive alert-prioritization strategies.
+
+
+
+The proposed methods were evaluated using MQTT-IoT-IDS2020, DARPA 2000 LLDOS 1.0, and CSE-CICIDS2018, with Snort used to generate IDS alerts. The primary evaluation measure is the defender's loss, which reflects the effectiveness of the defender's prioritization strategy under constrained investigation resources. Under one evaluated MQTT-IoT-IDS2020 configuration with an attack budget of 125, TD3-AP
+
+reduced the defender's loss by 50% relative to DDPG-MIX, while the magnitude of improvement varied under other resource configurations (Chavali et al., 2024). The reported testing time for TD3-AP was
+
+approximately 300 microseconds across the evaluated datasets; however, this value represents model testing or inference time rather than end-to-end incident-response latency.
+
+The resource-aware formulation is significant because it moves beyond assigning isolated severity values and considers how limited investigation capacity should be allocated among competing alerts.
+
+Nevertheless, the evaluation is based on three publicly available datasets and IDS-generated alerts, and the authors identify broader real-world experimentation as an area for future work (Chavali et al., 2024). In
+
+addition, the framework focuses on prioritization and does not connect its learned allocation policy to automated SOAR response execution.
+
+2.4.4	Comparative Analysis of Existing Approaches
+
+The reviewed studies illustrate an evolution in ML-supported SOC triage from supervised
+
+classification toward context-aware, feedback-driven, and resource-aware prioritization. Gupta et al. (2019)
+
+ 
+
+use supervised learning to identify patterns associated with historical analyst notification decisions, while
+
+Gelman et al. (2023) extend ML scoring toward incident queue management and false-positive suppression. Liu et al. (2022) incorporate behavioral context into event risk assessment through Context2Vector, whereas Wang et al. (2024) combine contextual information with iterative analyst feedback to support dynamic alert re-ranking. Chavali et al. (2024) further formulate prioritization as an adaptive resource-allocation problem under constrained investigation capacity.
+
+Table 2-1 summarizes the main differences among these approaches in terms of their data environments, AI/ML methods, contextual or feedback mechanisms, prioritization outputs, response integration, and principal limitations.
+
+Table 2-1. Comparative Analysis of Existing ML-Based SOC Triage Approaches
+
+
+
+Study	Data /
+
+Environment	AI/ML
+
+Approach	Context /
+
+Feedback	Prioritization
+
+Output	SOAR /
+
+Response	Main
+
+Limitation
+
+
+
+Gupta et al. (2019)	Real SOC-labeled SOD
+
+events	DNN
+
+supervised classification	Engineered event features; no
+
+online feedback	Notified / non-notified
+
+classification	
+
+
+
+No	Binary output; low
+
+minority-class
+
+precision
+
+
+
+Gelman et al. (2023)	Real MDR data;
+
+deployment
+
+simulation	RF + NN
+
+actionability scoring	Content/context features;
+
+historical labels	Incident and alert scores, suppression	
+
+
+
+No	Preprint; operational effects
+
+simulated
+
+
+
+Liu et al. (2022)	Enterprise-scale
+
+heterogeneous
+
+event data	Context
+
+representation
+
++ deviation detection	Behavioral context; expert
+
+annotation	
+
+Contextual risk ranking	
+
+
+
+No	No downstream
+
+response execution
+
+
+
+Wang et al. (2024)	Five multi-step attack datasets	Isolation Forest + RL-based active
+
+learning	Context/history + iterative analyst
+
+feedback	
+
+Dynamic alert re-ranking	
+
+
+
+No	
+
+Stops at
+
+triage/investigation
+
+
+
+Chavali et al. (2024)	
+
+Three public IDS datasets	TD3-AP / SAC-AP DRL	Resource/state information; no analyst feedback	Resource-aware investigation priority	
+
+
+
+No	No real-world SOC
+
+validation or
+
+SOAR execution
+
+ 
+
+Overall, the reviewed approaches address different aspects of intelligent alert handling, including actionability assessment, contextual risk analysis, false-positive suppression, analyst-guided re-ranking, and investigation-resource allocation (Chavali et al., 2024; Gelman et al., 2023; Gupta et al., 2019; Liu et al.,
+
+2022; Wang et al., 2024). Their differences in analytical scope, operational output, and level of downstream integration provide the basis for the broader problem synthesis presented in the following section.
+
+2.5	Gap Analysis and Problem Synthesis
+
+The reviewed literature demonstrates substantial progress in applying AI/ML to different stages of SOC alert handling. Context2Vector shows that behavioral context can provide additional information for distinguishing and prioritizing security events beyond isolated alert attributes (Liu et al., 2022). AlertPro further demonstrates that contextual and historical features can be combined with analyst feedback to
+
+support continuous alert re-ranking (Wang et al., 2024). Chavali et al. (2024) extend this direction by formulating prioritization as an adaptive resource-allocation problem under limited investigation capacity.
+
+Collectively, these studies provide evidence for increasingly intelligent triage and prioritization mechanisms; however, their evaluated workflows primarily focus on event ranking, alert selection, or analyst
+
+investigation rather than downstream SOAR-controlled response execution.
+
+
+
+Research on automated incident response addresses a complementary portion of the incident-
+
+handling pipeline. Karlzén and Sommestad (2023) review automatic and semi-automatic incident-response approaches and compare academic solutions with commercially available SOAR playbooks, highlighting
+
+research concerned with the inputs used for response decisions and the defensive actions that can be executed. Sworna et al. (2023) address orchestration more specifically through IRP2API, which maps
+
+predefined incident-response tasks to appropriate APIs across heterogeneous security tools. This approach supports tool and API selection once a response task has been defined, but it does not determine the required response directly from an alert's contextual risk, and automated execution of the mapped APIs is identified as future work. In contrast, Ismail et al. (2025) propose an agentic AI-based SOAR architecture capable of
+
+generating technical response steps, allowing human intervention, and executing validated commands through external tools. Their pilot implementation primarily evaluates automation and orchestration after enriched security alerts have been received, rather than the upstream problem of learning contextual alert risk and dynamically prioritizing incoming alerts.
+
+Human oversight introduces an additional consideration when intelligent analysis is connected to response automation. Chhetri et al. (2024) propose flexible autonomy in which routine cases may be
+
+automated, uncertain cases may be selectively deferred to analysts, and novel situations may require
+
+collaborative human-AI exploration. This provides a conceptual basis for adjusting the level of automation according to factors such as confidence, complexity, and risk. However, the A2C framework remains
+
+conceptual, with prototype implementation and empirical evaluation identified as future work. Therefore,
+
+ 
+
+although the reviewed literature provides mechanisms for intelligent triage, adaptive prioritization, human-AI decision support, and automated response, these capabilities remain only partially integrated across the experimentally evaluated workflows reviewed in this chapter.
+
+Broad AI-enabled SOC architectures have also been proposed to integrate data acquisition,
+
+intelligent security analysis, and operational response functions (Khayat et al., 2025). Consequently, the research gap should not be interpreted as an absence of AI-enabled SOC architectures, dynamic
+
+prioritization, human-AI collaboration, or automated response. Rather, the reviewed evidence indicates that end-to-end empirical integration remains limited, particularly in connecting context-enriched alert risk and dynamic prioritization with controlled SOAR response-policy execution.
+
+Accordingly, the proposed project investigates how these complementary capabilities can be
+
+integrated into a coherent AI-Based SOAR tool. The proposed direction connects context-enriched alert analysis, contextual risk scoring, dynamic prioritization, controlled response decision making, and SOAR-based execution within a unified workflow. In this design, alert risk is intended not only to
+
+influence queue position but also to contribute to a response policy that determines whether an alert is suppressed, escalated for analyst investigation, submitted for human approval, or associated with an automated response. This integration provides the conceptual foundation for the system architecture
+
+presented in Chapter 3.
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+References
+
+Agrawal, A., Nadeem, M., Al Nuaim, A. and Al Nuaim, A. (2026) ‘Artificial intelligence driven multi agent framework for adaptive cyber attack simulation and automated incident response in cyber range environments’, Scientific Reports, article in press. doi:10.1038/s41598-026-45937-9.
+
+Bridges, R.A., Rice, A.E., Oesch, S., Nichols, J.A., Watson, C., Spakes, K., Norem, S., Huettel, M., Jewell, B., Weber, B., Gannon, C., Bizovi, O., Hollifield, S.C. and Erwin, S. (2023) ‘Testing SOAR tools in use’, Computers & Security, 129, 103201. doi:10.1016/j.cose.2023.103201.
+
+Chavali, L., Krishnan, A., Saxena, P., Mitra, B. and Chivukula, A.S. (2024) ‘Off-policy actor-critic deep reinforcement learning methods for alert prioritization in intrusion detection systems’, Computers &
+
+Security, 142, 103854. doi:10.1016/j.cose.2024.103854.
+
+Chhetri, M.B., Tariq, S., Singh, R., Jalalvand, F., Paris, C. and Nepal, S. (2024) ‘Towards human-AI teaming to mitigate alert fatigue in Security Operations Centres’, ACM Transactions on Internet Technology, 24(3), Article 12, pp. 1–22. doi:10.1145/3670009.
+
+Gelman, B., Taoufiq, S., Vörös, T. and Berlin, K. (2023) ‘That escalated quickly: An ML framework for alert prioritization’, arXiv preprint, arXiv:2302.06648.
+
+Gupta, N., Traore, I. and Quinan, P.M.F. (2019) ‘Automated event prioritization for Security Operation Center using deep learning’, in 2019 IEEE International Conference on Big Data (Big Data), Los Angeles, CA, USA, pp. 5864–5872.
+
+Ismail, Kurnia, R., Brata, Z.A., Nelistiani, G.A., Heo, S., Kim, H. and Kim, H. (2025) ‘Toward robust security orchestration and automated response in Security Operations Centers with a hyper-automation approach using agentic artificial intelligence’, Information, 16, 365. doi:10.3390/info16050365.
+
+Karlzén, H. and Sommestad, T. (2023) ‘Automatic incident response solutions: A review of proposed
+
+solutions’ input and output’, in The 18th International Conference on Availability, Reliability and Security (ARES 2023), Benevento, Italy, pp. 1–9. doi:10.1145/3600160.3605066.
+
+Khayat, M., Barka, E., Serhani, M.A., Sallabi, F., Shuaib, K. and Khater, H.M. (2025) ‘Empowering Security Operation Center with artificial intelligence and machine learning—A systematic literature review’, IEEE Access, 13, pp. 19162–19197. doi:10.1109/ACCESS.2025.3532951.
+
+Kinyua, J. and Awuah, L. (2021) ‘AI/ML in Security Orchestration, Automation and Response: Future research directions’, Intelligent Automation & Soft Computing, 28(2), pp. 527–545.
+
+doi:10.32604/iasc.2021.016240.
+
+Liu, J., Zhang, R., Liu, W., Zhang, Y., Gu, D., Tong, M., Wang, X., Xue, J. and Wang, H. (2022)
+
+‘Context2Vector: Accelerating security event triage via context representation learning’, Information and Software Technology, 146, 106856. doi:10.1016/j.infsof.2022.106856.
+
+Srinivas, S., Kirk, B., Zendejas, J., Espino, M., Boskovich, M., Bari, A., Dajani, K. and Alzahrani, N. (2025) ‘AI-Augmented SOC: A survey of LLMs and agents for security automation’, Journal of Cybersecurity and Privacy, 5, 95. doi:10.3390/jcp5040095.
+
+Sworna, Z.T., Babar, M.A. and Sreekumar, A. (2023) ‘IRP2API: Automated mapping of cyber security incident response plan to security tools’ APIs’, in 2023 IEEE International Conference on Software
+
+Analysis, Evolution and Reengineering (SANER), pp. 546–557. doi:10.1109/SANER56733.2023.00057.
+
+ 
+
+Wang, X., Yang, X., Liang, X., Zhang, X., Zhang, W. and Gong, X. (2024) ‘Combating alert fatigue with AlertPro: Context-aware alert prioritization using reinforcement learning for multi-step attack detection’, Computers & Security, 137, 103583. doi:10.1016/j.cose.2023.103583.
+
+Zhang, J., Li, S., Huang, W., Jing, H., Zhang, Q. and Xia, X. (2025) ‘Design and computational modeling of an AI-based automated cybersecurity incident response system’, IEEE Access, 13, pp. 154383–154394.
+
+doi:10.1109/ACCESS.2025.3603975.      هذا محتوى الملف راجع محتويات الملف للشباتر الثلاثة الموجودة في ملف final project اريد ان يكون محتوى السلايدات ماخوذ من الملف بالضبط وبالحرف الواحد دون زيادة او تحريف ابدا ابدا اريد دقة مية بالمية حسب الملف بالحرف دون اي تغير لان الدقة مهمة للعرض امام اللجنة 
+
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-12T01:55:29+03:00.
+
+The user's current state is as follows:
+Active Document: c:\Users\Mo AL-Yahawy\SOAR\.git\COMMIT_EDITMSG (LANGUAGE_UNSPECIFIED)
+Cursor is on line: 2
+Other open documents:
+- c:\Users\Mo AL-Yahawy\SOAR\.git\COMMIT_EDITMSG (LANGUAGE_UNSPECIFIED)
+</ADDITIONAL_METADATA>

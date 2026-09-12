@@ -1,0 +1,85 @@
+
+=======================================================
+STATISTICS AND MEASUREMENTS IN Chapter 1
+=======================================================
+Found 2 sentences with statistics/measurements:
+[1] 1.2 The Problem Statement (Alert Fatigue and Static Triage) Modern Security Operations Centers (SOCs) face an unsustainable influx of security data, accumulating up to 100 gigabytes of log and alert data daily.
+
+[2] Un-prioritized queues delay the handling of actionable threats, whereas dynamic, risk-aware ordering can reduce the time critical incidents spend waiting in analyst queues by 22.9%.
+
+
+=======================================================
+STATISTICS AND MEASUREMENTS IN Chapter 2
+=======================================================
+Found 12 sentences with statistics/measurements:
+[1] For the notified class, the proposed model achieved a recall of 0.92 but a precision of only 0.39, indicating that it identified most historically notified events while still producing a considerable proportion of false-positive predictions for that class.
+
+[2] The post-tuned model reported an AUC of 92.67% on the labeled dataset (Gupta et al., 2019).
+
+[3] In a deployment simulation based on real data from a beta Managed Detection and Response product, reordering incidents according to TEQ scores reduced the average queue time of actionable incidents by approximately 22.9% in the shortest evaluated queue configuration.
+
+[4] Furthermore, a high-recall decision threshold suppressed 54% of false-positive incidents while capturing 95.1% of actionable incidents (Gelman et al., 2023).
+
+[5] In its Top-N risk-ranking evaluation, Context2Vector improved attacker-IP recall by up to 2.25 times compared with traditional experience-driven approaches when evaluation was restricted to the top 500 events (Liu et al., 2022).
+
+[6] This result should be interpreted specifically as an improvement in identifying attacker-associated sources within a limited investigation set, rather than as a direct 2.25-fold reduction in false-positive alerts.
+
+[7] Its feedback mechanism allows analyst validation to influence subsequent alert rankings rather than treating the initial anomaly score as final.
+
+[8] Across the evaluated datasets, AlertPro-A2C achieved average cumulative precision and cumulative recall values of 96.32% and 98.47%, respectively, compared with 64.65% and 66.03% for the Isolation Forest baseline (Wang et al., 2024).
+
+[9] The primary evaluation measure is the defender's loss, which reflects the effectiveness of the defender's prioritization strategy under constrained investigation resources.
+
+[10] Under one evaluated MQTT-IoT-IDS2020 configuration with an attack budget of 125, TD3-AP reduced the defender's loss by 50% relative to DDPG-MIX, while the magnitude of improvement varied under other resource configurations (Chavali et al., 2024).
+
+[11] The reported testing time for TD3-AP was approximately 300 microseconds across the evaluated datasets; however, this value represents model testing or inference time rather than end-to-end incident-response latency.
+
+[12] (2019) Real SOC-labeled SOD events DNN supervised classification Engineered event features; no online feedback Notified / non-notified classification No Binary output; low minority-class precision Gelman et al.
+
+
+=======================================================
+STATISTICS AND MEASUREMENTS IN Chapter 3
+=======================================================
+Found 21 sentences with statistics/measurements:
+[1] The principal output of this stage is a risk score representing the estimated importance of the alert, together with any additional model output required by the prioritization process.
+
+[2] The resulting score is processed by the Prioritization and Suppression Logic, which determines how incoming alerts should be ordered and whether selected low-risk or redundant alerts are eligible for suppression or deprioritization according to predefined policy conditions.
+
+[3] The primary output of the engine is a contextual risk score representing the estimated operational significance of the alert.
+
+[4] For architectural purposes, the score can be normalized to a consistent range, such as 0 to 1, where higher values indicate greater estimated risk.
+
+[5] The exact mathematical interpretation of this score depends on the machine-learning technique selected during model development.
+
+[6] For example, it may represent a predicted probability, anomaly-related score, or another model-derived measure that is subsequently normalized for operational use.
+
+[7] The detailed model-selection, training, feature-engineering, and score-calibration procedures are described in Chapter 4.
+
+[8] In addition to the primary risk score, the engine may produce a predicted class or actionability label when supported by the selected model.
+
+[9] However, the proposed architecture does not rely on a binary classification alone; the continuous risk score remains the principal input to dynamic prioritization because it provides a finer basis for ordering alerts with different estimated levels of importance.
+
+[10] This value is conceptually distinct from the risk score.
+
+[11] Where supported by the selected technique, the engine may additionally expose explanatory information such as the features that contributed most strongly to the resulting score.
+
+[12] The principal outputs of the Machine Learning Triage and Scoring Engine are therefore: The contextual risk score is the mandatory analytical output of the proposed design, while classification and confidence are supporting outputs whose implementation depends on the final machine- learning model.
+
+[13] While the ML engine estimates the contextual risk associated with each alert, this module determines how that score should influence the active investigation queue and whether selected alerts are eligible for suppression or deprioritization.
+
+[14] The principal input to this module is the contextual risk score produced by the ML engine.
+
+[15] This design is consistent with prior research demonstrating that contextual information and analyst feedback can improve alert ranking beyond an initial anomaly or severity score (Wang et al., 2024).
+
+[16] However, the proposed architecture does not allow the machine-learning score alone to permanently discard an alert.
+
+[17] A suppression decision should depend on explicit policy conditions, which may include a sufficiently low contextual risk score, adequate model confidence, duplicate or repeated-event status, absence of high-criticality assets or identities, and the lack of other escalation conditions.
+
+[18] Certain alerts may be prevented from suppression regardless of their model score when they involve critical assets, privileged identities, known high-risk indicators, or other organization-defined conditions.
+
+[19] The policy receives information from the preceding modules, including the contextual risk score, assigned priority level, model confidence where available, alert handling status, and relevant contextual attributes such as asset criticality, identity sensitivity, threat-intelligence findings, and the type of response action under consideration.
+
+[20] The recorded information may include the alert identifier, risk score, priority, selected policy state, whether human approval was required, the executed workflow, action outcome, and relevant timestamps.
+
+[21] A feedback record may include the alert identifier, contextual risk score, assigned priority, model confidence where available, analyst-adjusted priority, final incident classification, selected response action, approval or rejection decision, response outcome, and relevant timestamps.
+

@@ -1,0 +1,40 @@
+<section class="slide" id="s16">
+  <div class="orb o1" style="opacity:0.45"></div>
+  <div class="content-box">
+    <div class="tag a1">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15"/></svg>
+      <span class="en">Chapter 3 &ndash; Layer 3: AI Engine</span><span class="ar" style="display:none">الفصل الثالث &ndash; الطبقة الثالثة: محرك الذكاء</span>
+    </div>
+    <h2 class="st en">AI/ML Triage &amp; Dynamic Risk Scoring Formulation</h2>
+    <h2 class="st ar" style="display:none">الفرز الذكي وصياغة معادلة تقييم المخاطر الديناميكية</h2>
+    <div class="gl"></div>
+    <div class="grid g2" style="gap:20px">
+      <div class="card">
+        <h3 class="ct en" style="color:var(--s)">Mandatory Analytical Output (§3.5)</h3>
+        <h3 class="ct ar" style="display:none;color:var(--s)">المخرج التحليلي الأساسي (§3.5)</h3>
+        <p class="en" style="margin-bottom:10px">The primary output of the engine is a <strong>Contextual Risk Score</strong> representing the estimated operational significance of the alert, normalized to a consistent range [0, 1] where higher values indicate greater estimated risk.</p>
+        <p class="ar" style="display:none;margin-bottom:10px">المخرج الإلزامي الأساسي للمحرك هو <strong>درجة المخاطر السياقية</strong> المعيارية [0, 1] والتي تعبر عن الأهمية التشغيلية المقدرة للحدث بدلاً من الاعتماد على الشدة الثابتة لأداة الحماية.</p>
+        <p class="en"><strong>Principle of Separation:</strong> The engine is deliberately separated from both prioritization and response execution. It produces analytical outputs consumed by subsequent policy checks, preventing a raw model prediction from directly triggering high-impact actions.</p>
+        <p class="ar" style="display:none"><strong>مبدأ الفصل المعماري:</strong> يفصل المحرك بصرامة عن إدارة الأولويات وتنفيذ الاستجابة، منعاً لترجمة التنبؤ الخام إلى إجراءات استجابة عالية الخطورة دون مراجعة السياسات.</p>
+      </div>
+      <div class="card">
+        <h3 class="ct en" style="color:var(--ok)">Supporting Outputs: Confidence &amp; Actionability</h3>
+        <h3 class="ct ar" style="display:none;color:var(--ok)">المخرجات المساندة: مؤشر الثقة وقابلية التنفيذ</h3>
+        <ul style="gap:8px;margin-top:6px">
+          <li class="en"><strong>Confidence Indicator:</strong> Conceptually distinct from risk score (Risk = security significance, Confidence = model certainty). A high-risk prediction with low confidence routes to analyst validation; high confidence enables policy-governed automation.</li>
+          <li class="ar" style="display:none"><strong>مؤشر الثقة:</strong> منفصل مفهومياً عن درجة الخطر (الخطر يمثل الأهمية الأمنية، بينما الثقة تمثل يقين النموذج). الخطر العالي مع الثقة المنخفضة يتطلب تدقيق المحلل، بينما الثقة العالية تدعم الأتمتة المعتمدة.</li>
+          <li class="en"><strong>Predicted Class / Actionability Label:</strong> Distinguishes alerts estimated to require further investigation from lower-priority events (Gupta et al., 2019).</li>
+          <li class="ar" style="display:none"><strong>تصنيف قابلية التنفيذ:</strong> يميز التنبيهات التي تتطلب تحقيقاً عن التنبيهات الروتينية منخفضة الأولوية.</li>
+          <li class="en"><strong>Explanatory Features:</strong> Exposes the attributes that contributed most strongly to the resulting score to support analyst interpretation and validation.</li>
+          <li class="ar" style="display:none"><strong>تفسير القرار:</strong> إظهار الخصائص الأكثر تأثيراً في النتيجة لدعم تفسير المحلل وقراره.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="srow" style="margin-top:14px">
+      <div class="sb"><div class="snum">[0, 1]</div><div class="slbl en">Normalized Risk Range</div><div class="slbl ar" style="display:none">مدى تقييم الخطر المعياري</div></div>
+      <div class="sb"><div class="snum">Distinct</div><div class="slbl en">Risk vs. Confidence Outputs</div><div class="slbl ar" style="display:none">فصل الخطر عن مؤشر الثقة</div></div>
+      <div class="sb"><div class="snum">Separated</div><div class="slbl en">Engine vs. Action Execution</div><div class="slbl ar" style="display:none">فصل التحليل عن التنفيذ</div></div>
+    </div>
+  </div>
+  <div class="sn">17 / 25</div>
+</section>
