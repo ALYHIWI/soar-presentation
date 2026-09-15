@@ -1622,31 +1622,34 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 .team-title-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  max-width: 900px;
-  margin-top: 12px;
+  gap: 12px;
+  max-width: 960px;
+  margin-top: 14px;
   width: 100%;
 }
 .team-title-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 10px 14px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   transition: all 0.25s ease;
+  backdrop-filter: blur(12px);
 }
 .team-title-card:hover {
   border-color: var(--s);
-  background: rgba(0, 212, 255, 0.06);
+  background: rgba(0, 212, 255, 0.08);
   transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.15);
 }
 .team-title-av {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  background: rgba(0, 212, 255, 0.15);
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(0, 212, 255, 0.16);
+  border: 1px solid rgba(0, 212, 255, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1654,7 +1657,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
   flex-shrink: 0;
 }
 .team-title-name {
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--t1);
   white-space: nowrap;
@@ -1663,9 +1666,10 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 }
 .team-title-id {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--s);
   letter-spacing: 0.5px;
+  font-weight: 600;
 }
 
 </style>
@@ -2053,32 +2057,74 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
  إطار عمل متكامل يدمج الفرز الذكي القائم على تعلم الآلة وتقييم المخاطر الديناميكي مع أتمتة الاستجابة لحل إرهاق التنبيهات في مراكز العمليات الأمنية.
  </p>
 
- <div class="team-title-grid">
- <div class="team-title-card">
- <div class="team-title-av"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
- <div class="team-title-info">
- <div class="team-title-name en">Mohammed AL-Yahawy</div>
- <div class="team-title-name ar" style="display:none">محمد اليحوي</div>
- <div class="team-title-id">ID: 202310100429</div>
- </div>
- </div>
- <div class="team-title-card">
- <div class="team-title-av"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
- <div class="team-title-info">
- <div class="team-title-name en">Mohammed AL-Yahawy</div>
- <div class="team-title-name ar" style="display:none">محمد حمود الحكيمي</div>
- <div class="team-title-id">ID: 202310100430</div>
- </div>
- </div>
- <div class="team-title-card">
- <div class="team-title-av"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
- <div class="team-title-info">
- <div class="team-title-name en">Noah Ahmed Mohammed Maraq</div>
- <div class="team-title-name ar" style="display:none">نوح أحمد محمد مرق</div>
- <div class="team-title-id">ID: 202310100452</div>
- </div>
- </div>
- </div>
+     <div class="team-title-grid">
+      <!-- Student 1 -->
+      <div class="team-title-card">
+        <div class="team-title-av">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <div class="team-title-info">
+          <div class="team-title-name en">Hizam Mohammed Ali Al-Shajara</div>
+          <div class="team-title-name ar" style="display:none">حزام محمد علي الشجرة</div>
+          <div class="team-title-id">ID: 202210102478</div>
+        </div>
+      </div>
+      <!-- Student 2 -->
+      <div class="team-title-card">
+        <div class="team-title-av">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <div class="team-title-info">
+          <div class="team-title-name en">Hamoud Abdullah Saleh Abu Amrah</div>
+          <div class="team-title-name ar" style="display:none">حمود عبد الله صالح أبو عمرة</div>
+          <div class="team-title-id">ID: 202310101609</div>
+        </div>
+      </div>
+      <!-- Student 3 -->
+      <div class="team-title-card">
+        <div class="team-title-av">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <div class="team-title-info">
+          <div class="team-title-name en">Mohammed Hameed Qasim Mohammed</div>
+          <div class="team-title-name ar" style="display:none">محمد حميد قاسم محمد</div>
+          <div class="team-title-id">ID: 202310100174</div>
+        </div>
+      </div>
+      <!-- Student 4 -->
+      <div class="team-title-card">
+        <div class="team-title-av">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <div class="team-title-info">
+          <div class="team-title-name en">Mohammed Taha Qasim Al-Warafi</div>
+          <div class="team-title-name ar" style="display:none">محمد طه قاسم الورافي</div>
+          <div class="team-title-id">ID: 202310100461</div>
+        </div>
+      </div>
+      <!-- Student 5 -->
+      <div class="team-title-card">
+        <div class="team-title-av">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <div class="team-title-info">
+          <div class="team-title-name en">Marwan Mohammed Saeed Al-Ameer</div>
+          <div class="team-title-name ar" style="display:none">مروان محمد سعيد الأمير</div>
+          <div class="team-title-id">ID: 202310100177</div>
+        </div>
+      </div>
+      <!-- Student 6 -->
+      <div class="team-title-card">
+        <div class="team-title-av">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <div class="team-title-info">
+          <div class="team-title-name en">Noah Ahmed Mohammed Maraq</div>
+          <div class="team-title-name ar" style="display:none">نوح أحمد محمد مرق</div>
+          <div class="team-title-id">ID: 202310100452</div>
+        </div>
+      </div>
+    </div>
 
  <div class="hl" style="max-width:900px;margin-top:14px;text-align:center;padding:8px 16px">
  <p class="en" style="font-size:0.84rem;margin:0">
@@ -2182,7 +2228,81 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
  <div class="ar" style="display:none;font-size:0.88rem;color:var(--t1);line-height:1.4"><strong>النتيجة المحورية (Gelman et al., 2023):</strong> الترتيب الديناميكي الواعي بالمخاطر يقلل زمن انتظار الحوادث الحرجة في الطوابير بنسبة <strong>22.9%</strong>.</div>
  </div>
  </div>
- </div>
+
+    <!-- Custom Visual Infographic: Alert Triage Bottleneck & Fatigue Flow -->
+    <div class="card" style="margin-top:12px;padding:12px 18px;border:1px solid rgba(0,212,255,0.24);background:linear-gradient(145deg, rgba(20,8,25,0.85), rgba(10,22,35,0.78));display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-size:0.75rem;font-weight:800;letter-spacing:1.2px;color:var(--s);text-transform:uppercase;display:flex;align-items:center;gap:6px">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <span class="en">Alert Triage Bottleneck &amp; Fatigue Flow</span>
+          <span class="ar" style="display:none">مسار عنق زجاجة الفرز وإرهاق التنبيهات</span>
+        </div>
+        <div style="font-size:0.68rem;color:var(--t3);font-family:'JetBrains Mono',monospace">OPERATIONAL BOTTLENECK PIPELINE</div>
+      </div>
+
+      <!-- 5-Stage Data-Flow Pipeline -->
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;width:100%;padding:2px 0">
+        
+        <!-- Stage 1: Alerts -->
+        <div style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 6px;display:flex;flex-direction:column;align-items:center;text-align:center">
+          <div style="width:28px;height:28px;border-radius:6px;background:rgba(0,212,255,0.12);border:1px solid rgba(0,212,255,0.3);display:flex;align-items:center;justify-content:center;color:var(--s);margin-bottom:4px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div style="font-size:0.82rem;font-weight:800;color:#fff"><span class="en">Alerts</span><span class="ar" style="display:none">التنبيهات</span></div>
+          <div style="font-size:0.68rem;color:var(--t3);margin-top:1px"><span class="en">Massive Volume</span><span class="ar" style="display:none">طوفان السجلات</span></div>
+        </div>
+
+        <!-- Connector 1 -->
+        <div style="color:var(--s);font-weight:900;font-size:0.85rem;display:flex;align-items:center">&rarr;</div>
+
+        <!-- Stage 2: Noise -->
+        <div style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,180,0,0.25);border-radius:8px;padding:8px 6px;display:flex;flex-direction:column;align-items:center;text-align:center">
+          <div style="width:28px;height:28px;border-radius:6px;background:rgba(255,180,0,0.15);border:1px solid rgba(255,180,0,0.4);display:flex;align-items:center;justify-content:center;color:#ffd166;margin-bottom:4px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div style="font-size:0.82rem;font-weight:800;color:#fff"><span class="en">Noise</span><span class="ar" style="display:none">الضجيج</span></div>
+          <div style="font-size:0.68rem;color:#ffd166;margin-top:1px"><span class="en">False Positives</span><span class="ar" style="display:none">إنذارات كاذبة</span></div>
+        </div>
+
+        <!-- Connector 2 -->
+        <div style="color:var(--s);font-weight:900;font-size:0.85rem;display:flex;align-items:center">&rarr;</div>
+
+        <!-- Stage 3: Context Switching -->
+        <div style="flex:1.15;background:rgba(255,255,255,0.04);border:1px solid rgba(255,77,109,0.25);border-radius:8px;padding:8px 6px;display:flex;flex-direction:column;align-items:center;text-align:center">
+          <div style="width:28px;height:28px;border-radius:6px;background:rgba(255,77,109,0.15);border:1px solid rgba(255,77,109,0.4);display:flex;align-items:center;justify-content:center;color:var(--acc);margin-bottom:4px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          </div>
+          <div style="font-size:0.82rem;font-weight:800;color:#fff"><span class="en">Context Switching</span><span class="ar" style="display:none">تبديل السياق</span></div>
+          <div style="font-size:0.68rem;color:var(--acc);margin-top:1px"><span class="en">Analyst Overload</span><span class="ar" style="display:none">إجهاد المحلل</span></div>
+        </div>
+
+        <!-- Connector 3 -->
+        <div style="color:var(--s);font-weight:900;font-size:0.85rem;display:flex;align-items:center">&rarr;</div>
+
+        <!-- Stage 4: Static Rules -->
+        <div style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(0,212,255,0.25);border-radius:8px;padding:8px 6px;display:flex;flex-direction:column;align-items:center;text-align:center">
+          <div style="width:28px;height:28px;border-radius:6px;background:rgba(0,212,255,0.15);border:1px solid rgba(0,212,255,0.4);display:flex;align-items:center;justify-content:center;color:var(--s);margin-bottom:4px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="m14 9 3 3-3 3"/></svg>
+          </div>
+          <div style="font-size:0.82rem;font-weight:800;color:#fff"><span class="en">Static Rules</span><span class="ar" style="display:none">قواعد ثابتة</span></div>
+          <div style="font-size:0.68rem;color:var(--s);margin-top:1px"><span class="en">FIFO Queuing</span><span class="ar" style="display:none">طوابير غير مرتبة</span></div>
+        </div>
+
+        <!-- Connector 4 -->
+        <div style="color:#ef4444;font-weight:900;font-size:0.85rem;display:flex;align-items:center">&rarr;</div>
+
+        <!-- Stage 5: Critical Incidents -->
+        <div style="flex:1.15;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.45);border-radius:8px;padding:8px 6px;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 0 14px rgba(239,68,68,0.2)">
+          <div style="width:28px;height:28px;border-radius:6px;background:rgba(239,68,68,0.25);border:1px solid rgba(239,68,68,0.6);display:flex;align-items:center;justify-content:center;color:#ff6b6b;margin-bottom:4px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div style="font-size:0.82rem;font-weight:800;color:#fff"><span class="en">Critical Incidents</span><span class="ar" style="display:none">الحوادث الحرجة</span></div>
+          <div style="font-size:0.68rem;color:#ff6b6b;font-weight:700;margin-top:1px"><span class="en">Buried in Noise</span><span class="ar" style="display:none">مدفونة بالضجيج</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
  <div class="sn">03 / 20</div>
 </section>
 
@@ -4565,8 +4685,8 @@ const SLIDE_REFS = {
         elEn: "Student Researchers & Academic Supervisor",
         elAr: "فريق الباحثين والمشرف الأكاديمي",
         loc: "Report Approval Sheet, Page 3",
-        textEn: "Prepared by: Mohammed Al-Yahawy, Ahed Al-Huraibi, Moataz Al-Omari, Ammar Al-Awami, Al-Zubair Al-Dhabhani. Supervised by Dr. Raed Saeed.",
-        textAr: "إعداد: محمد اليحيوي، عهد الحريبي، معتز العمري، عمار العوامي، الزبير الذبحاني. إشراف: د. رائد سعيد."
+        textEn: "Prepared by: Hizam Al-Shajara (202210102478), Hamoud Abu Amrah (202310101609), Mohammed Hameed (202310100174), Mohammed Al-Warafi (202310100461), Marwan Al-Ameer (202310100177), Noah Maraq (202310100452). Supervised by Dr. Raed Saeed.",
+        textAr: "إعداد الطلاب: حزام الشجرة (202210102478)، حمود أبو عمرة (202310101609)، محمد حميد (202310100174)، محمد الورافي (202310100461)، مروان الأمير (202310100177)، نوح مرق (202310100452). إشراف: د. رائد سعيد."
       },
       {
         elEn: "Academic Institution & Scope",
