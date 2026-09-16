@@ -1672,224 +1672,6 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
   font-weight: 600;
 }
 
-
-/* ================= LUXURY ILLUSTRATIVE CARDS & LIGHTBOX (DOUBLE-BEZEL) ================= */
-.split-ill-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 18px;
-  width: 100%;
-  align-items: stretch;
-  margin-top: 6px;
-}
-
-[dir="rtl"] .split-ill-grid {
-  direction: rtl;
-}
-
-.ill-card {
-  position: relative;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
-  padding: 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(16px);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  height: 100%;
-  min-height: 280px;
-}
-
-.ill-card:hover {
-  border-color: rgba(0, 212, 255, 0.45);
-  box-shadow: 0 12px 36px rgba(0, 212, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-.ill-frame {
-  position: relative;
-  width: 100%;
-  flex: 1;
-  min-height: 200px;
-  max-height: 380px;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #080309;
-  cursor: zoom-in;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.ill-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.ill-frame:hover .ill-img {
-  transform: scale(1.035);
-}
-
-.ill-zoom-hint {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 8px;
-  padding: 4px 9px;
-  color: #fff;
-  font-size: 0.7rem;
-  font-family: 'JetBrains Mono', monospace;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  pointer-events: none;
-  opacity: 0.85;
-  transition: all 0.2s;
-  z-index: 2;
-}
-
-[dir="rtl"] .ill-zoom-hint {
-  right: auto;
-  left: 10px;
-}
-
-.ill-frame:hover .ill-zoom-hint {
-  opacity: 1;
-  background: rgba(0, 212, 255, 0.35);
-  border-color: var(--s);
-  color: #fff;
-}
-
-.ill-caption {
-  padding: 8px 8px 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-}
-
-.ill-title {
-  font-size: 0.82rem;
-  font-weight: 800;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.ill-sub {
-  font-size: 0.72rem;
-  color: var(--s);
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-/* Modal Lightbox */
-#imgModal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  background: rgba(0, 0, 0, 0.88);
-  backdrop-filter: blur(20px);
-  padding: 24px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-#imgModal.active {
-  display: flex;
-  animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes modalFadeIn {
-  from { opacity: 0; transform: scale(0.96); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-.modal-content-wrap {
-  position: relative;
-  max-width: 92vw;
-  max-height: 88vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.modal-img {
-  max-width: 92vw;
-  max-height: 80vh;
-  border-radius: 14px;
-  border: 1px solid rgba(0, 212, 255, 0.4);
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 212, 255, 0.3);
-  object-fit: contain;
-}
-
-.modal-caption {
-  margin-top: 12px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #fff;
-  text-align: center;
-  background: rgba(20, 8, 25, 0.85);
-  padding: 6px 24px;
-  border-radius: 100px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  letter-spacing: 0.5px;
-}
-
-.modal-close-btn {
-  position: absolute;
-  top: -14px;
-  right: -14px;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(239, 68, 68, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.6);
-  transition: transform 0.2s, background 0.2s;
-  z-index: 10;
-}
-.modal-close-btn:hover {
-  transform: scale(1.12);
-  background: #ef4444;
-}
-
-
-/* === LUXURY UPGRADE & SUBTLE ANIMATIONS === */
-@keyframes subtlePulseLoop {
-  0%, 100% { filter: drop-shadow(0 0 5px var(--ok)); opacity: 0.92; }
-  50% { filter: drop-shadow(0 0 14px var(--ok)); opacity: 1; }
-}
-@keyframes haloGlow {
-  0%, 100% { opacity: 0.35; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
-}
-.ill-card {
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 8px 30px rgba(0,0,0,0.6);
-  border-radius: 12px;
-}
-.sb {
-  min-width: 0;
-  flex: 1 1 0;
-  overflow: hidden;
-}
-
 </style>
 </head>
 <body class="focus-halo">
@@ -2357,91 +2139,53 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
  </p>
  </div>
  </div>
- <div class="sn">01 / 21</div>
+ <div class="sn">01 / 20</div>
 </section>
 
 
-<!-- ================= S02: BACKGROUND / CONTEXT ================= -->
 <!-- ================= S02: BACKGROUND / CONTEXT ================= -->
 <section class="slide" id="s1">
-  <div class="orb o2" style="opacity:0.35"></div>
-  <div class="content-box">
-  <div class="tag a1">
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
-  <span class="en">Chapter 1 &ndash; Background</span><span class="ar" style="display:none">الفصل الأول &ndash; الخلفية</span>
-  </div>
-  <h2 class="st en">Background: The Modern SOC Landscape</h2>
-  <h2 class="st ar" style="display:none">الخلفية: مشهد مراكز العمليات الأمنية الحديثة</h2>
-  <div class="gl"></div>
-  <p class="lead en">A Security Operations Center (SOC) centralizes cyber threat monitoring, detection, and incident response &mdash; but faces acute operational strain from massive log volumes and heterogeneous data schemas.</p>
-  <p class="lead ar" style="display:none">مركز العمليات الأمنية (SOC) هو الوحدة المركزية لرصد التهديدات السيبرانية والاستجابة لها، لكنه يواجه ضغطاً تشغيلياً حاداً بسبب طوفان البيانات وتشتت مصادر السجلات.</p>
-
-  <div class="split-ill-grid">
-    <!-- Left Column: 3 Core Operational Points & Stat Row -->
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <div class="card" style="padding:12px 14px">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-          <div class="c-icon cy" style="width:28px;height:28px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
-          <h3 class="ct en" style="margin:0;font-size:0.95rem">SIEM Platforms &bull; Influx</h3>
-          <h3 class="ct ar" style="display:none;margin:0;font-size:0.95rem">منصات SIEM وطوفان البيانات</h3>
-        </div>
-        <p class="en" style="font-size:0.82rem;margin:0">Organizations implement SIEM for centralized log management and correlation, accumulating up to <strong>100 GB</strong> of log and alert telemetry daily.</p>
-        <p class="ar" style="display:none;font-size:0.82rem;margin:0">تجمع المنظمات ما يصل إلى <strong>100 غيغابايت</strong> من السجلات والتنبيهات يومياً عبر منصات SIEM المركزية.</p>
-      </div>
-
-      <div class="card" style="padding:12px 14px">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-          <div class="c-icon rd" style="width:28px;height:28px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3 class="ct en" style="margin:0;font-size:0.95rem">Heterogeneous Tool Stacks</h3>
-          <h3 class="ct ar" style="display:none;margin:0;font-size:0.95rem">تشتت الأدوات الأمنية</h3>
-        </div>
-        <p class="en" style="font-size:0.82rem;margin:0">Multi-vendor security tools (EDR, Firewalls, Cloud) operate with distinct schemas, creating highly fragmented data that is difficult to normalize and correlate.</p>
-        <p class="ar" style="display:none;font-size:0.82rem;margin:0">أدوات أمنية متعددة الموردين تعمل بصيغ سجلات متباينة، مما يخلق بيانات مشتتة يصعب توحيدها ومطابقتها.</p>
-      </div>
-
-      <div class="card" style="padding:12px 14px">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-          <div class="c-icon ye" style="width:28px;height:28px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-          <h3 class="ct en" style="margin:0;font-size:0.95rem">Tiered Analyst Hierarchy</h3>
-          <h3 class="ct ar" style="display:none;margin:0;font-size:0.95rem">هرمية المحللين المرهقة</h3>
-        </div>
-        <p class="en" style="font-size:0.82rem;margin:0">Junior analysts manually investigate alerts by pivoting across disparate tools to evaluate each alert &mdash; creating an acute operational bottleneck.</p>
-        <p class="ar" style="display:none;font-size:0.82rem;margin:0">المحللون المبتدئون يجمعون الأدلة يدوياً عبر التنقل بين أدوات منفصلة لتقييم كل تنبيه، مما يولد عنق زجاجة تشغيلي.</p>
-      </div>
-
-      <div class="srow" style="margin-top:2px;display:flex;gap:10px">
-        <div class="sb" style="flex:1;min-width:0"><div class="snum" style="white-space:nowrap">100 GB</div><div class="slbl en">Daily Influx</div><div class="slbl ar" style="display:none">سجلات يومية</div></div>
-        <div class="sb" style="flex:1.2;min-width:0"><div class="snum" style="white-space:nowrap;font-size:clamp(0.85rem, 1.15vw, 1.08rem);letter-spacing:-0.2px">Multi-Vendor</div><div class="slbl en">Data Stacks</div><div class="slbl ar" style="display:none">بيانات متباينة</div></div>
-        <div class="sb" style="flex:1;min-width:0"><div class="snum" style="white-space:nowrap">Tier 1-3</div><div class="slbl en">Analyst Model</div><div class="slbl ar" style="display:none">هرمية التحليل</div></div>
-      </div>
-    </div>
-
-    <!-- Right Column: Illustrated Modern SOC Command Center Card -->
-    <div class="ill-card">
-      <div class="ill-frame" onclick="openImageModal('images/soc_command_center.jpg', 'Modern Enterprise SOC Command Center - Real-Time Telemetry & Monitoring')">
-        <img src="images/soc_command_center.jpg" alt="Modern Enterprise SOC Command Center" class="ill-img" loading="lazy"/>
-        <div class="ill-zoom-hint">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-          <span>ZOOM</span>
-        </div>
-      </div>
-      <div class="ill-caption">
-        <div class="ill-title">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-          <span class="en">Modern Enterprise SOC Command Center</span>
-          <span class="ar" style="display:none">غرفة العمليات والسيطرة الأمنية الحديثة</span>
-        </div>
-        <div class="ill-sub">CHAPTER 1 &sect;1.1</div>
-      </div>
-    </div>
-  </div>
-
-  </div>
-  <div class="sn">02 / 21</div>
+ <div class="orb o2" style="opacity:0.35"></div>
+ <div class="content-box">
+ <div class="tag a1">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
+ <span class="en">Chapter 1 &ndash; Background</span><span class="ar" style="display:none">الفصل الأول &ndash; الخلفية</span>
+ </div>
+ <h2 class="st en">Background: The Modern SOC Landscape</h2>
+ <h2 class="st ar" style="display:none">الخلفية: مشهد مراكز العمليات الأمنية الحديثة</h2>
+ <div class="gl"></div>
+ <p class="lead en">A Security Operations Center (SOC) centralizes cyber threat monitoring, detection, and incident response — but faces acute operational strain from massive log volumes and heterogeneous data schemas.</p>
+ <p class="lead ar" style="display:none">مركز العمليات الأمنية (SOC) هو الوحدة المركزية لرصد التهديدات السيبرانية والاستجابة لها، لكنه يواجه ضغطاً تشغيلياً حاداً بسبب طوفان البيانات وتشتت مصادر السجلات.</p>
+ <div class="grid g3">
+ <div class="card">
+ <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+ <h3 class="ct en">SIEM Platforms</h3><h3 class="ct ar" style="display:none">منصات SIEM</h3>
+ <p class="en">Organizations implement SIEM for centralized log management and basic correlation, accumulating up to <strong>100 GB</strong> of log and alert data daily.</p>
+ <p class="ar" style="display:none">تجمع المنظمات ما يصل إلى <strong>100 غيغابايت</strong> من السجلات يومياً عبر منصات SIEM للمركزة والمطابقة الأولية.</p>
+ </div>
+ <div class="card">
+ <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+ <h3 class="ct en">Heterogeneous Tool Stacks</h3><h3 class="ct ar" style="display:none">تشتت الأدوات الأمنية</h3>
+ <p class="en">Multi-vendor security tools operate with distinct log schemas, creating highly heterogeneous data that is complex to analyze and correlate.</p>
+ <p class="ar" style="display:none">أدوات أمنية متعددة الموردين تعمل بصيغ سجلات متباينة، مما يخلق بيانات معقدة وصعبة التحليل والربط.</p>
+ </div>
+ <div class="card">
+ <div class="c-icon ye"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+ <h3 class="ct en">Tiered Analyst Hierarchy</h3><h3 class="ct ar" style="display:none">هرمية المحللين</h3>
+ <p class="en">Junior analysts manually gather contextual evidence across disparate sources, following standard procedures to evaluate each alert — a time-consuming, error-prone process.</p>
+ <p class="ar" style="display:none">المحللون المبتدئون يجمعون الأدلة يدوياً من مصادر متباينة لتقييم كل تنبيه — عملية مستهلكة للوقت وعرضة للخطأ.</p>
+ </div>
+ </div>
+ <div class="srow" style="margin-top:14px">
+ <div class="sb"><div class="snum">100 GB</div><div class="slbl en">Daily Log Influx</div><div class="slbl ar" style="display:none">سجلات يومية</div></div>
+ <div class="sb"><div class="snum">Multi-Vendor</div><div class="slbl en">Heterogeneous Data</div><div class="slbl ar" style="display:none">بيانات متباينة</div></div>
+ <div class="sb"><div class="snum">Tiered</div><div class="slbl en">Manual Analyst Model</div><div class="slbl ar" style="display:none">نموذج محلل يدوي</div></div>
+ </div>
+ </div>
+ <div class="sn">02 / 20</div>
 </section>
 
 
-<!-- ================= S03: PROBLEM STATEMENT ================= -->
 <!-- ================= S03: PROBLEM STATEMENT ================= -->
 <section class="slide" id="s2">
  <div class="orb o1" style="opacity:0.4"></div>
@@ -2454,71 +2198,112 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
  <h2 class="st en">The Core Problem: Alert Fatigue &amp; Static Triage</h2>
  <h2 class="st ar" style="display:none">المشكلة الجوهرية: إرهاق التنبيهات والفرز الثابت</h2>
  <div class="gl"></div>
-
- <div class="split-ill-grid">
-   <!-- Left Column: Problem Cards & Benchmark Finding -->
-   <div style="display:flex;flex-direction:column;gap:10px">
-     <div class="card" style="padding:12px 14px">
-       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-         <div class="c-icon rd" style="width:28px;height:28px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-         <h3 class="ct en" style="margin:0;font-size:0.95rem;color:#ff9b9b">Alert Influx &amp; Noise Flooding</h3>
-         <h3 class="ct ar" style="display:none;margin:0;font-size:0.95rem;color:#ff9b9b">فيضان التنبيهات والضجيج</h3>
-       </div>
-       <p class="en" style="font-size:0.82rem;margin:0">Modern SOCs accumulate up to 100 GB daily. Up to 54% consists of false positives and benign noise, severely exhausting cognitive capacity.</p>
-       <p class="ar" style="display:none;font-size:0.82rem;margin:0">تستقبل مراكز العمليات ما يصل إلى 100 غيغابايت يومياً؛ أكثر من 54% منها إيجابيات كاذبة وضجيج يستنزف طاقة المحللين.</p>
-     </div>
-
-     <div class="card" style="padding:12px 14px">
-       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-         <div class="c-icon ye" style="width:28px;height:28px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
-         <h3 class="ct en" style="margin:0;font-size:0.95rem;color:#ffd166">Context Switching Friction</h3>
-         <h3 class="ct ar" style="display:none;margin:0;font-size:0.95rem;color:#ffd166">إجهاد تبديل السياق بين الأنظمة</h3>
-       </div>
-       <p class="en" style="font-size:0.82rem;margin:0">Analysts manually pivot across 5 to 10 separate security tools to assemble evidence, causing severe mental friction, slow response, and human error.</p>
-       <p class="ar" style="display:none;font-size:0.82rem;margin:0">يتنقل المحللون يدوياً بين 5 إلى 10 أنظمة منفصلة لجمع الأدلة، مما يولد تشتتاً ذهنياً وبطئاً حاداً في الاستجابة.</p>
-     </div>
-
-     <div class="card" style="padding:12px 14px">
-       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-         <div class="c-icon cy" style="width:28px;height:28px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="m14 9 3 3-3 3"/></svg></div>
-         <h3 class="ct en" style="margin:0;font-size:0.95rem;color:var(--s)">Static Rules &amp; FIFO Queues</h3>
-         <h3 class="ct ar" style="display:none;margin:0;font-size:0.95rem;color:var(--s)">القواعد الثابتة وطوابير FIFO</h3>
-       </div>
-       <p class="en" style="font-size:0.82rem;margin:0">Deterministic rules cannot adapt to novel attacks. Unordered FIFO queues bury critical ransomware threats beneath low-priority noise.</p>
-       <p class="ar" style="display:none;font-size:0.82rem;margin:0">قواعد الفرز الثابتة عاجزة عن التكيف مع الهجمات المتطورة؛ طوابير FIFO غير المرتبة تدفن التهديدات الحرجة تحت الضجيج.</p>
-     </div>
-
-     <div class="card" style="padding:10px 14px;display:flex;align-items:center;gap:14px;border:1px solid rgba(0,212,255,0.3);background:rgba(0,212,255,0.06)">
-       <div style="font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:800;color:var(--s);white-space:nowrap;padding:4px 10px;background:rgba(0,212,255,0.12);border-radius:6px">22.9%</div>
-       <div style="font-size:0.82rem;color:var(--t1);line-height:1.35">
-         <span class="en"><strong>Key Finding (Gelman 2023):</strong> Dynamic risk-aware ordering reduces critical queue dwell time by <strong>22.9%</strong>.</span>
-         <span class="ar" style="display:none"><strong>النتيجة المحورية (Gelman 2023):</strong> الترتيب الديناميكي الواعي بالمخاطر يقلل زمن انتظار الحوادث بنسبة <strong>22.9%</strong>.</span>
-       </div>
-     </div>
-   </div>
-
-   <!-- Right Column: Illustrated Alert Fatigue & Cognitive Storm Card -->
-   <div class="ill-card">
-     <div class="ill-frame" onclick="openImageModal('images/alert_fatigue_chaos.jpg', 'Alert Fatigue Crisis & Cognitive Overload - Visual Storm')">
-       <img src="images/alert_fatigue_chaos.jpg" alt="Alert Fatigue Crisis & Cognitive Overload" class="ill-img" loading="lazy"/>
-       <div class="ill-zoom-hint">
-         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-         <span>ZOOM</span>
-       </div>
-     </div>
-     <div class="ill-caption">
-       <div class="ill-title">
-         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2.2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-         <span class="en">Alert Fatigue &amp; Cognitive Overload Crisis</span>
-         <span class="ar" style="display:none">أزمة إرهاق التنبيهات والإنهاك الإدراكي</span>
-       </div>
-       <div class="ill-sub">CHAPTER 1 &sect;1.2</div>
-     </div>
-   </div>
+ <div class="grid g3" style="gap:14px">
+ <div class="card">
+ <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+ <h3 class="ct en" style="color:#ff9b9b">Alert Influx &amp; Noise</h3>
+ <h3 class="ct ar" style="display:none;color:#ff9b9b">فيضان التنبيهات والضجيج</h3>
+ <p class="en">SOCs accumulate up to 100 GB of log data daily. A substantial portion consists of false positives and non-actionable noise, exhausting analyst capacity.</p>
+ <p class="ar" style="display:none">تستقبل مراكز العمليات ما يصل إلى 100 غيغابايت يومياً؛ نسبة كبيرة منها إيجابيات كاذبة تستنزف طاقة المحللين.</p>
+ </div>
+ <div class="card">
+ <div class="c-icon ye"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+ <h3 class="ct en" style="color:#ffd166">Context Switching Overload</h3>
+ <h3 class="ct ar" style="display:none;color:#ffd166">إجهاد تبديل السياق</h3>
+ <p class="en">Analysts manually investigate alerts by repeatedly pivoting across disparate application windows, creating cognitive overload and analyst burnout.</p>
+ <p class="ar" style="display:none">يتنقل المحللون يدوياً بين شاشات وأنظمة معزولة لجمع الأدلة، مما يولد تشتتاً ذهنياً حاداً وإجهاداً مهنياً.</p>
+ </div>
+ <div class="card">
+ <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="m14 9 3 3-3 3"/></svg></div>
+ <h3 class="ct en" style="color:var(--s)">Static Rules &amp; Un-Prioritized Queues</h3>
+ <h3 class="ct ar" style="display:none;color:var(--s)">القواعد الثابتة وطوابير غير مرتبة</h3>
+ <p class="en">Conventional SOAR relies on deterministic rules that cannot adapt to evolving threats. Critical incidents get buried beneath noise in FIFO queues.</p>
+ <p class="ar" style="display:none">SOAR التقليدي يعتمد على قواعد حتمية عاجزة عن التكيف؛ الحوادث الحرجة تُدفن تحت الضجيج في طوابير FIFO غير مرتبة.</p>
+ </div>
+ </div>
+ <div class="card" style="margin-top:12px;padding:12px 18px;display:flex;align-items:center;gap:18px">
+ <div style="font-family:'JetBrains Mono',monospace;font-size:1.45rem;font-weight:800;color:var(--s);white-space:nowrap;padding:4px 12px;background:rgba(0,212,255,0.08);border-radius:8px;border:1px solid rgba(0,212,255,0.2)">22.9%</div>
+ <div>
+ <div class="en" style="font-size:0.88rem;color:var(--t1);line-height:1.4"><strong>Key Finding (Gelman et al., 2023):</strong> Dynamic, risk-aware ordering reduces critical incident queue dwell time by <strong>22.9%</strong>. Un-prioritized queues are the core operational bottleneck.</div>
+ <div class="ar" style="display:none;font-size:0.88rem;color:var(--t1);line-height:1.4"><strong>النتيجة المحورية (Gelman et al., 2023):</strong> الترتيب الديناميكي الواعي بالمخاطر يقلل زمن انتظار الحوادث الحرجة في الطوابير بنسبة <strong>22.9%</strong>.</div>
+ </div>
  </div>
 
- </div>
- <div class="sn">03 / 21</div>
+    <!-- Custom Visual Infographic: Alert Triage Bottleneck & Fatigue Flow -->
+    <div class="card" style="margin-top:12px;padding:12px 18px;border:1px solid rgba(0,212,255,0.24);background:linear-gradient(145deg, rgba(20,8,25,0.85), rgba(10,22,35,0.78));display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-size:0.75rem;font-weight:800;letter-spacing:1.2px;color:var(--s);text-transform:uppercase;display:flex;align-items:center;gap:6px">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <span class="en">Alert Triage Bottleneck &amp; Fatigue Flow</span>
+          <span class="ar" style="display:none">مسار عنق زجاجة الفرز وإرهاق التنبيهات</span>
+        </div>
+        <div style="font-size:0.68rem;color:var(--t3);font-family:'JetBrains Mono',monospace">OPERATIONAL BOTTLENECK PIPELINE</div>
+      </div>
+
+      <!-- 5-Stage Data-Flow Pipeline -->
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;width:100%;padding:2px 0">
+        
+        <!-- Stage 1: Alerts -->
+        <div style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 6px;display:flex;flex-direction:column;align-items:center;text-align:center">
+          <div style="width:28px;height:28px;border-radius:6px;background:rgba(0,212,255,0.12);border:1px solid rgba(0,212,255,0.3);display:flex;align-items:center;justify-content:center;color:var(--s);margin-bottom:4px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div style="font-size:0.82rem;font-weight:800;color:#fff"><span class="en">Alerts</span><span class="ar" style="display:none">التنبيهات</span></div>
+          <div style="font-size:0.68rem;color:var(--t3);margin-top:1px"><span class="en">Massive Volume</span><span class="ar" style="display:none">طوفان السجلات</span></div>
+        </div>
+
+        <!-- Connector 1 -->
+        <div style="color:var(--s);font-weight:900;font-size:0.85rem;display:flex;align-items:center">&rarr;</div>
+
+        <!-- Stage 2: Noise -->
+        <div style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,180,0,0.25);border-radius:8px;padding:8px 6px;display:flex;flex-direction:column;align-items:center;text-align:center">
+          <div style="width:28px;height:28px;border-radius:6px;background:rgba(255,180,0,0.15);border:1px solid rgba(255,180,0,0.4);display:flex;align-items:center;justify-content:center;color:#ffd166;margin-bottom:4px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div style="font-size:0.82rem;font-weight:800;color:#fff"><span class="en">Noise</span><span class="ar" style="display:none">الضجيج</span></div>
+          <div style="font-size:0.68rem;color:#ffd166;margin-top:1px"><span class="en">False Positives</span><span class="ar" style="display:none">إنذارات كاذبة</span></div>
+        </div>
+
+        <!-- Connector 2 -->
+        <div style="color:var(--s);font-weight:900;font-size:0.85rem;display:flex;align-items:center">&rarr;</div>
+
+        <!-- Stage 3: Context Switching -->
+        <div style="flex:1.15;background:rgba(255,255,255,0.04);border:1px solid rgba(255,77,109,0.25);border-radius:8px;padding:8px 6px;display:flex;flex-direction:column;align-items:center;text-align:center">
+          <div style="width:28px;height:28px;border-radius:6px;background:rgba(255,77,109,0.15);border:1px solid rgba(255,77,109,0.4);display:flex;align-items:center;justify-content:center;color:var(--acc);margin-bottom:4px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          </div>
+          <div style="font-size:0.82rem;font-weight:800;color:#fff"><span class="en">Context Switching</span><span class="ar" style="display:none">تبديل السياق</span></div>
+          <div style="font-size:0.68rem;color:var(--acc);margin-top:1px"><span class="en">Analyst Overload</span><span class="ar" style="display:none">إجهاد المحلل</span></div>
+        </div>
+
+        <!-- Connector 3 -->
+        <div style="color:var(--s);font-weight:900;font-size:0.85rem;display:flex;align-items:center">&rarr;</div>
+
+        <!-- Stage 4: Static Rules -->
+        <div style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(0,212,255,0.25);border-radius:8px;padding:8px 6px;display:flex;flex-direction:column;align-items:center;text-align:center">
+          <div style="width:28px;height:28px;border-radius:6px;background:rgba(0,212,255,0.15);border:1px solid rgba(0,212,255,0.4);display:flex;align-items:center;justify-content:center;color:var(--s);margin-bottom:4px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="m14 9 3 3-3 3"/></svg>
+          </div>
+          <div style="font-size:0.82rem;font-weight:800;color:#fff"><span class="en">Static Rules</span><span class="ar" style="display:none">قواعد ثابتة</span></div>
+          <div style="font-size:0.68rem;color:var(--s);margin-top:1px"><span class="en">FIFO Queuing</span><span class="ar" style="display:none">طوابير غير مرتبة</span></div>
+        </div>
+
+        <!-- Connector 4 -->
+        <div style="color:#ef4444;font-weight:900;font-size:0.85rem;display:flex;align-items:center">&rarr;</div>
+
+        <!-- Stage 5: Critical Incidents -->
+        <div style="flex:1.15;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.45);border-radius:8px;padding:8px 6px;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 0 14px rgba(239,68,68,0.2)">
+          <div style="width:28px;height:28px;border-radius:6px;background:rgba(239,68,68,0.25);border:1px solid rgba(239,68,68,0.6);display:flex;align-items:center;justify-content:center;color:#ff6b6b;margin-bottom:4px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div style="font-size:0.82rem;font-weight:800;color:#fff"><span class="en">Critical Incidents</span><span class="ar" style="display:none">الحوادث الحرجة</span></div>
+          <div style="font-size:0.68rem;color:#ff6b6b;font-weight:700;margin-top:1px"><span class="en">Buried in Noise</span><span class="ar" style="display:none">مدفونة بالضجيج</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+ <div class="sn">03 / 20</div>
 </section>
 
 
@@ -2545,16 +2330,15 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <div class="g3" style="gap:16px;width:100%">
       
       <!-- Metric 1: 22.9% Handled Alerts Gauge -->
-      <div class="card" style="padding:22px;border:1px solid rgba(239,68,68,0.35);border-radius:18px;background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(42,12,20,0.8));display:flex;flex-direction:column;align-items:center;text-align:center">
+      <div class="card" style="padding:22px;border:1px solid rgba(239,68,68,0.35);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(42,12,20,0.8));display:flex;flex-direction:column;align-items:center;text-align:center">
         <div style="font-size:0.75rem;font-weight:800;color:#ff6b6b;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px">HUMAN TRIAGE GAP (GELMAN 2023)</div>
         
-        <!-- SVG Donut Gauge (22.9% vs 77.1%) with Smooth Organic Circular Glow -->
-        <div style="position:relative;width:140px;height:140px;margin-bottom:14px;display:flex;align-items:center;justify-content:center">
-          <div style="position:absolute;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle, rgba(0,212,255,0.14) 0%, rgba(239,68,68,0.06) 50%, transparent 70%);pointer-events:none"></div>
-          <svg width="140" height="140" viewBox="0 0 120 120" style="overflow:visible;transform:rotate(-90deg)">
-            <circle cx="60" cy="60" r="44" fill="transparent" stroke="rgba(255,255,255,0.08)" stroke-width="10"/>
-            <circle cx="60" cy="60" r="44" fill="transparent" stroke="rgba(239,68,68,0.35)" stroke-width="10" stroke-dasharray="276.46" stroke-dashoffset="0"/>
-            <circle cx="60" cy="60" r="44" fill="transparent" stroke="var(--s)" stroke-width="10" stroke-dasharray="276.46" stroke-dashoffset="213.15" stroke-linecap="round" style="filter:drop-shadow(0 0 6px var(--s))"/>
+        <!-- SVG Donut Gauge (22.9% vs 77.1%) -->
+        <div style="position:relative;width:140px;height:140px;margin-bottom:14px">
+          <svg width="140" height="140" viewBox="0 0 100 100" style="transform:rotate(-90deg)">
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="rgba(255,255,255,0.08)" stroke-width="12"/>
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="rgba(239,68,68,0.4)" stroke-width="12" stroke-dasharray="251.2" stroke-dashoffset="0"/>
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="var(--s)" stroke-width="12" stroke-dasharray="251.2" stroke-dashoffset="193.6" stroke-linecap="round" style="filter:drop-shadow(0 0 6px var(--s))"/>
           </svg>
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
             <span style="font-size:2rem;font-weight:900;color:#fff;font-family:'JetBrains Mono',monospace">22.9%</span>
@@ -2571,10 +2355,11 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
         <p class="ar" style="display:none;font-size:0.86rem;color:var(--t2);line-height:1.5;margin:0">
           أثناء ذروة العمليات، يفحص المحللون <strong>22.9%</strong> فقط من التنبيهات، ويبقى <strong>77.1%</strong> دون فحص بسبب الإجهاد وتراكم السجلات.
         </p>
+        <div style="margin-top:auto;padding-top:10px;font-size:0.72rem;color:var(--t3);font-family:'JetBrains Mono',monospace">SOURCE: REPORT &sect;1.2, PAGE 13</div>
       </div>
 
       <!-- Metric 2: 54% False Positive Suppression -->
-      <div class="card" style="padding:22px;border:1px solid rgba(0,212,255,0.35);border-radius:18px;background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(15,30,45,0.8));display:flex;flex-direction:column;align-items:center;text-align:center">
+      <div class="card" style="padding:22px;border:1px solid rgba(0,212,255,0.35);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(15,30,45,0.8));display:flex;flex-direction:column;align-items:center;text-align:center">
         <div style="font-size:0.75rem;font-weight:800;color:var(--s);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px">NOISE REDUCTION BENCHMARK</div>
         
         <!-- SVG Comparison Bar Gauge -->
@@ -2593,8 +2378,8 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
               <span style="color:var(--s)">AI-Filtered</span>
               <span style="color:var(--ok)">-54% Suppressed</span>
             </div>
-            <div style="height:10px;border-radius:6px;background:rgba(255,255,255,0.08);position:relative">
-              <div style="width:46%;height:100%;background:linear-gradient(90deg, var(--s), var(--ok));border-radius:6px;filter:drop-shadow(0 0 5px rgba(16,185,129,0.5))"></div>
+            <div style="height:10px;border-radius:6px;background:rgba(255,255,255,0.08);overflow:hidden">
+              <div style="width:46%;height:100%;background:linear-gradient(90deg, var(--s), var(--ok));border-radius:6px;box-shadow:0 0 8px var(--ok)"></div>
             </div>
           </div>
           <div style="font-size:1.85rem;font-weight:900;color:var(--s);font-family:'JetBrains Mono',monospace;margin-top:2px">
@@ -2611,22 +2396,21 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
         <p class="ar" style="display:none;font-size:0.86rem;color:var(--t2);line-height:1.5;margin:0">
           الفرز الذكي يقمع <strong>54%</strong> من الإنذارات الكاذبة آلياً، مما يقلص زمن انتظار التنبيهات وينهي ظاهرة الإنهاك الذهني.
         </p>
+        <div style="margin-top:auto;padding-top:10px;font-size:0.72rem;color:var(--t3);font-family:'JetBrains Mono',monospace">SOURCE: REPORT &sect;2.4.1, PAGE 29</div>
       </div>
 
-      <!-- Metric 3: 91% Verified High-Recall Capture / Precision Gauge -->
-      <div class="card" style="padding:22px;border:1px solid rgba(16,185,129,0.35);border-radius:18px;background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(12,38,25,0.8));display:flex;flex-direction:column;align-items:center;text-align:center">
+      <!-- Metric 3: 95.1% True Threat Capture -->
+      <div class="card" style="padding:22px;border:1px solid rgba(16,185,129,0.35);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(12,38,25,0.8));display:flex;flex-direction:column;align-items:center;text-align:center">
         <div style="font-size:0.75rem;font-weight:800;color:var(--ok);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px">SAFETY &amp; DETECTION ACCURACY</div>
         
-        <!-- SVG Circular Completion Meter: 91% with Soft Organic Radial Glow (Eliminating Square Box Artifacts) -->
-        <div style="position:relative;width:140px;height:140px;margin-bottom:14px;display:flex;align-items:center;justify-content:center">
-          <!-- Circular Ambient Glow (Guaranteed 100% Round, No Clipping) -->
-          <div style="position:absolute;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle, rgba(16,185,129,0.2) 0%, rgba(16,185,129,0.06) 50%, transparent 70%);pointer-events:none"></div>
-          <svg width="140" height="140" viewBox="0 0 120 120" style="overflow:visible;transform:rotate(-90deg)">
-            <circle cx="60" cy="60" r="44" fill="transparent" stroke="rgba(255,255,255,0.08)" stroke-width="10"/>
-            <circle cx="60" cy="60" r="44" fill="transparent" stroke="var(--ok)" stroke-width="10" stroke-dasharray="276.46" stroke-dashoffset="24.88" stroke-linecap="round" style="filter:drop-shadow(0 0 6px rgba(16,185,129,0.65))"/>
+        <!-- SVG Circular Completion Meter (95.1%) -->
+        <div style="position:relative;width:140px;height:140px;margin-bottom:14px">
+          <svg width="140" height="140" viewBox="0 0 100 100" style="transform:rotate(-90deg)">
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="rgba(255,255,255,0.08)" stroke-width="12"/>
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="var(--ok)" stroke-width="12" stroke-dasharray="251.2" stroke-dashoffset="12.3" stroke-linecap="round" style="filter:drop-shadow(0 0 8px var(--ok))"/>
           </svg>
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
-            <span style="font-size:2rem;font-weight:900;color:#fff;font-family:'JetBrains Mono',monospace">91%</span>
+            <span style="font-size:2rem;font-weight:900;color:#fff;font-family:'JetBrains Mono',monospace">95.1%</span>
             <span style="font-size:0.68rem;color:var(--ok);text-transform:uppercase;font-weight:700">Preserved</span>
           </div>
         </div>
@@ -2635,16 +2419,17 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
         <h3 class="ar" style="display:none;font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:6px">معدل التقاط التهديدات الحقيقية</h3>
         
         <p class="en" style="font-size:0.86rem;color:var(--t2);line-height:1.5;margin:0">
-          Even while aggressively filtering 54% of noise, the triage engine preserves over <strong>91%</strong> true threat capture rate, ensuring enterprise security integrity.
+          Even while aggressively filtering 54% of noise, the triage engine preserves a <strong>95.1%</strong> true threat capture rate, ensuring security integrity.
         </p>
         <p class="ar" style="display:none;font-size:0.86rem;color:var(--t2);line-height:1.5;margin:0">
-          رغم قمع 54% من التنبيهات، يحافظ النموذج على أكثر من <strong>91%</strong> من التهديدات الفعلية دون أي تفريط في الأمان المؤسسي.
+          رغم قمع 54% من التنبيهات، يحافظ النموذج على <strong>95.1%</strong> من التهديدات الفعلية دون أي تفريط في الأمان المؤسسي.
         </p>
+        <div style="margin-top:auto;padding-top:10px;font-size:0.72rem;color:var(--t3);font-family:'JetBrains Mono',monospace">SOURCE: REPORT &sect;2.4.1, PAGE 29</div>
       </div>
 
     </div>
   </div>
-  <div class="sn">04 / 21</div>
+  <div class="sn">04 / 20</div>
 </section>
 
 
@@ -2690,7 +2475,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
  </div>
  </div>
  </div>
- <div class="sn">05 / 21</div>
+ <div class="sn">05 / 20</div>
 </section>
 
 
@@ -2734,200 +2519,177 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
  </div>
  </div>
  </div>
- <div class="sn">06 / 21</div>
+ <div class="sn">06 / 20</div>
 </section>
 
 
 <!-- ================= S07: EXISTING WORK / RELATED WORK ================= -->
-<!-- ================= S07: EXISTING WORK / RELATED WORK ================= -->
 <section class="slide" id="s6">
   <div class="orb o1" style="opacity:0.35"></div>
   <div class="content-box" style="max-width:1280px">
-    <div class="tag a1" style="border-color:rgba(0,212,255,0.4);background:rgba(0,212,255,0.08);margin-bottom:8px">
+    <div class="tag a1" style="border-color:rgba(0,212,255,0.4);background:rgba(0,212,255,0.08);margin-bottom:10px">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
       <span class="en" style="color:var(--s);font-weight:800;letter-spacing:1px">LITERATURE &amp; EVOLUTION &middot; CHAPTER 2 &sect;2.1-2.3</span>
       <span class="ar" style="display:none;color:var(--s);font-weight:800">تطور التقنيات والأدبيات السابقة &middot; الفصل 2 &sect;2.1-2.3</span>
     </div>
     <h2 class="st en" style="margin-bottom:4px">Existing Systems: SOC Technology Evolution</h2>
     <h2 class="st ar" style="display:none;margin-bottom:4px">الأنظمة الحالية: التطور التاريخي لتقنيات عمليات الأمن</h2>
-    <div class="gl" style="margin:4px auto 10px"></div>
+    <div class="gl" style="margin:4px auto 14px"></div>
+    <p class="lead en" style="margin-bottom:18px;font-size:0.98rem;max-width:940px">
+      Tracing how security architectures evolved from raw perimeter logs to SIEM centralizers, conventional SOAR playbooks, and now AI-driven orchestration.
+    </p>
+    <p class="lead ar" style="display:none;margin-bottom:18px;font-size:0.98rem;max-width:940px">
+      تتبع مسار تطور المعماريات الأمنية من السجلات المعزولة إلى منصات SIEM وSOAR التقليدية وصولاً إلى الأتمتة الذكية المقترحة.
+    </p>
 
-    <!-- Featured 3D Evolution Timeline Illustration Card - Full Uncropped View -->
-    <div class="ill-card" style="margin-bottom:12px;padding:8px;background:rgba(15,10,22,0.85);border:1px solid rgba(0,212,255,0.25)">
-      <div class="ill-frame" style="height:auto;max-height:270px;background:#050208;display:flex;align-items:center;justify-content:center" onclick="openImageModal('images/soc_tech_evolution.jpg', 'Evolution of Security Operations Technologies: Gen 1 to Gen 4')">
-        <img src="images/soc_tech_evolution.jpg" alt="Evolution of Security Operations Technologies" style="width:100%;height:auto;max-height:260px;object-fit:contain;display:block;margin:0 auto" loading="lazy"/>
-        <div class="ill-zoom-hint">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-          <span>FULL TIMELINE ZOOM</span>
-        </div>
-      </div>
-      <div class="ill-caption" style="padding:6px 10px 4px">
-        <div class="ill-title" style="font-size:0.82rem">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg>
-          <span class="en">From Manual Log Silos (Gen 1) to Autonomous AI-Augmented SOAR (Gen 4)</span>
-          <span class="ar" style="display:none">من صوامع السجلات اليدوية (الجيل 1) إلى أداة SOAR المعززة بالذكاء (الجيل 4)</span>
-        </div>
-        <div class="ill-sub">CHAPTER 2 &sect;2.1-2.3 &middot; COMPLETE 4 GENERATIONS</div>
-      </div>
-    </div>
-
-    <!-- 4-Generation Concise Cards Grid -->
-    <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:12px;width:100%;margin-bottom:10px">
+    <!-- 4-Generation Visual Interactive Timeline -->
+    <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:14px;width:100%;margin-bottom:16px">
       
-      <!-- Gen 1 -->
-      <div class="card" style="padding:12px 14px;border:1px solid rgba(255,255,255,0.1);background:linear-gradient(145deg, rgba(28,8,22,0.85), rgba(20,10,25,0.7))">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-          <span style="font-size:0.72rem;font-weight:800;color:var(--t3);font-family:'JetBrains Mono',monospace">GEN 1 &middot; 2000s</span>
-          <span style="width:7px;height:7px;border-radius:50%;background:var(--t3)"></span>
+      <!-- Gen 1: Syslog & Perimeter -->
+      <div class="card" style="padding:18px;border:1px solid rgba(255,255,255,0.1);background:linear-gradient(145deg, rgba(28,8,22,0.85), rgba(20,10,25,0.7))">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <span style="font-size:0.75rem;font-weight:800;color:var(--t3);font-family:'JetBrains Mono',monospace">GEN 1 &middot; 2000s</span>
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--t3)"></span>
         </div>
-        <h3 class="en" style="font-size:0.92rem;font-weight:800;color:#fff;margin-bottom:3px">Log Management</h3>
-        <h3 class="ar" style="display:none;font-size:0.92rem;font-weight:800;color:#fff;margin-bottom:3px">إدارة السجلات</h3>
-        <p class="en" style="font-size:0.78rem;color:var(--t2);line-height:1.4;margin:0">Point tools logged independently via Syslog. Analysts inspected text files manually.</p>
-        <p class="ar" style="display:none;font-size:0.78rem;color:var(--t2);line-height:1.4;margin:0">تسجيل معزول عبر السجلات النصية مع فحص يدوي بطيء.</p>
+        <h3 class="en" style="font-size:1.02rem;font-weight:800;color:#fff;margin-bottom:4px">Perimeter Firewalls</h3>
+        <h3 class="ar" style="display:none;font-size:1.02rem;font-weight:800;color:#fff;margin-bottom:4px">الجدران النارية والـ Syslog</h3>
+        <p class="en" style="font-size:0.84rem;color:var(--t2);line-height:1.45;margin:0">
+          Point tools logged events independently via Syslog. Analysts inspected text files manually without central correlation.
+        </p>
+        <p class="ar" style="display:none;font-size:0.84rem;color:var(--t2);line-height:1.45;margin:0">
+          تسجيل معزول للبيانات عبر السجلات النصية دون ربط مركزي مع فحص يدوي بطيء.
+        </p>
       </div>
 
-      <!-- Gen 2 -->
-      <div class="card" style="padding:12px 14px;border:1px solid rgba(0,212,255,0.25);background:linear-gradient(145deg, rgba(28,8,22,0.85), rgba(15,25,35,0.7))">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-          <span style="font-size:0.72rem;font-weight:800;color:var(--s);font-family:'JetBrains Mono',monospace">GEN 2 &middot; 2010s</span>
-          <span style="width:7px;height:7px;border-radius:50%;background:var(--s)"></span>
+      <!-- Gen 2: SIEM -->
+      <div class="card" style="padding:18px;border:1px solid rgba(0,212,255,0.25);background:linear-gradient(145deg, rgba(28,8,22,0.85), rgba(15,25,35,0.7))">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <span style="font-size:0.75rem;font-weight:800;color:var(--s);font-family:'JetBrains Mono',monospace">GEN 2 &middot; 2010s</span>
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--s)"></span>
         </div>
-        <h3 class="en" style="font-size:0.92rem;font-weight:800;color:#fff;margin-bottom:3px">SIEM Platforms</h3>
-        <h3 class="ar" style="display:none;font-size:0.92rem;font-weight:800;color:#fff;margin-bottom:3px">منصات SIEM</h3>
-        <p class="en" style="font-size:0.78rem;color:var(--t2);line-height:1.4;margin:0">Centralized log collection and rules, but created massive alert fatigue (100 GB/day) with zero auto-response.</p>
-        <p class="ar" style="display:none;font-size:0.78rem;color:var(--t2);line-height:1.4;margin:0">تجميع مركزي وقواعد مطابقة، ولدت آلاف الإنذارات دون استجابة آلية.</p>
+        <h3 class="en" style="font-size:1.02rem;font-weight:800;color:#fff;margin-bottom:4px">SIEM Centralization</h3>
+        <h3 class="ar" style="display:none;font-size:1.02rem;font-weight:800;color:#fff;margin-bottom:4px">منصات SIEM المركزية</h3>
+        <p class="en" style="font-size:0.84rem;color:var(--t2);line-height:1.45;margin:0">
+          Centralized log ingestion and rule correlation, but triggered massive alert fatigue (100GB/day) with zero automated response.
+        </p>
+        <p class="ar" style="display:none;font-size:0.84rem;color:var(--t2);line-height:1.45;margin:0">
+          تجميع مركزي وقواعد مطابقة، لكنها ولدت آلاف الإنذارات دون أي استجابة مؤتمتة.
+        </p>
       </div>
 
-      <!-- Gen 3 -->
-      <div class="card" style="padding:12px 14px;border:1px solid rgba(255,180,0,0.25);background:linear-gradient(145deg, rgba(28,8,22,0.85), rgba(35,20,25,0.7))">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-          <span style="font-size:0.72rem;font-weight:800;color:#ffd166;font-family:'JetBrains Mono',monospace">GEN 3 &middot; 2018s</span>
-          <span style="width:7px;height:7px;border-radius:50%;background:#ffd166"></span>
+      <!-- Gen 3: Conventional SOAR -->
+      <div class="card" style="padding:18px;border:1px solid rgba(255,180,0,0.25);background:linear-gradient(145deg, rgba(28,8,22,0.85), rgba(35,20,25,0.7))">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <span style="font-size:0.75rem;font-weight:800;color:#ffd166;font-family:'JetBrains Mono',monospace">GEN 3 &middot; 2018s</span>
+          <span style="width:8px;height:8px;border-radius:50%;background:#ffd166"></span>
         </div>
-        <h3 class="en" style="font-size:0.92rem;font-weight:800;color:#fff;margin-bottom:3px">Rule-Based SOAR</h3>
-        <h3 class="ar" style="display:none;font-size:0.92rem;font-weight:800;color:#fff;margin-bottom:3px">SOAR التقليدي</h3>
-        <p class="en" style="font-size:0.78rem;color:var(--t2);line-height:1.4;margin:0">Static playbooks and API orchestration; rigid conditional trees with zero AI risk intelligence.</p>
-        <p class="ar" style="display:none;font-size:0.78rem;color:var(--t2);line-height:1.4;margin:0">دفاتر عمل ثابتة وأتمتة واجهات؛ عانت من الجمود وغياب ذكاء تقدير المخاطر.</p>
+        <h3 class="en" style="font-size:1.02rem;font-weight:800;color:#fff;margin-bottom:4px">Rule-Based SOAR</h3>
+        <h3 class="ar" style="display:none;font-size:1.02rem;font-weight:800;color:#fff;margin-bottom:4px">SOAR التقليدي بالقواعد</h3>
+        <p class="en" style="font-size:0.84rem;color:var(--t2);line-height:1.45;margin:0">
+          Static playbooks and API orchestration; suffered from high maintenance, rigid boolean trees, and lack of AI triage intelligence.
+        </p>
+        <p class="ar" style="display:none;font-size:0.84rem;color:var(--t2);line-height:1.45;margin:0">
+          دفاتر عمل ثابتة وأتمتة واجهات؛ عانت من الهشاشة وصعوبة الصيانة وانعدام الذكاء.
+        </p>
       </div>
 
-      <!-- Gen 4 -->
-      <div class="card" style="padding:12px 14px;border:1px solid var(--ok);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(15,40,30,0.8));box-shadow:0 0 16px rgba(16,185,129,0.2)">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-          <span style="font-size:0.72rem;font-weight:800;color:var(--ok);font-family:'JetBrains Mono',monospace">GEN 4 &middot; OUR WORK</span>
-          <span style="width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 6px var(--ok)"></span>
+      <!-- Gen 4: Our AI-SOAR -->
+      <div class="card" style="padding:18px;border:1px solid var(--ok);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(15,40,30,0.8));box-shadow:0 0 20px rgba(16,185,129,0.2)">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <span style="font-size:0.75rem;font-weight:800;color:var(--ok);font-family:'JetBrains Mono',monospace">GEN 4 &middot; OUR WORK</span>
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 6px var(--ok)"></span>
         </div>
-        <h3 class="en" style="font-size:0.92rem;font-weight:800;color:#fff;margin-bottom:3px">AI-Augmented SOAR</h3>
-        <h3 class="ar" style="display:none;font-size:0.92rem;font-weight:800;color:#fff;margin-bottom:3px">SOAR بالذكاء الاصطناعي</h3>
-        <p class="en" style="font-size:0.78rem;color:var(--t2);line-height:1.4;margin:0">Dynamic Risk Scoring (R_total), multi-source enrichment, controlled decision gates, and adaptive feedback.</p>
-        <p class="ar" style="display:none;font-size:0.78rem;color:var(--t2);line-height:1.4;margin:0">تقييم مخاطر ديناميكي (R_total)، إثراء شامل، بوابات تحكم، وحلقة تعلم.</p>
+        <h3 class="en" style="font-size:1.02rem;font-weight:800;color:#fff;margin-bottom:4px">AI-Augmented SOAR</h3>
+        <h3 class="ar" style="display:none;font-size:1.02rem;font-weight:800;color:#fff;margin-bottom:4px">أداة SOAR بالذكاء الاصطناعي</h3>
+        <p class="en" style="font-size:0.84rem;color:var(--t2);line-height:1.45;margin:0">
+          Dynamic Risk Scoring (R_total), multi-source enrichment, controlled decision gates, and continuous feedback loop adaptation.
+        </p>
+        <p class="ar" style="display:none;font-size:0.84rem;color:var(--t2);line-height:1.45;margin:0">
+          فرز ذكي بمعادلة المخاطر (R_total)، إثراء شامل، بوابات تحكم، وحلقة تعلم مستمرة.
+        </p>
       </div>
 
     </div>
 
     <!-- Comparative Callout Banner -->
-    <div style="width:100%;padding:10px 14px;border-radius:8px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center">
-      <div style="font-size:0.82rem;color:var(--t2)" class="en">
-        <strong>The Missing Link (&sect;2.2.3):</strong> Conventional SOAR automates action dispatch, but lacks predictive triage to know <em>when</em> and <em>how aggressively</em> to act without risking service disruption.
+    <div style="width:100%;padding:12px 16px;border-radius:10px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center">
+      <div style="font-size:0.86rem;color:var(--t2)" class="en">
+        <strong>The Missing Link Identified in &sect;2.2.3:</strong> Conventional SOAR automates action dispatch, but lacks predictive triage to know <em>when</em> and <em>how aggressively</em> to act.
       </div>
-      <div style="font-size:0.82rem;color:var(--t2);display:none" class="ar">
-        <strong>الفجوة الجوهرية (بند 2.2.3):</strong> منصات SOAR التقليدية تؤتمت التنفيذ لكنها تفتقر للفرز التنبؤي لمعرفة <em>متى</em> و<em>بأي شدة</em> تتدخل دون تعطيل الأعمال.
+      <div style="font-size:0.86rem;color:var(--t2);display:none" class="ar">
+        <strong>الفجوة المحددة في بند 2.2.3:</strong> منصات SOAR التقليدية تؤتمت التنفيذ لكنها تفتقر للذكاء التنبؤي لمعرفة <em>متى</em> و<em>بأي درجة</em> يجب التدخل.
       </div>
-      <span style="font-size:0.72rem;padding:3px 8px;border-radius:6px;background:rgba(0,212,255,0.15);color:var(--s);font-weight:700;white-space:nowrap">&sect;2.2.3 Core Finding</span>
+      <span style="font-size:0.75rem;padding:4px 10px;border-radius:6px;background:rgba(0,212,255,0.15);color:var(--s);font-weight:700;white-space:nowrap">&sect;2.2.3 Core Finding</span>
     </div>
   </div>
-  <div class="sn">07 / 21</div>
+  <div class="sn">07 / 20</div>
 </section>
 
 
 <!-- ================= S08: GAP / LIMITATIONS ================= -->
 <section class="slide" id="s7">
-  <div class="orb o1" style="opacity:0.35"></div>
-  <div class="content-box" style="max-width:1280px">
-    <div class="tag a1" style="border-color:rgba(255,80,80,0.4);background:rgba(255,80,80,0.06)">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <span class="en" style="color:#ff8e8e">Chapter 2 &ndash; Gap Analysis</span><span class="ar" style="display:none;color:#ff8e8e">الفصل الثاني &ndash; تحليل الفجوة</span>
-    </div>
-    <h2 class="st en">Comparative Analysis of Prior Work (Table 2-1)</h2>
-    <h2 class="st ar" style="display:none">المقارنة المعيارية للأعمال السابقة (جدول 2-1)</h2>
-    <div class="gl"></div>
-
-    <div style="display:grid;grid-template-columns:1.22fr 0.78fr;gap:16px;align-items:start;margin-top:10px">
-      <!-- Left Column: Table 2-1 -->
-      <div class="tbl-wrap" style="overflow-x:auto;margin:0">
-        <table class="ctbl" style="font-size:0.78rem">
-          <thead>
-            <tr>
-              <th><span class="en">Study</span><span class="ar" style="display:none">الدراسة</span></th>
-              <th><span class="en">AI/ML Approach</span><span class="ar" style="display:none">نموذج الذكاء الاصطناعي</span></th>
-              <th><span class="en">Key Result</span><span class="ar" style="display:none">النتيجة الرئيسية</span></th>
-              <th style="color:var(--acc)"><span class="en">SOAR Integration</span><span class="ar" style="display:none">تكامل SOAR</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Gupta et al. (2019)</strong></td>
-              <td><span class="en">Random Forest (39,427 events)</span><span class="ar" style="display:none">غابة عشوائية</span></td>
-              <td><span class="en">AUC 92.67%, Recall 0.92</span><span class="ar" style="display:none">AUC 92.67%</span></td>
-              <td><span class="pill pr">No</span></td>
-            </tr>
-            <tr>
-              <td><strong>Gelman et al. (2023)</strong></td>
-              <td><span class="en">Gradient Boosting (commercial cloud SOC)</span><span class="ar" style="display:none">تعزيز تدريجي</span></td>
-              <td><span class="en">54% FP suppression, 95.1% capture, 22.9% dwell&darr;</span><span class="ar" style="display:none">54% قمع إيجابيات كاذبة، 22.9% تقليص وقت انتظار</span></td>
-              <td><span class="pill pr">No</span></td>
-            </tr>
-            <tr>
-              <td><strong>Liu et al. (2022)</strong></td>
-              <td><span class="en">Context2Vector (2.45M events)</span><span class="ar" style="display:none">تمثيل سياقي</span></td>
-              <td><span class="en">2.25&times; attacker IP recall improvement</span><span class="ar" style="display:none">2.25&times; تحسن استرجاع IP المهاجم</span></td>
-              <td><span class="pill pr">No</span></td>
-            </tr>
-            <tr>
-              <td><strong>Wang et al. (2024)</strong></td>
-              <td><span class="en">AlertPro adaptive online learning</span><span class="ar" style="display:none">تعلم تكيفي</span></td>
-              <td><span class="en">96.32% precision, 98.47% recall</span><span class="ar" style="display:none">دقة 96.32%، استرجاع 98.47%</span></td>
-              <td><span class="pill pr">No</span></td>
-            </tr>
-            <tr>
-              <td><strong>Chavali et al. (2024)</strong></td>
-              <td><span class="en">TD3-AP/SAC-AP DRL</span><span class="ar" style="display:none">تعلم تعزيزي عميق</span></td>
-              <td><span class="en">50% feature payload reduction, 300&micro;s decision</span><span class="ar" style="display:none">50% تقليص الحمل، 300&micro;s قرار</span></td>
-              <td><span class="pill pr">No</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Right Column: Benchmark & SOAR Gap Illustration -->
-      <div class="ill-card" style="margin:0;padding:6px">
-        <div class="ill-frame" style="max-height:210px" onclick="openImageModal('images/prior_work_benchmark.jpg', 'Comparative Prior Work Benchmark vs SOAR Integration Gap')">
-          <img src="images/prior_work_benchmark.jpg" alt="Comparative Prior Work Benchmark" class="ill-img" loading="lazy" style="object-fit:cover;height:210px"/>
-          <div class="ill-zoom-hint">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-            <span>BENCHMARK ZOOM</span>
-          </div>
-        </div>
-        <div class="ill-caption" style="padding:4px 8px">
-          <div class="ill-title" style="font-size:0.75rem">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--acc)" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <span class="en">Critical Void: Advanced ML Models Lack Downstream SOAR Actions</span>
-            <span class="ar" style="display:none">الفجوة الحرجة: نماذج الذكاء السابقة تفتقر لتنفيذ استجابات SOAR</span>
-          </div>
-          <div class="ill-sub">CHAPTER 2 &sect;2.3 &middot; TABLE 2-1 BENCHMARK</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hl" style="margin-top:10px;border-color:var(--acc)">
-      <p class="en"><strong>Research Gap (Table 2-1 Synthesis):</strong> None of the reviewed systems execute automated downstream SOAR response workflows. The integration between ML-based triage and SOAR-controlled response <strong>remains an unaddressed area</strong> &mdash; the core gap this project investigates.</p>
-      <p class="ar" style="display:none"><strong>الفجوة البحثية (خلاصة جدول 2-1):</strong> لا يُنفذ أي نظام مراجع مسارات استجابة SOAR المؤتمتة. التكامل بين الفرز القائم على ML والاستجابة المتحكم فيها بـ SOAR <strong>لا يزال غير معالج</strong> &mdash; وهذه هي الفجوة الجوهرية.</p>
-    </div>
-  </div>
-  <div class="sn">08 / 21</div>
+ <div class="orb o1" style="opacity:0.35"></div>
+ <div class="content-box">
+ <div class="tag a1" style="border-color:rgba(255,80,80,0.4);background:rgba(255,80,80,0.06)">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+ <span class="en" style="color:#ff8e8e">Chapter 2 &ndash; Gap Analysis</span><span class="ar" style="display:none;color:#ff8e8e">الفصل الثاني &ndash; تحليل الفجوة</span>
+ </div>
+ <h2 class="st en">Comparative Analysis of Prior Work (Table 2-1)</h2>
+ <h2 class="st ar" style="display:none">المقارنة المعيارية للأعمال السابقة (جدول 2-1)</h2>
+ <div class="gl"></div>
+ <div class="tbl-wrap" style="overflow-x:auto">
+ <table class="ctbl" style="font-size:0.78rem">
+ <thead>
+ <tr>
+ <th><span class="en">Study</span><span class="ar" style="display:none">الدراسة</span></th>
+ <th><span class="en">AI/ML Approach</span><span class="ar" style="display:none">نموذج الذكاء الاصطناعي</span></th>
+ <th><span class="en">Key Result</span><span class="ar" style="display:none">النتيجة الرئيسية</span></th>
+ <th style="color:var(--acc)"><span class="en">SOAR Integration</span><span class="ar" style="display:none">تكامل SOAR</span></th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><strong>Gupta et al. (2019)</strong></td>
+ <td><span class="en">Random Forest (39,427 events)</span><span class="ar" style="display:none">غابة عشوائية</span></td>
+ <td><span class="en">AUC 92.67%, Recall 0.92</span><span class="ar" style="display:none">AUC 92.67%</span></td>
+ <td><span class="pill pr">No</span></td>
+ </tr>
+ <tr>
+ <td><strong>Gelman et al. (2023)</strong></td>
+ <td><span class="en">Gradient Boosting (commercial cloud SOC)</span><span class="ar" style="display:none">تعزيز تدريجي</span></td>
+ <td><span class="en">54% FP suppression, 95.1% capture, 22.9% dwell↓</span><span class="ar" style="display:none">54% قمع إيجابيات كاذبة، 22.9% تقليص وقت انتظار</span></td>
+ <td><span class="pill pr">No</span></td>
+ </tr>
+ <tr>
+ <td><strong>Liu et al. (2022)</strong></td>
+ <td><span class="en">Context2Vector (2.45M events)</span><span class="ar" style="display:none">تمثيل سياقي</span></td>
+ <td><span class="en">2.25× attacker IP recall improvement</span><span class="ar" style="display:none">2.25× تحسن استرجاع IP المهاجم</span></td>
+ <td><span class="pill pr">No</span></td>
+ </tr>
+ <tr>
+ <td><strong>Wang et al. (2024)</strong></td>
+ <td><span class="en">AlertPro adaptive online learning</span><span class="ar" style="display:none">تعلم تكيفي</span></td>
+ <td><span class="en">96.32% precision, 98.47% recall</span><span class="ar" style="display:none">دقة 96.32%، استرجاع 98.47%</span></td>
+ <td><span class="pill pr">No</span></td>
+ </tr>
+ <tr>
+ <td><strong>Chavali et al. (2024)</strong></td>
+ <td><span class="en">TD3-AP/SAC-AP DRL</span><span class="ar" style="display:none">تعلم تعزيزي عميق</span></td>
+ <td><span class="en">50% feature payload reduction, 300µs decision</span><span class="ar" style="display:none">50% تقليص الحمل، 300µs قرار</span></td>
+ <td><span class="pill pr">No</span></td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ <div class="hl" style="margin-top:10px;border-color:var(--acc)">
+ <p class="en"><strong>Research Gap (Table 2-1 Synthesis):</strong> None of the reviewed systems execute automated downstream SOAR response workflows. The integration between ML-based triage and SOAR-controlled response <strong>remains an unaddressed area</strong> — the core gap this project investigates.</p>
+ <p class="ar" style="display:none"><strong>الفجوة البحثية (خلاصة جدول 2-1):</strong> لا يُنفذ أي نظام مراجع مسارات استجابة SOAR المؤتمتة. التكامل بين الفرز القائم على ML والاستجابة المتحكم فيها بـ SOAR <strong>لا يزال غير معالج</strong> — وهذه هي الفجوة الجوهرية.</p>
+ </div>
+ </div>
+ <div class="sn">08 / 20</div>
 </section>
 
 
-<!-- ================= S09: PROPOSED SOLUTION ================= -->
 <!-- ================= S09: PROPOSED SOLUTION ================= -->
 <section class="slide" id="s8">
  <div class="orb o2" style="opacity:0.45"></div>
@@ -2939,63 +2701,30 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
  <h2 class="st en">Proposed Solution: AI Augments SOAR</h2>
  <h2 class="st ar" style="display:none">الحل المقترح: الذكاء الاصطناعي يعزز SOAR</h2>
  <div class="gl"></div>
-
- <div class="split-ill-grid">
-   <!-- Left Column: Solution Cards & Stat Row -->
-   <div style="display:flex;flex-direction:column;gap:12px">
-     <div class="card" style="padding:14px 16px">
-       <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
-         <div class="c-icon gr" style="width:30px;height:30px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-         <h3 class="ct en" style="margin:0;font-size:0.98rem">AI/ML as Analytical Augmentation</h3>
-         <h3 class="ct ar" style="display:none;margin:0;font-size:0.98rem">الذكاء الاصطناعي كطبقة تحليلية</h3>
-       </div>
-       <p class="en" style="font-size:0.84rem;margin:0">AI/ML techniques analyze large heterogeneous security datasets to identify threat patterns, classify events, and calculate continuous risk scores. This provides a <strong>force-multiplier effect</strong> for human analysts.</p>
-       <p class="ar" style="display:none;font-size:0.84rem;margin:0">تحلل تقنيات الذكاء الاصطناعي مجموعات البيانات الضخمة لتصنيف الأحداث وتقدير المخاطر ديناميكياً، مما يحقق أثر <strong>مضاعف القوة</strong> للمحللين.</p>
-     </div>
-
-     <div class="card" style="padding:14px 16px">
-       <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
-         <div class="c-icon cy" style="width:30px;height:30px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-         <h3 class="ct en" style="margin:0;font-size:0.98rem">Human-AI Teaming Paradigm</h3>
-         <h3 class="ct ar" style="display:none;margin:0;font-size:0.98rem">تكامل الإنسان والذكاء الاصطناعي</h3>
-       </div>
-       <p class="en" style="font-size:0.84rem;margin:0">AI/ML does not replace the analyst; it provides data-driven intelligence to triage while SOAR handles workflow execution — under strict human analyst oversight for uncertain actions.</p>
-       <p class="ar" style="display:none;font-size:0.84rem;margin:0">الذكاء الاصطناعي لا يستبدل المحلل؛ بل يوفر استدلالاً ذكياً للفرز بينما يتولى SOAR التنفيذ — تحت إشراف بشري كامل للإجراءات الحساسة.</p>
-     </div>
-
-     <div class="srow" style="margin-top:2px">
-       <div class="sb"><div class="snum">AI/ML</div><div class="slbl en">Analytical Layer</div><div class="slbl ar" style="display:none">الطبقة التحليلية</div></div>
-       <div class="sb"><div class="snum">SOAR</div><div class="slbl en">Workflow Engine</div><div class="slbl ar" style="display:none">محرك سير العمل</div></div>
-       <div class="sb"><div class="snum">DSR</div><div class="slbl en">Methodology</div><div class="slbl ar" style="display:none">منهجية البحث</div></div>
-     </div>
-   </div>
-
-   <!-- Right Column: Illustrated Research Gap Bridge Card -->
-   <div class="ill-card">
-     <div class="ill-frame" onclick="openImageModal('images/research_gap_bridge.jpg', 'Bridging the Research Gap: Uniting ML Threat Scoring with SOAR Playbook Execution')">
-       <img src="images/research_gap_bridge.jpg" alt="Research Gap Bridge: ML to SOAR Integration" class="ill-img" loading="lazy"/>
-       <div class="ill-zoom-hint">
-         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-         <span>ZOOM</span>
-       </div>
-     </div>
-     <div class="ill-caption">
-       <div class="ill-title">
-         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-         <span class="en">Bridging the Gap: ML Prediction to SOAR Execution</span>
-         <span class="ar" style="display:none">سد الفجوة: ربط تنبؤات ML بتنفيذ أتمتة SOAR</span>
-       </div>
-       <div class="ill-sub">GAP CLOSED &sect;2.4</div>
-     </div>
-   </div>
+ <div class="grid g2" style="gap:18px">
+ <div class="card">
+ <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+ <h3 class="ct en">AI/ML as Analytical Augmentation</h3><h3 class="ct ar" style="display:none">الذكاء الاصطناعي كطبقة تحليلية</h3>
+ <p class="en">AI/ML techniques analyze large heterogeneous security datasets to identify patterns, classify events, detect anomalies, and support security decision-making. This analytical layer complements SIEM data collection and SOAR workflow execution — described as a <strong>force-multiplier effect</strong> for SOC analysts.</p>
+ <p class="ar" style="display:none">تحلل تقنيات الذكاء الاصطناعي مجموعات البيانات الأمنية الضخمة لتصنيف الأحداث وتقييم المخاطر — طبقة تحليلية تكمل جمع بيانات SIEM وتنفيذ مسار عمل SOAR.</p>
  </div>
-
+ <div class="card">
+ <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+ <h3 class="ct en">Human-AI Teaming</h3><h3 class="ct ar" style="display:none">تكامل الإنسان والذكاء الاصطناعي</h3>
+ <p class="en">AI/ML does not replace SOC technologies; it provides data-driven inference to activities difficult to represent through manually specified rules. SOAR provides workflow execution; AI/ML contributes intelligent analytics — under human analyst oversight and approval for uncertain actions.</p>
+ <p class="ar" style="display:none">الذكاء الاصطناعي لا يستبدل تقنيات SOC؛ يوفر استدلالاً قائماً على البيانات لأنشطة يصعب تمثيلها بقواعد يدوية — تحت إشراف المحلل البشري.</p>
  </div>
- <div class="sn">09 / 21</div>
+ </div>
+ <div class="srow" style="margin-top:14px">
+ <div class="sb"><div class="snum">AI/ML</div><div class="slbl en">Analytical Augmentation</div><div class="slbl ar" style="display:none">التعزيز التحليلي</div></div>
+ <div class="sb"><div class="snum">SOAR</div><div class="slbl en">Workflow Execution</div><div class="slbl ar" style="display:none">تنفيذ سير العمل</div></div>
+ <div class="sb"><div class="snum">DSR</div><div class="slbl en">Research Methodology</div><div class="slbl ar" style="display:none">منهجية البحث</div></div>
+ </div>
+ </div>
+ <div class="sn">09 / 20</div>
 </section>
 
 
-<!-- ================= S10: SYSTEM ARCHITECTURE OVERVIEW ================= -->
 <!-- ================= S10: SYSTEM ARCHITECTURE OVERVIEW ================= -->
 <section class="slide" id="s9">
  <div class="orb o3" style="opacity:0.4"></div>
@@ -3007,272 +2736,110 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
  <h2 class="st en">System Architecture Overview</h2>
  <h2 class="st ar" style="display:none">نظرة عامة على معمارية النظام</h2>
  <div class="gl"></div>
-
- <div class="split-ill-grid">
-   <!-- Left Column: 5 Architectural Layers Detailed -->
-   <div style="display:flex;flex-direction:column;gap:8px">
-     <div class="alr" style="padding:8px 12px">
-       <div class="all en" style="font-size:0.85rem"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/></svg> Tier 1: Ingestion &amp; Connectors</div>
-       <div class="all ar" style="display:none;font-size:0.85rem">الطبقة 1: الاستيعاب والموصلات</div>
-       <div class="ali"><span class="ai">SIEM Events</span><span class="ai">EDR Telemetry</span><span class="ai">Syslog / CEF</span></div>
-     </div>
-
-     <div class="alr" style="padding:8px 12px">
-       <div class="all en" style="color:var(--s);font-size:0.85rem"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/></svg> Tier 2: Multi-Source Enrichment</div>
-       <div class="all ar" style="display:none;color:var(--s);font-size:0.85rem">الطبقة 2: الإثراء متعدد المصادر</div>
-       <div class="ali"><span class="ai cy">Asset DB</span><span class="ai cy">Identity Sensitivity</span><span class="ai cy">Threat Intel Feeds</span></div>
-     </div>
-
-     <div class="alr" style="padding:8px 12px">
-       <div class="all en" style="color:var(--ok);font-size:0.85rem"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15"/></svg> Tier 3: AI/ML Risk Scoring Engine</div>
-       <div class="all ar" style="display:none;color:var(--ok);font-size:0.85rem">الطبقة 3: محرك تقييم المخاطر بالذكاء</div>
-       <div class="ali"><span class="ai gr">Feature Vectorizer</span><span class="ai gr">R_total [0,1]</span><span class="ai gr">Confidence Gate</span></div>
-     </div>
-
-     <div class="alr" style="padding:8px 12px">
-       <div class="all en" style="color:var(--wa);font-size:0.85rem"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Tier 4: Response Orchestration</div>
-       <div class="all ar" style="display:none;color:var(--wa);font-size:0.85rem">الطبقة 4: تنسيق الاستجابة المؤتمتة</div>
-       <div class="ali"><span class="ai ye">Playbook Engine</span><span class="ai ye">Human Approval</span><span class="ai ye">API Dispatch</span></div>
-     </div>
-
-     <div class="alr" style="padding:8px 12px">
-       <div class="all en" style="color:var(--acc);font-size:0.85rem"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16"/></svg> Tier 5: Dashboard &amp; Feedback Loop</div>
-       <div class="all ar" style="display:none;color:var(--acc);font-size:0.85rem">الطبقة 5: لوحة التحكم وحلقة التعلم</div>
-       <div class="ali"><span class="ai rd">Analyst Triage HUD</span><span class="ai rd">Active Retraining</span><span class="ai rd">Audit Trails</span></div>
-     </div>
-   </div>
-
-   <!-- Right Column: Illustrated Master 3D Architecture Blueprint Card -->
-   <div class="ill-card">
-     <div class="ill-frame" onclick="openImageModal('images/system_arch_master.jpg', 'Master 5-Tier AI-Based SOAR Architecture Blueprint')">
-       <img src="images/system_arch_master.jpg" alt="Master 5-Tier AI-Based SOAR Architecture Blueprint" class="ill-img" loading="lazy"/>
-       <div class="ill-zoom-hint">
-         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-         <span>INSPECT TIERS</span>
-       </div>
-     </div>
-     <div class="ill-caption">
-       <div class="ill-title">
-         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg>
-         <span class="en">Full 5-Tier AI-SOAR System Architecture</span>
-         <span class="ar" style="display:none">المخطط المعماري خماسي الطبقات لمنظومة SOAR الذكية</span>
-       </div>
-       <div class="ill-sub">CHAPTER 3 &sect;3.2-3.3</div>
-     </div>
-   </div>
+ <div class="al">
+ <div class="alr">
+ <div class="all en"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/></svg> Layer 1: Ingestion</div>
+ <div class="all ar" style="display:none">الطبقة 1: الاستيعاب</div>
+ <div class="ali"><span class="ai">SIEM Events</span><span class="ai">EDR Telemetry</span><span class="ai">IDS/IPS Alerts</span><span class="ai">Firewall Logs</span><span class="ai">CEF/Syslog/JSON</span></div>
  </div>
-
+ <div class="alr">
+ <div class="all en" style="color:var(--s)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/></svg> Layer 2: Enrichment</div>
+ <div class="all ar" style="display:none;color:var(--s)">الطبقة 2: الإثراء</div>
+ <div class="ali"><span class="ai cy">Asset Criticality DB</span><span class="ai cy">User &amp; Identity Posture</span><span class="ai cy">Threat Intel Feeds</span><span class="ai cy">GeoIP &amp; Reputation</span></div>
  </div>
- <div class="sn">10 / 21</div>
+ <div class="alr">
+ <div class="all en" style="color:var(--ok)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15"/></svg> Layer 3: AI/ML Engine</div>
+ <div class="all ar" style="display:none;color:var(--ok)">الطبقة 3: محرك الذكاء</div>
+ <div class="ali"><span class="ai gr">Feature Vectorizer</span><span class="ai gr">ML Triage Classifier</span><span class="ai gr">Dynamic Risk Scoring [0,1]</span><span class="ai gr">Adaptive Prioritizer</span></div>
+ </div>
+ <div class="alr">
+ <div class="all en" style="color:var(--wa)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Layer 4: Response Orchestration</div>
+ <div class="all ar" style="display:none;color:var(--wa)">الطبقة 4: تنسيق الاستجابة</div>
+ <div class="ali"><span class="ai ye">Confidence Gate</span><span class="ai ye">Playbook Executor</span><span class="ai ye">Human Approval</span><span class="ai ye">REST API Dispatcher</span></div>
+ </div>
+ <div class="alr">
+ <div class="all en" style="color:var(--acc)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16"/></svg> Layer 5: Presentation &amp; Feedback</div>
+ <div class="all ar" style="display:none;color:var(--acc)">الطبقة 5: الإخراج والتغذية الراجعة</div>
+ <div class="ali"><span class="ai rd">SOC Dashboard</span><span class="ai rd">Analyst Feedback Portal</span><span class="ai rd">Incident Dossier</span><span class="ai rd">Audit Trails</span></div>
+ </div>
+ </div>
+ </div>
+ <div class="sn">10 / 20</div>
 </section>
 
 
 <!-- ================= S11: METHODOLOGY (DSR) ================= -->
 <section class="slide" id="s10">
-  <div class="orb o1" style="opacity:0.3"></div>
-  <div class="orb o2" style="opacity:0.25"></div>
-  <div class="content-box" style="max-width:1280px">
-    <div class="tag a1">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-      <span class="en">Chapter 1 &ndash; Methodology</span><span class="ar" style="display:none">الفصل الأول &ndash; المنهجية</span>
-    </div>
-    <h2 class="st en">Development Methodology: Design Science Research (DSR)</h2>
-    <h2 class="st ar" style="display:none">منهجية التطوير: علوم التصميم (DSR)</h2>
-    <div class="gl"></div>
-    <p class="lead en" style="margin-bottom:14px">DSR was selected as it provides a systematic, evidence-based framework for constructing and evaluating design artifacts &mdash; suited to AI-integrated system development where the goal is to build a justified solution to a real operational problem.</p>
-    <p class="lead ar" style="display:none;margin-bottom:14px">تم اختيار DSR لأنها توفر إطاراً منهجياً قائماً على الأدلة لبناء وتقييم القطع المعمارية &mdash; مناسب لتطوير الأنظمة المدمجة بالذكاء الاصطناعي.</p>
-
-    <!-- 6-Phase Full-Width Horizontal Stepper Grid -->
-    <div style="display:grid;grid-template-columns:repeat(6, 1fr);gap:10px;margin-bottom:14px;width:100%">
-      
-      <!-- Phase 1: Completed -->
-      <div class="card" style="padding:10px 8px;text-align:center;border:1px solid rgba(16,185,129,0.35);background:linear-gradient(145deg, rgba(28,8,22,0.9), rgba(12,32,22,0.75));display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-height:92px">
-        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:4px">
-          <span style="font-size:0.65rem;font-weight:800;color:var(--ok);font-family:'JetBrains Mono',monospace">PHASE 01</span>
-          <span style="width:16px;height:16px;border-radius:50%;background:rgba(16,185,129,0.2);color:var(--ok);display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem">&check;</span>
-        </div>
-        <div class="fl en" style="font-size:0.82rem;font-weight:700;color:#fff;line-height:1.25">Problem Identification</div>
-        <div class="fl ar" style="display:none;font-size:0.82rem;font-weight:700;color:#fff;line-height:1.25">تحديد المشكلة</div>
-        <span style="font-size:0.62rem;color:var(--ok);font-weight:600;margin-top:4px">Completed</span>
-      </div>
-
-      <!-- Phase 2: Completed -->
-      <div class="card" style="padding:10px 8px;text-align:center;border:1px solid rgba(16,185,129,0.35);background:linear-gradient(145deg, rgba(28,8,22,0.9), rgba(12,32,22,0.75));display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-height:92px">
-        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:4px">
-          <span style="font-size:0.65rem;font-weight:800;color:var(--ok);font-family:'JetBrains Mono',monospace">PHASE 02</span>
-          <span style="width:16px;height:16px;border-radius:50%;background:rgba(16,185,129,0.2);color:var(--ok);display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem">&check;</span>
-        </div>
-        <div class="fl en" style="font-size:0.82rem;font-weight:700;color:#fff;line-height:1.25">Solution Objectives</div>
-        <div class="fl ar" style="display:none;font-size:0.82rem;font-weight:700;color:#fff;line-height:1.25">أهداف الحل</div>
-        <span style="font-size:0.62rem;color:var(--ok);font-weight:600;margin-top:4px">Completed</span>
-      </div>
-
-      <!-- Phase 3: Completed -->
-      <div class="card" style="padding:10px 8px;text-align:center;border:1px solid rgba(16,185,129,0.35);background:linear-gradient(145deg, rgba(28,8,22,0.9), rgba(12,32,22,0.75));display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-height:92px">
-        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:4px">
-          <span style="font-size:0.65rem;font-weight:800;color:var(--ok);font-family:'JetBrains Mono',monospace">PHASE 03</span>
-          <span style="width:16px;height:16px;border-radius:50%;background:rgba(16,185,129,0.2);color:var(--ok);display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem">&check;</span>
-        </div>
-        <div class="fl en" style="font-size:0.82rem;font-weight:700;color:#fff;line-height:1.25">Architecture Design</div>
-        <div class="fl ar" style="display:none;font-size:0.82rem;font-weight:700;color:#fff;line-height:1.25">تصميم المعمارية</div>
-        <span style="font-size:0.62rem;color:var(--ok);font-weight:600;margin-top:4px">Completed</span>
-      </div>
-
-      <!-- Phase 4: Active Highlight -->
-      <div class="card" style="padding:10px 8px;text-align:center;border:1px solid var(--s);background:linear-gradient(145deg, rgba(28,8,22,0.95), rgba(10,35,45,0.85));box-shadow:0 0 16px rgba(0,212,255,0.25);display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-height:92px">
-        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:4px">
-          <span style="font-size:0.65rem;font-weight:800;color:var(--s);font-family:'JetBrains Mono',monospace">PHASE 04</span>
-          <span style="width:8px;height:8px;border-radius:50%;background:var(--s);box-shadow:0 0 8px var(--s);display:inline-block"></span>
-        </div>
-        <div class="fl en" style="font-size:0.82rem;font-weight:800;color:#fff;line-height:1.25">Prototype Demo</div>
-        <div class="fl ar" style="display:none;font-size:0.82rem;font-weight:800;color:#fff;line-height:1.25">عرض النموذج</div>
-        <span style="font-size:0.62rem;color:var(--s);font-weight:800;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px">Active</span>
-      </div>
-
-      <!-- Phase 5: Planned -->
-      <div class="card" style="padding:10px 8px;text-align:center;border:1px solid rgba(255,255,255,0.08);background:linear-gradient(145deg, rgba(28,8,22,0.8), rgba(20,12,22,0.7));display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-height:92px">
-        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:4px">
-          <span style="font-size:0.65rem;font-weight:800;color:var(--t3);font-family:'JetBrains Mono',monospace">PHASE 05</span>
-          <span style="width:6px;height:6px;border-radius:50%;background:var(--t3);display:inline-block"></span>
-        </div>
-        <div class="fl en" style="font-size:0.82rem;font-weight:700;color:var(--t2);line-height:1.25">Evaluation</div>
-        <div class="fl ar" style="display:none;font-size:0.82rem;font-weight:700;color:var(--t2);line-height:1.25">التقييم</div>
-        <span style="font-size:0.62rem;color:var(--t3);margin-top:4px">Planned</span>
-      </div>
-
-      <!-- Phase 6: Planned -->
-      <div class="card" style="padding:10px 8px;text-align:center;border:1px solid rgba(255,255,255,0.08);background:linear-gradient(145deg, rgba(28,8,22,0.8), rgba(20,12,22,0.7));display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-height:92px">
-        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:4px">
-          <span style="font-size:0.65rem;font-weight:800;color:var(--t3);font-family:'JetBrains Mono',monospace">PHASE 06</span>
-          <span style="width:6px;height:6px;border-radius:50%;background:var(--t3);display:inline-block"></span>
-        </div>
-        <div class="fl en" style="font-size:0.82rem;font-weight:700;color:var(--t2);line-height:1.25">Communication</div>
-        <div class="fl ar" style="display:none;font-size:0.82rem;font-weight:700;color:var(--t2);line-height:1.25">التوثيق</div>
-        <span style="font-size:0.62rem;color:var(--t3);margin-top:4px">Planned</span>
-      </div>
-
-    </div>
-
-    <!-- Bottom Split: Current Phase Status Card (Left) & DSR Blueprint Image Card (Right) -->
-    <div style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:14px;align-items:stretch;width:100%">
-      
-      <!-- Current Phase Status Card -->
-      <div class="card" style="padding:16px 20px;border:1px solid rgba(0,212,255,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(15,30,45,0.8));display:flex;flex-direction:column;justify-content:center;border-left:3px solid var(--s)">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span style="font-size:0.75rem;font-weight:800;color:var(--s);text-transform:uppercase;letter-spacing:1px" class="en">DSR EXECUTION MILESTONE</span>
-          <span style="font-size:0.75rem;font-weight:800;color:var(--s);letter-spacing:1px;display:none" class="ar">المحطة التنفيذية لمنهجية DSR</span>
-        </div>
-        <p class="en" style="font-size:0.88rem;color:var(--t1);line-height:1.6;margin:0">
-          <strong>Current Phase:</strong> The project has completed Phases 1&ndash;3 (Problem Identification, Solution Objectives, Architecture Design) and is actively progressing through Phase 4 (Prototype Development).
-        </p>
-        <p class="ar" style="display:none;font-size:0.88rem;color:var(--t1);line-height:1.6;margin:0">
-          <strong>المرحلة الحالية:</strong> المشروع أكمل المراحل 1&ndash;3 (تحديد المشكلة، الأهداف، التصميم) وهو يتقدم بنشاط في المرحلة 4 (تطوير النموذج الأولي).
-        </p>
-      </div>
-
-      <!-- DSR Blueprint Illustration Card -->
-      <div class="ill-card" style="margin:0;padding:6px;display:flex;flex-direction:column;justify-content:space-between;background:rgba(15,10,22,0.85);border:1px solid rgba(0,212,255,0.25)">
-        <div class="ill-frame" style="height:auto;min-height:165px;max-height:190px;background:#050208;display:flex;align-items:center;justify-content:center" onclick="openImageModal('images/dsr_6phases_methodology.jpg', 'Design Science Research (DSR) 6-Phase Engineering Framework')">
-          <img src="images/dsr_6phases_methodology.jpg" alt="DSR 6 Phases Framework" style="width:100%;height:100%;max-height:180px;object-fit:contain;display:block;margin:0 auto" loading="lazy"/>
-          <div class="ill-zoom-hint">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-            <span>DSR BLUEPRINT ZOOM</span>
-          </div>
-        </div>
-        <div class="ill-caption" style="padding:4px 8px">
-          <div class="ill-title" style="font-size:0.75rem">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg>
-            <span class="en">Rigorous 6-Phase Iterative Cycle (Peffers et al.)</span>
-            <span class="ar" style="display:none">دورة مراحل DSR التكرارية المعتمدة</span>
-          </div>
-          <div class="ill-sub">CHAPTER 1 &sect;1.4 &middot; DSR FRAMEWORK</div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-  <div class="sn">11 / 21</div>
+ <div class="orb o1" style="opacity:0.35"></div>
+ <div class="content-box">
+ <div class="tag a1">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+ <span class="en">Chapter 1 &ndash; Methodology</span><span class="ar" style="display:none">الفصل الأول &ndash; المنهجية</span>
+ </div>
+ <h2 class="st en">Development Methodology: Design Science Research (DSR)</h2>
+ <h2 class="st ar" style="display:none">منهجية التطوير: علوم التصميم (DSR)</h2>
+ <div class="gl"></div>
+ <p class="lead en">DSR was selected as it provides a systematic, evidence-based framework for constructing and evaluating design artifacts — suited to AI-integrated system development where the goal is to build a justified solution to a real operational problem.</p>
+ <p class="lead ar" style="display:none">تم اختيار DSR لأنها توفر إطاراً منهجياً قائماً على الأدلة لبناء وتقييم القطع المعمارية — مناسب لتطوير الأنظمة المدمجة بالذكاء الاصطناعي.</p>
+ <div class="flow" style="margin-top:14px;flex-wrap:wrap">
+ <div class="fs"><div class="fi">1</div><div class="fl en">Problem Identification</div><div class="fl ar" style="display:none">تحديد المشكلة</div></div>
+ <div class="farr">→</div>
+ <div class="fs"><div class="fi">2</div><div class="fl en">Solution Objectives</div><div class="fl ar" style="display:none">أهداف الحل</div></div>
+ <div class="farr">→</div>
+ <div class="fs"><div class="fi">3</div><div class="fl en">Architecture Design</div><div class="fl ar" style="display:none">تصميم المعمارية</div></div>
+ <div class="farr">→</div>
+ <div class="fs"><div class="fi">4</div><div class="fl en">Prototype Demo</div><div class="fl ar" style="display:none">عرض النموذج</div></div>
+ <div class="farr">→</div>
+ <div class="fs"><div class="fi">5</div><div class="fl en">Evaluation</div><div class="fl ar" style="display:none">التقييم</div></div>
+ <div class="farr">→</div>
+ <div class="fs"><div class="fi">6</div><div class="fl en">Communication</div><div class="fl ar" style="display:none">التوثيق</div></div>
+ </div>
+ <div class="hl" style="margin-top:16px">
+ <p class="en"><strong>Current Phase:</strong> The project has completed Phases 1–3 (Problem Identification, Solution Objectives, Architecture Design) and is actively progressing through Phase 4 (Prototype Development).</p>
+ <p class="ar" style="display:none"><strong>المرحلة الحالية:</strong> المشروع أكمل المراحل 1–3 (تحديد المشكلة، الأهداف، التصميم) وهو يتقدم بنشاط في المرحلة 4 (تطوير النموذج الأولي).</p>
+ </div>
+ </div>
+ <div class="sn">11 / 20</div>
 </section>
 
 
 <!-- ================= S12: ANALYSIS PROGRESS (Ingestion + Enrichment) ================= -->
 <section class="slide" id="s11">
-  <div class="orb o2" style="opacity:0.4"></div>
-  <div class="content-box" style="max-width:1280px">
-    <div class="tag a1">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
-      <span class="en">Chapter 3 &ndash; Analysis Progress</span><span class="ar" style="display:none">الفصل الثالث &ndash; تقدم التحليل</span>
-    </div>
-    <h2 class="st en">Analysis Progress: Ingestion &amp; Context Enrichment</h2>
-    <h2 class="st ar" style="display:none">تقدم التحليل: الاستيعاب وإثراء السياق</h2>
-    <div class="gl"></div>
-
-    <div style="display:grid;grid-template-columns:1.2fr 0.8fr;gap:16px;align-items:start;margin-top:10px">
-      <!-- Left Column: Layer 1 and Layer 2 Details -->
-      <div style="display:flex;flex-direction:column;gap:10px">
-        <!-- Layer 1 -->
-        <div class="card" style="padding:12px 14px">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-            <div class="c-icon" style="width:28px;height:28px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
-            <h3 class="ct en" style="margin:0;font-size:0.95rem">Layer 1: Alert Ingestion &amp; Normalization</h3>
-            <h3 class="ct ar" style="display:none;margin:0;font-size:0.95rem">الطبقة 1: الاستيعاب والتوحيد</h3>
-          </div>
-          <p class="en" style="font-size:0.82rem;margin:0">The ingestion module serves as the entry point for heterogeneous security alerts via REST APIs, webhooks, message streams, and log files. Individual connectors translate incoming data into a <strong>common normalized alert structure</strong> with fields: identifier, timestamp, source system, alert type, original severity, source/destination info, affected asset, and description.</p>
-          <p class="ar" style="display:none;font-size:0.82rem;margin:0">وحدة الاستيعاب هي نقطة الدخول للتنبيهات الأمنية المتباينة عبر REST APIs والـ webhooks وتدفقات الرسائل. تترجم الموصلات البيانات الواردة إلى <strong>هيكل تنبيه موحد</strong> مع الحقول الأساسية.</p>
-        </div>
-
-        <!-- Layer 2 -->
-        <div class="card" style="padding:12px 14px">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
-            <div class="c-icon cy" style="width:28px;height:28px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-            <h3 class="ct en" style="margin:0;font-size:0.95rem">Layer 2: Multi-Dimensional Enrichment</h3>
-            <h3 class="ct ar" style="display:none;margin:0;font-size:0.95rem">الطبقة 2: الإثراء متعدد الأبعاد</h3>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:6px">
-            <div style="background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:6px;border-left:2px solid var(--s)">
-              <span class="en" style="font-size:0.8rem"><strong>Asset &amp; Identity Context:</strong> Asset type, business criticality, network location, account privilege level, and authentication history</span>
-              <span class="ar" style="display:none;font-size:0.8rem"><strong>سياق الأصل والهوية:</strong> نوع الأصل، الأهمية التجارية، موقع الشبكة، مستوى صلاحية الحساب</span>
-            </div>
-            <div style="background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:6px;border-left:2px solid var(--ok)">
-              <span class="en" style="font-size:0.8rem"><strong>Threat Intelligence Context:</strong> IP, domain, URL, and file hash reputation from threat intelligence feeds</span>
-              <span class="ar" style="display:none;font-size:0.8rem"><strong>سياق استخبارات التهديدات:</strong> سمعة عناوين IP والنطاقات والبصمات من قواعد الاستخبارات</span>
-            </div>
-            <div style="background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:6px;border-left:2px solid #ffd166">
-              <span class="en" style="font-size:0.8rem"><strong>Historical &amp; Behavioral Context:</strong> Whether similar alerts or assets appeared in prior temporal windows</span>
-              <span class="ar" style="display:none;font-size:0.8rem"><strong>السياق التاريخي والسلوكي:</strong> ما إذا ظهرت تنبيهات أو أصول مماثلة في نوافذ زمنية سابقة</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Column: 3D Context Enrichment Illustration -->
-      <div class="ill-card" style="margin:0;padding:6px">
-        <div class="ill-frame" style="max-height:240px" onclick="openImageModal('images/context_enrichment.jpg', 'Multi-Dimensional Alert Context Enrichment Pipeline')">
-          <img src="images/context_enrichment.jpg" alt="Context Enrichment Pipeline" class="ill-img" loading="lazy" style="object-fit:cover;height:240px"/>
-          <div class="ill-zoom-hint">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-            <span>ENRICHMENT ZOOM</span>
-          </div>
-        </div>
-        <div class="ill-caption" style="padding:4px 8px">
-          <div class="ill-title" style="font-size:0.75rem">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/></svg>
-            <span class="en">3 Pillars: Asset Topology, Threat Feeds &amp; History</span>
-            <span class="ar" style="display:none">المحاور الثلاثة: حساسية الأصول والاستخبارات والتاريخ السلوكي</span>
-          </div>
-          <div class="ill-sub">CHAPTER 3 &sect;3.4 &middot; DATA ENRICHMENT</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hl" style="margin-top:10px">
-      <p class="en" style="font-size:0.82rem;margin:0"><strong>Design Principle:</strong> The module separates source-specific integration from internal processing. The enrichment layer degrades gracefully when sources are unavailable, and it creates the enriched alert object <em>without</em> assigning final priority or executing response.</p>
-      <p class="ar" style="display:none;font-size:0.82rem;margin:0"><strong>مبدأ التصميم:</strong> يفصل الوحدة التكامل الخاص بالمصدر عن المعالجة الداخلية. طبقة الإثراء تتكيف عند تعذر المصادر ولا تصدر أولوية نهائية أو تنفذ استجابة.</p>
-    </div>
-  </div>
-  <div class="sn">12 / 21</div>
+ <div class="orb o2" style="opacity:0.4"></div>
+ <div class="content-box">
+ <div class="tag a1">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
+ <span class="en">Chapter 3 &ndash; Analysis Progress</span><span class="ar" style="display:none">الفصل الثالث &ndash; تقدم التحليل</span>
+ </div>
+ <h2 class="st en">Analysis Progress: Ingestion &amp; Context Enrichment</h2>
+ <h2 class="st ar" style="display:none">تقدم التحليل: الاستيعاب وإثراء السياق</h2>
+ <div class="gl"></div>
+ <div class="grid g2" style="gap:18px">
+ <div class="card">
+ <div class="c-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
+ <h3 class="ct en">Layer 1: Alert Ingestion &amp; Normalization</h3><h3 class="ct ar" style="display:none">الطبقة 1: الاستيعاب والتوحيد</h3>
+ <p class="en">The ingestion module serves as the entry point for heterogeneous security alerts via REST APIs, webhooks, message streams, and log files. Individual connectors translate incoming data into a <strong>common normalized alert structure</strong> with fields: identifier, timestamp, source system, alert type, original severity, source/destination info, affected asset, and description.</p>
+ <p class="ar" style="display:none">وحدة الاستيعاب هي نقطة الدخول للتنبيهات الأمنية المتباينة عبر REST APIs والـ webhooks وتدفقات الرسائل. تترجم الموصلات البيانات الواردة إلى <strong>هيكل تنبيه موحد</strong> مع الحقول الأساسية.</p>
+ </div>
+ <div class="card">
+ <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+ <h3 class="ct en">Layer 2: Multi-Dimensional Enrichment</h3><h3 class="ct ar" style="display:none">الطبقة 2: الإثراء متعدد الأبعاد</h3>
+ <ul style="gap:8px;margin-top:8px">
+ <li class="en"><strong>Asset &amp; Identity Context:</strong> Asset type, business criticality, network location, account privilege level, and authentication history</li>
+ <li class="ar" style="display:none"><strong>سياق الأصل والهوية:</strong> نوع الأصل، الأهمية التجارية، موقع الشبكة، مستوى صلاحية الحساب</li>
+ <li class="en"><strong>Threat Intelligence Context:</strong> IP, domain, URL, and file hash reputation from threat intelligence feeds</li>
+ <li class="ar" style="display:none"><strong>سياق استخبارات التهديدات:</strong> سمعة عناوين IP والنطاقات والبصمات من قواعد الاستخبارات</li>
+ <li class="en"><strong>Historical &amp; Behavioral Context:</strong> Whether similar alerts or assets appeared in prior temporal windows</li>
+ <li class="ar" style="display:none"><strong>السياق التاريخي والسلوكي:</strong> ما إذا ظهرت تنبيهات أو أصول مماثلة في نوافذ زمنية سابقة</li>
+ </ul>
+ </div>
+ </div>
+ <div class="hl" style="margin-top:14px">
+ <p class="en"><strong>Design Principle:</strong> The module separates source-specific integration from internal processing. The enrichment layer degrades gracefully when sources are unavailable, and it creates the enriched alert object <em>without</em> assigning final priority or executing response.</p>
+ <p class="ar" style="display:none"><strong>مبدأ التصميم:</strong> يفصل الوحدة التكامل الخاص بالمصدر عن المعالجة الداخلية. طبقة الإثراء تتكيف عند تعذر المصادر ولا تصدر أولوية نهائية أو تنفذ استجابة.</p>
+ </div>
+ </div>
+ <div class="sn">12 / 20</div>
 </section>
 
 
@@ -3288,62 +2855,37 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <h2 class="st en" style="margin-bottom:4px">Design Progress: AI/ML Triage &amp; Dynamic Risk Scoring</h2>
     <h2 class="st ar" style="display:none;margin-bottom:4px">تقدم التصميم: محرك الفرز الذكي وتقييم المخاطر الديناميكي</h2>
     <div class="gl" style="margin:4px auto 14px"></div>
-    <p class="lead en" style="margin-bottom:14px;font-size:0.98rem;max-width:940px">
+    <p class="lead en" style="margin-bottom:16px;font-size:0.98rem;max-width:940px">
       Rigorous formulation of total incident risk by coupling supervised machine learning threat probability with base severity and contextual asset criticality.
     </p>
-    <p class="lead ar" style="display:none;margin-bottom:14px;font-size:0.98rem;max-width:940px">
+    <p class="lead ar" style="display:none;margin-bottom:16px;font-size:0.98rem;max-width:940px">
       الصياغة الرياضية المعتمدة لدرجة المخاطر الإجمالية بدمج احتمالية التعلم الآلي مع خطورة التنبيه وحساسية الأصل المستهدف.
     </p>
 
-    <!-- Visual 2-Column Grid: Formula Breakdown + Priority Queue Mapping -->
+    <!-- Visual 2-Column Grid: Formula Card + Interactive Dynamic Risk Meter -->
     <div class="g2" style="gap:16px;width:100%">
       
-      <!-- Left Column: Mathematical Formulation & Visual Breakdown -->
-      <div class="card" style="padding:18px;border:1px solid rgba(0,212,255,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(15,30,45,0.8))">
-        <h3 class="en" style="font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:8px;display:flex;align-items:center;gap:8px">
+      <!-- Left Column: Mathematical Formulation & Weights -->
+      <div class="card" style="padding:20px;border:1px solid rgba(0,212,255,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(15,30,45,0.8))">
+        <h3 class="en" style="font-size:1.08rem;font-weight:800;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:8px">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg>
           Dynamic Risk Formula (R_total)
         </h3>
-        <h3 class="ar" style="display:none;font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:8px;align-items:center;gap:8px">
+        <h3 class="ar" style="display:none;font-size:1.08rem;font-weight:800;color:#fff;margin-bottom:10px;align-items:center;gap:8px">
           معادلة تقييم المخاطر الإجمالية الديناميكية
         </h3>
 
-        <!-- Mathematical Box with Formula -->
-        <div style="background:rgba(0,0,0,0.4);border-radius:8px;padding:12px;border:1px solid rgba(0,212,255,0.3);text-align:center;margin-bottom:10px">
-          <div style="font-size:1.22rem;font-weight:900;color:var(--s);font-family:'JetBrains Mono',monospace;letter-spacing:1px">
+        <!-- Mathematical Box -->
+        <div style="background:rgba(0,0,0,0.4);border-radius:10px;padding:14px;border:1px solid rgba(0,212,255,0.3);text-align:center;margin-bottom:14px">
+          <div style="font-size:1.25rem;font-weight:900;color:var(--s);font-family:'JetBrains Mono',monospace;letter-spacing:1px">
             R_total = &alpha; &middot; P(Threat) + &beta; &middot; S_base + &gamma; &middot; C_asset
           </div>
-          <div style="font-size:0.72rem;color:var(--t3);margin-top:4px;font-family:'JetBrains Mono',monospace">
+          <div style="font-size:0.75rem;color:var(--t3);margin-top:6px;font-family:'JetBrains Mono',monospace">
             Constraint: &alpha; + &beta; + &gamma; = 1.0 &nbsp;|&nbsp; Recommended: &alpha; = 0.50, &beta; = 0.30, &gamma; = 0.20
           </div>
         </div>
 
-        <!-- Visual Equation Breakdown Diagram -->
-        <div style="display:grid;grid-template-columns:repeat(3, 1fr) auto 1fr;gap:6px;align-items:center;background:rgba(0,0,0,0.3);padding:10px 8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);margin-bottom:12px;text-align:center">
-          <div style="background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.4);border-radius:6px;padding:6px 4px">
-            <div style="font-size:0.68rem;color:var(--s);font-weight:800">&alpha; = 0.50</div>
-            <div style="font-size:0.78rem;font-weight:900;color:#fff;font-family:'JetBrains Mono',monospace">P(Threat)</div>
-            <div style="font-size:0.62rem;color:var(--t3)">ML Probability</div>
-          </div>
-          <div style="background:rgba(255,180,0,0.1);border:1px solid rgba(255,180,0,0.4);border-radius:6px;padding:6px 4px">
-            <div style="font-size:0.68rem;color:#ffd166;font-weight:800">&beta; = 0.30</div>
-            <div style="font-size:0.78rem;font-weight:900;color:#fff;font-family:'JetBrains Mono',monospace">S_base</div>
-            <div style="font-size:0.62rem;color:var(--t3)">Vendor Severity</div>
-          </div>
-          <div style="background:rgba(180,100,255,0.1);border:1px solid rgba(180,100,255,0.4);border-radius:6px;padding:6px 4px">
-            <div style="font-size:0.68rem;color:#d8b4fe;font-weight:800">&gamma; = 0.20</div>
-            <div style="font-size:0.78rem;font-weight:900;color:#fff;font-family:'JetBrains Mono',monospace">C_asset</div>
-            <div style="font-size:0.62rem;color:var(--t3)">Asset Criticality</div>
-          </div>
-          <div style="font-size:1.1rem;font-weight:900;color:var(--s);padding:0 2px">&rarr; &Sigma; &rarr;</div>
-          <div style="background:rgba(16,185,129,0.15);border:1px solid var(--ok);border-radius:6px;padding:6px 4px;box-shadow:0 0 8px rgba(16,185,129,0.2)">
-            <div style="font-size:0.68rem;color:var(--ok);font-weight:800">OUTPUT</div>
-            <div style="font-size:0.82rem;font-weight:900;color:#fff;font-family:'JetBrains Mono',monospace">R_total</div>
-            <div style="font-size:0.62rem;color:var(--ok)">Score &isin; [0, 1]</div>
-          </div>
-        </div>
-
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;font-size:0.82rem;color:var(--t2)">
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:0.86rem;color:var(--t2)">
           <li style="display:flex;align-items:flex-start;gap:8px">
             <span style="color:var(--s);font-weight:800">&bull;</span>
             <span class="en"><strong>P(Threat) &isin; [0, 1]:</strong> Probabilistic confidence score output by supervised ensemble (Random Forest / XGBoost).</span>
@@ -3363,18 +2905,18 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       </div>
 
       <!-- Right Column: Visual Severity Gauge & Priority Queue Mapping -->
-      <div class="card" style="padding:18px;border:1px solid rgba(255,180,0,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(35,20,30,0.8));display:flex;flex-direction:column;justify-content:space-between">
+      <div class="card" style="padding:20px;border:1px solid rgba(255,180,0,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(35,20,30,0.8));display:flex;flex-direction:column;justify-content:space-between">
         <div>
-          <h3 class="en" style="font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:8px">
+          <h3 class="en" style="font-size:1.08rem;font-weight:800;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:8px">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="2.2"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
             Dynamic Priority Queue Slots
           </h3>
-          <h3 class="ar" style="display:none;font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:10px;align-items:center;gap:8px">
+          <h3 class="ar" style="display:none;font-size:1.08rem;font-weight:800;color:#fff;margin-bottom:10px;align-items:center;gap:8px">
             توزيع مستويات الأولوية وتصنيف الطوابير
           </h3>
 
           <!-- Visual Multi-Zone Risk Bar -->
-          <div style="margin-bottom:12px">
+          <div style="margin-bottom:14px">
             <div style="height:14px;border-radius:7px;background:linear-gradient(90deg, #10b981 0%, #10b981 25%, #00d4ff 25%, #00d4ff 55%, #ffd166 55%, #ffd166 80%, #ef4444 80%, #ef4444 100%);box-shadow:0 0 10px rgba(0,0,0,0.5)"></div>
             <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--t3);font-family:'JetBrains Mono',monospace;margin-top:4px">
               <span>0.0</span><span>0.25</span><span>0.55</span><span>0.80</span><span>1.0</span>
@@ -3402,20 +2944,18 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
           </div>
         </div>
 
-        <div style="padding:8px 12px;border-radius:6px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;font-size:0.75rem">
-          <span class="en" style="color:var(--t2)">Analyst Queue Preservation:</span>
-          <span class="ar" style="display:none;color:var(--t2)">حماية طابور المحلل:</span>
-          <span style="color:var(--ok);font-weight:800;font-family:'JetBrains Mono',monospace">+22.9% Capacity Boost</span>
+        <div style="padding-top:8px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.76rem;color:var(--t3);display:flex;justify-content:space-between">
+          <span>&sect;3.5 FORMULA DERIVATION</span>
+          <span style="color:var(--ok);font-weight:700">&check; ZERO ARBITRARY GUESSES</span>
         </div>
       </div>
 
     </div>
   </div>
-  <div class="sn">13 / 21</div>
+  <div class="sn">13 / 20</div>
 </section>
 
 
-<!-- ================= S14: DESIGN PROGRESS (Prioritization) ================= -->
 <!-- ================= S14: DESIGN PROGRESS (Prioritization) ================= -->
 <section class="slide" id="s13">
  <div class="orb o2" style="opacity:0.35"></div>
@@ -3427,155 +2967,70 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
  <h2 class="st en">Design Progress: Adaptive Prioritization &amp; Noise Suppression</h2>
  <h2 class="st ar" style="display:none">تقدم التصميم: الأولويات التكيفية وقمع الضجيج</h2>
  <div class="gl"></div>
-
- <div class="split-ill-grid">
-   <!-- Left Column: Priority Rules & Operational Rationale -->
-   <div style="display:flex;flex-direction:column;gap:10px">
-     <div class="card" style="padding:12px 14px">
-       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-         <div class="c-icon cy" style="width:28px;height:28px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-         <h3 class="ct en" style="margin:0;font-size:0.95rem">Dynamic Queue Ordering</h3>
-         <h3 class="ct ar" style="display:none;margin:0;font-size:0.95rem">ترتيب طوابير ديناميكي</h3>
-       </div>
-       <p class="en" style="font-size:0.82rem;margin:0">Alerts are ranked by <strong>continuous contextual risk</strong> rather than static severity tags. Critical incidents surface immediately to the top priority lane.</p>
-       <p class="ar" style="display:none;font-size:0.82rem;margin:0">تُرتب التنبيهات حسب <strong>الخطر السياقي المستمر</strong> لا الشدة الثابتة، مما يدفع الحوادث الحرجة فوراً إلى أعلى الطابور.</p>
-     </div>
-
-     <div class="card" style="padding:12px 14px">
-       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-         <div class="c-icon gr" style="width:28px;height:28px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-         <h3 class="ct en" style="margin:0;font-size:0.95rem">Suppression vs. Deprioritization</h3>
-         <h3 class="ct ar" style="display:none;margin:0;font-size:0.95rem">القمع المنضبط مقابل خفض الأولوية</h3>
-       </div>
-       <p class="en" style="font-size:0.82rem;margin:0">Benign alerts (low risk, high confidence) are excluded from primary queues but <strong>retained for audit</strong>. Medium threats remain visible in secondary queues.</p>
-       <p class="ar" style="display:none;font-size:0.82rem;margin:0">التنبيهات الحميدة منخفضة الخطر تُستثنى من الطوابير الأولية مع <strong>حفظها للتدقيق</strong>، مما يحفظ وقت المحللين.</p>
-     </div>
-
-     <div class="card" style="padding:10px 14px;border:1px solid rgba(16,185,129,0.3);background:rgba(16,185,129,0.06)">
-       <div style="display:flex;align-items:center;gap:12px">
-         <div style="font-family:'JetBrains Mono',monospace;font-size:1.35rem;font-weight:900;color:var(--ok);white-space:nowrap;padding:4px 10px;background:rgba(16,185,129,0.15);border-radius:6px">-22.9%</div>
-         <div style="font-size:0.82rem;color:var(--t1);line-height:1.35">
-           <span class="en"><strong>Empirical Benchmark (Gelman et al., 2023):</strong> Dynamic ordering cuts critical incident queue dwell time by <strong>22.9%</strong>.</span>
-           <span class="ar" style="display:none"><strong>المؤشر المعياري (Gelman et al., 2023):</strong> الترتيب الديناميكي يقلل زمن انتظار الحوادث الحرجة بنسبة <strong>22.9%</strong>.</span>
-         </div>
-       </div>
-     </div>
-   </div>
-
-   <!-- Right Column: Illustrated FIFO vs. Dynamic Risk Queue Card -->
-   <div class="ill-card">
-     <div class="ill-frame" onclick="openImageModal('images/queue_prioritization.jpg', 'Conventional FIFO Queue vs. Dynamic Risk Queue - 22.9% Dwell Time Reduction')">
-       <img src="images/queue_prioritization.jpg" alt="Conventional FIFO Queue vs Dynamic Risk Queue" class="ill-img" loading="lazy"/>
-       <div class="ill-zoom-hint">
-         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-         <span>COMPARE QUEUES</span>
-       </div>
-     </div>
-     <div class="ill-caption">
-       <div class="ill-title">
-         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
-         <span class="en">FIFO Congestion vs. Dynamic Express Priority</span>
-         <span class="ar" style="display:none">طوابير FIFO الراكدة مقابل أولوية المسار السريع الذكية</span>
-       </div>
-       <div class="ill-sub">BENCHMARK &sect;3.6</div>
-     </div>
-   </div>
+ <div class="grid g3">
+ <div class="card">
+ <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+ <h3 class="ct en">Dynamic Queue Ordering</h3><h3 class="ct ar" style="display:none">ترتيب طوابير ديناميكي</h3>
+ <p class="en">Alerts are ranked by <strong>continuous contextual risk</strong> rather than static product severity. Positions are recalculated dynamically as new telemetry arrives — ensuring critical incidents surface promptly.</p>
+ <p class="ar" style="display:none">تُرتب التنبيهات حسب <strong>الخطر السياقي المستمر</strong> لا الشدة الثابتة. يُعاد حساب المراكز ديناميكياً كلما وصلت بيانات تتبع جديدة.</p>
  </div>
-
+ <div class="card">
+ <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+ <h3 class="ct en">Suppression vs. Deprioritization</h3><h3 class="ct ar" style="display:none">القمع مقابل خفض الأولوية</h3>
+ <p class="en">Suppressed alerts are excluded from primary queues (low risk, adequate confidence, non-critical assets) but <strong>retained for audit</strong>. Deprioritized alerts remain visible below higher-risk events.</p>
+ <p class="ar" style="display:none">التنبيهات المقموعة تُستثنى من الطوابير النشطة لكن <strong>تُحفظ للتدقيق</strong>. التنبيهات مخفضة الأولوية تظل مرئية أسفل الأحداث عالية الخطر.</p>
  </div>
- <div class="sn">14 / 21</div>
+ <div class="card">
+ <div class="c-icon rd"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+ <h3 class="ct en">Policy Safeguards</h3><h3 class="ct ar" style="display:none">ضمانات السياسات</h3>
+ <p class="en">Operational rules override model scores for critical assets, privileged accounts, or novel threats. Low-confidence predictions are automatically routed to analyst review — <strong>ML cannot permanently discard uncertain events</strong>.</p>
+ <p class="ar" style="display:none">القواعد التشغيلية تتجاوز درجات النموذج للأصول الحرجة والحسابات المتميزة. التنبؤات منخفضة الثقة تُوجه تلقائياً للمراجعة البشرية.</p>
+ </div>
+ </div>
+ <div class="hl" style="margin-top:14px">
+ <p class="en"><strong>Operational Rationale (Gelman et al., 2023):</strong> Dynamic, risk-aware ordering reduces critical incident queue dwell time by <strong>22.9%</strong>, ensuring genuine threats are identified rapidly without increasing the manual investigative burden on analysts.</p>
+ <p class="ar" style="display:none"><strong>الأساس التشغيلي (Gelman et al., 2023):</strong> الترتيب الديناميكي يقلل وقت انتظار الحوادث الحرجة بنسبة <strong>22.9%</strong>، مضموناً الكشف السريع دون زيادة أعباء التحقيق اليدوي.</p>
+ </div>
+ </div>
+ <div class="sn">14 / 20</div>
 </section>
 
 
 <!-- ================= S15: DESIGN PROGRESS (Response) ================= -->
 <section class="slide" id="s14">
-  <div class="orb o1" style="opacity:0.35"></div>
-  <div class="content-box" style="max-width:1280px">
-    <div class="tag a1">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      <span class="en">Chapter 3 &ndash; Design Progress</span><span class="ar" style="display:none">الفصل الثالث &ndash; تقدم التصميم</span>
-    </div>
-    <h2 class="st en">Design Progress: Response Policy &amp; Automated Playbooks</h2>
-    <h2 class="st ar" style="display:none">تقدم التصميم: سياسة الاستجابة ودفاتر العمل المؤتمتة</h2>
-    <div class="gl"></div>
-
-    <!-- Top: Response Policy Layer & Confidence Gate Banner -->
-    <div class="card" style="padding:14px 18px;margin-bottom:12px;border:1px solid rgba(0,212,255,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(15,30,45,0.8))">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-        <div style="display:flex;align-items:center;gap:10px">
-          <div class="c-icon cy" style="width:28px;height:28px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3 class="ct en" style="margin:0;font-size:1.02rem">Response Policy Layer &amp; Confidence Gate</h3>
-          <h3 class="ct ar" style="display:none;margin:0;font-size:1.02rem">طبقة سياسة الاستجابة وبوابة الثقة</h3>
-        </div>
-        <div style="display:flex;gap:8px">
-          <span style="font-size:0.72rem;padding:3px 8px;border-radius:6px;background:rgba(16,185,129,0.15);color:var(--ok);font-weight:700">&ge; 90% Auto-Dispatch</span>
-          <span style="font-size:0.72rem;padding:3px 8px;border-radius:6px;background:rgba(255,180,0,0.15);color:#ffd166;font-weight:700">&lt; 90% Human Approval</span>
-        </div>
-      </div>
-      <p class="en" style="font-size:0.84rem;color:var(--t2);margin:0">The policy layer maps the prioritized risk score and confidence indicator to a specific playbook. A <strong>confidence gate</strong> ensures high-impact response actions are only triggered when the model's confidence exceeds a defined threshold &mdash; otherwise routing to analyst approval.</p>
-      <p class="ar" style="display:none;font-size:0.84rem;color:var(--t2);margin:0">تربط طبقة السياسة درجة المخاطر المُرتبة ومؤشر الثقة بدفتر عمل محدد. <strong>بوابة الثقة</strong> تضمن أن إجراءات الاستجابة عالية التأثير لا تُطلق إلا عند تجاوز عتبة ثقة محددة.</p>
-    </div>
-
-    <!-- Bottom: 4 Automated Playbook Types Grid -->
-    <div style="display:grid;grid-template-columns:repeat(2, 1fr);gap:12px;width:100%">
-      <!-- Playbook 1 -->
-      <div class="card" style="padding:14px;border:1px solid rgba(239,68,68,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.85), rgba(35,10,18,0.7))">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-          <div style="display:flex;align-items:center;gap:8px">
-            <div class="c-icon rd" style="width:26px;height:26px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-            <strong class="en" style="color:#fff;font-size:0.92rem">Endpoint Containment</strong>
-            <strong class="ar" style="display:none;color:#fff;font-size:0.92rem">احتواء نقطة النهاية</strong>
-          </div>
-          <span style="font-size:0.68rem;padding:2px 6px;border-radius:4px;background:rgba(239,68,68,0.2);color:#ff6b6b;font-weight:700">EDR API</span>
-        </div>
-        <p class="en" style="font-size:0.8rem;color:var(--t2);margin:0">Quarantine compromised endpoints via EDR API to prevent lateral movement while preserving forensic telemetry.</p>
-        <p class="ar" style="display:none;font-size:0.8rem;color:var(--t2);margin:0">عزل نقاط النهاية المخترقة عبر واجهة EDR لمنع الانتشار مع الحفاظ على بيانات التتبع.</p>
-      </div>
-
-      <!-- Playbook 2 -->
-      <div class="card" style="padding:14px;border:1px solid rgba(0,212,255,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.85), rgba(10,25,35,0.7))">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-          <div style="display:flex;align-items:center;gap:8px">
-            <div class="c-icon cy" style="width:26px;height:26px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
-            <strong class="en" style="color:#fff;font-size:0.92rem">Network Blocking</strong>
-            <strong class="ar" style="display:none;color:#fff;font-size:0.92rem">حظر شبكي</strong>
-          </div>
-          <span style="font-size:0.68rem;padding:2px 6px;border-radius:4px;background:rgba(0,212,255,0.2);color:var(--s);font-weight:700">Firewall API</span>
-        </div>
-        <p class="en" style="font-size:0.8rem;color:var(--t2);margin:0">Push dynamic block lists to perimeter firewalls to sever active Command &amp; Control channels.</p>
-        <p class="ar" style="display:none;font-size:0.8rem;color:var(--t2);margin:0">دفع قوائم الحظر الديناميكية للجدران النارية لقطع قنوات القيادة والتحكم النشطة.</p>
-      </div>
-
-      <!-- Playbook 3 -->
-      <div class="card" style="padding:14px;border:1px solid rgba(255,180,0,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.85), rgba(35,25,10,0.7))">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-          <div style="display:flex;align-items:center;gap:8px">
-            <div class="c-icon ye" style="width:26px;height:26px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-            <strong class="en" style="color:#fff;font-size:0.92rem">Account Suspension</strong>
-            <strong class="ar" style="display:none;color:#fff;font-size:0.92rem">تعليق الحساب</strong>
-          </div>
-          <span style="font-size:0.68rem;padding:2px 6px;border-radius:4px;background:rgba(255,180,0,0.2);color:#ffd166;font-weight:700">IAM / IdP API</span>
-        </div>
-        <p class="en" style="font-size:0.8rem;color:var(--t2);margin:0">Revoke active sessions and disable accounts exhibiting anomalous credential behavior.</p>
-        <p class="ar" style="display:none;font-size:0.8rem;color:var(--t2);margin:0">إلغاء الجلسات النشطة وتعطيل الحسابات التي تُظهر سلوكاً غير طبيعي في بيانات الاعتماد.</p>
-      </div>
-
-      <!-- Playbook 4 -->
-      <div class="card" style="padding:14px;border:1px solid rgba(16,185,129,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.85), rgba(10,35,25,0.7))">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-          <div style="display:flex;align-items:center;gap:8px">
-            <div class="c-icon gr" style="width:26px;height:26px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <strong class="en" style="color:#fff;font-size:0.92rem">Malicious Content Purge</strong>
-            <strong class="ar" style="display:none;color:#fff;font-size:0.92rem">تطهير المحتوى الخبيث</strong>
-          </div>
-          <span style="font-size:0.68rem;padding:2px 6px;border-radius:4px;background:rgba(16,185,129,0.2);color:var(--ok);font-weight:700">Email API</span>
-        </div>
-        <p class="en" style="font-size:0.8rem;color:var(--t2);margin:0">Identify and remove malicious messages enterprise-wide via email platform API.</p>
-        <p class="ar" style="display:none;font-size:0.8rem;color:var(--t2);margin:0">تحديد وإزالة الرسائل الخبيثة على مستوى المؤسسة عبر واجهة منصة البريد الإلكتروني.</p>
-      </div>
-    </div>
-  </div>
-  <div class="sn">15 / 21</div>
+ <div class="orb o1" style="opacity:0.35"></div>
+ <div class="content-box">
+ <div class="tag a1">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+ <span class="en">Chapter 3 &ndash; Design Progress</span><span class="ar" style="display:none">الفصل الثالث &ndash; تقدم التصميم</span>
+ </div>
+ <h2 class="st en">Design Progress: Response Policy &amp; Automated Playbooks</h2>
+ <h2 class="st ar" style="display:none">تقدم التصميم: سياسة الاستجابة ودفاتر العمل المؤتمتة</h2>
+ <div class="gl"></div>
+ <div class="grid g2" style="gap:18px">
+ <div class="card">
+ <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+ <h3 class="ct en">Response Policy Layer</h3><h3 class="ct ar" style="display:none">طبقة سياسة الاستجابة</h3>
+ <p class="en">The policy layer maps the prioritized risk score and confidence indicator to a specific playbook. A <strong>confidence gate</strong> ensures high-impact response actions are only triggered when the model's confidence exceeds a defined threshold — otherwise routing to analyst approval.</p>
+ <p class="ar" style="display:none">تربط طبقة السياسة درجة المخاطر المُرتبة ومؤشر الثقة بدفتر عمل محدد. <strong>بوابة الثقة</strong> تضمن أن إجراءات الاستجابة عالية التأثير لا تُطلق إلا عند تجاوز عتبة ثقة محددة.</p>
+ </div>
+ <div class="card">
+ <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+ <h3 class="ct en">Automated Playbook Types</h3><h3 class="ct ar" style="display:none">أنواع دفاتر العمل المؤتمتة</h3>
+ <ul style="gap:8px;margin-top:8px">
+ <li class="en"><strong>Endpoint Containment:</strong> Quarantine compromised endpoints via EDR API to prevent lateral movement while preserving forensic telemetry</li>
+ <li class="ar" style="display:none"><strong>احتواء نقطة النهاية:</strong> عزل نقاط النهاية المخترقة عبر واجهة EDR لمنع الانتشار مع الحفاظ على بيانات التتبع</li>
+ <li class="en"><strong>Network Blocking:</strong> Push dynamic block lists to perimeter firewalls to sever active Command &amp; Control channels</li>
+ <li class="ar" style="display:none"><strong>حظر شبكي:</strong> دفع قوائم الحظر الديناميكية للجدران النارية لقطع قنوات القيادة والتحكم النشطة</li>
+ <li class="en"><strong>Account Suspension:</strong> Revoke active sessions and disable accounts exhibiting anomalous credential behavior</li>
+ <li class="ar" style="display:none"><strong>تعليق الحساب:</strong> إلغاء الجلسات النشطة وتعطيل الحسابات التي تُظهر سلوكاً غير طبيعي في بيانات الاعتماد</li>
+ <li class="en"><strong>Malicious Content Purge:</strong> Identify and remove malicious messages enterprise-wide via email platform API</li>
+ <li class="ar" style="display:none"><strong>تطهير المحتوى الخبيث:</strong> تحديد وإزالة الرسائل الخبيثة على مستوى المؤسسة عبر واجهة منصة البريد الإلكتروني</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ <div class="sn">15 / 20</div>
 </section>
 
 
@@ -3621,90 +3076,50 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
  </div>
  </div>
  </div>
- <div class="sn">16 / 21</div>
+ <div class="sn">16 / 20</div>
 </section>
 
 
 <!-- ================= S17: PROTOTYPE / DEMO ================= -->
 <section class="slide" id="s16">
-  <div class="orb o3" style="opacity:0.35"></div>
-  <div class="content-box" style="max-width:1280px">
-    <div class="tag a1" style="border-color:rgba(16,185,129,0.4);background:rgba(16,185,129,0.06)">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-      <span class="en" style="color:#6ee7b7">Prototype Demo</span><span class="ar" style="display:none;color:#6ee7b7">عرض النموذج الأولي</span>
-    </div>
-    <h2 class="st en">Working Prototype: Alert Processing Pipeline</h2>
-    <h2 class="st ar" style="display:none">النموذج الأولي العامل: خط معالجة التنبيهات</h2>
-    <div class="gl"></div>
-    <p class="lead en">The prototype demonstrates the end-to-end alert flow &mdash; from raw security event ingestion through enrichment, AI/ML risk scoring, prioritization, and response initiation &mdash; in a controlled simulation environment.</p>
-    <p class="lead ar" style="display:none">يوضح النموذج الأولي تدفق التنبيهات الكامل &mdash; من استيعاب الأحداث الخام عبر الإثراء وتقييم المخاطر والأولوية وبدء الاستجابة &mdash; في بيئة محاكاة محكومة.</p>
-
-    <!-- Animated Pipeline Flow Diagram -->
-    <div class="flow" style="margin-top:14px;background:rgba(0,0,0,0.3);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);display:grid;grid-template-columns:repeat(6, 1fr);gap:8px">
-      <div class="fs" style="padding:8px 6px">
-        <div class="fi" style="background:rgba(0,212,255,0.2);color:var(--s)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg></div>
-        <div class="fl en" style="font-size:0.75rem">1. Raw Alert In</div>
-        <div class="fl ar" style="display:none;font-size:0.75rem">1. تنبيه خام</div>
-      </div>
-      <div class="fs" style="padding:8px 6px">
-        <div class="fi" style="background:rgba(0,212,255,0.2);color:var(--s)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/></svg></div>
-        <div class="fl en" style="font-size:0.75rem">2. Normalize</div>
-        <div class="fl ar" style="display:none;font-size:0.75rem">2. توحيد</div>
-      </div>
-      <div class="fs" style="padding:8px 6px">
-        <div class="fi" style="background:rgba(0,212,255,0.2);color:var(--s)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/></svg></div>
-        <div class="fl en" style="font-size:0.75rem">3. Enrich</div>
-        <div class="fl ar" style="display:none;font-size:0.75rem">3. إثراء</div>
-      </div>
-      <div class="fs" style="padding:8px 6px">
-        <div class="fi" style="background:rgba(255,180,0,0.2);color:#ffd166"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5"/></svg></div>
-        <div class="fl en" style="font-size:0.75rem">4. ML Score</div>
-        <div class="fl ar" style="display:none;font-size:0.75rem">4. تقييم ML</div>
-      </div>
-      <div class="fs" style="padding:8px 6px">
-        <div class="fi" style="background:rgba(255,180,0,0.2);color:#ffd166"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/></svg></div>
-        <div class="fl en" style="font-size:0.75rem">5. Prioritize</div>
-        <div class="fl ar" style="display:none;font-size:0.75rem">5. ترتيب</div>
-      </div>
-      <div class="fs" style="padding:8px 6px;border:1px solid var(--ok);background:rgba(16,185,129,0.1)">
-        <div class="fi" style="background:var(--ok);color:#000"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-        <div class="fl en" style="font-size:0.75rem;font-weight:800;color:#fff">6. Response</div>
-        <div class="fl ar" style="display:none;font-size:0.75rem;font-weight:800;color:#fff">6. استجابة</div>
-      </div>
-    </div>
-
-    <!-- 2 Real-World Simulated Scenarios Grid -->
-    <div class="grid g2" style="gap:16px;margin-top:14px">
-      <!-- Scenario 1 -->
-      <div class="card" style="padding:16px;border:1px solid rgba(239,68,68,0.35);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(35,10,20,0.8))">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-          <h3 class="ct en" style="color:#ff6b6b;margin:0;font-size:1rem;display:flex;align-items:center;gap:6px">
-            <span style="width:8px;height:8px;border-radius:50%;background:#ef4444;box-shadow:0 0 8px #ef4444"></span>
-            Scenario: Anomalous Login
-          </h3>
-          <h3 class="ct ar" style="display:none;color:#ff6b6b;margin:0;font-size:1rem">سيناريو: تسجيل دخول شاذ</h3>
-          <span style="font-size:0.68rem;padding:2px 8px;border-radius:4px;background:rgba(239,68,68,0.2);color:#ff6b6b;font-weight:800">P1 &middot; CRITICAL</span>
-        </div>
-        <p class="en" style="font-size:0.84rem;color:var(--t2);line-height:1.5;margin:0">A privileged account login from an unusual geographic location is ingested, enriched with asset criticality and threat intel, scored High risk [0.87], confidence 91% &rarr; playbook triggered: account session revocation + analyst notification.</p>
-        <p class="ar" style="display:none;font-size:0.84rem;color:var(--t2);line-height:1.5;margin:0">تسجيل دخول لحساب متميز من موقع جغرافي غير عادي يُستوعب ويُثرى بحساسية الأصل والاستخبارات، يُقيَّم بخطر عالٍ [0.87]، ثقة 91% &rarr; دفتر عمل: إلغاء الجلسة + إشعار المحلل.</p>
-      </div>
-
-      <!-- Scenario 2 -->
-      <div class="card" style="padding:16px;border:1px solid rgba(16,185,129,0.35);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(10,35,25,0.8))">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-          <h3 class="ct en" style="color:var(--ok);margin:0;font-size:1rem;display:flex;align-items:center;gap:6px">
-            <span style="width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok)"></span>
-            Scenario: Low-Risk Alert Suppression
-          </h3>
-          <h3 class="ct ar" style="display:none;color:var(--ok);margin:0;font-size:1rem">سيناريو: قمع التنبيه منخفض الخطر</h3>
-          <span style="font-size:0.68rem;padding:2px 8px;border-radius:4px;background:rgba(16,185,129,0.2);color:var(--ok);font-weight:800">P4 &middot; SUPPRESSED</span>
-        </div>
-        <p class="en" style="font-size:0.84rem;color:var(--t2);line-height:1.5;margin:0">A routine port scan on a non-critical test asset receives Risk score [0.12], confidence 88% &rarr; alert suppressed from primary queue, retained in audit log, analyst queue dwell time preserved for genuine threats.</p>
-        <p class="ar" style="display:none;font-size:0.84rem;color:var(--t2);line-height:1.5;margin:0">فحص منافذ روتيني على أصل تجريبي غير حرج يتلقى [0.12] ثقة 88% &rarr; التنبيه مقموع من الطابور الرئيسي، محفوظ في سجل التدقيق.</p>
-      </div>
-    </div>
-  </div>
-  <div class="sn">17 / 21</div>
+ <div class="orb o3" style="opacity:0.35"></div>
+ <div class="content-box">
+ <div class="tag a1" style="border-color:rgba(16,185,129,0.4);background:rgba(16,185,129,0.06)">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+ <span class="en" style="color:#6ee7b7">Prototype Demo</span><span class="ar" style="display:none;color:#6ee7b7">عرض النموذج الأولي</span>
+ </div>
+ <h2 class="st en">Working Prototype: Alert Processing Pipeline</h2>
+ <h2 class="st ar" style="display:none">النموذج الأولي العامل: خط معالجة التنبيهات</h2>
+ <div class="gl"></div>
+ <p class="lead en">The prototype demonstrates the end-to-end alert flow — from raw security event ingestion through enrichment, AI/ML risk scoring, prioritization, and response initiation — in a controlled simulation environment.</p>
+ <p class="lead ar" style="display:none">يوضح النموذج الأولي تدفق التنبيهات الكامل — من استيعاب الأحداث الخام عبر الإثراء وتقييم المخاطر والأولوية وبدء الاستجابة — في بيئة محاكاة محكومة.</p>
+ <div class="flow" style="margin-top:16px">
+ <div class="fs"><div class="fi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg></div><div class="fl en">Raw Alert In</div><div class="fl ar" style="display:none">تنبيه خام</div></div>
+ <div class="farr">→</div>
+ <div class="fs"><div class="fi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/></svg></div><div class="fl en">Normalize</div><div class="fl ar" style="display:none">توحيد</div></div>
+ <div class="farr">→</div>
+ <div class="fs"><div class="fi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/></svg></div><div class="fl en">Enrich</div><div class="fl ar" style="display:none">إثراء</div></div>
+ <div class="farr">→</div>
+ <div class="fs"><div class="fi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5"/></svg></div><div class="fl en">ML Score</div><div class="fl ar" style="display:none">تقييم ML</div></div>
+ <div class="farr">→</div>
+ <div class="fs"><div class="fi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/></svg></div><div class="fl en">Prioritize</div><div class="fl ar" style="display:none">ترتيب</div></div>
+ <div class="farr">→</div>
+ <div class="fs"><div class="fi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="fl en">Response</div><div class="fl ar" style="display:none">استجابة</div></div>
+ </div>
+ <div class="grid g2" style="gap:16px;margin-top:16px">
+ <div class="card">
+ <h3 class="ct en" style="color:var(--ok)">Scenario: Anomalous Login</h3><h3 class="ct ar" style="display:none;color:var(--ok)">سيناريو: تسجيل دخول شاذ</h3>
+ <p class="en">A privileged account login from an unusual geographic location is ingested, enriched with asset criticality and threat intel, scored High risk [0.87], confidence 91% → playbook triggered: account session revocation + analyst notification.</p>
+ <p class="ar" style="display:none">تسجيل دخول لحساب متميز من موقع جغرافي غير عادي يُستوعب ويُثرى بحساسية الأصل والاستخبارات، يُقيَّم بخطر عالٍ [0.87]، ثقة 91% → دفتر عمل: إلغاء الجلسة + إشعار المحلل.</p>
+ </div>
+ <div class="card">
+ <h3 class="ct en" style="color:var(--s)">Scenario: Low-Risk Alert Suppression</h3><h3 class="ct ar" style="display:none;color:var(--s)">سيناريو: قمع التنبيه منخفض الخطر</h3>
+ <p class="en">A routine port scan on a non-critical test asset receives Risk score [0.12], confidence 88% → alert suppressed from primary queue, retained in audit log, analyst queue dwell time preserved for genuine threats.</p>
+ <p class="ar" style="display:none">فحص منافذ روتيني على أصل تجريبي غير حرج يتلقى [0.12] ثقة 88% → التنبيه مقموع من الطابور الرئيسي، محفوظ في سجل التدقيق.</p>
+ </div>
+ </div>
+ </div>
+ <div class="sn">17 / 20</div>
 </section>
 
 
@@ -3720,10 +3135,10 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <h2 class="st en" style="margin-bottom:4px">Testing &amp; Empirical Evaluation Framework</h2>
     <h2 class="st ar" style="display:none;margin-bottom:4px">إطار الاختبار والتقييم التجريبي المعياري</h2>
     <div class="gl" style="margin:4px auto 14px"></div>
-    <p class="lead en" style="margin-bottom:14px;font-size:0.98rem;max-width:940px">
+    <p class="lead en" style="margin-bottom:16px;font-size:0.98rem;max-width:940px">
       Quantitative validation criteria using public cybersecurity benchmark datasets and statistical performance metrics.
     </p>
-    <p class="lead ar" style="display:none;margin-bottom:14px;font-size:0.98rem;max-width:940px">
+    <p class="lead ar" style="display:none;margin-bottom:16px;font-size:0.98rem;max-width:940px">
       معايير التحقق الكمي المعتمدة باستخدام مجموعات البيانات القياسية ومقاييس الأداء الإحصائي المعيارية.
     </p>
 
@@ -3731,20 +3146,20 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <div class="g2" style="gap:16px;width:100%">
       
       <!-- Benchmark Datasets -->
-      <div class="card" style="padding:18px;border:1px solid rgba(0,212,255,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(15,30,45,0.8))">
-        <h3 class="en" style="font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:8px">
+      <div class="card" style="padding:20px;border:1px solid rgba(0,212,255,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(15,30,45,0.8))">
+        <h3 class="en" style="font-size:1.08rem;font-weight:800;color:#fff;margin-bottom:12px;display:flex;align-items:center;gap:8px">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
           Benchmark Testbed Datasets
         </h3>
-        <h3 class="ar" style="display:none;font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:10px;align-items:center;gap:8px">
+        <h3 class="ar" style="display:none;font-size:1.08rem;font-weight:800;color:#fff;margin-bottom:12px;align-items:center;gap:8px">
           مجموعات البيانات المعيارية للاختبار
         </h3>
 
         <div style="display:flex;flex-direction:column;gap:10px">
           <div style="background:rgba(0,0,0,0.3);border-radius:8px;padding:10px 12px;border:1px solid rgba(255,255,255,0.06)">
-            <div style="display:flex;justify-content:space-between;font-weight:700;color:#fff;font-size:0.86rem">
+            <div style="display:flex;justify-content:space-between;font-weight:700;color:#fff;font-size:0.88rem">
               <span>CIC-IDS2017 / CSE-CIC-IDS2018</span>
-              <span style="color:var(--s);font-size:0.72rem">Canadian Institute for Cybersecurity</span>
+              <span style="color:var(--s);font-size:0.75rem">Canadian Institute for Cybersecurity</span>
             </div>
             <p class="en" style="font-size:0.8rem;color:var(--t2);margin:4px 0 0">
               Realistic multi-vector attack traffic (DDoS, Brute Force, Infiltration, Botnet) with diverse packet and flow telemetry.
@@ -3755,9 +3170,9 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
           </div>
 
           <div style="background:rgba(0,0,0,0.3);border-radius:8px;padding:10px 12px;border:1px solid rgba(255,255,255,0.06)">
-            <div style="display:flex;justify-content:space-between;font-weight:700;color:#fff;font-size:0.86rem">
+            <div style="display:flex;justify-content:space-between;font-weight:700;color:#fff;font-size:0.88rem">
               <span>UNSW-NB15 Dataset</span>
-              <span style="color:var(--s);font-size:0.72rem">Cyber Range Lab (UNSW)</span>
+              <span style="color:var(--s);font-size:0.75rem">Cyber Range Lab (UNSW)</span>
             </div>
             <p class="en" style="font-size:0.8rem;color:var(--t2);margin:4px 0 0">
               Modern synthetic attack behaviors and contemporary normal background traffic across 49 features.
@@ -3769,60 +3184,44 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
         </div>
       </div>
 
-      <!-- Performance Metrics Bars with Gentle Academic Pulse -->
-      <div class="card" style="padding:18px;border:1px solid rgba(16,185,129,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(12,38,25,0.8))">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-          <h3 class="en" style="font-size:1.05rem;font-weight:800;color:#fff;margin:0;display:flex;align-items:center;gap:8px">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            Quantitative Target Metrics
-          </h3>
-          <h3 class="ar" style="display:none;font-size:1.05rem;font-weight:800;color:#fff;margin:0">
-            مقاييس الأداء المستهدفة
-          </h3>
-          <span style="font-size:0.68rem;padding:2px 8px;border-radius:6px;background:rgba(16,185,129,0.15);color:var(--ok);font-weight:700;display:flex;align-items:center;gap:4px">
-            <span style="width:6px;height:6px;border-radius:50%;background:var(--ok);display:inline-block;animation:subtlePulseLoop 2s infinite"></span>
-            Continuous Live Metric Telemetry
-          </span>
-        </div>
+      <!-- Performance Metrics Bars -->
+      <div class="card" style="padding:20px;border:1px solid rgba(16,185,129,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(12,38,25,0.8))">
+        <h3 class="en" style="font-size:1.08rem;font-weight:800;color:#fff;margin-bottom:12px;display:flex;align-items:center;gap:8px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Quantitative Target Metrics
+        </h3>
+        <h3 class="ar" style="display:none;font-size:1.08rem;font-weight:800;color:#fff;margin-bottom:12px;align-items:center;gap:8px">
+          مقاييس الأداء المستهدفة
+        </h3>
 
-        <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;flex-direction:column;gap:12px">
           <div>
-            <div style="display:flex;justify-content:space-between;font-size:0.8rem;font-weight:700;margin-bottom:3px">
+            <div style="display:flex;justify-content:space-between;font-size:0.82rem;font-weight:700;margin-bottom:4px">
               <span style="color:#fff">False Positive Suppression Rate</span>
               <span style="color:var(--ok);font-family:'JetBrains Mono',monospace">&ge; 54% Target</span>
             </div>
             <div style="height:8px;border-radius:4px;background:rgba(255,255,255,0.08);overflow:hidden">
-              <div style="width:54%;height:100%;background:var(--ok);border-radius:4px;animation:subtlePulseLoop 3s infinite"></div>
+              <div style="width:54%;height:100%;background:var(--ok);border-radius:4px;box-shadow:0 0 6px var(--ok)"></div>
             </div>
           </div>
 
           <div>
-            <div style="display:flex;justify-content:space-between;font-size:0.8rem;font-weight:700;margin-bottom:3px">
-              <span style="color:#fff">True Threat Capture Rate</span>
-              <span style="color:var(--s);font-family:'JetBrains Mono',monospace">95.1% Preserved</span>
-            </div>
-            <div style="height:8px;border-radius:4px;background:rgba(255,255,255,0.08);overflow:hidden">
-              <div style="width:95.1%;height:100%;background:var(--s);border-radius:4px;box-shadow:0 0 8px var(--s)"></div>
-            </div>
-          </div>
-
-          <div>
-            <div style="display:flex;justify-content:space-between;font-size:0.8rem;font-weight:700;margin-bottom:3px">
+            <div style="display:flex;justify-content:space-between;font-size:0.82rem;font-weight:700;margin-bottom:4px">
               <span style="color:#fff">Precision &amp; Recall (AlertPro Benchmark)</span>
-              <span style="color:#ffd166;font-family:'JetBrains Mono',monospace">96.3% / 98.5%</span>
+              <span style="color:var(--s);font-family:'JetBrains Mono',monospace">96.3% / 98.5%</span>
             </div>
             <div style="height:8px;border-radius:4px;background:rgba(255,255,255,0.08);overflow:hidden">
-              <div style="width:96%;height:100%;background:#ffd166;border-radius:4px;box-shadow:0 0 6px #ffd166"></div>
+              <div style="width:96%;height:100%;background:var(--s);border-radius:4px;box-shadow:0 0 6px var(--s)"></div>
             </div>
           </div>
 
           <div>
-            <div style="display:flex;justify-content:space-between;font-size:0.8rem;font-weight:700;margin-bottom:3px">
+            <div style="display:flex;justify-content:space-between;font-size:0.82rem;font-weight:700;margin-bottom:4px">
               <span style="color:#fff">Mean Time to Respond (MTTR) Reduction</span>
-              <span style="color:#ff8e8e;font-family:'JetBrains Mono',monospace">&gt; 50% Faster</span>
+              <span style="color:#ffd166;font-family:'JetBrains Mono',monospace">&gt; 50% Faster</span>
             </div>
             <div style="height:8px;border-radius:4px;background:rgba(255,255,255,0.08);overflow:hidden">
-              <div style="width:75%;height:100%;background:#ff6b6b;border-radius:4px;box-shadow:0 0 6px #ff6b6b"></div>
+              <div style="width:75%;height:100%;background:#ffd166;border-radius:4px;box-shadow:0 0 6px #ffd166"></div>
             </div>
           </div>
         </div>
@@ -3830,7 +3229,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 
     </div>
   </div>
-  <div class="sn">18 / 21</div>
+  <div class="sn">18 / 20</div>
 </section>
 
 
@@ -4059,163 +3458,76 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 
     </div>
   </div>
-  <div class="sn">19 / 21</div>
+  <div class="sn">19 / 20</div>
 </section>
 
 
 <!-- ================= S20: CONCLUSION / REMAINING WORK ================= -->
 <section class="slide" id="s19">
-  <div class="orb o1"></div><div class="orb o2"></div>
-  <div class="content-box" style="text-align:center;max-width:1280px">
-    <div class="tag a1" style="display:inline-flex">
-      <div class="dp"></div>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <span class="en">Conclusion &amp; Next Steps</span><span class="ar" style="display:none">الخلاصة والخطوات التالية</span>
-    </div>
-    <h2 class="st en" style="font-size:clamp(1.3rem,2.5vw,1.9rem)">Conclusion, Remaining Work &amp; Next Steps</h2>
-    <h2 class="st ar" style="display:none;font-size:clamp(1.3rem,2.5vw,1.9rem)">الخلاصة والأعمال المتبقية والخطوات التالية</h2>
-    <div class="gl"></div>
-
-    <!-- Main Grid: 3 Status Columns on Left, Feedback Loop on Right -->
-    <div style="display:grid;grid-template-columns:1.2fr 0.8fr;gap:16px;margin-top:12px;text-align:left;align-items:start">
-      <!-- 3 Status Columns Stacked/Grouped -->
-      <div style="display:flex;flex-direction:column;gap:10px">
-        <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:10px">
-          <!-- Completed -->
-          <div class="card" style="padding:10px;border-color:var(--ok);background:rgba(16,185,129,0.06)">
-            <h3 class="ct en" style="color:var(--ok);font-size:0.92rem;display:flex;align-items:center;gap:6px"><span style="display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:rgba(16,185,129,0.2);color:var(--ok);flex-shrink:0"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Completed</h3>
-            <h3 class="ct ar" style="display:none;color:var(--ok);font-size:0.92rem">مكتمل</h3>
-            <ul style="gap:4px;font-size:0.78rem;padding-left:14px;margin:6px 0 0">
-              <li class="en">Problem analysis &amp; operational challenge documentation</li>
-              <li class="ar" style="display:none">تحليل المشكلة وتوثيق التحديات التشغيلية</li>
-              <li class="en">Literature review &amp; comparative gap analysis (Table 2-1)</li>
-              <li class="ar" style="display:none">مراجعة الأدبيات وتحليل الفجوة المقارن</li>
-              <li class="en">Full 5-layer system architecture design</li>
-              <li class="ar" style="display:none">تصميم المعمارية الكاملة بـ 5 طبقات</li>
-              <li class="en">AI/ML engine formulation (risk scoring, confidence gate)</li>
-              <li class="ar" style="display:none">صياغة محرك الذكاء الاصطناعي</li>
-            </ul>
-          </div>
-
-          <!-- In Progress -->
-          <div class="card" style="padding:10px;border-color:var(--wa);background:rgba(251,191,36,0.06)">
-            <h3 class="ct en" style="color:var(--wa);font-size:0.92rem;display:flex;align-items:center;gap:6px"><span style="display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:rgba(255,180,0,0.2);color:var(--wa);flex-shrink:0"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg></span> In Progress</h3>
-            <h3 class="ct ar" style="display:none;color:var(--wa);font-size:0.92rem">قيد التنفيذ</h3>
-            <ul style="gap:4px;font-size:0.78rem;padding-left:14px;margin:6px 0 0">
-              <li class="en">Prototype implementation: connectors + normalization</li>
-              <li class="ar" style="display:none">تنفيذ النموذج الأولي: الموصلات + التوحيد</li>
-              <li class="en">ML model training on labeled alert dataset</li>
-              <li class="ar" style="display:none">تدريب نموذج ML على مجموعة تنبيهات مصنفة</li>
-              <li class="en">Dashboard and analyst feedback portal</li>
-              <li class="ar" style="display:none">لوحة التحكم وبوابة تغذية المحلل الراجعة</li>
-            </ul>
-          </div>
-
-          <!-- Remaining -->
-          <div class="card" style="padding:10px;border-color:var(--s);background:rgba(0,212,255,0.06)">
-            <h3 class="ct en" style="color:var(--s);font-size:0.92rem;display:flex;align-items:center;gap:6px"><span style="display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:rgba(0,212,255,0.2);color:var(--s);flex-shrink:0"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></span> Remaining</h3>
-            <h3 class="ct ar" style="display:none;color:var(--s);font-size:0.92rem">متبقٍ</h3>
-            <ul style="gap:4px;font-size:0.78rem;padding-left:14px;margin:6px 0 0">
-              <li class="en">Playbook execution engine + API dispatcher</li>
-              <li class="ar" style="display:none">محرك تنفيذ دفاتر العمل + مرسل API</li>
-              <li class="en">Full integration testing against defined ML &amp; operational metrics</li>
-              <li class="ar" style="display:none">اختبار التكامل الكامل مقابل المقاييس المحددة</li>
-              <li class="en">Final evaluation, documentation &amp; project report completion</li>
-              <li class="ar" style="display:none">التقييم النهائي والتوثيق وإكمال التقرير</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="hl" style="margin:0;border-color:var(--p)">
-          <p class="en" style="font-size:0.84rem;margin:0">
-            <strong>Core Contribution:</strong> This project investigates the architectural integration of AI/ML-based alert analysis, dynamic risk prioritization, and SOAR automated response &mdash; addressing the unresolved gap identified in the comparative literature analysis (Table 2-1).
-          </p>
-          <p class="ar" style="display:none;font-size:0.84rem;margin:0">
-            <strong>المساهمة الجوهرية:</strong> يدرس هذا المشروع التكامل المعماري لتحليل التنبيهات القائم على الذكاء الاصطناعي والأولوية الديناميكية واستجابة SOAR المؤتمتة &mdash; معالجةً للفجوة المحددة في تحليل الأدبيات المقارن.
-          </p>
-        </div>
-      </div>
-
-      <!-- Right Column: Continuous Retraining Feedback Loop Illustration -->
-      <div class="ill-card" style="margin:0;padding:6px">
-        <div class="ill-frame" style="max-height:220px" onclick="openImageModal('images/continuous_feedback_loop.jpg', 'SOAR Machine Learning Continuous Retraining & Feedback Loop')">
-          <img src="images/continuous_feedback_loop.jpg" alt="Continuous Feedback Loop" class="ill-img" loading="lazy" style="object-fit:cover;height:220px"/>
-          <div class="ill-zoom-hint">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-            <span>FEEDBACK LOOP ZOOM</span>
-          </div>
-        </div>
-        <div class="ill-caption" style="padding:4px 8px">
-          <div class="ill-title" style="font-size:0.75rem">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-            <span class="en">Active Model Drift Monitoring &amp; Analyst Retraining</span>
-            <span class="ar" style="display:none">مراقبة انحراف النماذج وإعادة التدريب المستمر</span>
-          </div>
-          <div class="ill-sub">CHAPTER 5 &sect;5.2 &middot; CONTINUOUS LEARNING</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="sn">20 / 21</div>
+ <div class="orb o1"></div><div class="orb o2"></div>
+ <div class="content-box" style="text-align:center">
+ <div class="tag a1" style="display:inline-flex">
+ <div class="dp"></div>
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+ <span class="en">Conclusion &amp; Next Steps</span><span class="ar" style="display:none">الخلاصة والخطوات التالية</span>
+ </div>
+ <h2 class="st en" style="font-size:clamp(1.3rem,2.5vw,1.9rem)">Conclusion, Remaining Work &amp; Next Steps</h2>
+ <h2 class="st ar" style="display:none;font-size:clamp(1.3rem,2.5vw,1.9rem)">الخلاصة والأعمال المتبقية والخطوات التالية</h2>
+ <div class="gl"></div>
+ <div class="grid g3" style="margin-top:14px;text-align:left">
+ <div class="card" style="border-color:var(--ok);background:rgba(16,185,129,0.06)">
+ <h3 class="ct en" style="color:var(--ok);display:flex;align-items:center;gap:6px"><span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:rgba(16,185,129,0.2);color:var(--ok);margin-right:6px;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></span> Completed</h3><h3 class="ct ar" style="display:none;color:var(--ok)">مكتمل</h3>
+ <ul style="gap:6px;font-size:0.85rem">
+ <li class="en">Problem analysis &amp; operational challenge documentation</li>
+ <li class="ar" style="display:none">تحليل المشكلة وتوثيق التحديات التشغيلية</li>
+ <li class="en">Literature review &amp; comparative gap analysis (Table 2-1)</li>
+ <li class="ar" style="display:none">مراجعة الأدبيات وتحليل الفجوة المقارن</li>
+ <li class="en">Full 5-layer system architecture design</li>
+ <li class="ar" style="display:none">تصميم المعمارية الكاملة بـ 5 طبقات</li>
+ <li class="en">AI/ML engine formulation (risk scoring, confidence gate)</li>
+ <li class="ar" style="display:none">صياغة محرك الذكاء الاصطناعي</li>
+ </ul>
+ </div>
+ <div class="card" style="border-color:var(--wa);background:rgba(251,191,36,0.06)">
+ <h3 class="ct en" style="color:var(--wa);display:flex;align-items:center;gap:6px"><span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:rgba(255,180,0,0.2);color:var(--wa);margin-right:6px;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="display:inline-block;vertical-align:middle"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg></span> In Progress</h3><h3 class="ct ar" style="display:none;color:var(--wa);align-items:center;gap:6px"><span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:rgba(255,180,0,0.2);color:var(--wa);margin-right:6px;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="display:inline-block;vertical-align:middle"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg></span> قيد التنفيذ</h3>
+ <ul style="gap:6px;font-size:0.85rem">
+ <li class="en">Prototype implementation: ingestion connectors + normalization</li>
+ <li class="ar" style="display:none">تنفيذ النموذج الأولي: الموصلات + التوحيد</li>
+ <li class="en">ML model training on labeled alert dataset</li>
+ <li class="ar" style="display:none">تدريب نموذج ML على مجموعة تنبيهات مصنفة</li>
+ <li class="en">Dashboard and analyst feedback portal</li>
+ <li class="ar" style="display:none">لوحة التحكم وبوابة تغذية المحلل الراجعة</li>
+ </ul>
+ </div>
+ <div class="card" style="border-color:var(--s);background:rgba(0,212,255,0.06)">
+ <h3 class="ct en" style="color:var(--s);display:flex;align-items:center;gap:6px"><span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:rgba(0,212,255,0.2);color:var(--s);margin-right:6px;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="display:inline-block;vertical-align:middle"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></span> Remaining</h3><h3 class="ct ar" style="display:none;color:var(--s)">متبقٍ</h3>
+ <ul style="gap:6px;font-size:0.85rem">
+ <li class="en">Playbook execution engine + API dispatcher</li>
+ <li class="ar" style="display:none">محرك تنفيذ دفاتر العمل + مرسل API</li>
+ <li class="en">Full integration testing against defined ML &amp; operational metrics</li>
+ <li class="ar" style="display:none">اختبار التكامل الكامل مقابل المقاييس المحددة</li>
+ <li class="en">Final evaluation, documentation &amp; project report completion</li>
+ <li class="ar" style="display:none">التقييم النهائي والتوثيق وإكمال التقرير</li>
+ </ul>
+ </div>
+ </div>
+ <div class="hl" style="margin-top:18px;border-color:var(--p)">
+ <p class="en" style="font-size:0.9rem">
+ <strong>Core Contribution:</strong> This project investigates the architectural integration of AI/ML-based alert analysis, dynamic risk prioritization, and SOAR automated response — addressing the unresolved gap identified in the comparative literature analysis (Table 2-1).
+ </p>
+ <p class="ar" style="display:none;font-size:0.9rem">
+ <strong>المساهمة الجوهرية:</strong> يدرس هذا المشروع التكامل المعماري لتحليل التنبيهات القائم على الذكاء الاصطناعي والأولوية الديناميكية واستجابة SOAR المؤتمتة — معالجةً للفجوة المحددة في تحليل الأدبيات المقارن.
+ </p>
+ </div>
+ <div style="margin-top:20px;padding:16px 24px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;display:inline-block">
+ <h3 class="en" style="font-size:1.05rem;font-weight:800;color:#fff;margin:0 0 4px 0">Thank You &ndash; Open for Discussion &amp; Defense Questions</h3>
+ <h3 class="ar" style="display:none;font-size:1.05rem;font-weight:800;color:#fff;margin:0 0 4px 0">شكراً &ndash; مستعدون لأسئلة وملاحظات لجنة المناقشة</h3>
+ <p class="en" style="font-size:0.78rem;color:var(--t2);margin:0">Supervised by Dr. Raed Saeed &middot; Department of Computer Science &middot; University of Science and Technology</p>
+ <p class="ar" style="display:none;font-size:0.78rem;color:var(--t2);margin:0">إشراف الدكتور رائد سعيد &middot; قسم علوم الحاسوب &middot; جامعة العلوم والتكنولوجيا</p>
+ </div>
+ </div>
+ <div class="sn">20 / 20</div>
 </section>
-
-<section class="slide" id="s20">
-  <div class="orb o1" style="opacity:0.2;top:15%;left:10%"></div>
-  <div class="orb o2" style="opacity:0.18;bottom:15%;right:10%"></div>
-
-  <div class="content-box" style="text-align:center;max-width:1040px;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:75vh;padding:24px 20px">
-    
-    <!-- Top Defense Tag (Supporting Context) -->
-    <div class="tag a1" style="display:inline-flex;margin-bottom:18px;border-color:rgba(0,212,255,0.3);background:rgba(0,212,255,0.06);padding:6px 14px">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <span class="en" style="color:var(--s);font-weight:700;letter-spacing:1px">GRADUATION DEFENSE &middot; CLOSING REMARKS</span>
-      <span class="ar" style="display:none;color:var(--s);font-weight:700">مناقشة مشروع التخرج &middot; الجلسة الختامية</span>
-    </div>
-
-    <!-- Exact Project Title (Supporting Context) -->
-    <div style="margin-bottom:24px;max-width:860px">
-      <h3 class="en" style="font-size:clamp(0.95rem, 1.35vw, 1.15rem);font-weight:600;color:var(--t2);letter-spacing:0.3px;margin:0;line-height:1.45">
-        AI-Based Security Orchestration, Automation &amp; Response (SOAR) Tool
-      </h3>
-      <h3 class="ar" style="display:none;font-size:clamp(0.95rem, 1.35vw, 1.15rem);font-weight:600;color:var(--t2);margin:0;line-height:1.45">
-        أداة أمنية ذكية للتنسيق والأتمتة والاستجابة للحوادث السيبرانية (SOAR)
-      </h3>
-    </div>
-
-    <!-- Main Dominant Element: Thank You (Primary) -->
-    <div style="margin-bottom:20px">
-      <h1 class="en" style="font-size:clamp(2.8rem, 5.5vw, 4.2rem);font-weight:900;letter-spacing:-1px;color:#ffffff;margin:0;line-height:1.1">
-        Thank You
-      </h1>
-      <h1 class="ar" style="display:none;font-size:clamp(2.6rem, 5vw, 4rem);font-weight:900;color:#ffffff;margin:0;line-height:1.2">
-        شكراً لحسن استماعكم
-      </h1>
-      <div class="gl" style="margin:16px auto 0;width:90px;height:3px;background:linear-gradient(90deg, transparent, var(--s), var(--ok), transparent)"></div>
-    </div>
-
-    <!-- Questions & Discussion Prompt (Secondary) -->
-    <div style="margin-bottom:28px">
-      <div style="display:inline-flex;align-items:center;gap:10px;padding:8px 22px;border-radius:24px;background:rgba(255,255,255,0.04);border:1px solid rgba(0,212,255,0.25)">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        <span class="en" style="font-size:clamp(1rem, 1.3vw, 1.18rem);font-weight:700;color:#ffffff;letter-spacing:0.5px">Questions &amp; Discussion</span>
-        <span class="ar" style="display:none;font-size:clamp(1rem, 1.3vw, 1.18rem);font-weight:700;color:#ffffff">الأسئلة والمناقشة</span>
-      </div>
-    </div>
-
-    <!-- Appreciation Message (Appreciation for Supervisor & Committee) -->
-    <div class="card" style="max-width:820px;width:100%;padding:18px 26px;border:1px solid rgba(255,255,255,0.08);background:linear-gradient(145deg, rgba(25,10,28,0.85), rgba(12,24,34,0.75));border-radius:12px;text-align:center">
-      <p class="en" style="font-size:clamp(0.84rem, 1.05vw, 0.94rem);color:var(--t2);line-height:1.65;margin:0">
-        With sincere appreciation to our project supervisor, <strong style="color:#ffffff">Dr. Raed Saeed</strong>, for his continuous guidance and support throughout this project, and to the honorable discussion committee for their valuable time, thoughtful evaluation, and constructive feedback.
-      </p>
-      <p class="ar" style="display:none;font-size:clamp(0.84rem, 1.05vw, 0.94rem);color:var(--t2);line-height:1.65;margin:0">
-        مع خالص الشكر وعظيم الامتنان للمشرف الأكاديمي، <strong style="color:#ffffff">د. رائد سعيد</strong>، على دعمه وتوجيهه المتواصل طوال مسيرة هذا المشروع، ولأعضاء لجنة المناقشة الموقرة على وقتهم الثمين وتقييمهم وتوجيهاتهم القيمة البناءة.
-      </p>
-    </div>
-
-  </div>
-  <div class="sn">21 / 21</div>
-</section>
-
 
 
 </div>
@@ -4264,7 +3576,7 @@ try {
   localStorage.removeItem('soar_slides_custom');
 } catch(e) {}
 
-const N = 21;
+const N = 20;
 let totalSlides = N;
 let c = 0;
 let isAR = false;
@@ -6006,29 +5318,6 @@ const SLIDE_REFS = {
       }
     ]
   }
-,
-    20: {
-    titleEn: "Slide 21: Conclusion & Questions — Defense Discussion",
-    titleAr: "الشريحة 21: الختام والأسئلة — مناقشة مشروع التخرج",
-    chapter: "Graduation Defense",
-    section: "Supervision & Defense Committee Discussion",
-    elements: [
-      {
-        elEn: "Academic Supervision",
-        elAr: "الإشراف الأكاديمي",
-        loc: "Project Defense Registry",
-        textEn: "Supervised by Dr. Raed Saeed. Department of Computer Science & Engineering, University of Science and Technology.",
-        textAr: "إشراف الدكتور رائد سعيد. قسم علوم الحاسوب وهندسة البرمجيات والشبكات، جامعة العلوم والتكنولوجيا."
-      },
-      {
-        elEn: "Questions & Discussion",
-        elAr: "الأسئلة والمناقشة",
-        loc: "Defense Committee Evaluation",
-        textEn: "Open for defense committee questions, operational review, and live architectural evaluation.",
-        textAr: "جلسة الأسئلة والمناقشة والملاحظات التقييمية للجنة المناقشة الموقرة."
-      }
-    ]
-  }
 };
 
 // Update References display for active slide
@@ -6048,7 +5337,7 @@ function updateSlideReferences(slideIdx) {
 
   const pill = document.getElementById('rdSlidePill');
   if (pill) {
-    pill.textContent = `Slide ${String(slideIdx + 1).padStart(2, '0')} / 21`;
+    pill.textContent = `Slide ${String(slideIdx + 1).padStart(2, '0')} / 20`;
   }
 
   // 1. Build Content for Drawer Modal (Doc Ref)
@@ -6131,7 +5420,7 @@ function updateSlideReferences(slideIdx) {
     cpRefContent.innerHTML = `
       <div style="font-size:0.75rem;margin-bottom:6px;color:var(--t2)">
         <strong>${isAR ? 'الشريحة الحالية:' : 'Active Slide:'}</strong> 
-        <span style="color:#fff">${String(slideIdx + 1).padStart(2, '0')} / 21</span> &mdash; 
+        <span style="color:#fff">${String(slideIdx + 1).padStart(2, '0')} / 20</span> &mdash; 
         <span style="color:var(--s)">${isAR ? ref.titleAr : ref.titleEn}</span>
       </div>
       <div style="font-size:0.72rem;color:var(--t3);margin-bottom:8px">
@@ -6150,45 +5439,5 @@ function updateSlideReferences(slideIdx) {
 // Initialize references on load
 updateSlideReferences(0);
 </script>
-
-<!-- ================= INTERACTIVE LIGHTBOX MODAL FOR DEFENSE COMMITTEE ================= -->
-<div id="imgModal" onclick="closeImageModal(event)">
-  <div class="modal-content-wrap" onclick="event.stopPropagation()">
-    <button class="modal-close-btn" onclick="closeImageModal(event)" title="Close (Esc)">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-    <img id="modalImg" class="modal-img" src="" alt="Expanded View"/>
-    <div id="modalCaption" class="modal-caption"></div>
-  </div>
-</div>
-
-<script>
-function openImageModal(src, caption) {
-  const modal = document.getElementById('imgModal');
-  const img = document.getElementById('modalImg');
-  const cap = document.getElementById('modalCaption');
-  if (modal && img && cap) {
-    img.src = src;
-    cap.textContent = caption || '';
-    modal.classList.add('active');
-  }
-}
-
-function closeImageModal(e) {
-  if (e) e.stopPropagation();
-  const modal = document.getElementById('imgModal');
-  if (modal) {
-    modal.classList.remove('active');
-  }
-}
-
-// Close on Escape key
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    closeImageModal();
-  }
-});
-</script>
-
 </body>
 </html>

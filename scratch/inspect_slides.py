@@ -1,15 +1,19 @@
 import re
 
-with open(r'c:\Users\Mo AL-Yahawy\SOAR\presentation\index.html', 'r', encoding='utf-8') as f:
-    html = f.read()
+with open('presentation/index.html', 'r', encoding='utf-8') as f:
+    content = f.read()
 
-slides = re.findall(r'<section\s+class=["\']slide[^"\']*["\'][^>]*>(.*?)</section>', html, re.DOTALL)
-print(f'Total slides count: {len(slides)}')
-for i, s in enumerate(slides, 1):
-    tag = re.search(r'<div class=["\']stag[^"\']*["\']>(.*?)</div>', s, re.DOTALL)
-    tag_str = re.sub(r'<[^>]+>', ' ', tag.group(1)).strip() if tag else ''
-    tag_str = ' '.join(tag_str.split())
-    title = re.search(r'<h[12][^>]*>(.*?)</h[12]>', s, re.DOTALL)
-    title_str = re.sub(r'<[^>]+>', ' ', title.group(1)).strip() if title else ''
-    title_str = ' '.join(title_str.split())
-    print(f'Slide {i:02d}: Tag=[{tag_str[:35]}] Title=[{title_str[:55]}]')
+# Match section tags and their content
+pattern = re.compile(r'<section\b([^>]*)>(.*?)</section>', re.DOTALL)
+matches = pattern.findall(content)
+
+print(f"Total sections found: {len(matches)}")
+for idx, (attrs, body) in enumerate(matches):
+    sid = re.search(r'id=["\']([^"\']+)["\']', attrs)
+    sid_val = sid.group(1) if sid else 'N/A'
+    sn = re.search(r'<div class=["\']sn["\']>([^<]+)</div>', body)
+    sn_val = sn.group(1).strip() if sn else 'N/A'
+    h2 = re.search(r'<h2[^>]*>(.*?)</h2>', body, re.DOTALL)
+    h2_clean = re.sub(r'<[^>]+>', '', h2.group(1)).strip() if h2 else 'No H2'
+    h2_clean = ' '.join(h2_clean.split())[:60]
+    print(f"[{idx}] id={sid_val} | sn={sn_val} | h2={h2_clean}")

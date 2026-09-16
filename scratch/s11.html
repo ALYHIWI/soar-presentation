@@ -1,0 +1,37 @@
+<section class="slide" id="s11">
+ <div class="orb o2" style="opacity:0.4"></div>
+ <div class="content-box">
+ <div class="tag a1">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
+ <span class="en">Chapter 3 &ndash; Analysis Progress</span><span class="ar" style="display:none">الفصل الثالث &ndash; تقدم التحليل</span>
+ </div>
+ <h2 class="st en">Analysis Progress: Ingestion &amp; Context Enrichment</h2>
+ <h2 class="st ar" style="display:none">تقدم التحليل: الاستيعاب وإثراء السياق</h2>
+ <div class="gl"></div>
+ <div class="grid g2" style="gap:18px">
+ <div class="card">
+ <div class="c-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
+ <h3 class="ct en">Layer 1: Alert Ingestion &amp; Normalization</h3><h3 class="ct ar" style="display:none">الطبقة 1: الاستيعاب والتوحيد</h3>
+ <p class="en">The ingestion module serves as the entry point for heterogeneous security alerts via REST APIs, webhooks, message streams, and log files. Individual connectors translate incoming data into a <strong>common normalized alert structure</strong> with fields: identifier, timestamp, source system, alert type, original severity, source/destination info, affected asset, and description.</p>
+ <p class="ar" style="display:none">وحدة الاستيعاب هي نقطة الدخول للتنبيهات الأمنية المتباينة عبر REST APIs والـ webhooks وتدفقات الرسائل. تترجم الموصلات البيانات الواردة إلى <strong>هيكل تنبيه موحد</strong> مع الحقول الأساسية.</p>
+ </div>
+ <div class="card">
+ <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+ <h3 class="ct en">Layer 2: Multi-Dimensional Enrichment</h3><h3 class="ct ar" style="display:none">الطبقة 2: الإثراء متعدد الأبعاد</h3>
+ <ul style="gap:8px;margin-top:8px">
+ <li class="en"><strong>Asset &amp; Identity Context:</strong> Asset type, business criticality, network location, account privilege level, and authentication history</li>
+ <li class="ar" style="display:none"><strong>سياق الأصل والهوية:</strong> نوع الأصل، الأهمية التجارية، موقع الشبكة، مستوى صلاحية الحساب</li>
+ <li class="en"><strong>Threat Intelligence Context:</strong> IP, domain, URL, and file hash reputation from threat intelligence feeds</li>
+ <li class="ar" style="display:none"><strong>سياق استخبارات التهديدات:</strong> سمعة عناوين IP والنطاقات والبصمات من قواعد الاستخبارات</li>
+ <li class="en"><strong>Historical &amp; Behavioral Context:</strong> Whether similar alerts or assets appeared in prior temporal windows</li>
+ <li class="ar" style="display:none"><strong>السياق التاريخي والسلوكي:</strong> ما إذا ظهرت تنبيهات أو أصول مماثلة في نوافذ زمنية سابقة</li>
+ </ul>
+ </div>
+ </div>
+ <div class="hl" style="margin-top:14px">
+ <p class="en"><strong>Design Principle:</strong> The module separates source-specific integration from internal processing. The enrichment layer degrades gracefully when sources are unavailable, and it creates the enriched alert object <em>without</em> assigning final priority or executing response.</p>
+ <p class="ar" style="display:none"><strong>مبدأ التصميم:</strong> يفصل الوحدة التكامل الخاص بالمصدر عن المعالجة الداخلية. طبقة الإثراء تتكيف عند تعذر المصادر ولا تصدر أولوية نهائية أو تنفذ استجابة.</p>
+ </div>
+ </div>
+ <div class="sn">12 / 20</div>
+</section>

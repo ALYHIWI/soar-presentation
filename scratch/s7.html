@@ -1,0 +1,61 @@
+<section class="slide" id="s7">
+ <div class="orb o1" style="opacity:0.35"></div>
+ <div class="content-box">
+ <div class="tag a1" style="border-color:rgba(255,80,80,0.4);background:rgba(255,80,80,0.06)">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+ <span class="en" style="color:#ff8e8e">Chapter 2 &ndash; Gap Analysis</span><span class="ar" style="display:none;color:#ff8e8e">الفصل الثاني &ndash; تحليل الفجوة</span>
+ </div>
+ <h2 class="st en">Comparative Analysis of Prior Work (Table 2-1)</h2>
+ <h2 class="st ar" style="display:none">المقارنة المعيارية للأعمال السابقة (جدول 2-1)</h2>
+ <div class="gl"></div>
+ <div class="tbl-wrap" style="overflow-x:auto">
+ <table class="ctbl" style="font-size:0.78rem">
+ <thead>
+ <tr>
+ <th><span class="en">Study</span><span class="ar" style="display:none">الدراسة</span></th>
+ <th><span class="en">AI/ML Approach</span><span class="ar" style="display:none">نموذج الذكاء الاصطناعي</span></th>
+ <th><span class="en">Key Result</span><span class="ar" style="display:none">النتيجة الرئيسية</span></th>
+ <th style="color:var(--acc)"><span class="en">SOAR Integration</span><span class="ar" style="display:none">تكامل SOAR</span></th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><strong>Gupta et al. (2019)</strong></td>
+ <td><span class="en">Random Forest (39,427 events)</span><span class="ar" style="display:none">غابة عشوائية</span></td>
+ <td><span class="en">AUC 92.67%, Recall 0.92</span><span class="ar" style="display:none">AUC 92.67%</span></td>
+ <td><span class="pill pr">No</span></td>
+ </tr>
+ <tr>
+ <td><strong>Gelman et al. (2023)</strong></td>
+ <td><span class="en">Gradient Boosting (commercial cloud SOC)</span><span class="ar" style="display:none">تعزيز تدريجي</span></td>
+ <td><span class="en">54% FP suppression, 95.1% capture, 22.9% dwell↓</span><span class="ar" style="display:none">54% قمع إيجابيات كاذبة، 22.9% تقليص وقت انتظار</span></td>
+ <td><span class="pill pr">No</span></td>
+ </tr>
+ <tr>
+ <td><strong>Liu et al. (2022)</strong></td>
+ <td><span class="en">Context2Vector (2.45M events)</span><span class="ar" style="display:none">تمثيل سياقي</span></td>
+ <td><span class="en">2.25× attacker IP recall improvement</span><span class="ar" style="display:none">2.25× تحسن استرجاع IP المهاجم</span></td>
+ <td><span class="pill pr">No</span></td>
+ </tr>
+ <tr>
+ <td><strong>Wang et al. (2024)</strong></td>
+ <td><span class="en">AlertPro adaptive online learning</span><span class="ar" style="display:none">تعلم تكيفي</span></td>
+ <td><span class="en">96.32% precision, 98.47% recall</span><span class="ar" style="display:none">دقة 96.32%، استرجاع 98.47%</span></td>
+ <td><span class="pill pr">No</span></td>
+ </tr>
+ <tr>
+ <td><strong>Chavali et al. (2024)</strong></td>
+ <td><span class="en">TD3-AP/SAC-AP DRL</span><span class="ar" style="display:none">تعلم تعزيزي عميق</span></td>
+ <td><span class="en">50% feature payload reduction, 300µs decision</span><span class="ar" style="display:none">50% تقليص الحمل، 300µs قرار</span></td>
+ <td><span class="pill pr">No</span></td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ <div class="hl" style="margin-top:10px;border-color:var(--acc)">
+ <p class="en"><strong>Research Gap (Table 2-1 Synthesis):</strong> None of the reviewed systems execute automated downstream SOAR response workflows. The integration between ML-based triage and SOAR-controlled response <strong>remains an unaddressed area</strong> — the core gap this project investigates.</p>
+ <p class="ar" style="display:none"><strong>الفجوة البحثية (خلاصة جدول 2-1):</strong> لا يُنفذ أي نظام مراجع مسارات استجابة SOAR المؤتمتة. التكامل بين الفرز القائم على ML والاستجابة المتحكم فيها بـ SOAR <strong>لا يزال غير معالج</strong> — وهذه هي الفجوة الجوهرية.</p>
+ </div>
+ </div>
+ <div class="sn">08 / 20</div>
+</section>

@@ -1,0 +1,35 @@
+<section class="slide" id="s14">
+ <div class="orb o1" style="opacity:0.35"></div>
+ <div class="content-box">
+ <div class="tag a1">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+ <span class="en">Chapter 3 &ndash; Design Progress</span><span class="ar" style="display:none">الفصل الثالث &ndash; تقدم التصميم</span>
+ </div>
+ <h2 class="st en">Design Progress: Response Policy &amp; Automated Playbooks</h2>
+ <h2 class="st ar" style="display:none">تقدم التصميم: سياسة الاستجابة ودفاتر العمل المؤتمتة</h2>
+ <div class="gl"></div>
+ <div class="grid g2" style="gap:18px">
+ <div class="card">
+ <div class="c-icon cy"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+ <h3 class="ct en">Response Policy Layer</h3><h3 class="ct ar" style="display:none">طبقة سياسة الاستجابة</h3>
+ <p class="en">The policy layer maps the prioritized risk score and confidence indicator to a specific playbook. A <strong>confidence gate</strong> ensures high-impact response actions are only triggered when the model's confidence exceeds a defined threshold — otherwise routing to analyst approval.</p>
+ <p class="ar" style="display:none">تربط طبقة السياسة درجة المخاطر المُرتبة ومؤشر الثقة بدفتر عمل محدد. <strong>بوابة الثقة</strong> تضمن أن إجراءات الاستجابة عالية التأثير لا تُطلق إلا عند تجاوز عتبة ثقة محددة.</p>
+ </div>
+ <div class="card">
+ <div class="c-icon gr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+ <h3 class="ct en">Automated Playbook Types</h3><h3 class="ct ar" style="display:none">أنواع دفاتر العمل المؤتمتة</h3>
+ <ul style="gap:8px;margin-top:8px">
+ <li class="en"><strong>Endpoint Containment:</strong> Quarantine compromised endpoints via EDR API to prevent lateral movement while preserving forensic telemetry</li>
+ <li class="ar" style="display:none"><strong>احتواء نقطة النهاية:</strong> عزل نقاط النهاية المخترقة عبر واجهة EDR لمنع الانتشار مع الحفاظ على بيانات التتبع</li>
+ <li class="en"><strong>Network Blocking:</strong> Push dynamic block lists to perimeter firewalls to sever active Command &amp; Control channels</li>
+ <li class="ar" style="display:none"><strong>حظر شبكي:</strong> دفع قوائم الحظر الديناميكية للجدران النارية لقطع قنوات القيادة والتحكم النشطة</li>
+ <li class="en"><strong>Account Suspension:</strong> Revoke active sessions and disable accounts exhibiting anomalous credential behavior</li>
+ <li class="ar" style="display:none"><strong>تعليق الحساب:</strong> إلغاء الجلسات النشطة وتعطيل الحسابات التي تُظهر سلوكاً غير طبيعي في بيانات الاعتماد</li>
+ <li class="en"><strong>Malicious Content Purge:</strong> Identify and remove malicious messages enterprise-wide via email platform API</li>
+ <li class="ar" style="display:none"><strong>تطهير المحتوى الخبيث:</strong> تحديد وإزالة الرسائل الخبيثة على مستوى المؤسسة عبر واجهة منصة البريد الإلكتروني</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ <div class="sn">15 / 20</div>
+</section>

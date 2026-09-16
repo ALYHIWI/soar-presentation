@@ -1,0 +1,110 @@
+<section class="slide" id="s12">
+  <div class="orb o1" style="opacity:0.35"></div>
+  <div class="content-box" style="max-width:1280px">
+    <div class="tag a1" style="border-color:rgba(0,212,255,0.4);background:rgba(0,212,255,0.08);margin-bottom:10px">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 14.83l4.24 4.24M14.83 9.17l4.24-4.24M4.93 19.07l4.24-4.24"/></svg>
+      <span class="en" style="color:var(--s);font-weight:800;letter-spacing:1px">MATHEMATICAL FORMULATION &middot; CHAPTER 3 &sect;3.5</span>
+      <span class="ar" style="display:none;color:var(--s);font-weight:800">الصياغة الرياضية ومحرك الفرز &middot; الفصل 3 &sect;3.5</span>
+    </div>
+    <h2 class="st en" style="margin-bottom:4px">Design Progress: AI/ML Triage &amp; Dynamic Risk Scoring</h2>
+    <h2 class="st ar" style="display:none;margin-bottom:4px">تقدم التصميم: محرك الفرز الذكي وتقييم المخاطر الديناميكي</h2>
+    <div class="gl" style="margin:4px auto 14px"></div>
+    <p class="lead en" style="margin-bottom:16px;font-size:0.98rem;max-width:940px">
+      Rigorous formulation of total incident risk by coupling supervised machine learning threat probability with base severity and contextual asset criticality.
+    </p>
+    <p class="lead ar" style="display:none;margin-bottom:16px;font-size:0.98rem;max-width:940px">
+      الصياغة الرياضية المعتمدة لدرجة المخاطر الإجمالية بدمج احتمالية التعلم الآلي مع خطورة التنبيه وحساسية الأصل المستهدف.
+    </p>
+
+    <!-- Visual 2-Column Grid: Formula Card + Interactive Dynamic Risk Meter -->
+    <div class="g2" style="gap:16px;width:100%">
+      
+      <!-- Left Column: Mathematical Formulation & Weights -->
+      <div class="card" style="padding:20px;border:1px solid rgba(0,212,255,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(15,30,45,0.8))">
+        <h3 class="en" style="font-size:1.08rem;font-weight:800;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:8px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg>
+          Dynamic Risk Formula (R_total)
+        </h3>
+        <h3 class="ar" style="display:none;font-size:1.08rem;font-weight:800;color:#fff;margin-bottom:10px;align-items:center;gap:8px">
+          معادلة تقييم المخاطر الإجمالية الديناميكية
+        </h3>
+
+        <!-- Mathematical Box -->
+        <div style="background:rgba(0,0,0,0.4);border-radius:10px;padding:14px;border:1px solid rgba(0,212,255,0.3);text-align:center;margin-bottom:14px">
+          <div style="font-size:1.25rem;font-weight:900;color:var(--s);font-family:'JetBrains Mono',monospace;letter-spacing:1px">
+            R_total = &alpha; &middot; P(Threat) + &beta; &middot; S_base + &gamma; &middot; C_asset
+          </div>
+          <div style="font-size:0.75rem;color:var(--t3);margin-top:6px;font-family:'JetBrains Mono',monospace">
+            Constraint: &alpha; + &beta; + &gamma; = 1.0 &nbsp;|&nbsp; Recommended: &alpha; = 0.50, &beta; = 0.30, &gamma; = 0.20
+          </div>
+        </div>
+
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:0.86rem;color:var(--t2)">
+          <li style="display:flex;align-items:flex-start;gap:8px">
+            <span style="color:var(--s);font-weight:800">&bull;</span>
+            <span class="en"><strong>P(Threat) &isin; [0, 1]:</strong> Probabilistic confidence score output by supervised ensemble (Random Forest / XGBoost).</span>
+            <span class="ar" style="display:none"><strong>P(Threat):</strong> احتمالية التهديد المحسوبة بنماذج التعلم الآلي بين 0 و1.</span>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:8px">
+            <span style="color:var(--s);font-weight:800">&bull;</span>
+            <span class="en"><strong>S_base &isin; [0, 1]:</strong> Normalized vendor alert severity (CVSS / vendor baseline severity tag).</span>
+            <span class="ar" style="display:none"><strong>S_base:</strong> خطورة التنبيه الأولية القياسية المأخوذة من أنظمة الكشف.</span>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:8px">
+            <span style="color:var(--s);font-weight:800">&bull;</span>
+            <span class="en"><strong>C_asset &isin; [0, 1]:</strong> Normalized business criticality weight of target system from Asset DB.</span>
+            <span class="ar" style="display:none"><strong>C_asset:</strong> الأهمية التشغيلية وحساسية النظام المستهدف من قاعدة الأصول.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right Column: Visual Severity Gauge & Priority Queue Mapping -->
+      <div class="card" style="padding:20px;border:1px solid rgba(255,180,0,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(35,20,30,0.8));display:flex;flex-direction:column;justify-content:space-between">
+        <div>
+          <h3 class="en" style="font-size:1.08rem;font-weight:800;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:8px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="2.2"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
+            Dynamic Priority Queue Slots
+          </h3>
+          <h3 class="ar" style="display:none;font-size:1.08rem;font-weight:800;color:#fff;margin-bottom:10px;align-items:center;gap:8px">
+            توزيع مستويات الأولوية وتصنيف الطوابير
+          </h3>
+
+          <!-- Visual Multi-Zone Risk Bar -->
+          <div style="margin-bottom:14px">
+            <div style="height:14px;border-radius:7px;background:linear-gradient(90deg, #10b981 0%, #10b981 25%, #00d4ff 25%, #00d4ff 55%, #ffd166 55%, #ffd166 80%, #ef4444 80%, #ef4444 100%);box-shadow:0 0 10px rgba(0,0,0,0.5)"></div>
+            <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--t3);font-family:'JetBrains Mono',monospace;margin-top:4px">
+              <span>0.0</span><span>0.25</span><span>0.55</span><span>0.80</span><span>1.0</span>
+            </div>
+          </div>
+
+          <!-- Queue Levels -->
+          <div style="display:grid;grid-template-columns:repeat(2, 1fr);gap:8px;margin-bottom:10px">
+            <div style="background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.4);border-radius:8px;padding:8px 10px">
+              <div style="font-size:0.78rem;font-weight:800;color:#ff6b6b">P1 &middot; CRITICAL (R &ge; 0.80)</div>
+              <div style="font-size:0.72rem;color:var(--t2)">Immediate automated containment</div>
+            </div>
+            <div style="background:rgba(255,180,0,0.15);border:1px solid rgba(255,180,0,0.4);border-radius:8px;padding:8px 10px">
+              <div style="font-size:0.78rem;font-weight:800;color:#ffd166">P2 &middot; HIGH (0.55 &le; R &lt; 0.80)</div>
+              <div style="font-size:0.72rem;color:var(--t2)">Semi-autonomous approval gate</div>
+            </div>
+            <div style="background:rgba(0,212,255,0.15);border:1px solid rgba(0,212,255,0.4);border-radius:8px;padding:8px 10px">
+              <div style="font-size:0.78rem;font-weight:800;color:var(--s)">P3 &middot; MEDIUM (0.25 &le; R &lt; 0.55)</div>
+              <div style="font-size:0.72rem;color:var(--t2)">Standard analyst triage queue</div>
+            </div>
+            <div style="background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.4);border-radius:8px;padding:8px 10px">
+              <div style="font-size:0.78rem;font-weight:800;color:var(--ok)">P4 &middot; SUPPRESSED (R &lt; 0.25)</div>
+              <div style="font-size:0.72rem;color:var(--t2)">Benign noise suppressed (54%)</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding-top:8px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.76rem;color:var(--t3);display:flex;justify-content:space-between">
+          <span>&sect;3.5 FORMULA DERIVATION</span>
+          <span style="color:var(--ok);font-weight:700">&check; ZERO ARBITRARY GUESSES</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="sn">13 / 20</div>
+</section>

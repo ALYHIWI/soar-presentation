@@ -2545,16 +2545,15 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <div class="g3" style="gap:16px;width:100%">
       
       <!-- Metric 1: 22.9% Handled Alerts Gauge -->
-      <div class="card" style="padding:22px;border:1px solid rgba(239,68,68,0.35);border-radius:18px;background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(42,12,20,0.8));display:flex;flex-direction:column;align-items:center;text-align:center">
+      <div class="card" style="padding:22px;border:1px solid rgba(239,68,68,0.35);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(42,12,20,0.8));display:flex;flex-direction:column;align-items:center;text-align:center">
         <div style="font-size:0.75rem;font-weight:800;color:#ff6b6b;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px">HUMAN TRIAGE GAP (GELMAN 2023)</div>
         
-        <!-- SVG Donut Gauge (22.9% vs 77.1%) with Smooth Organic Circular Glow -->
-        <div style="position:relative;width:140px;height:140px;margin-bottom:14px;display:flex;align-items:center;justify-content:center">
-          <div style="position:absolute;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle, rgba(0,212,255,0.14) 0%, rgba(239,68,68,0.06) 50%, transparent 70%);pointer-events:none"></div>
-          <svg width="140" height="140" viewBox="0 0 120 120" style="overflow:visible;transform:rotate(-90deg)">
-            <circle cx="60" cy="60" r="44" fill="transparent" stroke="rgba(255,255,255,0.08)" stroke-width="10"/>
-            <circle cx="60" cy="60" r="44" fill="transparent" stroke="rgba(239,68,68,0.35)" stroke-width="10" stroke-dasharray="276.46" stroke-dashoffset="0"/>
-            <circle cx="60" cy="60" r="44" fill="transparent" stroke="var(--s)" stroke-width="10" stroke-dasharray="276.46" stroke-dashoffset="213.15" stroke-linecap="round" style="filter:drop-shadow(0 0 6px var(--s))"/>
+        <!-- SVG Donut Gauge (22.9% vs 77.1%) -->
+        <div style="position:relative;width:140px;height:140px;margin-bottom:14px">
+          <svg width="140" height="140" viewBox="0 0 100 100" style="transform:rotate(-90deg)">
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="rgba(255,255,255,0.08)" stroke-width="12"/>
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="rgba(239,68,68,0.4)" stroke-width="12" stroke-dasharray="251.2" stroke-dashoffset="0"/>
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="var(--s)" stroke-width="12" stroke-dasharray="251.2" stroke-dashoffset="193.6" stroke-linecap="round" style="filter:drop-shadow(0 0 6px var(--s))"/>
           </svg>
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
             <span style="font-size:2rem;font-weight:900;color:#fff;font-family:'JetBrains Mono',monospace">22.9%</span>
@@ -2574,7 +2573,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       </div>
 
       <!-- Metric 2: 54% False Positive Suppression -->
-      <div class="card" style="padding:22px;border:1px solid rgba(0,212,255,0.35);border-radius:18px;background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(15,30,45,0.8));display:flex;flex-direction:column;align-items:center;text-align:center">
+      <div class="card" style="padding:22px;border:1px solid rgba(0,212,255,0.35);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(15,30,45,0.8));display:flex;flex-direction:column;align-items:center;text-align:center">
         <div style="font-size:0.75rem;font-weight:800;color:var(--s);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px">NOISE REDUCTION BENCHMARK</div>
         
         <!-- SVG Comparison Bar Gauge -->
@@ -2593,8 +2592,8 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
               <span style="color:var(--s)">AI-Filtered</span>
               <span style="color:var(--ok)">-54% Suppressed</span>
             </div>
-            <div style="height:10px;border-radius:6px;background:rgba(255,255,255,0.08);position:relative">
-              <div style="width:46%;height:100%;background:linear-gradient(90deg, var(--s), var(--ok));border-radius:6px;filter:drop-shadow(0 0 5px rgba(16,185,129,0.5))"></div>
+            <div style="height:10px;border-radius:6px;background:rgba(255,255,255,0.08);overflow:hidden">
+              <div style="width:46%;height:100%;background:linear-gradient(90deg, var(--s), var(--ok));border-radius:6px;box-shadow:0 0 8px var(--ok)"></div>
             </div>
           </div>
           <div style="font-size:1.85rem;font-weight:900;color:var(--s);font-family:'JetBrains Mono',monospace;margin-top:2px">
@@ -2614,16 +2613,14 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
       </div>
 
       <!-- Metric 3: 91% Verified High-Recall Capture / Precision Gauge -->
-      <div class="card" style="padding:22px;border:1px solid rgba(16,185,129,0.35);border-radius:18px;background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(12,38,25,0.8));display:flex;flex-direction:column;align-items:center;text-align:center">
+      <div class="card" style="padding:22px;border:1px solid rgba(16,185,129,0.35);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(12,38,25,0.8));display:flex;flex-direction:column;align-items:center;text-align:center">
         <div style="font-size:0.75rem;font-weight:800;color:var(--ok);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px">SAFETY &amp; DETECTION ACCURACY</div>
         
-        <!-- SVG Circular Completion Meter: 91% with Soft Organic Radial Glow (Eliminating Square Box Artifacts) -->
-        <div style="position:relative;width:140px;height:140px;margin-bottom:14px;display:flex;align-items:center;justify-content:center">
-          <!-- Circular Ambient Glow (Guaranteed 100% Round, No Clipping) -->
-          <div style="position:absolute;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle, rgba(16,185,129,0.2) 0%, rgba(16,185,129,0.06) 50%, transparent 70%);pointer-events:none"></div>
-          <svg width="140" height="140" viewBox="0 0 120 120" style="overflow:visible;transform:rotate(-90deg)">
-            <circle cx="60" cy="60" r="44" fill="transparent" stroke="rgba(255,255,255,0.08)" stroke-width="10"/>
-            <circle cx="60" cy="60" r="44" fill="transparent" stroke="var(--ok)" stroke-width="10" stroke-dasharray="276.46" stroke-dashoffset="24.88" stroke-linecap="round" style="filter:drop-shadow(0 0 6px rgba(16,185,129,0.65))"/>
+        <!-- SVG Circular Completion Meter: 91% (stroke-dashoffset = 251.2 * 0.09 = 22.6) -->
+        <div style="position:relative;width:140px;height:140px;margin-bottom:14px">
+          <svg width="140" height="140" viewBox="0 0 100 100" style="transform:rotate(-90deg)">
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="rgba(255,255,255,0.08)" stroke-width="12"/>
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="var(--ok)" stroke-width="12" stroke-dasharray="251.2" stroke-dashoffset="22.6" stroke-linecap="round" style="filter:drop-shadow(0 0 8px var(--ok))"/>
           </svg>
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
             <span style="font-size:2rem;font-weight:900;color:#fff;font-family:'JetBrains Mono',monospace">91%</span>
@@ -3069,8 +3066,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
 
 <!-- ================= S11: METHODOLOGY (DSR) ================= -->
 <section class="slide" id="s10">
-  <div class="orb o1" style="opacity:0.3"></div>
-  <div class="orb o2" style="opacity:0.25"></div>
+  <div class="orb o1" style="opacity:0.35"></div>
   <div class="content-box" style="max-width:1280px">
     <div class="tag a1">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
@@ -3079,102 +3075,55 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
     <h2 class="st en">Development Methodology: Design Science Research (DSR)</h2>
     <h2 class="st ar" style="display:none">منهجية التطوير: علوم التصميم (DSR)</h2>
     <div class="gl"></div>
-    <p class="lead en" style="margin-bottom:14px">DSR was selected as it provides a systematic, evidence-based framework for constructing and evaluating design artifacts &mdash; suited to AI-integrated system development where the goal is to build a justified solution to a real operational problem.</p>
-    <p class="lead ar" style="display:none;margin-bottom:14px">تم اختيار DSR لأنها توفر إطاراً منهجياً قائماً على الأدلة لبناء وتقييم القطع المعمارية &mdash; مناسب لتطوير الأنظمة المدمجة بالذكاء الاصطناعي.</p>
+    <p class="lead en">DSR was selected as it provides a systematic, evidence-based framework for constructing and evaluating design artifacts &mdash; suited to AI-integrated system development where the goal is to build a justified solution to a real operational problem.</p>
+    <p class="lead ar" style="display:none">تم اختيار DSR لأنها توفر إطاراً منهجياً قائماً على الأدلة لبناء وتقييم القطع المعمارية &mdash; مناسب لتطوير الأنظمة المدمجة بالذكاء الاصطناعي.</p>
 
-    <!-- 6-Phase Full-Width Horizontal Stepper Grid -->
-    <div style="display:grid;grid-template-columns:repeat(6, 1fr);gap:10px;margin-bottom:14px;width:100%">
-      
-      <!-- Phase 1: Completed -->
-      <div class="card" style="padding:10px 8px;text-align:center;border:1px solid rgba(16,185,129,0.35);background:linear-gradient(145deg, rgba(28,8,22,0.9), rgba(12,32,22,0.75));display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-height:92px">
-        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:4px">
-          <span style="font-size:0.65rem;font-weight:800;color:var(--ok);font-family:'JetBrains Mono',monospace">PHASE 01</span>
-          <span style="width:16px;height:16px;border-radius:50%;background:rgba(16,185,129,0.2);color:var(--ok);display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem">&check;</span>
+    <div style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:16px;align-items:center;margin-top:12px">
+      <!-- Left Column: 6 Phases Flow Grid -->
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="flow" style="margin:0;display:grid;grid-template-columns:repeat(3, 1fr);gap:10px">
+          <div class="fs" style="padding:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(16,185,129,0.3)">
+            <div class="fi" style="background:var(--ok);color:#000;font-weight:900">1</div>
+            <div class="fl en" style="font-size:0.75rem">Problem Identification</div>
+            <div class="fl ar" style="display:none;font-size:0.75rem">تحديد المشكلة</div>
+          </div>
+          <div class="fs" style="padding:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(16,185,129,0.3)">
+            <div class="fi" style="background:var(--ok);color:#000;font-weight:900">2</div>
+            <div class="fl en" style="font-size:0.75rem">Solution Objectives</div>
+            <div class="fl ar" style="display:none;font-size:0.75rem">أهداف الحل</div>
+          </div>
+          <div class="fs" style="padding:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(16,185,129,0.3)">
+            <div class="fi" style="background:var(--ok);color:#000;font-weight:900">3</div>
+            <div class="fl en" style="font-size:0.75rem">Architecture Design</div>
+            <div class="fl ar" style="display:none;font-size:0.75rem">تصميم المعمارية</div>
+          </div>
+          <div class="fs" style="padding:10px;background:rgba(0,212,255,0.1);border:1px solid var(--s);box-shadow:0 0 10px rgba(0,212,255,0.25)">
+            <div class="fi" style="background:var(--s);color:#000;font-weight:900">4</div>
+            <div class="fl en" style="font-size:0.75rem;font-weight:800;color:#fff">Prototype Demo (Active)</div>
+            <div class="fl ar" style="display:none;font-size:0.75rem;font-weight:800;color:#fff">عرض النموذج (قيد التقدم)</div>
+          </div>
+          <div class="fs" style="padding:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1)">
+            <div class="fi">5</div>
+            <div class="fl en" style="font-size:0.75rem">Evaluation</div>
+            <div class="fl ar" style="display:none;font-size:0.75rem">التقييم</div>
+          </div>
+          <div class="fs" style="padding:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1)">
+            <div class="fi">6</div>
+            <div class="fl en" style="font-size:0.75rem">Communication</div>
+            <div class="fl ar" style="display:none;font-size:0.75rem">التوثيق</div>
+          </div>
         </div>
-        <div class="fl en" style="font-size:0.82rem;font-weight:700;color:#fff;line-height:1.25">Problem Identification</div>
-        <div class="fl ar" style="display:none;font-size:0.82rem;font-weight:700;color:#fff;line-height:1.25">تحديد المشكلة</div>
-        <span style="font-size:0.62rem;color:var(--ok);font-weight:600;margin-top:4px">Completed</span>
+
+        <div class="hl" style="margin:0">
+          <p class="en" style="font-size:0.84rem"><strong>Current Phase:</strong> The project has completed Phases 1–3 (Problem Identification, Solution Objectives, Architecture Design) and is actively progressing through Phase 4 (Prototype Development).</p>
+          <p class="ar" style="display:none" style="font-size:0.84rem"><strong>المرحلة الحالية:</strong> المشروع أكمل المراحل 1–3 (تحديد المشكلة، الأهداف، التصميم) وهو يتقدم بنشاط في المرحلة 4 (تطوير النموذج الأولي).</p>
+        </div>
       </div>
 
-      <!-- Phase 2: Completed -->
-      <div class="card" style="padding:10px 8px;text-align:center;border:1px solid rgba(16,185,129,0.35);background:linear-gradient(145deg, rgba(28,8,22,0.9), rgba(12,32,22,0.75));display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-height:92px">
-        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:4px">
-          <span style="font-size:0.65rem;font-weight:800;color:var(--ok);font-family:'JetBrains Mono',monospace">PHASE 02</span>
-          <span style="width:16px;height:16px;border-radius:50%;background:rgba(16,185,129,0.2);color:var(--ok);display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem">&check;</span>
-        </div>
-        <div class="fl en" style="font-size:0.82rem;font-weight:700;color:#fff;line-height:1.25">Solution Objectives</div>
-        <div class="fl ar" style="display:none;font-size:0.82rem;font-weight:700;color:#fff;line-height:1.25">أهداف الحل</div>
-        <span style="font-size:0.62rem;color:var(--ok);font-weight:600;margin-top:4px">Completed</span>
-      </div>
-
-      <!-- Phase 3: Completed -->
-      <div class="card" style="padding:10px 8px;text-align:center;border:1px solid rgba(16,185,129,0.35);background:linear-gradient(145deg, rgba(28,8,22,0.9), rgba(12,32,22,0.75));display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-height:92px">
-        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:4px">
-          <span style="font-size:0.65rem;font-weight:800;color:var(--ok);font-family:'JetBrains Mono',monospace">PHASE 03</span>
-          <span style="width:16px;height:16px;border-radius:50%;background:rgba(16,185,129,0.2);color:var(--ok);display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem">&check;</span>
-        </div>
-        <div class="fl en" style="font-size:0.82rem;font-weight:700;color:#fff;line-height:1.25">Architecture Design</div>
-        <div class="fl ar" style="display:none;font-size:0.82rem;font-weight:700;color:#fff;line-height:1.25">تصميم المعمارية</div>
-        <span style="font-size:0.62rem;color:var(--ok);font-weight:600;margin-top:4px">Completed</span>
-      </div>
-
-      <!-- Phase 4: Active Highlight -->
-      <div class="card" style="padding:10px 8px;text-align:center;border:1px solid var(--s);background:linear-gradient(145deg, rgba(28,8,22,0.95), rgba(10,35,45,0.85));box-shadow:0 0 16px rgba(0,212,255,0.25);display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-height:92px">
-        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:4px">
-          <span style="font-size:0.65rem;font-weight:800;color:var(--s);font-family:'JetBrains Mono',monospace">PHASE 04</span>
-          <span style="width:8px;height:8px;border-radius:50%;background:var(--s);box-shadow:0 0 8px var(--s);display:inline-block"></span>
-        </div>
-        <div class="fl en" style="font-size:0.82rem;font-weight:800;color:#fff;line-height:1.25">Prototype Demo</div>
-        <div class="fl ar" style="display:none;font-size:0.82rem;font-weight:800;color:#fff;line-height:1.25">عرض النموذج</div>
-        <span style="font-size:0.62rem;color:var(--s);font-weight:800;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px">Active</span>
-      </div>
-
-      <!-- Phase 5: Planned -->
-      <div class="card" style="padding:10px 8px;text-align:center;border:1px solid rgba(255,255,255,0.08);background:linear-gradient(145deg, rgba(28,8,22,0.8), rgba(20,12,22,0.7));display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-height:92px">
-        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:4px">
-          <span style="font-size:0.65rem;font-weight:800;color:var(--t3);font-family:'JetBrains Mono',monospace">PHASE 05</span>
-          <span style="width:6px;height:6px;border-radius:50%;background:var(--t3);display:inline-block"></span>
-        </div>
-        <div class="fl en" style="font-size:0.82rem;font-weight:700;color:var(--t2);line-height:1.25">Evaluation</div>
-        <div class="fl ar" style="display:none;font-size:0.82rem;font-weight:700;color:var(--t2);line-height:1.25">التقييم</div>
-        <span style="font-size:0.62rem;color:var(--t3);margin-top:4px">Planned</span>
-      </div>
-
-      <!-- Phase 6: Planned -->
-      <div class="card" style="padding:10px 8px;text-align:center;border:1px solid rgba(255,255,255,0.08);background:linear-gradient(145deg, rgba(28,8,22,0.8), rgba(20,12,22,0.7));display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-height:92px">
-        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:4px">
-          <span style="font-size:0.65rem;font-weight:800;color:var(--t3);font-family:'JetBrains Mono',monospace">PHASE 06</span>
-          <span style="width:6px;height:6px;border-radius:50%;background:var(--t3);display:inline-block"></span>
-        </div>
-        <div class="fl en" style="font-size:0.82rem;font-weight:700;color:var(--t2);line-height:1.25">Communication</div>
-        <div class="fl ar" style="display:none;font-size:0.82rem;font-weight:700;color:var(--t2);line-height:1.25">التوثيق</div>
-        <span style="font-size:0.62rem;color:var(--t3);margin-top:4px">Planned</span>
-      </div>
-
-    </div>
-
-    <!-- Bottom Split: Current Phase Status Card (Left) & DSR Blueprint Image Card (Right) -->
-    <div style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:14px;align-items:stretch;width:100%">
-      
-      <!-- Current Phase Status Card -->
-      <div class="card" style="padding:16px 20px;border:1px solid rgba(0,212,255,0.3);background:linear-gradient(145deg, rgba(28,8,22,0.92), rgba(15,30,45,0.8));display:flex;flex-direction:column;justify-content:center;border-left:3px solid var(--s)">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span style="font-size:0.75rem;font-weight:800;color:var(--s);text-transform:uppercase;letter-spacing:1px" class="en">DSR EXECUTION MILESTONE</span>
-          <span style="font-size:0.75rem;font-weight:800;color:var(--s);letter-spacing:1px;display:none" class="ar">المحطة التنفيذية لمنهجية DSR</span>
-        </div>
-        <p class="en" style="font-size:0.88rem;color:var(--t1);line-height:1.6;margin:0">
-          <strong>Current Phase:</strong> The project has completed Phases 1&ndash;3 (Problem Identification, Solution Objectives, Architecture Design) and is actively progressing through Phase 4 (Prototype Development).
-        </p>
-        <p class="ar" style="display:none;font-size:0.88rem;color:var(--t1);line-height:1.6;margin:0">
-          <strong>المرحلة الحالية:</strong> المشروع أكمل المراحل 1&ndash;3 (تحديد المشكلة، الأهداف، التصميم) وهو يتقدم بنشاط في المرحلة 4 (تطوير النموذج الأولي).
-        </p>
-      </div>
-
-      <!-- DSR Blueprint Illustration Card -->
-      <div class="ill-card" style="margin:0;padding:6px;display:flex;flex-direction:column;justify-content:space-between;background:rgba(15,10,22,0.85);border:1px solid rgba(0,212,255,0.25)">
-        <div class="ill-frame" style="height:auto;min-height:165px;max-height:190px;background:#050208;display:flex;align-items:center;justify-content:center" onclick="openImageModal('images/dsr_6phases_methodology.jpg', 'Design Science Research (DSR) 6-Phase Engineering Framework')">
-          <img src="images/dsr_6phases_methodology.jpg" alt="DSR 6 Phases Framework" style="width:100%;height:100%;max-height:180px;object-fit:contain;display:block;margin:0 auto" loading="lazy"/>
+      <!-- Right Column: DSR Blueprint Illustration -->
+      <div class="ill-card" style="margin:0;padding:6px">
+        <div class="ill-frame" style="max-height:220px" onclick="openImageModal('images/dsr_6phases_methodology.jpg', 'Design Science Research (DSR) 6-Phase Engineering Framework')">
+          <img src="images/dsr_6phases_methodology.jpg" alt="DSR 6 Phases Framework" class="ill-img" loading="lazy" style="object-fit:cover;height:220px"/>
           <div class="ill-zoom-hint">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
             <span>DSR BLUEPRINT ZOOM</span>
@@ -3189,9 +3138,7 @@ table.ctbl tr:hover td { background: rgba(255, 255, 255, 0.04); }
           <div class="ill-sub">CHAPTER 1 &sect;1.4 &middot; DSR FRAMEWORK</div>
         </div>
       </div>
-
     </div>
-
   </div>
   <div class="sn">11 / 21</div>
 </section>

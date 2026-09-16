@@ -1,0 +1,40 @@
+<section class="slide" id="s16">
+ <div class="orb o3" style="opacity:0.35"></div>
+ <div class="content-box">
+ <div class="tag a1" style="border-color:rgba(16,185,129,0.4);background:rgba(16,185,129,0.06)">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+ <span class="en" style="color:#6ee7b7">Prototype Demo</span><span class="ar" style="display:none;color:#6ee7b7">عرض النموذج الأولي</span>
+ </div>
+ <h2 class="st en">Working Prototype: Alert Processing Pipeline</h2>
+ <h2 class="st ar" style="display:none">النموذج الأولي العامل: خط معالجة التنبيهات</h2>
+ <div class="gl"></div>
+ <p class="lead en">The prototype demonstrates the end-to-end alert flow — from raw security event ingestion through enrichment, AI/ML risk scoring, prioritization, and response initiation — in a controlled simulation environment.</p>
+ <p class="lead ar" style="display:none">يوضح النموذج الأولي تدفق التنبيهات الكامل — من استيعاب الأحداث الخام عبر الإثراء وتقييم المخاطر والأولوية وبدء الاستجابة — في بيئة محاكاة محكومة.</p>
+ <div class="flow" style="margin-top:16px">
+ <div class="fs"><div class="fi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg></div><div class="fl en">Raw Alert In</div><div class="fl ar" style="display:none">تنبيه خام</div></div>
+ <div class="farr">→</div>
+ <div class="fs"><div class="fi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/></svg></div><div class="fl en">Normalize</div><div class="fl ar" style="display:none">توحيد</div></div>
+ <div class="farr">→</div>
+ <div class="fs"><div class="fi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/></svg></div><div class="fl en">Enrich</div><div class="fl ar" style="display:none">إثراء</div></div>
+ <div class="farr">→</div>
+ <div class="fs"><div class="fi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5"/></svg></div><div class="fl en">ML Score</div><div class="fl ar" style="display:none">تقييم ML</div></div>
+ <div class="farr">→</div>
+ <div class="fs"><div class="fi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/></svg></div><div class="fl en">Prioritize</div><div class="fl ar" style="display:none">ترتيب</div></div>
+ <div class="farr">→</div>
+ <div class="fs"><div class="fi"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="fl en">Response</div><div class="fl ar" style="display:none">استجابة</div></div>
+ </div>
+ <div class="grid g2" style="gap:16px;margin-top:16px">
+ <div class="card">
+ <h3 class="ct en" style="color:var(--ok)">Scenario: Anomalous Login</h3><h3 class="ct ar" style="display:none;color:var(--ok)">سيناريو: تسجيل دخول شاذ</h3>
+ <p class="en">A privileged account login from an unusual geographic location is ingested, enriched with asset criticality and threat intel, scored High risk [0.87], confidence 91% → playbook triggered: account session revocation + analyst notification.</p>
+ <p class="ar" style="display:none">تسجيل دخول لحساب متميز من موقع جغرافي غير عادي يُستوعب ويُثرى بحساسية الأصل والاستخبارات، يُقيَّم بخطر عالٍ [0.87]، ثقة 91% → دفتر عمل: إلغاء الجلسة + إشعار المحلل.</p>
+ </div>
+ <div class="card">
+ <h3 class="ct en" style="color:var(--s)">Scenario: Low-Risk Alert Suppression</h3><h3 class="ct ar" style="display:none;color:var(--s)">سيناريو: قمع التنبيه منخفض الخطر</h3>
+ <p class="en">A routine port scan on a non-critical test asset receives Risk score [0.12], confidence 88% → alert suppressed from primary queue, retained in audit log, analyst queue dwell time preserved for genuine threats.</p>
+ <p class="ar" style="display:none">فحص منافذ روتيني على أصل تجريبي غير حرج يتلقى [0.12] ثقة 88% → التنبيه مقموع من الطابور الرئيسي، محفوظ في سجل التدقيق.</p>
+ </div>
+ </div>
+ </div>
+ <div class="sn">17 / 20</div>
+</section>

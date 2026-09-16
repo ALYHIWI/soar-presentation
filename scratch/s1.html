@@ -1,0 +1,76 @@
+<section class="slide" id="s1">
+ <div class="orb o2" style="opacity:0.35"></div>
+ <div class="content-box">
+ <div class="tag a1">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
+ <span class="en">Chapter 1 &ndash; Background</span><span class="ar" style="display:none">الفصل الأول &ndash; الخلفية</span>
+ </div>
+ <h2 class="st en">Background: The Modern SOC Landscape</h2>
+ <h2 class="st ar" style="display:none">الخلفية: مشهد مراكز العمليات الأمنية الحديثة</h2>
+ <div class="gl"></div>
+ <p class="lead en">A Security Operations Center (SOC) centralizes cyber threat monitoring, detection, and incident response — but faces acute operational strain from massive log volumes and heterogeneous data schemas.</p>
+ <p class="lead ar" style="display:none">مركز العمليات الأمنية (SOC) هو الوحدة المركزية لرصد التهديدات السيبرانية والاستجابة لها، لكنه يواجه ضغطاً تشغيلياً حاداً بسبب طوفان البيانات وتشتت مصادر السجلات.</p>
+
+ <div class="split-ill-grid">
+   <!-- Left Column: 3 Core Operational Points & Stat Row -->
+   <div style="display:flex;flex-direction:column;gap:10px">
+     <div class="card" style="padding:12px 14px">
+       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+         <div class="c-icon cy" style="width:28px;height:28px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+         <h3 class="ct en" style="margin:0;font-size:0.95rem">SIEM Platforms &bull; Influx</h3>
+         <h3 class="ct ar" style="display:none;margin:0;font-size:0.95rem">منصات SIEM وطوفان البيانات</h3>
+       </div>
+       <p class="en" style="font-size:0.82rem;margin:0">Organizations implement SIEM for centralized log management and correlation, accumulating up to <strong>100 GB</strong> of log and alert telemetry daily.</p>
+       <p class="ar" style="display:none;font-size:0.82rem;margin:0">تجمع المنظمات ما يصل إلى <strong>100 غيغابايت</strong> من السجلات والتنبيهات يومياً عبر منصات SIEM المركزية.</p>
+     </div>
+
+     <div class="card" style="padding:12px 14px">
+       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+         <div class="c-icon rd" style="width:28px;height:28px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+         <h3 class="ct en" style="margin:0;font-size:0.95rem">Heterogeneous Tool Stacks</h3>
+         <h3 class="ct ar" style="display:none;margin:0;font-size:0.95rem">تشتت الأدوات الأمنية</h3>
+       </div>
+       <p class="en" style="font-size:0.82rem;margin:0">Multi-vendor security tools (EDR, Firewalls, Cloud) operate with distinct schemas, creating highly fragmented data that is difficult to normalize and correlate.</p>
+       <p class="ar" style="display:none;font-size:0.82rem;margin:0">أدوات أمنية متعددة الموردين تعمل بصيغ سجلات متباينة، مما يخلق بيانات مشتتة يصعب توحيدها ومطابقتها.</p>
+     </div>
+
+     <div class="card" style="padding:12px 14px">
+       <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+         <div class="c-icon ye" style="width:28px;height:28px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+         <h3 class="ct en" style="margin:0;font-size:0.95rem">Tiered Analyst Hierarchy</h3>
+         <h3 class="ct ar" style="display:none;margin:0;font-size:0.95rem">هرمية المحللين المرهقة</h3>
+       </div>
+       <p class="en" style="font-size:0.82rem;margin:0">Junior analysts manually investigate alerts by pivoting across disparate tools to evaluate each alert — creating an acute operational bottleneck.</p>
+       <p class="ar" style="display:none;font-size:0.82rem;margin:0">المحللون المبتدئون يجمعون الأدلة يدوياً عبر التنقل بين أدوات منفصلة لتقييم كل تنبيه، مما يولد عنق زجاجة تشغيلي.</p>
+     </div>
+
+     <div class="srow" style="margin-top:2px">
+       <div class="sb"><div class="snum">100 GB</div><div class="slbl en">Daily Influx</div><div class="slbl ar" style="display:none">سجلات يومية</div></div>
+       <div class="sb"><div class="snum">Multi-Vendor</div><div class="slbl en">Data Stacks</div><div class="slbl ar" style="display:none">بيانات متباينة</div></div>
+       <div class="sb"><div class="snum">Tier 1-3</div><div class="slbl en">Analyst Model</div><div class="slbl ar" style="display:none">هرمية التحليل</div></div>
+     </div>
+   </div>
+
+   <!-- Right Column: Illustrated Modern SOC Command Center Card -->
+   <div class="ill-card">
+     <div class="ill-frame" onclick="openImageModal('images/soc_command_center.jpg', 'Modern Enterprise SOC Command Center - Real-Time Telemetry & Monitoring')">
+       <img src="images/soc_command_center.jpg" alt="Modern Enterprise SOC Command Center" class="ill-img" loading="lazy"/>
+       <div class="ill-zoom-hint">
+         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+         <span>ZOOM</span>
+       </div>
+     </div>
+     <div class="ill-caption">
+       <div class="ill-title">
+         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+         <span class="en">Modern Enterprise SOC Command Center</span>
+         <span class="ar" style="display:none">غرفة العمليات والسيطرة الأمنية الحديثة</span>
+       </div>
+       <div class="ill-sub">CHAPTER 1 &sect;1.1</div>
+     </div>
+   </div>
+ </div>
+
+ </div>
+ <div class="sn">02 / 20</div>
+</section>

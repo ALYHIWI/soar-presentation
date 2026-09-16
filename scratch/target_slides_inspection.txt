@@ -1,0 +1,131 @@
+
+======================================================================
+SLIDE 01 [id=s0]
+Headers: AI-Based Security Orchestration, Automation &amp; Response (SOAR) Tool أداة أمنية ذكية للتنسيق والأتمتة والاستجابة للحوادث السيبرانية (SOAR)
+
+======================================================================
+SLIDE 02 [id=s1]
+Headers: Background: The Modern SOC Landscape | الخلفية: مشهد مراكز العمليات الأمنية الحديثة | SIEM Platforms &bull; Influx | منصات SIEM وطوفان البيانات | Heterogeneous Tool Stacks | تشتت الأدوات الأمنية | Tiered Analyst Hierarchy | هرمية المحللين المرهقة
+Multi-Vendor matches: []
+
+======================================================================
+SLIDE 03 [id=s2]
+Headers: The Core Problem: Alert Fatigue &amp; Static Triage | المشكلة الجوهرية: إرهاق التنبيهات والفرز الثابت | Alert Influx &amp; Noise Flooding | فيضان التنبيهات والضجيج | Context Switching Friction | إجهاد تبديل السياق بين الأنظمة | Static Rules &amp; FIFO Queues | القواعد الثابتة وطوابير FIFO
+
+======================================================================
+SLIDE 04 [id=s3]
+Headers: Motivation &amp; Empirical SOC Significance | الأهمية والدافع البحثي والمؤشرات المعيارية المعتمدة | Critical Alerts Handled | التنبيهات الحرجة المفحوصة فعلياً | False Positive Reduction | قمع الإيجابيات الكاذبة | True Threat Capture Rate | معدل التقاط التهديدات الحقيقية
+Source matches: ['font-family:\'JetBrains Mono\',monospace">SOURCE: REPORT &sect;1.2, PAGE 13</div>', 'font-family:\'JetBrains Mono\',monospace">SOURCE: REPORT &sect;2.4.1, PAGE 29</div>', 'font-family:\'JetBrains Mono\',monospace">SOURCE: REPORT &sect;2.4.1, PAGE 29</div>']
+91% matches: []
+
+======================================================================
+SLIDE 05 [id=s4]
+Headers: Project Objectives | أهداف المشروع | 1. Analyze SOC Challenges | 1. تحليل تحديات SOC | 2. Literature Review | 2. مراجعة الأدبيات | 3. Design Architecture | 3. تصميم المعمارية | 4. Integration &amp; Evaluation | 4. التكامل والتقييم
+
+======================================================================
+SLIDE 06 [id=s5]
+Headers: Project Scope &amp; Limitations | نطاق المشروع وحدوده | In-Scope | داخل النطاق | Out-of-Scope | خارج النطاق
+
+======================================================================
+SLIDE 07 [id=s6]
+Headers: Existing Systems: SOC Technology Evolution | الأنظمة الحالية: التطور التاريخي لتقنيات عمليات الأمن | Log Management | إدارة السجلات | SIEM Platforms | منصات SIEM | Rule-Based SOAR | SOAR التقليدي | AI-Augmented SOAR | SOAR بالذكاء الاصطناعي
+Images in Slide 7: ['<img src="images/soc_tech_evolution.jpg" alt="Evolution of Security Operations Technologies" class="ill-img" loading="lazy"/>']
+
+======================================================================
+SLIDE 08 [id=s7]
+Headers: Comparative Analysis of Prior Work (Table 2-1) | المقارنة المعيارية للأعمال السابقة (جدول 2-1)
+Snippet: 
+ <div class="orb o1" style="opacity:0.35"></div>
+ <div class="content-box">
+ <div class="tag a1" style="border-color:rgba(255,80,80,0.4);background:rgba(255,80,80,0.06)">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line...
+
+======================================================================
+SLIDE 09 [id=s8]
+Headers: Proposed Solution: AI Augments SOAR | الحل المقترح: الذكاء الاصطناعي يعزز SOAR | AI/ML as Analytical Augmentation | الذكاء الاصطناعي كطبقة تحليلية | Human-AI Teaming Paradigm | تكامل الإنسان والذكاء الاصطناعي
+
+======================================================================
+SLIDE 10 [id=s9]
+Headers: System Architecture Overview | نظرة عامة على معمارية النظام
+
+======================================================================
+SLIDE 11 [id=s10]
+Headers: Development Methodology: Design Science Research (DSR) | منهجية التطوير: علوم التصميم (DSR)
+Snippet: 
+ <div class="orb o1" style="opacity:0.35"></div>
+ <div class="content-box">
+ <div class="tag a1">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+ <span class="en">Chapter 1 &ndash; Methodology</span><span class="ar" style="display:none">الفصل الأول &ndash; المنهجية</s...
+
+======================================================================
+SLIDE 12 [id=s11]
+Headers: Analysis Progress: Ingestion &amp; Context Enrichment | تقدم التحليل: الاستيعاب وإثراء السياق | Layer 1: Alert Ingestion &amp; Normalization | الطبقة 1: الاستيعاب والتوحيد | Layer 2: Multi-Dimensional Enrichment | الطبقة 2: الإثراء متعدد الأبعاد
+Snippet: 
+ <div class="orb o2" style="opacity:0.4"></div>
+ <div class="content-box">
+ <div class="tag a1">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
+ <span class="en">Chapter 3 &ndash; Analysis Progress</span><span class="ar" style="display:none">...
+
+======================================================================
+SLIDE 13 [id=s12]
+Headers: Design Progress: AI/ML Triage &amp; Dynamic Risk Scoring | تقدم التصميم: محرك الفرز الذكي وتقييم المخاطر الديناميكي | Dynamic Risk Formula (R_total) | معادلة تقييم المخاطر الإجمالية الديناميكية | Dynamic Priority Queue Slots | توزيع مستويات الأولوية وتصنيف الطوابير
+Snippet: 
+  <div class="orb o1" style="opacity:0.35"></div>
+  <div class="content-box" style="max-width:1280px">
+    <div class="tag a1" style="border-color:rgba(0,212,255,0.4);background:rgba(0,212,255,0.08);margin-bottom:10px">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 14.83l4....
+
+======================================================================
+SLIDE 14 [id=s13]
+Headers: Design Progress: Adaptive Prioritization &amp; Noise Suppression | تقدم التصميم: الأولويات التكيفية وقمع الضجيج | Dynamic Queue Ordering | ترتيب طوابير ديناميكي | Suppression vs. Deprioritization | القمع المنضبط مقابل خفض الأولوية
+
+======================================================================
+SLIDE 15 [id=s14]
+Headers: Design Progress: Response Policy &amp; Automated Playbooks | تقدم التصميم: سياسة الاستجابة ودفاتر العمل المؤتمتة | Response Policy Layer | طبقة سياسة الاستجابة | Automated Playbook Types | أنواع دفاتر العمل المؤتمتة
+Snippet: 
+ <div class="orb o1" style="opacity:0.35"></div>
+ <div class="content-box">
+ <div class="tag a1">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+ <span class="en">Chapter 3 &ndash; Design Progress</span><span class="ar" style="display:none">الفصل الثالث &ndash; تقدم التصميم</span>...
+
+======================================================================
+SLIDE 16 [id=s15]
+Headers: Implementation Progress &amp; Technologies | تقدم التنفيذ والتقنيات المستخدمة | Completed Components | المكونات المكتملة | In-Progress &amp; Planned | قيد التنفيذ والمخطط
+
+======================================================================
+SLIDE 17 [id=s16]
+Headers: Working Prototype: Alert Processing Pipeline | النموذج الأولي العامل: خط معالجة التنبيهات | Scenario: Anomalous Login | سيناريو: تسجيل دخول شاذ | Scenario: Low-Risk Alert Suppression | سيناريو: قمع التنبيه منخفض الخطر
+Snippet: 
+ <div class="orb o3" style="opacity:0.35"></div>
+ <div class="content-box">
+ <div class="tag a1" style="border-color:rgba(16,185,129,0.4);background:rgba(16,185,129,0.06)">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+ <span class="en" style="color:#6ee7b7">Prototype Demo</span><span class="ar" style="d...
+
+======================================================================
+SLIDE 18 [id=s17]
+Headers: Testing &amp; Empirical Evaluation Framework | إطار الاختبار والتقييم التجريبي المعياري | Benchmark Testbed Datasets | مجموعات البيانات المعيارية للاختبار | Quantitative Target Metrics | مقاييس الأداء المستهدفة
+Snippet: 
+  <div class="orb o1" style="opacity:0.35"></div>
+  <div class="content-box" style="max-width:1280px">
+    <div class="tag a1" style="border-color:rgba(0,212,255,0.4);background:rgba(0,212,255,0.08);margin-bottom:10px">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--s)" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      <span class="en" style="co...
+
+======================================================================
+SLIDE 19 [id=s18]
+Headers: Challenges, Risks &amp; Technical Mitigations | التحديات والمخاطر والإجراءات التقنية الوقائية | Data Heterogeneity | تعدد الصيغ وتباين البيانات | Operational Disruption | مخاطر انقطاع الأعمال | Concept Drift | انجراف النماذج وتغير الهجمات
+
+======================================================================
+SLIDE 20 [id=s19]
+Headers: Conclusion, Remaining Work &amp; Next Steps | الخلاصة والأعمال المتبقية والخطوات التالية | Completed | مكتمل | In Progress | قيد التنفيذ | Remaining | متبقٍ | Thank You &ndash; Open for Discussion &amp; Defense Questions | شكراً &ndash; مستعدون لأسئلة وملاحظات لجنة المناقشة
+Snippet: 
+ <div class="orb o1"></div><div class="orb o2"></div>
+ <div class="content-box" style="text-align:center">
+ <div class="tag a1" style="display:inline-flex">
+ <div class="dp"></div>
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+ <span class="en">Conclusion &amp; Next Steps</span><spa...

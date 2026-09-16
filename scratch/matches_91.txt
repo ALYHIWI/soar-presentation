@@ -1,0 +1,5 @@
+Line 3399: ed with asset criticality and threat intel, scored High risk [0.87], confidence 91% → playbook triggered: account session revocation + analyst notification.</p>
+Line 3400: ر عادي يُستوعب ويُثرى بحساسية الأصل والاستخبارات، يُقيَّم بخطر عالٍ [0.87]، ثقة 91% → دفتر عمل: إلغاء الجلسة + إشعار المحلل.</p>
+ </div>
+ <div class="card">
+ <h
